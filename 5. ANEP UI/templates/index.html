@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ANEP [Enhanced Prototype]</title>
+  <!-- Bootstrap CSS (via CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons (for upload icon) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <!-- Marketing Header -->
+  <div class="marketing-header">
+    <h1>Extract Names from News Videos with ANEP</h1>
+    <p>Upload a video and select the analysis model to extract names of people mentioned in the news.</p>
+  </div>
+
+  <div class="container-steps">
+    <!-- Stepper -->
+    <div class="stepper mb-3">
+      <div class="step active" data-step="1" id="step1">
+        <span class="step-label">Upload</span>
+      </div>
+      <div class="step" data-step="2" id="step2">
+        <span class="step-label">Options</span>
+      </div>
+      <div class="step" data-step="3" id="step3">
+        <span class="step-label">Confirm</span>
+      </div>
+      <div class="step" data-step="4" id="step4">
+        <span class="step-label">Analysis</span>
+      </div>
+      <div class="step" data-step="5" id="step5">
+        <span class="step-label">Results</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Upload -->
+    <div class="step-section active" id="upload-section">
+      <h4 class="mb-3 text-center">Step 1: Upload a Video</h4>
+      <div id="drop-area" class="drop-area">
+        <div id="drop-content">
+          <i class="bi bi-upload" style="font-size: 2.5rem;"></i>
+          <p class="mt-2">Drag & drop your video here, or click to select</p>
+        </div>
+        <input type="file" id="file-input" accept="video/*" style="display:none;">
+      </div>
+      <div id="error-message" class="message error"></div>
+      <div id="success-message" class="message success"></div>
+      <!-- Additional Instruction Text (initially hidden) -->
+      <div id="upload-instructions" class="upload-instructions" style="display:none;"></div>
+      <!-- Video Info and Preview -->
+      <div class="video-info" id="video-info" style="display:none;"></div>
+      <div class="preview-container" id="preview-container" style="display:none;">
+        <video id="video-preview" controls></video>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary" id="next-btn-1" disabled>Next</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Select Options -->
+    <div class="step-section" id="options-section">
+      <h4 class="mb-3 text-center">Step 2: Analysis Options</h4>
+      <p class="text-center">Select the model or system for video analysis.</p>
+      <div class="mb-3">
+        <select class="form-select" id="model-select">
+          <option value="ANEP">ANEP System - Default analysis model</option>
+          <option value="MODEL #1">MODEL #1 - Specialized for news videos</option>
+          <option value="MODEL #2">MODEL #2 - Optimized for short clips</option>
+          <option value="All (Evaluation)">All (Evaluation) - Compare all models</option>
+        </select>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-secondary" id="back-btn-2">Back</button>
+        <button class="btn btn-primary" id="next-btn-2">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Confirmation -->
+    <div class="step-section" id="confirm-section">
+      <h4 class="mb-3 text-center">Step 3: Confirmation</h4>
+      <p class="text-center">Confirm the details below before running the analysis.</p>
+      <table class="confirmation-table mx-auto">
+        <tr>
+          <td><strong>File Name:</strong></td>
+          <td id="confirm-filename"></td>
+        </tr>
+        <tr>
+          <td><strong>Video Duration:</strong></td>
+          <td id="confirm-duration"></td>
+        </tr>
+        <tr>
+          <td><strong>File Size:</strong></td>
+          <td id="confirm-filesize"></td>
+        </tr>
+        <tr>
+          <td><strong>Selected Model:</strong></td>
+          <td id="confirm-model"></td>
+        </tr>
+      </table>
+      <div class="d-flex justify-content-between mt-3">
+        <button class="btn btn-secondary" id="back-btn-3">Back</button>
+        <button class="btn btn-success" id="run-analysis-btn">Run Analysis</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Analysis in Progress -->
+    <div class="step-section" id="analysis-section">
+      <h4 class="mb-3 text-center">Step 4: Analysis in Progress</h4>
+      <p class="text-center">Your video is being analyzed. Please wait...</p>
+      <!-- Simulated progress bar -->
+      <div class="progress">
+        <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" 
+             role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-danger" id="cancel-analysis-btn">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Step 5: Results -->
+    <div class="step-section results-section" id="results-section">
+      <h4 class="mb-3 text-center">Step 5: Analysis Results</h4>
+      <div id="results-container">
+        <p>Process Complete. Analysis results go here.</p>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary" id="download-results-btn">Download Results</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cancel Confirmation Modal -->
+  <div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cancelModalLabel">Confirm Cancellation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to cancel the analysis?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-danger" id="confirm-cancel-btn">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer id="footer" role="contentinfo"
+          style="background-color: #242424; color: #fff; text-align: center; padding: 25px 0; font-size: 16px; width: 100%; position: fixed; bottom: 0; left: 0;">
+    <div class="credits" style="margin-bottom: 10px; padding-top: 10px;">
+      Created by
+      <a href="mailto:andrea.f.lucas.22@um.edu.mt" target="_blank"
+         style="color: #fff; text-decoration: none; font-size: 16px;"
+         onmouseover="this.style.textDecoration='underline'; this.style.color='#0D6EFD';"
+         onmouseout="this.style.textDecoration='none'; this.style.color='#fff';">
+         Andrea Filiberto Lucas
+      </a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS (via CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Main JS -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

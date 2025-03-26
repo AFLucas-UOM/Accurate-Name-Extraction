@@ -1,0 +1,820 @@
+INFO: Processing video: https://archive.org/details/CSPAN2_20250224_150200_CBC_News_Network_Simulcast/start/4544/end/4604?q=canada -> C-Span_1.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_1.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_1.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWSW_20250219_020000_Hannity -> FoxNews_1.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_1.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWSW_20250209_200000_Fox_Report_With_Jon_Scott -> FoxNews_2.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_2.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_2.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWS_20110429_050000_Greta_Van_Susteren -> FoxNews_3.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_3.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_3.mp4
+INFO: Processing video: https://archive.org/details/CSPAN_20240215_215600_LIVE_U.S._House_of_Representatives -> C-Span_2.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_2.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_2.mp4
+INFO: Processing video: https://archive.org/details/CNN_20110309_050000_Piers_Morgan_Tonight -> CNN_1.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_1.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_1.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20201104_180000_BBC_News_at_Six -> BBC_1.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_1.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_1.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20240722_170000_BBC_News_at_Six -> BBC_2.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_2.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_2.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20230412_170000_BBC_News_at_Six -> BBC_3.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_3.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_3.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20210816_170000_BBC_News_at_Six -> BBC_4.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_4.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_4.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20240227_180000_BBC_News_at_Six -> BBC_5.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_5.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_5.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20220224_180000_BBC_News_at_Six -> BBC_6.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_6.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_6.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20240627_170000_BBC_News_at_Six -> BBC_7.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_7.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_7.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20240214_180000_BBC_News_at_Six -> BBC_8.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_8.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_8.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20201006_170000_BBC_News_at_Six -> BBC_9.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_9.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_9.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20231012_170000_BBC_News_at_Six -> BBC_10.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_10.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_10.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20240116_180000_BBC_News_at_Six -> BBC_11.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_11.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_11.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20220329_170000_BBC_News_at_Six -> BBC_12.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_12.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_12.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20231114_180000_BBC_News_at_Six -> BBC_13.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_13.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_13.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20241104_180000_BBC_News_at_Six -> BBC_14.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_14.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_14.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20230803_170000_BBC_News_at_Six -> BBC_15.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_15.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBC_15.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20230529_223000_France_24 -> France24_1.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_1.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_1.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20200624_123000_France_24 -> France24_2.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_2.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_2.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20200929_223000_France_24 -> France24_3.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_3.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_3.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20220328_223000_France_24 -> France24_4.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_4.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_4.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20201105_233000_France_24 -> France24_5.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_5.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_5.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20210831_223000_France_24 -> France24_6.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_6.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_6.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20200310_223000_France_24 -> France24_7.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_7.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_7.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20210614_223000_France_24 -> France24_8.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_8.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_8.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20200304_133000_France_24 -> France24_9.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_9.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_9.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20230921_123000_France_24 -> France24_10.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_10.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_10.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWS_20101209_160000_Happening_Now -> FoxNews_4.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_4.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_4.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWS_20110101_163000_Cashin_In -> FoxNews_5.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_5.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_5.mp4
+INFO: Processing video: https://archive.org/details/CSPAN2_20250224_150200_CBC_News_Network_Simulcast -> C-Span_3.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_3.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_3.mp4
+INFO: Processing video: https://archive.org/details/CSPAN_20250224_150200_House_of_Representatives -> C-Span_4.mp4
+ERROR: Failed to fetch metadata for identifier: CSPAN_20250224_150200_House_of_Representatives
+INFO: Processing video: https://archive.org/details/FOXNEWS_20110309_050000_Greta_Van_Susteren -> FoxNews_6.mp4
+ERROR: Failed to fetch metadata for identifier: FOXNEWS_20110309_050000_Greta_Van_Susteren
+INFO: Processing video: https://archive.org/details/CNNW_20190907_040000_Anderson_Cooper_360 -> CNN_2.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_2.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_2.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWSW_20250210_230000_Special_Report_With_Bret_Baier -> FoxNews_7.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_7.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_7.mp4
+INFO: Processing video: https://archive.org/details/CSPAN2_20250224_195900_U.S._Senate_U.S._Senate -> C-Span_5.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_5.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_5.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20220316_223000_France_24 -> France24_11.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_11.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_11.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20230221_233000_France_24 -> France24_12.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_12.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_12.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20200918_223000_France_24 -> France24_13.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_13.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_13.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20190912_223000_France_24 -> France24_14.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_14.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_14.mp4
+INFO: Processing video: https://archive.org/details/LINKTV_20210702_223000_France_24 -> France24_15.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_15.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/France24_15.mp4
+INFO: Processing video: https://archive.org/details/WMAR_20121012_063500_ABC_World_News_Now -> ABCNews_1.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_1.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_1.mp4
+INFO: Processing video: https://archive.org/details/KGO_20220125_094100_ABC_World_News_Now -> ABCNews_2.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_2.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_2.mp4
+INFO: Processing video: https://archive.org/details/KGO_20211101_103000_ABC_World_News_Now -> ABCNews_3.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_3.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_3.mp4
+INFO: Processing video: https://archive.org/details/CSPAN3_20250218_211200_President_Trump_Signs_Executive_Orders_at_Mar-a-Lago -> C-Span_6.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_6.mp4
+INFO: Processing video: https://archive.org/details/CSPAN3_20250218_211200_President_Trump_Signs_Executive_Orders_at_Mar-a-Lago/start/1066.2/end/1078.8 -> C-Span_7.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_7.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWSW_20250122_020000_Hannity -> FoxNews_8.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_8.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_8.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWSW_20241007_060000_FOX_News_Sunday -> FoxNews_9.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_9.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_9.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20240915_160000_State_of_the_Union_With_Jake_Tapper_and_Dana_Bash -> CNN_3.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_3.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_3.mp4
+INFO: Processing video: https://archive.org/details/KGO_20240911_000000_ABC_News_Presidential_Debate_Race_for_the_White_House -> ABCNews_4.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_4.mp4
+INFO: Processing video: https://archive.org/details/CSPAN_20250211_211700_President_Trump_Signs_Executive_Orders/ -> C-Span_8.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_8.mp4
+INFO: Processing video: https://archive.org/details/CSPAN_20250204_203100_President_Trump_Signs_Executive_Orders_on_U.N.__Iran -> C-Span_9.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_9.mp4
+INFO: Processing video: https://archive.org/details/CSPAN2_20250130_165900_U.S._Senate_U.S._Senate -> C-Span_10.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_10.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_10.mp4
+INFO: Processing video: https://archive.org/details/CSPAN2_20250130_162100_President_Trump_Remarks_on_Helicopter-Jet_Collision -> C-Span_11.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_11.mp4
+INFO: Processing video: https://archive.org/details/CSPAN_20250121_004100_President_Trump_Holds_Oval_Office_Signing_Event -> C-Span_12.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_12.mp4
+INFO: Processing video: https://archive.org/details/CSPAN_20250111_013500_President_Biden_Remarks_on_December_Jobs_Report__Economy -> C-Span_13.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_13.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_13.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWSW_20240822_110000_FOX_and_Friends -> FoxNews_10.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_10.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_10.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWSW_20240815_210000_The_Five -> FoxNews_11.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_11.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWSW_20240807_050000_Jesse_Watters_Primetime -> FoxNews_12.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_12.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_12.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWSW_20240806_140000_Americas_Newsroom -> FoxNews_13.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_13.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_13.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWSW_20240727_000000_Jesse_Watters_Primetime -> FoxNews_14.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_14.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_14.mp4
+INFO: Processing video: https://archive.org/details/FOXNEWSW_20240529_150000_The_Faulkner_Focus -> FoxNews_15.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_15.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/FoxNews_15.mp4
+INFO: Processing video: https://archive.org/details/CSPAN_20240826_180900_Campaign_2024_Fmr._Pres._Trump_Delivers_Remarks_at_Natl_Guard_Assoc. -> C-Span_14.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_14.mp4
+INFO: Processing video: https://archive.org/details/CSPAN_20240810_215400_Campaign_2024_Sen._JD_Vance_Campaign_in_Philadelphia -> C-Span_15.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/C-Span_15.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20250129_180000_Trump_Confirmation_Hearings -> CNN_4.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_4.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20240830_070000_The_First_Interview_Harris__Walz_A_CNN_Exclusive -> CNN_5.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_5.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_5.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20240820_060000_CNN_Democratic_National_Convention -> CNN_6.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_6.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_6.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20240827_130000_CNN_News_Central -> CNN_7.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_7.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_7.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20240811_160000_State_of_the_Union_With_Jake_Tapper_and_Dana_Bash -> CNN_8.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_8.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_8.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20240806_150000_CNN_Newsroom_With_Wolf_Blitzer -> CNN_9.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_9.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_9.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20240731_000000_Anderson_Cooper_360 -> CNN_10.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_10.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_10.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20240725_210000_The_Lead_With_Jake_Tapper -> CNN_11.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_11.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_11.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20240714_000000_CNN_Newsroom -> CNN_12.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_12.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_12.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20240628_010000_CNN_Presidential_Debate -> CNN_13.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_13.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20230511_000000_CNN_Republican_Town_Hall_With_Donald_Trump -> CNN_14.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_14.mp4
+INFO: Processing video: https://archive.org/details/CNNW_20230304_140000_Smerconish -> CNN_15.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_15.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CNN_15.mp4
+INFO: Processing video: https://archive.org/details/youtube-sI3XydVerm8 -> ABCNews_5.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_5.mp4
+INFO: Processing video: https://archive.org/details/youtube-NBlh4vN4Eus -> ABCNews_6.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_6.mp4
+INFO: Processing video: https://archive.org/details/italyonlockdownovercoronaviruslabcnews -> ABCNews_7.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_7.mp4
+INFO: Processing video: https://archive.org/details/cdc-releases-new-guidance-on-how-states-can-reopen-l-abc-news -> ABCNews_8.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_8.mp4
+INFO: Processing video: https://archive.org/details/KGO_20241008_223000_ABC_World_News_Tonight_With_David_Muir -> ABCNews_9.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_9.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_9.mp4
+INFO: Processing video: https://archive.org/details/KGO_20241002_223000_ABC_World_News_Tonight_With_David_Muir -> ABCNews_10.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_10.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_10.mp4
+INFO: Processing video: https://archive.org/details/KGO_20240929_223000_ABC_World_News_Tonight_With_David_Muir -> ABCNews_11.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_11.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_11.mp4
+INFO: Processing video: https://archive.org/details/KGO_20240923_223000_ABC_World_News_Tonight_With_David_Muir -> ABCNews_12.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_12.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_12.mp4
+INFO: Processing video: https://archive.org/details/KGO_20240922_223000_ABC_World_News_Tonight_With_David_Muir -> ABCNews_13.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_13.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_13.mp4
+INFO: Processing video: https://archive.org/details/KGO_20240911_223000_ABC_World_News_Tonight_With_David_Muir -> ABCNews_14.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_14.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_14.mp4
+INFO: Processing video: https://archive.org/details/KGO_20240930_223000_ABC_World_News_Tonight_With_David_Muir -> ABCNews_15.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_15.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/ABCNews_15.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240810_013000_CBS_Evening_News_With_Norah_ODonnell -> CBS_1.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_1.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_1.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240809_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_2.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_2.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_2.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240808_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_3.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_3.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_3.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240807_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_4.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_4.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_4.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240806_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_5.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_5.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_5.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240805_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_6.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_6.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_6.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240802_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_7.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_7.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_7.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240801_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_8.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_8.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_8.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240731_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_9.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_9.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_9.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240725_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_10.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_10.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_10.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240725_223000_CBS_Evening_News_With_Norah_ODonnell/ -> CBS_11.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_11.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_11.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240719_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_12.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_12.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_12.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240715_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_13.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_13.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_13.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240714_010000_CBS_News_Bay_Area_Evening_Edition_6pm -> CBS_14.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_14.mp4
+INFO: Processing video: https://archive.org/details/KPIX_20240729_223000_CBS_Evening_News_With_Norah_ODonnell -> CBS_15.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_15.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/CBS_15.mp4
+INFO: Processing video: https://archive.org/details/youtube-NRDmPyx_l_k -> SkyNews_1.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_1.mp4
+INFO: Processing video: https://archive.org/details/archiveteam_videobot_periscope_tv_1RDxlomkgnkJL -> SkyNews_2.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_2.mp4
+INFO: Processing video: https://archive.org/details/archiveteam_videobot_twitter_com_766185760261144577 -> SkyNews_3.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_3.mp4
+INFO: Processing video: https://archive.org/details/youtube-WxXepkdJHko -> SkyNews_4.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_4.mp4
+INFO: Processing video: https://archive.org/details/archiveteam_videobot_twitter_com_733207049249640448 -> SkyNews_5.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_5.mp4
+INFO: Processing video: https://archive.org/details/SKY_20111101_200000_SKY_NEWS -> SkyNews_6.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_6.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_6.mp4
+INFO: Processing video: https://archive.org/details/SKY_20100324_010000_Sky_News -> SkyNews_7.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_7.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_7.mp4
+INFO: Processing video: https://archive.org/details/SKY_20110226_043000_Sky_News -> SkyNews_8.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_8.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_8.mp4
+INFO: Processing video: https://archive.org/details/SKY_20111105_050000_Sky_News -> SkyNews_9.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_9.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_9.mp4
+INFO: Processing video: https://archive.org/details/SKY_20120311_050000_Sky_News -> SkyNews_10.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_10.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_10.mp4
+INFO: Processing video: https://archive.org/details/SKY_20111113_023000_Sky_News -> SkyNews_11.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_11.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_11.mp4
+INFO: Processing video: https://archive.org/details/SKY_20120819_033000_Sky_News -> SkyNews_12.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_12.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_12.mp4
+INFO: Processing video: https://archive.org/details/SKY_20120825_023000_Sky_News -> SkyNews_13.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_13.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_13.mp4
+INFO: Processing video: https://archive.org/details/SKY_20110927_000000_Sky_News -> SkyNews_14.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_14.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_14.mp4
+INFO: Processing video: https://archive.org/details/SKY_20111225_050000_Sky_News -> SkyNews_15.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_15.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/SkyNews_15.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20230310_230000_BBC_News -> BBCNews_1.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBCNews_1.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBCNews_1.mp4
+INFO: Processing video: https://archive.org/details/BBCNEWS_20250228_053000_Business_Today -> BBCNews_2.mp4
+INFO: Downloading: /Volumes/Fili's SSD/FYP/Dataset_Videos/BBCNews_2.mp4
+INFO: Failed to download full video. Trying segment-based approach...
+INFO: Downloading segment 1 (0-185 sec)
+INFO: Downloading segment 2 (185-370 sec)
+INFO: Downloading segment 3 (370-555 sec)
+INFO: Concatenating segments into final video...
+INFO: ✅ Concatenation complete! Saved as /Volumes/Fili's SSD/FYP/Dataset_Videos/BBCNews_2.mp4

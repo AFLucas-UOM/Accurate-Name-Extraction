@@ -1,0 +1,183 @@
+/* Global Styles & Layout */
+body {
+    background: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  h1, h4, p {
+    margin: 0.5rem 0;
+  }
+  /* Marketing Header */
+  .marketing-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+  .marketing-header h1 {
+    font-size: 1.75rem;
+    color: #0d6efd;
+  }
+  .marketing-header p {
+    font-size: 1rem;
+    color: #555;
+  }
+  /* Container for steps */
+  .container-steps {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    width: 600px;
+    max-width: 95%;
+    padding: 24px;
+    position: relative;
+  }
+  /* Stepper Styles */
+  .stepper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  .step {
+    flex: 1;
+    text-align: center;
+    color: #999;
+    font-weight: 500;
+    position: relative;
+    font-size: 1rem;
+  }
+  .step.active {
+    color: #0d6efd;
+    font-weight: 600;
+  }
+  .step::before {
+    content: attr(data-step);
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  .step.active::before {
+    background: #0d6efd;
+  }
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: calc(50% + 20px);
+    width: calc(100% - 40px);
+    height: 2px;
+    background: #ccc;
+    z-index: -1;
+  }
+  .step.active:not(:last-child)::after {
+    background: #0d6efd;
+  }
+  .step-label {
+    display: block;
+    font-size: 0.9rem;
+  }
+  /* Step sections */
+  .step-section {
+    display: none;
+  }
+  .step-section.active {
+    display: block;
+  }
+  /* Drag & Drop Area */
+  .drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 6px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    color: #666;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .drop-area.hover {
+    background-color: #e0f7fa;
+    border-color: #26c6da;
+    color: #26c6da;
+  }
+  /* Wrap drop area content to preserve file input */
+  #drop-content {
+    pointer-events: none;
+  }
+  /* Messages */
+  .message {
+    margin: 10px 0;
+    display: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .message.success {
+    color: #28a745;
+  }
+  .message.error {
+    color: #dc3545;
+  }
+  /* Additional Instruction Text */
+  .upload-instructions {
+    font-size: 0.85rem;
+    color: #333;
+    margin-top: 0.5rem;
+  }
+  /* Video Info & Preview */
+  .video-info, .preview-container {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  .preview-container video {
+    width: 100%;
+    max-height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  /* Confirmation Table */
+  .confirmation-table td {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  /* Loading Overlay */
+  .loading-overlay {
+    display: none;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.95);
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 999;
+  }
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+  }
+  /* Progress Bar */
+  .progress {
+    width: 80%;
+    margin: 0 auto 1rem;
+  }
+  /* Results Section */
+  .results-section {
+    display: none;
+  }
+  .results-section.active {
+    display: block;
+  }
+  

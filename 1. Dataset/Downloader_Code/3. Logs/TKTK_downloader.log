@@ -1,0 +1,1213 @@
+2025-03-02 15:19:51,587 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7476372873247067414?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:19:54,062 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_1.mp4
+2025-03-02 15:19:54,062 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7476112257085181206?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:19:55,267 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_2.mp4
+2025-03-02 15:19:55,267 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7476091858540596502?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:19:57,427 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_3.mp4
+2025-03-02 15:19:57,427 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7476039146885156118?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:19:59,253 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_4.mp4
+2025-03-02 15:19:59,253 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7476033616766586134?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:00,759 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_5.mp4
+2025-03-02 15:20:00,760 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7476028321369738518?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:02,704 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_6.mp4
+2025-03-02 15:20:02,705 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7475696405273922838?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:04,362 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_7.mp4
+2025-03-02 15:20:04,362 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7475673698897300758?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:05,916 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_8.mp4
+2025-03-02 15:20:05,916 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7475384147175820566?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:07,536 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_9.mp4
+2025-03-02 15:20:07,537 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7475356319281679638?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:09,211 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_10.mp4
+2025-03-02 15:20:09,212 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7475331688776600854?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:10,567 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_11.mp4
+2025-03-02 15:20:10,567 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7475304842643426582?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:11,181 - ERROR: Error downloading https://www.tiktok.com/@sidestreetmalta/video/7475304842643426582?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7475304842643426582: No video formats found!; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:20:11,182 - ERROR: Download failed for URL: https://www.tiktok.com/@sidestreetmalta/video/7475304842643426582?is_from_webapp=1&sender_device=pc
+2025-03-02 15:20:11,182 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7475288068266724630?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:12,953 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_12.mp4
+2025-03-02 15:20:12,954 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7475269252899966230?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:15,039 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_13.mp4
+2025-03-02 15:20:15,040 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7474996679561776406?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:17,013 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_14.mp4
+2025-03-02 15:20:17,013 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7474983876461382934?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:18,685 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_15.mp4
+2025-03-02 15:20:18,685 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7474968803428863254?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:21,910 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_16.mp4
+2025-03-02 15:20:21,910 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7474669278315252994?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:23,912 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_17.mp4
+2025-03-02 15:20:23,913 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7474139825495510274?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:25,497 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_18.mp4
+2025-03-02 15:20:25,499 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7473903231693851927?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:27,237 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_19.mp4
+2025-03-02 15:20:27,237 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7473877036864507158?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:28,892 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_20.mp4
+2025-03-02 15:20:28,892 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7473806497172966678?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:30,514 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_21.mp4
+2025-03-02 15:20:30,515 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7473794833690135830?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:32,950 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_22.mp4
+2025-03-02 15:20:32,950 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7473430407212436758?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:34,473 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_23.mp4
+2025-03-02 15:20:34,473 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7473421899486268694?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:35,911 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_24.mp4
+2025-03-02 15:20:35,911 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7473119083286826242?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:37,333 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_25.mp4
+2025-03-02 15:20:37,333 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7473081411000372502?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:38,969 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_26.mp4
+2025-03-02 15:20:38,969 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7473056823533243670?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:40,542 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_27.mp4
+2025-03-02 15:20:40,542 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7472730592732400918?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:43,365 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_28.mp4
+2025-03-02 15:20:43,366 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7472686413864062230?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:44,935 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_29.mp4
+2025-03-02 15:20:44,936 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7472683172170452246?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:47,923 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_30.mp4
+2025-03-02 15:20:47,923 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7472402730221391126?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:49,359 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_31.mp4
+2025-03-02 15:20:49,359 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7472331545898913046?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:51,117 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_32.mp4
+2025-03-02 15:20:51,118 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7472047498173877526?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:53,200 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_33.mp4
+2025-03-02 15:20:53,200 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7471220909060263190?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:56,978 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_34.mp4
+2025-03-02 15:20:56,979 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7471193483185802518?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:20:59,541 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_35.mp4
+2025-03-02 15:20:59,541 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470820554749086998?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:02,116 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_36.mp4
+2025-03-02 15:21:02,116 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470803637871103254?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:04,391 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_37.mp4
+2025-03-02 15:21:04,392 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470800962081377558?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:06,766 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_38.mp4
+2025-03-02 15:21:06,766 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470548693654064406?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:10,298 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_39.mp4
+2025-03-02 15:21:10,298 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470466818268826902?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:12,789 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_40.mp4
+2025-03-02 15:21:12,789 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470239634002398486?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:16,313 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_41.mp4
+2025-03-02 15:21:16,315 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470153010123951382?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:18,687 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_42.mp4
+2025-03-02 15:21:18,687 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470120203007839510?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:22,345 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_43.mp4
+2025-03-02 15:21:22,346 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470106847790435586?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:24,625 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_44.mp4
+2025-03-02 15:21:24,626 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470089878533852438?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:27,529 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_45.mp4
+2025-03-02 15:21:27,530 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470085074713660694?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:30,158 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_46.mp4
+2025-03-02 15:21:30,160 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470080418679622934?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:32,610 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_47.mp4
+2025-03-02 15:21:32,610 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7470078569226505494?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:36,721 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_48.mp4
+2025-03-02 15:21:36,721 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7469213240367648022?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:40,037 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_49.mp4
+2025-03-02 15:21:40,038 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7469212812271701270?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:43,965 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_50.mp4
+2025-03-02 15:21:43,966 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7469212809830665494?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:46,616 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_51.mp4
+2025-03-02 15:21:46,616 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7469212259860974870?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:50,022 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_52.mp4
+2025-03-02 15:21:50,023 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7469212123927760150?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:53,492 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_53.mp4
+2025-03-02 15:21:53,493 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7469149936198716694?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:56,089 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_54.mp4
+2025-03-02 15:21:56,090 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7468656647599148310?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:21:58,261 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_55.mp4
+2025-03-02 15:21:58,262 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7468653340461731094?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:01,025 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_56.mp4
+2025-03-02 15:22:01,026 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7468625148212514070?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:04,135 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_57.mp4
+2025-03-02 15:22:04,135 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7468592782890781974?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:06,270 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_58.mp4
+2025-03-02 15:22:06,271 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7468355893537590550?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:08,355 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_59.mp4
+2025-03-02 15:22:08,356 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7468337995326819586?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:10,467 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_60.mp4
+2025-03-02 15:22:10,468 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7467921436326366486?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:14,317 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_61.mp4
+2025-03-02 15:22:14,317 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7467848245071449366?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:17,573 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_62.mp4
+2025-03-02 15:22:17,573 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7467206436234235158?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:20,496 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_63.mp4
+2025-03-02 15:22:20,496 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7467198200370285846?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:22,573 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_64.mp4
+2025-03-02 15:22:22,573 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7466052243624693014?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:24,929 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_65.mp4
+2025-03-02 15:22:24,932 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7465712849688464662?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:27,447 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_66.mp4
+2025-03-02 15:22:27,448 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7465336819563941142?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:30,018 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_67.mp4
+2025-03-02 15:22:30,018 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7465314323573837078?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:32,342 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_68.mp4
+2025-03-02 15:22:32,342 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7465251003030441238?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:35,183 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_69.mp4
+2025-03-02 15:22:35,184 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7465239094956674326?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:37,586 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_70.mp4
+2025-03-02 15:22:37,587 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7464896078899481879?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:40,443 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_71.mp4
+2025-03-02 15:22:40,443 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7464881844027264278?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:42,910 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_72.mp4
+2025-03-02 15:22:42,911 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7464617901660835095?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:45,509 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_73.mp4
+2025-03-02 15:22:45,510 - INFO: Starting download for URL: https://www.tiktok.com/@sidestreetmalta/video/7464587492746874134?is_from_webapp=1&sender_device=pc with source: SideStreet
+2025-03-02 15:22:48,026 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SideStreet_74.mp4
+2025-03-02 15:22:48,027 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7476552272567225622?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:22:52,266 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_1.mp4
+2025-03-02 15:22:52,267 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7476478311422823703?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:22:54,673 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_2.mp4
+2025-03-02 15:22:54,673 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7476436967148801302?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:22:56,710 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_3.mp4
+2025-03-02 15:22:56,710 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7476399940713843990?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:02,291 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_4.mp4
+2025-03-02 15:23:02,292 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7476386205387541782?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:05,981 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_5.mp4
+2025-03-02 15:23:05,982 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7476367521105382678?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:09,021 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_6.mp4
+2025-03-02 15:23:09,021 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7476352015174602006?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:11,130 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_7.mp4
+2025-03-02 15:23:11,130 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7476108246416133398?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:14,846 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_8.mp4
+2025-03-02 15:23:14,848 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7476076903556779287?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:19,854 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_9.mp4
+2025-03-02 15:23:19,854 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7476060647764053270?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:23,905 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_10.mp4
+2025-03-02 15:23:23,906 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7476017364383927574?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:27,719 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_11.mp4
+2025-03-02 15:23:27,719 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475732397049400598?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:32,001 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_12.mp4
+2025-03-02 15:23:32,004 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475730430734454038?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:34,453 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_13.mp4
+2025-03-02 15:23:34,453 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475669555935726870?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:37,279 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_14.mp4
+2025-03-02 15:23:37,279 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475655031308438806?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:40,015 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_15.mp4
+2025-03-02 15:23:40,015 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475646464828525846?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:42,924 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_16.mp4
+2025-03-02 15:23:42,925 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475636436838927638?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:43,740 - ERROR: Error downloading https://www.tiktok.com/@maltadaily.mt/video/7475636436838927638?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7475636436838927638: Unable to extract webpage video data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:23:43,741 - ERROR: Download failed for URL: https://www.tiktok.com/@maltadaily.mt/video/7475636436838927638?is_from_webapp=1&sender_device=pc
+2025-03-02 15:23:43,741 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475623832041262358?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:48,420 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_17.mp4
+2025-03-02 15:23:48,421 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475618237103836438?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:23:52,174 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_18.mp4
+2025-03-02 15:23:52,176 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475401500508966166?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:01,389 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_19.mp4
+2025-03-02 15:24:01,390 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475362384517795094?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:04,919 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_20.mp4
+2025-03-02 15:24:04,920 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475349115749207298?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:08,223 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_21.mp4
+2025-03-02 15:24:08,225 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475329858025950486?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:12,002 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_22.mp4
+2025-03-02 15:24:12,003 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7475329648365243670?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:15,882 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_23.mp4
+2025-03-02 15:24:15,883 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7474960932389604630?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:21,197 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_24.mp4
+2025-03-02 15:24:21,198 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7474936019356355862?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:24,106 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_25.mp4
+2025-03-02 15:24:24,107 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7474933599612046614?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:27,473 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_26.mp4
+2025-03-02 15:24:27,474 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7474896486644370710?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:30,712 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_27.mp4
+2025-03-02 15:24:30,713 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7474892159456529686?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:34,876 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_28.mp4
+2025-03-02 15:24:34,876 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7474879432570834198?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:38,836 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_29.mp4
+2025-03-02 15:24:38,838 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7474870803339775254?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:41,534 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_30.mp4
+2025-03-02 15:24:41,534 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7474614065248128278?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:47,128 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_31.mp4
+2025-03-02 15:24:47,131 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7474554987725491478?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:47,378 - ERROR: Error downloading https://www.tiktok.com/@maltadaily.mt/video/7474554987725491478?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7474554987725491478: Unable to extract webpage video data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:24:47,378 - ERROR: Download failed for URL: https://www.tiktok.com/@maltadaily.mt/video/7474554987725491478?is_from_webapp=1&sender_device=pc
+2025-03-02 15:24:47,378 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7473792430718979350?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:50,193 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_32.mp4
+2025-03-02 15:24:50,193 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7473441139325078786?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:51,081 - ERROR: Error downloading https://www.tiktok.com/@maltadaily.mt/video/7473441139325078786?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7473441139325078786: Unable to extract webpage video data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:24:51,082 - ERROR: Download failed for URL: https://www.tiktok.com/@maltadaily.mt/video/7473441139325078786?is_from_webapp=1&sender_device=pc
+2025-03-02 15:24:51,082 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7473438305632275734?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:54,014 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_33.mp4
+2025-03-02 15:24:54,016 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7473405165144427798?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:24:56,736 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_34.mp4
+2025-03-02 15:24:56,737 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7473120055438347542?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:00,817 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_35.mp4
+2025-03-02 15:25:00,818 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7473108777160543490?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:03,461 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_36.mp4
+2025-03-02 15:25:03,461 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7473099090927045910?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:06,216 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_37.mp4
+2025-03-02 15:25:06,217 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7473030929112435990?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:09,001 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_38.mp4
+2025-03-02 15:25:09,002 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7472750647666806038?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:11,526 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_39.mp4
+2025-03-02 15:25:11,527 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7472746195643796758?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:14,657 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_40.mp4
+2025-03-02 15:25:14,659 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7472697731627191574?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:18,041 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_41.mp4
+2025-03-02 15:25:18,043 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7472653122020642071?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:21,752 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_42.mp4
+2025-03-02 15:25:21,752 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7472341852478311702?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:25,086 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_43.mp4
+2025-03-02 15:25:25,088 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7472330880380325142?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:27,458 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_44.mp4
+2025-03-02 15:25:27,459 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7472322426114723094?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:30,099 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_45.mp4
+2025-03-02 15:25:30,100 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7472289550258261270?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:34,632 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_46.mp4
+2025-03-02 15:25:34,633 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7471295798735604994?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:37,083 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_47.mp4
+2025-03-02 15:25:37,083 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7471283526025907478?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:39,489 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_48.mp4
+2025-03-02 15:25:39,489 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7471242089003535638?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:42,105 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_49.mp4
+2025-03-02 15:25:42,106 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7471214437807000854?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:45,182 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_50.mp4
+2025-03-02 15:25:45,184 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7471154050927447318?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:47,881 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_51.mp4
+2025-03-02 15:25:47,881 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470935356158905622?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:50,290 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_52.mp4
+2025-03-02 15:25:50,290 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470905057303645462?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:52,982 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_53.mp4
+2025-03-02 15:25:52,982 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470887092713704726?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:56,366 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_54.mp4
+2025-03-02 15:25:56,367 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470857869651381526?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:25:59,210 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_55.mp4
+2025-03-02 15:25:59,211 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470851841568378134?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:01,759 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_56.mp4
+2025-03-02 15:26:01,759 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470807891994266902?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:04,186 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_57.mp4
+2025-03-02 15:26:04,186 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470789601154698518?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:07,232 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_58.mp4
+2025-03-02 15:26:07,232 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470531830714830102?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:09,664 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_59.mp4
+2025-03-02 15:26:09,665 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470484000348376342?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:13,008 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_60.mp4
+2025-03-02 15:26:13,009 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470457731724397846?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:16,108 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_61.mp4
+2025-03-02 15:26:16,108 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470450719372348694?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:18,331 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_62.mp4
+2025-03-02 15:26:18,332 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470438682063818006?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:22,109 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_63.mp4
+2025-03-02 15:26:22,111 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470170058485042454?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:25,049 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_64.mp4
+2025-03-02 15:26:25,051 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7470143347999378710?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:30,153 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_65.mp4
+2025-03-02 15:26:30,155 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7469523745481280790?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:32,764 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_66.mp4
+2025-03-02 15:26:32,764 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7469206506832039191?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:35,834 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_67.mp4
+2025-03-02 15:26:35,834 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7469201388099194134?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:39,789 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_68.mp4
+2025-03-02 15:26:39,790 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7469195810203274518?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:43,403 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_69.mp4
+2025-03-02 15:26:43,405 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7469140061259418902?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:46,256 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_70.mp4
+2025-03-02 15:26:46,256 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7468649963644292374?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:49,434 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_71.mp4
+2025-03-02 15:26:49,436 - INFO: Starting download for URL: https://www.tiktok.com/@maltadaily.mt/video/7468643258961267990?is_from_webapp=1&sender_device=pc with source: MaltaDaily
+2025-03-02 15:26:52,267 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/MaltaDaily_72.mp4
+2025-03-02 15:26:52,268 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7436064099915615520?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:26:53,812 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_1.mp4
+2025-03-02 15:26:53,812 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7360003372008688929?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:26:55,950 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_2.mp4
+2025-03-02 15:26:55,951 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7247119826097900827?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:26:59,159 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_3.mp4
+2025-03-02 15:26:59,160 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476841965141724438?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:01,818 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_4.mp4
+2025-03-02 15:27:01,819 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476830078861643030?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:05,196 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_5.mp4
+2025-03-02 15:27:05,197 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476424586683354390?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:08,335 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_6.mp4
+2025-03-02 15:27:08,336 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476444754444619030?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:13,448 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_7.mp4
+2025-03-02 15:27:13,451 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476802024785366294?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:16,340 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_8.mp4
+2025-03-02 15:27:16,341 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476779643681525014?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:19,373 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_9.mp4
+2025-03-02 15:27:19,373 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476775378137206038?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:22,936 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_10.mp4
+2025-03-02 15:27:22,936 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476462152967032086?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:25,801 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_11.mp4
+2025-03-02 15:27:25,802 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476434506010955030?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:28,392 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_12.mp4
+2025-03-02 15:27:28,393 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476392837701995798?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:30,249 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_13.mp4
+2025-03-02 15:27:30,249 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476133587214077207?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:32,875 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_14.mp4
+2025-03-02 15:27:32,876 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476141418944220438?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:39,045 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_15.mp4
+2025-03-02 15:27:39,048 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476133383991528726?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:45,844 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_16.mp4
+2025-03-02 15:27:45,846 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476121634731003158?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:49,411 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_17.mp4
+2025-03-02 15:27:49,411 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476125901688704278?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:54,093 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_18.mp4
+2025-03-02 15:27:54,094 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476099452323761431?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:27:56,862 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_19.mp4
+2025-03-02 15:27:56,862 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476073538831666454?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:00,211 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_20.mp4
+2025-03-02 15:28:00,212 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476070665460763926?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:05,612 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_21.mp4
+2025-03-02 15:28:05,612 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476059940550020375?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:09,042 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_22.mp4
+2025-03-02 15:28:09,042 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476046165738294530?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:11,318 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_23.mp4
+2025-03-02 15:28:11,318 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7476034791855475990?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:13,914 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_24.mp4
+2025-03-02 15:28:13,914 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475787253369802006?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:16,569 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_25.mp4
+2025-03-02 15:28:16,570 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475729152470027543?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:25,120 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_26.mp4
+2025-03-02 15:28:25,120 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475731220660260118?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:28,153 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_27.mp4
+2025-03-02 15:28:28,153 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475678240397364502?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:31,967 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_28.mp4
+2025-03-02 15:28:31,968 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475669202632723734?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:34,661 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_29.mp4
+2025-03-02 15:28:34,661 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475655914930851094?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:39,678 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_30.mp4
+2025-03-02 15:28:39,679 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475650773846609174?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:41,909 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_31.mp4
+2025-03-02 15:28:41,909 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475613019100155158?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:43,678 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_32.mp4
+2025-03-02 15:28:43,679 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475413658923846934?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:45,962 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_33.mp4
+2025-03-02 15:28:45,963 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475413411568913686?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:48,033 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_34.mp4
+2025-03-02 15:28:48,033 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475278944762187030?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:50,748 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_35.mp4
+2025-03-02 15:28:50,749 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475266338689256726?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:53,270 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_36.mp4
+2025-03-02 15:28:53,271 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475259464707362070?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:55,784 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_37.mp4
+2025-03-02 15:28:55,784 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7475252913586081046?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:28:58,090 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_38.mp4
+2025-03-02 15:28:58,090 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474926942848879894?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:00,426 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_39.mp4
+2025-03-02 15:29:00,426 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474911937617300758?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:06,229 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_40.mp4
+2025-03-02 15:29:06,229 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474909693211675926?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:10,508 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_41.mp4
+2025-03-02 15:29:10,509 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474910076445183254?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:13,574 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_42.mp4
+2025-03-02 15:29:13,574 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474899892763200790?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:17,362 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_43.mp4
+2025-03-02 15:29:17,362 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474882047392124182?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:21,953 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_44.mp4
+2025-03-02 15:29:21,953 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474745027953036566?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:25,494 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_45.mp4
+2025-03-02 15:29:25,495 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474740993875561750?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:30,585 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_46.mp4
+2025-03-02 15:29:30,587 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474733819908738326?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:35,523 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_47.mp4
+2025-03-02 15:29:35,524 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474533389786303766?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:39,146 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_48.mp4
+2025-03-02 15:29:39,147 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474291287005482262?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:42,122 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_49.mp4
+2025-03-02 15:29:42,123 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474254737072721174?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:45,288 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_50.mp4
+2025-03-02 15:29:45,288 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474232130797653270?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:49,120 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_51.mp4
+2025-03-02 15:29:49,122 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7473827185703259414?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:51,331 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_52.mp4
+2025-03-02 15:29:51,331 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7474190066210901270?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:29:57,681 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_53.mp4
+2025-03-02 15:29:57,682 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7473921228240194838?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:02,996 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_54.mp4
+2025-03-02 15:30:02,996 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7473802376038731030?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:05,436 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_55.mp4
+2025-03-02 15:30:05,437 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7473912299527376150?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:09,264 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_56.mp4
+2025-03-02 15:30:09,264 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7473882075431472406?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:14,361 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_57.mp4
+2025-03-02 15:30:14,361 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7473842158546455830?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:18,711 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_58.mp4
+2025-03-02 15:30:18,712 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7473821572994845974?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:24,485 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_59.mp4
+2025-03-02 15:30:24,487 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7473821602656849174?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:27,234 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_60.mp4
+2025-03-02 15:30:27,235 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472741166149012758?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:28,230 - ERROR: Error downloading https://www.tiktok.com/@lovinmaltaofficial/video/7472741166149012758?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7472741166149012758: Unable to extract webpage video data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:30:28,230 - ERROR: Download failed for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472741166149012758?is_from_webapp=1&sender_device=pc
+2025-03-02 15:30:28,230 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472729113837571350?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:33,455 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_61.mp4
+2025-03-02 15:30:33,457 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472704204851727638?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:36,664 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_62.mp4
+2025-03-02 15:30:36,664 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472690611439668502?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:39,959 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_63.mp4
+2025-03-02 15:30:39,959 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472677787636190486?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:43,178 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_64.mp4
+2025-03-02 15:30:43,179 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472402283091741974?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:47,072 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_65.mp4
+2025-03-02 15:30:47,073 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472361994499149078?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:49,574 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_66.mp4
+2025-03-02 15:30:49,575 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472339849828371714?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:52,495 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_67.mp4
+2025-03-02 15:30:52,496 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472351283979013398?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:55,614 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_68.mp4
+2025-03-02 15:30:55,614 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472337104245132566?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:30:58,674 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_69.mp4
+2025-03-02 15:30:58,674 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472328329488583958?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:31:00,803 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_70.mp4
+2025-03-02 15:31:00,803 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472269739507666198?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:31:03,438 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_71.mp4
+2025-03-02 15:31:03,438 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472058763873160470?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:31:07,683 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_72.mp4
+2025-03-02 15:31:07,684 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7472003580476820738?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:31:11,130 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_73.mp4
+2025-03-02 15:31:11,131 - INFO: Starting download for URL: https://www.tiktok.com/@lovinmaltaofficial/video/7471988596703104278?is_from_webapp=1&sender_device=pc with source: LovinMalta
+2025-03-02 15:31:14,140 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/LovinMalta_74.mp4
+2025-03-02 15:31:14,140 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476869474034027822?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:16,131 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_1.mp4
+2025-03-02 15:31:16,131 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476854019647081774?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:17,986 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_2.mp4
+2025-03-02 15:31:17,986 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476845803017882926?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:19,862 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_3.mp4
+2025-03-02 15:31:19,862 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476637208917789998?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:22,350 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_4.mp4
+2025-03-02 15:31:22,350 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476604477940698411?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:24,480 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_5.mp4
+2025-03-02 15:31:24,480 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476594378153200942?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:31,178 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_6.mp4
+2025-03-02 15:31:31,178 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476593055454219562?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:32,887 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_7.mp4
+2025-03-02 15:31:32,888 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476586418421124395?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:34,863 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_8.mp4
+2025-03-02 15:31:34,864 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476581848005496110?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:37,405 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_9.mp4
+2025-03-02 15:31:37,405 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476574442190261550?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:39,011 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_10.mp4
+2025-03-02 15:31:39,011 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476573648116141358?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:42,155 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_11.mp4
+2025-03-02 15:31:42,157 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476561244640578859?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:44,333 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_12.mp4
+2025-03-02 15:31:44,334 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476557218314439982?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:46,678 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_13.mp4
+2025-03-02 15:31:46,678 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476552335775337770?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:48,280 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_14.mp4
+2025-03-02 15:31:48,280 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476551137651477802?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:50,072 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_15.mp4
+2025-03-02 15:31:50,072 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476542478636649770?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:51,703 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_16.mp4
+2025-03-02 15:31:51,703 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476538995816582443?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:53,334 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_17.mp4
+2025-03-02 15:31:53,334 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476535790827212078?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:54,689 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_18.mp4
+2025-03-02 15:31:54,689 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476529570162773291?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:56,412 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_19.mp4
+2025-03-02 15:31:56,412 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476525642906062126?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:57,827 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_20.mp4
+2025-03-02 15:31:57,829 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476513928542014766?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:31:59,715 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_21.mp4
+2025-03-02 15:31:59,716 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476511703816015147?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:01,398 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_22.mp4
+2025-03-02 15:32:01,399 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476501300226673966?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:03,345 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_23.mp4
+2025-03-02 15:32:03,345 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476500615091277099?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:05,005 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_24.mp4
+2025-03-02 15:32:05,005 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476491878561565998?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:06,517 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_25.mp4
+2025-03-02 15:32:06,518 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476464246314896683?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:08,662 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_26.mp4
+2025-03-02 15:32:08,663 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476425394636393774?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:11,009 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_27.mp4
+2025-03-02 15:32:11,009 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476452650859384107?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:12,638 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_28.mp4
+2025-03-02 15:32:12,638 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476446672030043435?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:15,291 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_29.mp4
+2025-03-02 15:32:15,293 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476439809007832362?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:17,373 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_30.mp4
+2025-03-02 15:32:17,373 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476431742673358122?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:19,072 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_31.mp4
+2025-03-02 15:32:19,073 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476423516372487466?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:20,625 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_32.mp4
+2025-03-02 15:32:20,626 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476417254666784046?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:22,882 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_33.mp4
+2025-03-02 15:32:22,882 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476414060309925163?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:24,939 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_34.mp4
+2025-03-02 15:32:24,939 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476410390985903403?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:28,229 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_35.mp4
+2025-03-02 15:32:28,230 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476399876713057582?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:30,180 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_36.mp4
+2025-03-02 15:32:30,180 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476249652480724270?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:32,290 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_37.mp4
+2025-03-02 15:32:32,290 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476144970391473451?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:33,739 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_38.mp4
+2025-03-02 15:32:33,739 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476218526026665262?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:35,894 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_39.mp4
+2025-03-02 15:32:35,894 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476138437142154542?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:39,539 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_40.mp4
+2025-03-02 15:32:39,539 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476210906309987627?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:41,258 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_41.mp4
+2025-03-02 15:32:41,258 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476200195596897582?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:42,899 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_42.mp4
+2025-03-02 15:32:42,899 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476191484321025310?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:44,977 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_43.mp4
+2025-03-02 15:32:44,977 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476188327130008875?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:46,914 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_44.mp4
+2025-03-02 15:32:46,915 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476183634458807598?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:48,416 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_45.mp4
+2025-03-02 15:32:48,416 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476176358448565550?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:50,356 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_46.mp4
+2025-03-02 15:32:50,356 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476171711881432366?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:52,297 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_47.mp4
+2025-03-02 15:32:52,298 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476150670744325422?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:53,720 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_48.mp4
+2025-03-02 15:32:53,720 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476146677368393006?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:55,334 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_49.mp4
+2025-03-02 15:32:55,334 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476149897880751402?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:56,845 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_50.mp4
+2025-03-02 15:32:56,845 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476141734909660462?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:32:58,418 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_51.mp4
+2025-03-02 15:32:58,420 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476119691455499562?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:00,431 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_52.mp4
+2025-03-02 15:33:00,431 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476127482056330539?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:00,872 - ERROR: Error downloading https://www.tiktok.com/@dailymail/video/7476127482056330539?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7476127482056330539: Video not available, status code 10204; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:33:00,873 - ERROR: Download failed for URL: https://www.tiktok.com/@dailymail/video/7476127482056330539?is_from_webapp=1&sender_device=pc
+2025-03-02 15:33:00,873 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476119627605577002?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:02,625 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_53.mp4
+2025-03-02 15:33:02,625 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476119309392055595?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:04,198 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_54.mp4
+2025-03-02 15:33:04,198 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7476107505622322475?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:05,877 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_55.mp4
+2025-03-02 15:33:05,877 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475470364202569003?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:07,891 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_56.mp4
+2025-03-02 15:33:07,891 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475467384086613294?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:10,095 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_57.mp4
+2025-03-02 15:33:10,095 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475463484969602350?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:11,707 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_58.mp4
+2025-03-02 15:33:11,707 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475456817255157038?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:13,535 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_59.mp4
+2025-03-02 15:33:13,536 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475445230905478443?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:15,324 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_60.mp4
+2025-03-02 15:33:15,324 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475439064959683882?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:17,187 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_61.mp4
+2025-03-02 15:33:17,187 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475402817092472107?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:19,072 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_62.mp4
+2025-03-02 15:33:19,073 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475398839365635371?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:21,253 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_63.mp4
+2025-03-02 15:33:21,253 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475389056487197998?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:23,060 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_64.mp4
+2025-03-02 15:33:23,060 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475357950316498219?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:24,686 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_65.mp4
+2025-03-02 15:33:24,686 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475360060189805867?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:26,293 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_66.mp4
+2025-03-02 15:33:26,293 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475376441153146154?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:28,045 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_67.mp4
+2025-03-02 15:33:28,045 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475288782636551470?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:29,799 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_68.mp4
+2025-03-02 15:33:29,799 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475306030595902763?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:31,313 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_69.mp4
+2025-03-02 15:33:31,313 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475313409190268206?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:32,999 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_70.mp4
+2025-03-02 15:33:33,000 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475060153709088046?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:34,545 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_71.mp4
+2025-03-02 15:33:34,545 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475030017731317035?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:35,972 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_72.mp4
+2025-03-02 15:33:35,972 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475034879730781482?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:37,599 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_73.mp4
+2025-03-02 15:33:37,599 - INFO: Starting download for URL: https://www.tiktok.com/@dailymail/video/7475030925219450158?is_from_webapp=1&sender_device=pc with source: DailyMail
+2025-03-02 15:33:39,741 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/DailyMail_74.mp4
+2025-03-02 15:33:39,741 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476534674693573910?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:33:41,844 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_1.mp4
+2025-03-02 15:33:41,845 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7465390297145560353?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:33:44,690 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_2.mp4
+2025-03-02 15:33:44,690 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7458020052533611809?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:33:48,141 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_3.mp4
+2025-03-02 15:33:48,142 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476885491552357654?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:33:51,253 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_4.mp4
+2025-03-02 15:33:51,253 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476884929100385559?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:33:53,611 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_5.mp4
+2025-03-02 15:33:53,611 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476883526546115862?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:33:56,983 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_6.mp4
+2025-03-02 15:33:56,983 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476817435610369302?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:00,651 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_7.mp4
+2025-03-02 15:34:00,651 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476813520860908822?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:02,344 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_8.mp4
+2025-03-02 15:34:02,344 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476809531591232791?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:04,141 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_9.mp4
+2025-03-02 15:34:04,141 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476768497817734422?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:09,123 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_10.mp4
+2025-03-02 15:34:09,123 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476611463591775510?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:13,785 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_11.mp4
+2025-03-02 15:34:13,786 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476588049388866838?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:18,493 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_12.mp4
+2025-03-02 15:34:18,494 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476546916847750422?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:21,512 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_13.mp4
+2025-03-02 15:34:21,512 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476545917529672982?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:25,517 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_14.mp4
+2025-03-02 15:34:25,518 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476522676492750102?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:29,368 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_15.mp4
+2025-03-02 15:34:29,368 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476520497182723350?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:31,017 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_16.mp4
+2025-03-02 15:34:31,018 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476508218940853526?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:35,500 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_17.mp4
+2025-03-02 15:34:35,500 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476463597032361238?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:39,775 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_18.mp4
+2025-03-02 15:34:39,775 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476478800172223766?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:42,421 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_19.mp4
+2025-03-02 15:34:42,421 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476478312513031446?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:45,773 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_20.mp4
+2025-03-02 15:34:45,773 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476458543030324502?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:49,119 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_21.mp4
+2025-03-02 15:34:49,119 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476413448755088662?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:51,955 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_22.mp4
+2025-03-02 15:34:51,957 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476415651918138646?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:54,909 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_23.mp4
+2025-03-02 15:34:54,910 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476403736684809494?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:34:57,485 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_24.mp4
+2025-03-02 15:34:57,486 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476383768702651671?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:02,469 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_25.mp4
+2025-03-02 15:35:02,470 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476362796662361366?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:06,518 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_26.mp4
+2025-03-02 15:35:06,518 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476354653735701782?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:09,796 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_27.mp4
+2025-03-02 15:35:09,797 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476352587411901718?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:13,060 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_28.mp4
+2025-03-02 15:35:13,060 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476347008932990230?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:28,577 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_29.mp4
+2025-03-02 15:35:28,578 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476237249412189462?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:31,366 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_30.mp4
+2025-03-02 15:35:31,367 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476236749098781974?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:36,893 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_31.mp4
+2025-03-02 15:35:36,895 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476204113835920662?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:39,935 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_32.mp4
+2025-03-02 15:35:39,935 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476198316217322774?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:47,966 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_33.mp4
+2025-03-02 15:35:47,966 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476189852644510998?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:53,306 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_34.mp4
+2025-03-02 15:35:53,307 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476187604929531158?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:55,341 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_35.mp4
+2025-03-02 15:35:55,342 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476160689443441943?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:35:56,775 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_36.mp4
+2025-03-02 15:35:56,775 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476159194501041430?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:01,305 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_37.mp4
+2025-03-02 15:36:01,306 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476158143697816854?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:05,581 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_38.mp4
+2025-03-02 15:36:05,582 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476155009864830230?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:08,482 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_39.mp4
+2025-03-02 15:36:08,483 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476149429662125334?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:12,388 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_40.mp4
+2025-03-02 15:36:12,388 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476139213889637655?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:16,775 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_41.mp4
+2025-03-02 15:36:16,775 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476134744124624150?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:19,639 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_42.mp4
+2025-03-02 15:36:19,639 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476134547516689686?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:21,880 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_43.mp4
+2025-03-02 15:36:21,880 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476132042145631510?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:26,358 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_44.mp4
+2025-03-02 15:36:26,359 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476131943252364566?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:29,933 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_45.mp4
+2025-03-02 15:36:29,933 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476130734026149142?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:31,651 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_46.mp4
+2025-03-02 15:36:31,652 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476117825115966742?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:34,353 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_47.mp4
+2025-03-02 15:36:34,353 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476107789836766486?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:38,017 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_48.mp4
+2025-03-02 15:36:38,017 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476103160055024918?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:41,802 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_49.mp4
+2025-03-02 15:36:41,803 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476099879220153622?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:44,856 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_50.mp4
+2025-03-02 15:36:44,856 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476093114680184066?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:48,276 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_51.mp4
+2025-03-02 15:36:48,277 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476062948461415702?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:51,462 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_52.mp4
+2025-03-02 15:36:51,462 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476038354102930710?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:54,432 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_53.mp4
+2025-03-02 15:36:54,433 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476037546351332630?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:36:57,254 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_54.mp4
+2025-03-02 15:36:57,255 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7476036440577592598?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:00,576 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_55.mp4
+2025-03-02 15:37:00,577 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475992514898578710?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:04,627 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_56.mp4
+2025-03-02 15:37:04,628 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475978224413969686?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:09,485 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_57.mp4
+2025-03-02 15:37:09,486 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475976099185315094?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:15,664 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_58.mp4
+2025-03-02 15:37:15,664 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475970594945715478?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:19,169 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_59.mp4
+2025-03-02 15:37:19,170 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475866157518540054?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:22,673 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_60.mp4
+2025-03-02 15:37:22,673 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475839997690662166?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:27,984 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_61.mp4
+2025-03-02 15:37:27,984 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475823568526544150?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:30,903 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_62.mp4
+2025-03-02 15:37:30,903 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475818650499321110?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:34,434 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_63.mp4
+2025-03-02 15:37:34,435 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475817508348415254?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:37,644 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_64.mp4
+2025-03-02 15:37:37,644 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475809007886765334?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:40,987 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_65.mp4
+2025-03-02 15:37:40,987 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475808666218745110?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:43,927 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_66.mp4
+2025-03-02 15:37:43,927 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475800751428717846?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:46,700 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_67.mp4
+2025-03-02 15:37:46,700 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475791039429610774?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:51,310 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_68.mp4
+2025-03-02 15:37:51,311 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475757612424776982?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:54,337 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_69.mp4
+2025-03-02 15:37:54,337 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475752990557703446?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:37:59,984 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_70.mp4
+2025-03-02 15:37:59,984 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475743669006388502?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:38:04,866 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_71.mp4
+2025-03-02 15:38:04,866 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475740911247297814?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:38:08,713 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_72.mp4
+2025-03-02 15:38:08,713 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475734783927061782?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:38:14,029 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_73.mp4
+2025-03-02 15:38:14,030 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475732619368402198?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:38:16,806 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_74.mp4
+2025-03-02 15:38:16,807 - INFO: Starting download for URL: https://www.tiktok.com/@skynews/video/7475732358679858454?is_from_webapp=1&sender_device=pc with source: SkyNews
+2025-03-02 15:38:19,809 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/SkyNews_75.mp4
+2025-03-02 15:38:19,809 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7476545087955012886?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:21,728 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_1.mp4
+2025-03-02 15:38:21,728 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7476122228619513111?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:24,375 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_2.mp4
+2025-03-02 15:38:24,375 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7476071721091501334?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:26,887 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_3.mp4
+2025-03-02 15:38:26,888 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7476066759062228247?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:31,262 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_4.mp4
+2025-03-02 15:38:31,262 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7473459593604042006?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:34,836 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_5.mp4
+2025-03-02 15:38:34,837 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7472727167575624982?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:37,465 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_6.mp4
+2025-03-02 15:38:37,466 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7472721790251322646?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:41,704 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_7.mp4
+2025-03-02 15:38:41,704 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7472380790593146134?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:46,875 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_8.mp4
+2025-03-02 15:38:46,875 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7472351447586278678?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:50,034 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_9.mp4
+2025-03-02 15:38:50,034 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7472319266864336150?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:53,368 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_10.mp4
+2025-03-02 15:38:53,368 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7470845666265173270?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:56,537 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_11.mp4
+2025-03-02 15:38:56,537 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7469330437240835360?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:38:59,647 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_12.mp4
+2025-03-02 15:38:59,648 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7469005439586274592?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:03,831 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_13.mp4
+2025-03-02 15:39:03,832 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7469005332568624417?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:05,668 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_14.mp4
+2025-03-02 15:39:05,668 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7468722182856740128?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:08,346 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_15.mp4
+2025-03-02 15:39:08,346 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7468354968781655329?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:10,546 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_16.mp4
+2025-03-02 15:39:10,547 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7467904736960810272?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:12,955 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_17.mp4
+2025-03-02 15:39:12,955 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7463563391982947617?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:16,983 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_18.mp4
+2025-03-02 15:39:16,984 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7463558812700544288?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:19,526 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_19.mp4
+2025-03-02 15:39:19,526 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7463074112420826400?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:21,498 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_20.mp4
+2025-03-02 15:39:21,498 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7462352675741453600?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:24,510 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_21.mp4
+2025-03-02 15:39:24,510 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7461929441267076384?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:26,919 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_22.mp4
+2025-03-02 15:39:26,919 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7460808554199469344?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:29,137 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_23.mp4
+2025-03-02 15:39:29,138 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7457860379327204640?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:31,031 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_24.mp4
+2025-03-02 15:39:31,032 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7457852534535818529?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:34,755 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_25.mp4
+2025-03-02 15:39:34,757 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7457131264844238112?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:38,531 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_26.mp4
+2025-03-02 15:39:38,532 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7451592872010337568?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:43,476 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_27.mp4
+2025-03-02 15:39:43,476 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7451552421874011424?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:47,336 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_28.mp4
+2025-03-02 15:39:47,336 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7450521587121524000?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:49,304 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_29.mp4
+2025-03-02 15:39:49,305 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7449422031659044128?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:51,600 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_30.mp4
+2025-03-02 15:39:51,600 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7447153572787080480?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:56,644 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_31.mp4
+2025-03-02 15:39:56,644 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7447127126760852768?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:39:59,070 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_32.mp4
+2025-03-02 15:39:59,071 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7446718022502337825?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:01,238 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_33.mp4
+2025-03-02 15:40:01,239 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7446423529366572321?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:04,926 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_34.mp4
+2025-03-02 15:40:04,927 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7446409943306997024?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:08,866 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_35.mp4
+2025-03-02 15:40:08,866 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7446409601555107105?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:11,891 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_36.mp4
+2025-03-02 15:40:11,891 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7444161281122110753?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:16,696 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_37.mp4
+2025-03-02 15:40:16,696 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7441147760394374433?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:22,086 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_38.mp4
+2025-03-02 15:40:22,086 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7440149123115896096?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:26,294 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_39.mp4
+2025-03-02 15:40:26,295 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7439336740684320032?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:29,351 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_40.mp4
+2025-03-02 15:40:29,352 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7439314757691198753?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:33,148 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_41.mp4
+2025-03-02 15:40:33,148 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7438933210337168673?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:35,506 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_42.mp4
+2025-03-02 15:40:35,506 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7438588417060916512?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:40,045 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_43.mp4
+2025-03-02 15:40:40,045 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7437504558344998176?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:42,429 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_44.mp4
+2025-03-02 15:40:42,429 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7437493517405981985?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:46,617 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_45.mp4
+2025-03-02 15:40:46,617 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7437470298179407137?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:48,909 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_46.mp4
+2025-03-02 15:40:48,910 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7437465065948843296?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:51,567 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_47.mp4
+2025-03-02 15:40:51,568 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7437459424240799008?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:53,985 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_48.mp4
+2025-03-02 15:40:53,985 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7437196355593850144?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:40:59,578 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_49.mp4
+2025-03-02 15:40:59,579 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7436765625160043808?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:02,288 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_50.mp4
+2025-03-02 15:41:02,288 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7436041833215544609?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:05,183 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_51.mp4
+2025-03-02 15:41:05,183 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7431900964216392993?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:08,202 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_52.mp4
+2025-03-02 15:41:08,202 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7431900153100946721?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:10,226 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_53.mp4
+2025-03-02 15:41:10,226 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7430772129995509024?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:12,599 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_54.mp4
+2025-03-02 15:41:12,599 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7429633788197588257?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:16,295 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_55.mp4
+2025-03-02 15:41:16,295 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7429288973958237472?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:21,467 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_56.mp4
+2025-03-02 15:41:21,467 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7429282502591745313?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:23,868 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_57.mp4
+2025-03-02 15:41:23,868 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7428973585965862177?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:26,678 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_58.mp4
+2025-03-02 15:41:26,678 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7428214398109502752?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:30,954 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_59.mp4
+2025-03-02 15:41:30,955 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7427028438302608673?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:34,472 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_60.mp4
+2025-03-02 15:41:34,472 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7426706958205357344?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:36,888 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_61.mp4
+2025-03-02 15:41:36,889 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7426660461665357089?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:39,039 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_62.mp4
+2025-03-02 15:41:39,040 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7426306031543766304?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:42,466 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_63.mp4
+2025-03-02 15:41:42,466 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7426044557978111265?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:44,920 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_64.mp4
+2025-03-02 15:41:44,920 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7425948567308668193?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:46,781 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_65.mp4
+2025-03-02 15:41:46,783 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7424166147848719649?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:49,817 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_66.mp4
+2025-03-02 15:41:49,817 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7424079219925257505?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:52,628 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_67.mp4
+2025-03-02 15:41:52,628 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7424066608609463584?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:56,729 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_68.mp4
+2025-03-02 15:41:56,729 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7423344552632765728?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:41:58,824 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_69.mp4
+2025-03-02 15:41:58,824 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7421935589659905312?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:42:03,205 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_70.mp4
+2025-03-02 15:42:03,205 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7421831634418142497?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:42:05,449 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_71.mp4
+2025-03-02 15:42:05,450 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7421544715268427040?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:42:08,447 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_72.mp4
+2025-03-02 15:42:08,447 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7421495804550057248?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:42:10,153 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_73.mp4
+2025-03-02 15:42:10,155 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7421218895106755873?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:42:12,197 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_74.mp4
+2025-03-02 15:42:12,197 - INFO: Starting download for URL: https://www.tiktok.com/@tvmnews.mt/video/7421106630240079137?is_from_webapp=1&sender_device=pc with source: TVMNews
+2025-03-02 15:42:20,371 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/TVMNews_75.mp4
+2025-03-02 15:42:20,372 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476892713254685974?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:24,109 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_1.mp4
+2025-03-02 15:42:24,109 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476779252466142486?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:28,397 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_2.mp4
+2025-03-02 15:42:28,397 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476781817614355734?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:31,934 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_3.mp4
+2025-03-02 15:42:31,935 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476770649571085590?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:33,773 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_4.mp4
+2025-03-02 15:42:33,773 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476473837014633750?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:35,543 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_5.mp4
+2025-03-02 15:42:35,544 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476562384576875778?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:38,231 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_6.mp4
+2025-03-02 15:42:38,232 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476561459175066902?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:41,494 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_7.mp4
+2025-03-02 15:42:41,494 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476560861742599446?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:43,363 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_8.mp4
+2025-03-02 15:42:43,363 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476582995286166806?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:47,193 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_9.mp4
+2025-03-02 15:42:47,193 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476562795643800854?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:51,299 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_10.mp4
+2025-03-02 15:42:51,299 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476533176660200726?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:55,346 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_11.mp4
+2025-03-02 15:42:55,346 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476555941341629718?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:42:58,246 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_12.mp4
+2025-03-02 15:42:58,247 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476533495913778455?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:02,899 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_13.mp4
+2025-03-02 15:43:02,900 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476520881540435222?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:03,327 - ERROR: Error downloading https://www.tiktok.com/@bbcnews/video/7476520881540435222?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7476520881540435222: No video formats found!; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:43:03,327 - ERROR: Download failed for URL: https://www.tiktok.com/@bbcnews/video/7476520881540435222?is_from_webapp=1&sender_device=pc
+2025-03-02 15:43:03,327 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476512112664235286?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:04,937 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_14.mp4
+2025-03-02 15:43:04,937 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476484351132208406?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:10,611 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_15.mp4
+2025-03-02 15:43:10,611 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476466332163214614?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:13,557 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_16.mp4
+2025-03-02 15:43:13,558 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476448229102488854?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:15,987 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_17.mp4
+2025-03-02 15:43:15,988 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476444024921001238?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:18,965 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_18.mp4
+2025-03-02 15:43:18,965 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476394905955208470?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:20,634 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_19.mp4
+2025-03-02 15:43:20,634 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476375575414705430?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:22,498 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_20.mp4
+2025-03-02 15:43:22,498 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476191178786999574?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:24,979 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_21.mp4
+2025-03-02 15:43:24,979 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476190722727611650?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:30,579 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_22.mp4
+2025-03-02 15:43:30,581 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476237618611637526?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:34,803 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_23.mp4
+2025-03-02 15:43:34,804 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476189604647914774?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:39,202 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_24.mp4
+2025-03-02 15:43:39,203 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476235700237520150?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:42,401 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_25.mp4
+2025-03-02 15:43:42,402 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476231015820709142?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:48,762 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_26.mp4
+2025-03-02 15:43:48,762 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476186379928669442?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:52,009 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_27.mp4
+2025-03-02 15:43:52,009 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476188705925991702?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:54,444 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_28.mp4
+2025-03-02 15:43:54,444 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476189314037206294?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:43:57,523 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_29.mp4
+2025-03-02 15:43:57,523 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476185341808889110?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:03,121 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_30.mp4
+2025-03-02 15:44:03,121 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476176412383415575?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:03,601 - ERROR: Error downloading https://www.tiktok.com/@bbcnews/video/7476176412383415575?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7476176412383415575: No video formats found!; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:44:03,601 - ERROR: Download failed for URL: https://www.tiktok.com/@bbcnews/video/7476176412383415575?is_from_webapp=1&sender_device=pc
+2025-03-02 15:44:03,601 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476166747524009239?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:05,665 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_31.mp4
+2025-03-02 15:44:05,665 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476155629682380054?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:08,783 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_32.mp4
+2025-03-02 15:44:08,784 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476148424329481494?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:11,821 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_33.mp4
+2025-03-02 15:44:11,821 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476145816936172822?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:12,394 - ERROR: Error downloading https://www.tiktok.com/@bbcnews/video/7476145816936172822?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7476145816936172822: No video formats found!; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:44:12,395 - ERROR: Download failed for URL: https://www.tiktok.com/@bbcnews/video/7476145816936172822?is_from_webapp=1&sender_device=pc
+2025-03-02 15:44:12,395 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476121204731153687?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:13,786 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_34.mp4
+2025-03-02 15:44:13,787 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476110083156512023?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:20,949 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_35.mp4
+2025-03-02 15:44:20,949 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476107069880323350?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:24,305 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_36.mp4
+2025-03-02 15:44:24,306 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476092477611543830?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:26,770 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_37.mp4
+2025-03-02 15:44:26,770 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476060109924273430?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:31,143 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_38.mp4
+2025-03-02 15:44:31,143 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476038295504309526?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:32,825 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_39.mp4
+2025-03-02 15:44:32,825 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476020436279594262?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:39,939 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_40.mp4
+2025-03-02 15:44:39,940 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7476007180475403522?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:40,388 - ERROR: Error downloading https://www.tiktok.com/@bbcnews/video/7476007180475403522?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7476007180475403522: No video formats found!; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:44:40,388 - ERROR: Download failed for URL: https://www.tiktok.com/@bbcnews/video/7476007180475403522?is_from_webapp=1&sender_device=pc
+2025-03-02 15:44:40,388 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475810689249021206?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:42,409 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_41.mp4
+2025-03-02 15:44:42,410 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475791345483779350?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:46,016 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_42.mp4
+2025-03-02 15:44:46,016 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475792760730160406?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:48,197 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_43.mp4
+2025-03-02 15:44:48,198 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475812210003037462?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:49,866 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_44.mp4
+2025-03-02 15:44:49,867 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475790699515055362?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:55,822 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_45.mp4
+2025-03-02 15:44:55,822 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475773926031822102?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:44:58,874 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_46.mp4
+2025-03-02 15:44:58,874 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475750091110747414?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:03,430 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_47.mp4
+2025-03-02 15:45:03,430 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475719259205733654?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:06,542 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_48.mp4
+2025-03-02 15:45:06,542 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475422370036059414?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:09,531 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_49.mp4
+2025-03-02 15:45:09,531 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475408291657485590?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:13,073 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_50.mp4
+2025-03-02 15:45:13,073 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475392069146529046?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:15,685 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_51.mp4
+2025-03-02 15:45:15,685 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475384818096803094?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:19,196 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_52.mp4
+2025-03-02 15:45:19,196 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475374560074910998?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:21,827 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_53.mp4
+2025-03-02 15:45:21,828 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475360199339937046?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:26,994 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_54.mp4
+2025-03-02 15:45:26,994 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475340295735921942?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:29,424 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_55.mp4
+2025-03-02 15:45:29,425 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475328718848675094?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:32,327 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_56.mp4
+2025-03-02 15:45:32,328 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475304506821987606?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:35,280 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_57.mp4
+2025-03-02 15:45:35,280 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475074646686108950?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:39,675 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_58.mp4
+2025-03-02 15:45:39,675 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7475072851695897878?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:44,683 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_59.mp4
+2025-03-02 15:45:44,684 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474997556871810326?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:48,226 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_60.mp4
+2025-03-02 15:45:48,227 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474975933053537558?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:51,455 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_61.mp4
+2025-03-02 15:45:51,456 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474957680667381014?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:54,147 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_62.mp4
+2025-03-02 15:45:54,149 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474937779051302166?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:45:57,093 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_63.mp4
+2025-03-02 15:45:57,094 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474835208429210903?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:46:01,696 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_64.mp4
+2025-03-02 15:46:01,697 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474692444131495190?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:46:06,849 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_65.mp4
+2025-03-02 15:46:06,849 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474675191927377174?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:46:12,981 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_66.mp4
+2025-03-02 15:46:12,982 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474652344135863574?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:46:16,572 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_67.mp4
+2025-03-02 15:46:16,572 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474595981233818902?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:46:20,475 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_68.mp4
+2025-03-02 15:46:20,475 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474554775405743382?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:46:26,146 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_69.mp4
+2025-03-02 15:46:26,148 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474294980090088726?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:46:30,090 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/BBCNews_70.mp4
+2025-03-02 15:46:30,090 - INFO: Starting download for URL: https://www.tiktok.com/@bbcnews/video/7474323003208109334?is_from_webapp=1&sender_device=pc with source: BBCNews
+2025-03-02 15:46:30,659 - ERROR: Error downloading https://www.tiktok.com/@bbcnews/video/7474323003208109334?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7474323003208109334: No video formats found!; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:46:30,660 - ERROR: Download failed for URL: https://www.tiktok.com/@bbcnews/video/7474323003208109334?is_from_webapp=1&sender_device=pc
+2025-03-02 15:46:30,660 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476893191594069278?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:46:32,534 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_1.mp4
+2025-03-02 15:46:32,534 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476864182814575903?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:46:34,151 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_2.mp4
+2025-03-02 15:46:34,151 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476862314180906271?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:46:35,673 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_3.mp4
+2025-03-02 15:46:35,673 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476835133811723550?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:46:37,283 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_4.mp4
+2025-03-02 15:46:37,283 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476814013637070110?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:46:38,996 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_5.mp4
+2025-03-02 15:46:38,996 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476669884391247135?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:46:41,461 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_6.mp4
+2025-03-02 15:46:41,461 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476647990208335135?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:46:43,476 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_7.mp4
+2025-03-02 15:46:43,476 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476637937778593054?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:46:53,657 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_8.mp4
+2025-03-02 15:46:53,658 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476632014091734303?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:46:55,761 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_9.mp4
+2025-03-02 15:46:55,762 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476622263786212638?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:46:57,436 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_10.mp4
+2025-03-02 15:46:57,437 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476619980490935582?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:46:59,324 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_11.mp4
+2025-03-02 15:46:59,324 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476549384654605598?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:00,971 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_12.mp4
+2025-03-02 15:47:00,972 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476545182775938350?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:03,359 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_13.mp4
+2025-03-02 15:47:03,359 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476530611516099871?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:05,218 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_14.mp4
+2025-03-02 15:47:05,219 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476523713106644254?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:07,534 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_15.mp4
+2025-03-02 15:47:07,534 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476510397680373022?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:09,477 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_16.mp4
+2025-03-02 15:47:09,477 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476501740896914718?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:11,706 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_17.mp4
+2025-03-02 15:47:11,706 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476483764667960607?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:13,670 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_18.mp4
+2025-03-02 15:47:13,671 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476465162883583263?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:15,358 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_19.mp4
+2025-03-02 15:47:15,358 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476301289337457950?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:18,281 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_20.mp4
+2025-03-02 15:47:18,281 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476277472540052766?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:20,460 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_21.mp4
+2025-03-02 15:47:20,460 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476275229434629407?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:22,750 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_22.mp4
+2025-03-02 15:47:22,750 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476255352426614046?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:25,655 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_23.mp4
+2025-03-02 15:47:25,655 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476250161581149470?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:28,015 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_24.mp4
+2025-03-02 15:47:28,016 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476247752008076575?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:30,126 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_25.mp4
+2025-03-02 15:47:30,127 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476240011642277150?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:32,547 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_26.mp4
+2025-03-02 15:47:32,548 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476222472652606750?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:34,629 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_27.mp4
+2025-03-02 15:47:34,630 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476200697818615071?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:37,699 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_28.mp4
+2025-03-02 15:47:37,699 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476197645493603614?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:41,089 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_29.mp4
+2025-03-02 15:47:41,090 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476179868229651742?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:43,339 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_30.mp4
+2025-03-02 15:47:43,339 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476177210286656799?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:46,550 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_31.mp4
+2025-03-02 15:47:46,550 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476177012072172831?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:49,278 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_32.mp4
+2025-03-02 15:47:49,279 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476174172960460063?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:51,604 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_33.mp4
+2025-03-02 15:47:51,604 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476165331078237471?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:53,885 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_34.mp4
+2025-03-02 15:47:53,885 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476138820036021534?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:56,556 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_35.mp4
+2025-03-02 15:47:56,557 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476095554359921951?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:47:59,792 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_36.mp4
+2025-03-02 15:47:59,792 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7476075254071233822?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:01,601 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_37.mp4
+2025-03-02 15:48:01,602 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475922941000043806?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:03,797 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_38.mp4
+2025-03-02 15:48:03,798 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475917583703641374?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:06,138 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_39.mp4
+2025-03-02 15:48:06,139 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475911421725920543?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:08,213 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_40.mp4
+2025-03-02 15:48:08,214 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475910131901893919?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:10,737 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_41.mp4
+2025-03-02 15:48:10,738 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475890674827627807?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:13,563 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_42.mp4
+2025-03-02 15:48:13,564 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475885089327418655?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:16,556 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_43.mp4
+2025-03-02 15:48:16,557 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475854815994711327?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:18,073 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_44.mp4
+2025-03-02 15:48:18,073 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475796896167120159?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:21,103 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_45.mp4
+2025-03-02 15:48:21,104 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475795480161651998?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:22,891 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_46.mp4
+2025-03-02 15:48:22,891 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475792875133865246?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:25,477 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_47.mp4
+2025-03-02 15:48:25,478 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475788671212358943?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:27,892 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_48.mp4
+2025-03-02 15:48:27,893 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475776088388504863?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:30,439 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_49.mp4
+2025-03-02 15:48:30,440 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475774478753074463?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:32,785 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_50.mp4
+2025-03-02 15:48:32,786 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475761144469196063?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:35,839 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_51.mp4
+2025-03-02 15:48:35,839 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475562194776624415?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:38,877 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_52.mp4
+2025-03-02 15:48:38,877 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475532951900425502?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:42,718 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_53.mp4
+2025-03-02 15:48:42,719 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475532559397555486?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:45,065 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_54.mp4
+2025-03-02 15:48:45,066 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475532391080086814?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:47,797 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_55.mp4
+2025-03-02 15:48:47,797 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475505618963549471?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:49,863 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_56.mp4
+2025-03-02 15:48:49,863 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475495726680689950?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:50,161 - ERROR: Error downloading https://www.tiktok.com/@foxnews/video/7475495726680689950?is_from_webapp=1&sender_device=pc: [0;31mERROR:[0m [TikTok] 7475495726680689950: Unable to extract webpage video data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-03-02 15:48:50,161 - ERROR: Download failed for URL: https://www.tiktok.com/@foxnews/video/7475495726680689950?is_from_webapp=1&sender_device=pc
+2025-03-02 15:48:50,161 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475492833407847711?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:52,909 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_57.mp4
+2025-03-02 15:48:52,911 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475486888426540319?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:55,382 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_58.mp4
+2025-03-02 15:48:55,382 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475477950322838815?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:57,179 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_59.mp4
+2025-03-02 15:48:57,179 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475464854187281695?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:48:59,162 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_60.mp4
+2025-03-02 15:48:59,162 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475461671197084959?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:02,193 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_61.mp4
+2025-03-02 15:49:02,193 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475446016079170846?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:04,441 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_62.mp4
+2025-03-02 15:49:04,442 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475432716213718302?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:07,624 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_63.mp4
+2025-03-02 15:49:07,624 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475379566433881375?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:09,578 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_64.mp4
+2025-03-02 15:49:09,578 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475373731049655583?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:12,026 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_65.mp4
+2025-03-02 15:49:12,026 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475173738514812190?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:15,721 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_66.mp4
+2025-03-02 15:49:15,722 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475172221669985566?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:18,911 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_67.mp4
+2025-03-02 15:49:18,912 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475141321477442847?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:20,703 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_68.mp4
+2025-03-02 15:49:20,703 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475125584864087326?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:23,911 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_69.mp4
+2025-03-02 15:49:23,911 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475094170730892575?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:25,876 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_70.mp4
+2025-03-02 15:49:25,876 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475090858077965598?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:27,720 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_71.mp4
+2025-03-02 15:49:27,720 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475069770665069855?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:30,529 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_72.mp4
+2025-03-02 15:49:30,530 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475067944561675551?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:33,314 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_73.mp4
+2025-03-02 15:49:33,314 - INFO: Starting download for URL: https://www.tiktok.com/@foxnews/video/7475062222423723294?is_from_webapp=1&sender_device=pc with source: FoxNews
+2025-03-02 15:49:35,208 - INFO: Download complete: /Volumes/Fili's SSD/FYP/Dataset_Videos/Tiktoks/FoxNews_74.mp4
+2025-03-02 15:49:35,209 - INFO: All downloads complete in 29.0m 43.62203599999998s

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ANEP [Enhanced Prototype]</title>
+  <!-- Bootstrap CSS (via CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons (for upload icon) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    /* Global Styles & Layout */
+    body {
+      background: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    h1, h4, p {
+      margin: 0.5rem 0;
+    }
+    /* Marketing Header */
+    .marketing-header {
+      text-align: center;
+      margin-bottom: 1rem;
+      max-width: 600px;
+    }
+    .marketing-header h1 {
+      font-size: 1.75rem;
+      color: #0d6efd;
+    }
+    .marketing-header p {
+      font-size: 1rem;
+      color: #555;
+    }
+    /* Container for steps */
+    .container-steps {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 600px;
+      max-width: 95%;
+      padding: 24px;
+      position: relative;
+    }
+    /* Stepper Styles */
+    .stepper {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .step {
+      flex: 1;
+      text-align: center;
+      color: #999;
+      font-weight: 500;
+      position: relative;
+      font-size: 1rem;
+    }
+    .step.active {
+      color: #0d6efd;
+      font-weight: 600;
+    }
+    .step::before {
+      content: attr(data-step);
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #ccc;
+      color: #fff;
+      text-align: center;
+      line-height: 40px;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .step.active::before {
+      background: #0d6efd;
+    }
+    .step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: calc(50% + 20px);
+      width: calc(100% - 40px);
+      height: 2px;
+      background: #ccc;
+      z-index: -1;
+    }
+    .step.active:not(:last-child)::after {
+      background: #0d6efd;
+    }
+    .step-label {
+      display: block;
+      font-size: 0.9rem;
+    }
+    /* Step sections */
+    .step-section {
+      display: none;
+    }
+    .step-section.active {
+      display: block;
+    }
+    /* Drag & Drop Area */
+    .drop-area {
+      border: 2px dashed #ccc;
+      border-radius: 6px;
+      padding: 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      color: #666;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .drop-area.hover {
+      background-color: #e0f7fa;
+      border-color: #26c6da;
+      color: #26c6da;
+    }
+    /* Wrap drop area content to preserve file input */
+    #drop-content {
+      pointer-events: none;
+    }
+    /* Messages */
+    .message {
+      margin: 10px 0;
+      display: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .message.success {
+      color: #28a745;
+    }
+    .message.error {
+      color: #dc3545;
+    }
+    /* Additional Instruction Text */
+    .upload-instructions {
+      font-size: 0.85rem;
+      color: #333;
+      margin-top: 0.5rem;
+    }
+    /* Video Info & Preview */
+    .video-info, .preview-container {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .preview-container video {
+      width: 100%;
+      max-height: 300px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    /* Confirmation Table */
+    .confirmation-table td {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+    /* Loading Overlay */
+    .loading-overlay {
+      display: none;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.95);
+      border-radius: 8px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      z-index: 999;
+    }
+    .spinner-border {
+      width: 3rem;
+      height: 3rem;
+      margin-bottom: 1rem;
+    }
+    /* Progress Bar */
+    .progress {
+      width: 80%;
+      margin: 0 auto 1rem;
+    }
+    /* Results Section */
+    .results-section {
+      display: none;
+    }
+    .results-section.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Marketing Header -->
+  <div class="marketing-header">
+    <h1 style="font-size: 1.85em; text-align: center;">Accurate Name Extraction from News Video Graphics</h1>
+    <p>Upload a video and select the analysis model to extract names of people mentioned in the news.</p>
+  </div>
+
+  <div class="container-steps">
+    <!-- Stepper -->
+    <div class="stepper mb-3">
+      <div class="step active" data-step="1" id="step1">
+        <span class="step-label">Upload</span>
+      </div>
+      <div class="step" data-step="2" id="step2">
+        <span class="step-label">Options</span>
+      </div>
+      <div class="step" data-step="3" id="step3">
+        <span class="step-label">Confirm</span>
+      </div>
+      <div class="step" data-step="4" id="step4">
+        <span class="step-label">Analysis</span>
+      </div>
+      <div class="step" data-step="5" id="step5">
+        <span class="step-label">Results</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Upload -->
+    <div class="step-section active" id="upload-section">
+      <h4 class="mb-3 text-center">Step 1: Upload a Video</h4>
+      <div id="drop-area" class="drop-area">
+        <div id="drop-content">
+          <i class="bi bi-upload" style="font-size: 2.5rem;"></i>
+          <p class="mt-2">Drag & drop your video here, or click to select</p>
+        </div>
+        <input type="file" id="file-input" accept="video/*" style="display:none;">
+      </div>
+      <div id="error-message" class="message error"></div>
+      <div id="success-message" class="message success"></div>
+      <!-- Additional Instruction Text (initially hidden) -->
+      <div id="upload-instructions" class="upload-instructions" style="display:none;"></div>
+      <!-- Video Info and Preview -->
+      <div class="video-info" id="video-info" style="display:none;"></div>
+      <div class="preview-container" id="preview-container" style="display:none;">
+        <video id="video-preview" controls></video>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary" id="next-btn-1" disabled>Next</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Select Options -->
+    <div class="step-section" id="options-section">
+      <h4 class="mb-3 text-center">Step 2: Analysis Options</h4>
+      <p class="text-center">Select the model or system for video analysis.</p>
+      <div class="mb-3">
+        <select class="form-select" id="model-select">
+          <option value="ANEP">ANEP System - Default analysis model</option>
+          <option value="MODEL #1">MODEL #1 </option>
+          <option value="MODEL #2">MODEL #2 </option>
+          <option value="All (Evaluation)">All (Evaluation) - Compare all models</option>
+        </select>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-secondary" id="back-btn-2">Back</button>
+        <button class="btn btn-primary" id="next-btn-2">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Confirmation -->
+    <div class="step-section" id="confirm-section">
+      <h4 class="mb-3 text-center">Step 3: Confirmation</h4>
+      <p class="text-center">Confirm the details below before running the analysis.</p>
+      <table class="confirmation-table mx-auto">
+        <tr>
+          <td><strong>File Name:</strong></td>
+          <td id="confirm-filename"></td>
+        </tr>
+        <tr>
+          <td><strong>Video Duration:</strong></td>
+          <td id="confirm-duration"></td>
+        </tr>
+        <tr>
+          <td><strong>File Size:</strong></td>
+          <td id="confirm-filesize"></td>
+        </tr>
+        <tr>
+          <td><strong>Selected Model:</strong></td>
+          <td id="confirm-model"></td>
+        </tr>
+      </table>
+      <div class="d-flex justify-content-between mt-3">
+        <button class="btn btn-secondary" id="back-btn-3">Back</button>
+        <button class="btn btn-success" id="run-analysis-btn">Run Analysis</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Analysis in Progress -->
+    <div class="step-section" id="analysis-section">
+      <h4 class="mb-3 text-center">Step 4: Analysis in Progress</h4>
+      <p class="text-center">Your video is being analysed. Please wait...</p>
+      <!-- Simulated progress bar -->
+      <div class="progress">
+        <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" 
+             role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-danger" id="cancel-analysis-btn">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Step 5: Results -->
+    <div class="step-section results-section" id="results-section">
+      <h4 class="mb-3 text-center">Step 5: Analysis Results</h4>
+      <div id="results-container">
+        <p>Process Complete.</p>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary" id="download-results-btn">Download Results</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cancel Confirmation Modal -->
+  <div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cancelModalLabel">Confirm Cancellation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to cancel the analysis?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-danger" id="confirm-cancel-btn">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer id="footer" role="contentinfo"
+          style="background-color: #242424; color: #fff; text-align: center; padding: 25px 0; font-size: 16px; width: 100%; position: fixed; bottom: 0; left: 0;">
+    <div class="credits" style="margin-bottom: 10px; padding-top: 10px;">
+      Created by
+      <a href="mailto:andrea.f.lucas.22@um.edu.mt" target="_blank"
+         style="color: #fff; text-decoration: none; font-size: 16px;"
+         onmouseover="this.style.textDecoration='underline'; this.style.color='#0D6EFD';"
+         onmouseout="this.style.textDecoration='none'; this.style.color='#fff';">
+         Andrea Filiberto Lucas
+      </a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS (via CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ========== STEP MANAGEMENT ==========
+    const step1El = document.getElementById('step1');
+    const step2El = document.getElementById('step2');
+    const step3El = document.getElementById('step3');
+    const step4El = document.getElementById('step4');
+    const step5El = document.getElementById('step5');
+
+    const uploadSection = document.getElementById('upload-section');
+    const optionsSection = document.getElementById('options-section');
+    const confirmSection = document.getElementById('confirm-section');
+    const analysisSection = document.getElementById('analysis-section');
+    const resultsSection = document.getElementById('results-section');
+
+    function goToStep(stepNumber) {
+      [uploadSection, optionsSection, confirmSection, analysisSection, resultsSection].forEach(sec => sec.classList.remove('active'));
+      [step1El, step2El, step3El, step4El, step5El].forEach(s => s.classList.remove('active'));
+
+      switch(stepNumber) {
+        case 1:
+          uploadSection.classList.add('active');
+          step1El.classList.add('active');
+          break;
+        case 2:
+          optionsSection.classList.add('active');
+          step2El.classList.add('active');
+          break;
+        case 3:
+          confirmSection.classList.add('active');
+          step3El.classList.add('active');
+          break;
+        case 4:
+          analysisSection.classList.add('active');
+          step4El.classList.add('active');
+          simulateProgress(); // Start progress simulation in Step 4
+          break;
+        case 5:
+          resultsSection.classList.add('active');
+          step5El.classList.add('active');
+          displayResults(); // Display results in Step 5
+          break;
+        default:
+          uploadSection.classList.add('active');
+          step1El.classList.add('active');
+          break;
+      }
+    }
+
+    // ========== STEP 1: UPLOAD ==========
+    const dropArea = document.getElementById('drop-area');
+    const fileInput = document.getElementById('file-input');
+    const errorMessage = document.getElementById('error-message');
+    const successMessage = document.getElementById('success-message');
+    const videoInfo = document.getElementById('video-info');
+    const videoPreviewContainer = document.getElementById('preview-container');
+    const videoPreview = document.getElementById('video-preview');
+    const nextBtn1 = document.getElementById('next-btn-1');
+    const uploadInstructions = document.getElementById('upload-instructions');
+
+    let selectedFile = null;
+    let videoDuration = null;
+
+    // Prevent default drag behaviors
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+      dropArea.addEventListener(eventName, e => e.preventDefault(), false);
+      document.body.addEventListener(eventName, e => e.preventDefault(), false);
+    });
+
+    // Highlight drop area on drag
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropArea.addEventListener(eventName, () => dropArea.classList.add('hover'), false);
+    });
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropArea.addEventListener(eventName, () => dropArea.classList.remove('hover'), false);
+    });
+
+    // Handle dropped files
+    dropArea.addEventListener('drop', e => {
+      const dt = e.dataTransfer;
+      if (dt.files.length) handleFiles(dt.files);
+    });
+
+    // Click to open file dialog
+    dropArea.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length) handleFiles(fileInput.files);
+    });
+
+    function handleFiles(files) {
+      resetMessages();
+      const file = files[0];
+      if (!file) return;
+
+      // Maximum file size check (50 MB)
+      const maxSizeMB = 50;
+      if (file.size > maxSizeMB * 1024 * 1024) {
+        showError(`File size exceeds the maximum limit of ${maxSizeMB} MB.`);
+        fileInput.value = "";
+        return;
+      }
+
+      // Accept only allowed video formats
+      const allowedTypes = ["video/mp4", "video/webm", "video/ogg", "video/quicktime", "video/x-matroska"];
+      if (!allowedTypes.includes(file.type)) {
+        showError(`Unsupported format: ${file.type}. Please select a standard video file.`);
+        fileInput.value = "";
+        return;
+      }
+
+      selectedFile = file;
+      nextBtn1.disabled = false;
+
+      const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+      videoInfo.style.display = 'block';
+      videoInfo.innerHTML = `
+        <strong>File Name:</strong> ${file.name}<br>
+        <strong>Video Duration:</strong> Loading...<br>
+        <strong>Size:</strong> ${sizeMB} MB
+      `;
+
+      videoPreviewContainer.style.display = 'block';
+      videoPreview.src = URL.createObjectURL(file);
+      videoPreview.load();
+      videoPreview.addEventListener('loadedmetadata', function() {
+        videoDuration = videoPreview.duration;
+        let minutes = Math.floor(videoDuration / 60);
+        let seconds = Math.floor(videoDuration % 60);
+        videoInfo.innerHTML = `
+          <strong>File Name:</strong> ${file.name}<br>
+          <strong>Video Duration:</strong> ${minutes}m ${seconds}s<br>
+          <strong>Size:</strong> ${sizeMB} MB
+        `;
+      }, { once: true });
+
+      // Update drop-content so that the file input remains intact
+      document.getElementById('drop-content').innerHTML = `
+        <p class="text-success"><i class="bi bi-check-circle me-2"></i>${file.name} uploaded successfully!</p>
+        <p class="mt-2">Click here or drag another video to replace the current upload.</p>
+      `;
+      uploadInstructions.style.display = 'block';
+    }
+
+    function showError(msg) {
+      errorMessage.textContent = msg;
+      errorMessage.style.display = 'block';
+      console.error(msg);
+    }
+
+    function showSuccess(msg) {
+      successMessage.textContent = msg;
+      successMessage.style.display = 'block';
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 3000);
+    }
+
+    function resetMessages() {
+      errorMessage.style.display = 'none';
+      successMessage.style.display = 'none';
+      uploadInstructions.style.display = 'none';
+    }
+
+    nextBtn1.addEventListener('click', () => {
+      goToStep(2);
+    });
+
+    // ========== STEP 2: SELECT OPTIONS ==========
+    const backBtn2 = document.getElementById('back-btn-2');
+    const nextBtn2 = document.getElementById('next-btn-2');
+    const modelSelect = document.getElementById('model-select');
+
+    backBtn2.addEventListener('click', () => {
+      goToStep(1);
+    });
+
+    nextBtn2.addEventListener('click', () => {
+      goToStep(3);
+      document.getElementById('confirm-filename').textContent = selectedFile ? selectedFile.name : 'N/A';
+      document.getElementById('confirm-duration').textContent = videoDuration ?
+        `${Math.floor(videoDuration / 60)}m ${Math.floor(videoDuration % 60)}s` : 'N/A';
+      document.getElementById('confirm-filesize').textContent = selectedFile ?
+        ((selectedFile.size / (1024 * 1024)).toFixed(2) + ' MB') : 'N/A';
+      document.getElementById('confirm-model').textContent = modelSelect.value;
+    });
+
+    // ========== STEP 3: CONFIRMATION ==========
+    const backBtn3 = document.getElementById('back-btn-3');
+    const runAnalysisBtn = document.getElementById('run-analysis-btn');
+
+    backBtn3.addEventListener('click', () => {
+      goToStep(2);
+    });
+
+    runAnalysisBtn.addEventListener('click', () => {
+      goToStep(4);
+      simulateProgress();
+    });
+
+    // ========== STEP 4: ANALYSIS IN PROGRESS ==========
+    const cancelAnalysisBtn = document.getElementById('cancel-analysis-btn');
+    cancelAnalysisBtn.addEventListener('click', () => {
+      const cancelModal = new bootstrap.Modal(document.getElementById('cancelModal'));
+      cancelModal.show();
+    });
+
+    document.getElementById('confirm-cancel-btn').addEventListener('click', () => {
+      window.location.reload();
+    });
+
+    // ========== PROGRESS BAR SIMULATION ==========
+    function simulateProgress() {
+      const progressBar = document.getElementById('progress-bar');
+      let progress = 0;
+      progressBar.style.width = progress + '%';
+      progressBar.textContent = progress + '%';
+      const interval = setInterval(() => {
+        if (progress >= 100) {
+          clearInterval(interval);
+          progressBar.textContent = 'Complete';
+          setTimeout(() => {
+            goToStep(5);
+          }, 1000);
+        } else {
+          progress += 10;
+          progressBar.style.width = progress + '%';
+          progressBar.textContent = progress + '%';
+        }
+      }, 500);
+    }
+
+    // ========== STEP 5: RESULTS ==========
+    const resultsContainer = document.getElementById('results-container');
+    const downloadResultsBtn = document.getElementById('download-results-btn');
+
+    function displayResults() {
+      resultsContainer.innerHTML = `<p class="text-center">Process Complete. [Analysis results go here]</p>`;
+    }
+
+    downloadResultsBtn.addEventListener('click', () => {
+      const results = { /* Dummy results data */ message: "Analysis Complete" };
+      const blob = new Blob([JSON.stringify(results, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'analysis_results.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+
+    // ========== RESET FUNCTION ==========
+    function resetAll() {
+      fileInput.value = "";
+      selectedFile = null;
+      videoDuration = null;
+      document.getElementById('drop-content').innerHTML = `
+        <i class="bi bi-upload" style="font-size: 2.5rem;"></i>
+        <p class="mt-2">Drag & drop your video here, or click to select</p>
+      `;
+      resetMessages();
+      videoInfo.style.display = 'none';
+      videoPreviewContainer.style.display = 'none';
+      nextBtn1.disabled = true;
+    }
+
+    // Initialize at Step 1
+    goToStep(1);
+  </script>
+</body>
+</html>
