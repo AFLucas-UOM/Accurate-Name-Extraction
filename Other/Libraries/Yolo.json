@@ -2,6 +2,5 @@
     "opencv-python": "cv2",
     "matplotlib": "matplotlib",
     "tqdm": "tqdm",
-    "ultralytics" : "ultralytics",
-    "torch" : "torch"
+    "ultralytics" : "ultralytics"
 }
