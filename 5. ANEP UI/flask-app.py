@@ -1,60 +1,79 @@
-from flask import Flask, render_template, request, jsonify
-import os
+from flask import Flask, jsonify
+from flask_cors import CORS
 import time
-from werkzeug.utils import secure_filename
+import platform
+import socket
+import psutil
+import torch
+import importlib.metadata
+import subprocess
 
-app = Flask(__name__, static_folder='assets')
+start_time = time.time()
 
-# Configuration
-UPLOAD_FOLDER = os.path.join(app.root_path, 'uploads')
-ALLOWED_EXTENSIONS = {'mp4', 'webm', 'ogg', 'mov', 'mkv'}
-MAX_CONTENT_LENGTH = 50 * 1024 * 1024  # 50 MB
+FRONTEND_ORIGIN = "http://localhost:8080"
+FRONTEND_PORT = FRONTEND_ORIGIN.split(":")[-1]
 
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_LENGTH
+app = Flask(__name__)
+CORS(app, origins=[FRONTEND_ORIGIN])
 
-# Ensure the upload folder exists
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
+def get_apple_chip():
+    try:
+        result = subprocess.run(
+            ["sysctl", "-n", "machdep.cpu.brand_string"],
+            stdout=subprocess.PIPE,
+            text=True,
+            check=True
+        )
+        return result.stdout.strip()
+    except Exception as e:
+        print("[Apple chip detection error]", e)
+        return "Apple M-series"
 
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+@app.route("/api/ping", methods=["GET"])
+def ping():
+    uptime_seconds = int(time.time() - start_time)
+    memory_info = psutil.virtual_memory()
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+    gpu_status = {
+        "available": False,
+        "name": None
+    }
 
-@app.route('/analyze', methods=['POST'])
-def analyze():
-    """
-    Simulate analysis of an uploaded video.
-    Expects a file under the key "video" in a POST form-data request.
-    """
-    if 'video' not in request.files:
-        return jsonify({'error': 'No video file provided'}), 400
+    try:
+        if torch.cuda.is_available():
+            gpu_status = {
+                "available": True,
+                "name": torch.cuda.get_device_name(0)
+            }
+            status_message = "Ping"
+        elif torch.backends.mps.is_available():
+            gpu_status = {
+                "available": True,
+                "name": get_apple_chip()
+            }
+            status_message = "Ping"
+        else:
+            status_message = "Pong"
+    except Exception as e:
+        print("[GPU detection error]", e)
+        status_message = "Pong"
 
-    file = request.files['video']
+    return jsonify({
+        "message": status_message,
+        "status": "Ok" if status_message == "Ping" else "Error",
+        "pythonVersion": platform.python_version(),
+        "flaskVersion": importlib.metadata.version("flask"),
+        "flaskEnv": "Debug" if app.debug else "Production",
+        "uptimeSeconds": uptime_seconds,
+        "serverTime": time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
+        "hostname": socket.gethostname(),
+        "port": 5050,
+        "frontendPort": FRONTEND_PORT,
+        "memoryUsedMb": round(memory_info.used / 1024**2, 2),
+        "memoryTotalMb": round(memory_info.total / 1024**2, 2),
+        "gpuAvailable": gpu_status["available"],
+        "gpuName": gpu_status["name"] or "None"
+    })
 
-    if file.filename == '':
-        return jsonify({'error': 'No file selected'}), 400
-
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(filepath)
-
-        # Simulate analysis delay
-        time.sleep(5)
-
-        results = {
-            'message': 'Analysis complete',
-            'video_filename': filename,
-            'extracted_names': ['Donald Trump', 'Keir Starmer', 'Boris Johnson']
-        }
-
-        return jsonify(results)
-    else:
-        return jsonify({'error': 'File type not allowed'}), 400
-
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=5050)
