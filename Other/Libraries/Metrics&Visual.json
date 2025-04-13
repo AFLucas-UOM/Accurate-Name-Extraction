@@ -1,0 +1,9 @@
+{
+    "pandas": "pandas",
+    "numpy": "numpy",
+    "matplotlib": "matplotlib",
+    "seaborn": "seaborn",
+    "opencv-python": "cv2",
+    "ultralytics": "ultralytics",
+    "ipython": "IPython"
+}
