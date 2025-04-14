@@ -30,9 +30,8 @@ const UploadStep = ({
   const [videoURL, setVideoURL] = useState<string | null>(null);
   const [videoMetadata, setVideoMetadata] = useState<{ duration: number; type: string } | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const toastIdRef = useRef<string | undefined>(undefined); // ✅ TS-safe
+  const toastIdRef = useRef<string | undefined>(undefined);
 
-  // ✅ Restore state from parent when coming back
   useEffect(() => {
     if (initialFile && initialURL && initialMetadata) {
       setVideoFile(initialFile);
@@ -52,6 +51,28 @@ const UploadStep = ({
       });
       URL.revokeObjectURL(video.src);
     };
+  };
+
+  const uploadToServer = async (file: File) => {
+    const formData = new FormData();
+    formData.append("video", file);
+
+    try {
+      const response = await fetch("http://localhost:5050/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) throw new Error("Upload failed");
+      console.log("✅ Server upload complete");
+    } catch (err) {
+      console.error("❌ Server upload error:", err);
+      toast({
+        title: "Upload failed",
+        description: "There was an issue uploading your video to the server.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -78,10 +99,11 @@ const UploadStep = ({
         setVideoURL(url);
         extractVideoMetadata(file);
         onVideoUploaded(file);
+        uploadToServer(file);
 
         const toastData = toast({
-          title: "Video uploaded",
-          description: `${file.name} has been successfully uploaded.`,
+          title: "Video uploaded 🎉",
+          description: `${file.name} has successfully uploaded!`,
         });
 
         toastIdRef.current = toastData?.id as string;
@@ -106,10 +128,11 @@ const UploadStep = ({
         setVideoURL(url);
         extractVideoMetadata(file);
         onVideoUploaded(file);
+        uploadToServer(file);
 
         const toastData = toast({
-          title: "Video uploaded",
-          description: `${file.name} has been successfully uploaded.`,
+          title: "Video uploaded 🎉",
+          description: `${file.name} has successfully uploaded!`,
         });
 
         toastIdRef.current = toastData?.id as string;

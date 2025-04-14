@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import time
 import platform
@@ -7,6 +7,7 @@ import psutil
 import torch
 import importlib.metadata
 import subprocess
+import os
 
 start_time = time.time()
 
@@ -15,6 +16,9 @@ FRONTEND_PORT = FRONTEND_ORIGIN.split(":")[-1]
 
 app = Flask(__name__)
 CORS(app, origins=[FRONTEND_ORIGIN])
+
+UPLOAD_FOLDER = os.path.join(os.getcwd(), "5. ANEP UI/Uploads")
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def get_apple_chip():
     try:
@@ -74,6 +78,32 @@ def ping():
         "gpuAvailable": gpu_status["available"],
         "gpuName": gpu_status["name"] or "None"
     })
+
+@app.route("/api/upload", methods=["POST"])
+def upload_video():
+    print("[INFO] Received file upload request")
+
+    if "video" not in request.files:
+        print("[ERROR] No file part in the request")
+        return jsonify({"error": "No file part in the request"}), 400
+
+    file = request.files["video"]
+    print(f"[INFO] File received: {file.filename}")
+
+    if file.filename == "":
+        print("[ERROR] No selected file")
+        return jsonify({"error": "No selected file"}), 400
+
+    if not file.content_type.startswith("video/"):
+        print("[ERROR] File is not a video")
+        return jsonify({"error": "Only video files are allowed"}), 400
+
+    save_path = os.path.join(UPLOAD_FOLDER, file.filename)
+    print(f"[INFO] Saving file to: {save_path}")
+    file.save(save_path)
+
+    print("[SUCCESS] File uploaded successfully")
+    return jsonify({"message": "File uploaded successfully", "filename": file.filename})
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5050)
