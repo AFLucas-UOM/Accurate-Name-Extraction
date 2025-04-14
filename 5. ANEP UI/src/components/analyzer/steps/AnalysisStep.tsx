@@ -530,7 +530,7 @@ const AnalysisStep = ({
           for (const logMsg of selectedLogs) {
             if (cancelRef.current) break;
             await new Promise((resolve) => setTimeout(resolve, 150 / speedRef.current));
-            addLog(`<i>${logMsg}</i>`, 'info');
+            addLog(`${logMsg}`, 'info');
           }
         }
 
