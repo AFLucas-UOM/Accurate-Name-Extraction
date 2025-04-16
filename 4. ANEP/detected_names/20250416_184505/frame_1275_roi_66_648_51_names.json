@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Brother Rourke",
+    "methods": [
+      "spacy"
+    ],
+    "confidence": 0.85,
+    "start": 147,
+    "end": 161
+  }
+]

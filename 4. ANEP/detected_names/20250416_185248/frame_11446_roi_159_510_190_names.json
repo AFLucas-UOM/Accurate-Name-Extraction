@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Elon Musk",
+    "methods": [
+      "spacy"
+    ],
+    "confidence": 0.85,
+    "start": 79,
+    "end": 88
+  }
+]

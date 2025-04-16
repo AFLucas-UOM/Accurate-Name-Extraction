@@ -1,0 +1,125 @@
+{
+  "unique_names": 18,
+  "total_instances": 79,
+  "names": {
+    "President Trump": 25,
+    "Elon Musk": 17,
+    "Ally Sartorius": 9,
+    "Taylor Swift": 9,
+    "Kamala Harris": 7,
+    "Mike Johnson": 5,
+    "Travis Kelce": 4,
+    "Kevin Corke": 3,
+    "Kamala Harri": 2,
+    "Kamala Harris Fox": 2,
+    "Shannon Eream": 1,
+    "Shannon Bream": 1,
+    "Shannon _": 1,
+    "Lm Fox": 1,
+    "Sper Wwe": 1,
+    "Chris Murphy": 1,
+    "Kristi Noem": 1,
+    "Leox Anews": 1
+  },
+  "class_statistics": {
+    "Lower Third Graphic": 64,
+    "Other News Graphic": 9,
+    "Digital On-Screen Graphic": 6
+  },
+  "time_ranges": {
+    "Shannon Eream": {
+      "first_appearance": "00:00:39",
+      "last_appearance": "00:00:39",
+      "duration": 0.0
+    },
+    "Shannon Bream": {
+      "first_appearance": "00:00:44",
+      "last_appearance": "00:00:44",
+      "duration": 0.0
+    },
+    "Shannon _": {
+      "first_appearance": "00:00:43",
+      "last_appearance": "00:00:43",
+      "duration": 0.0
+    },
+    "Lm Fox": {
+      "first_appearance": "00:01:04",
+      "last_appearance": "00:01:04",
+      "duration": 0.0
+    },
+    "Kevin Corke": {
+      "first_appearance": "00:01:04",
+      "last_appearance": "00:01:06",
+      "duration": 1.9686333333333295
+    },
+    "President Trump": {
+      "first_appearance": "00:01:50",
+      "last_appearance": "00:02:45",
+      "duration": 55.12173333333334
+    },
+    "Elon Musk": {
+      "first_appearance": "00:02:52",
+      "last_appearance": "00:03:10",
+      "duration": 18.70201666666668
+    },
+    "Sper Wwe": {
+      "first_appearance": "00:03:00",
+      "last_appearance": "00:03:00",
+      "duration": 0.0
+    },
+    "Chris Murphy": {
+      "first_appearance": "00:03:08",
+      "last_appearance": "00:03:08",
+      "duration": 0.0
+    },
+    "Mike Johnson": {
+      "first_appearance": "00:03:23",
+      "last_appearance": "00:03:28",
+      "duration": 4.921583333333331
+    },
+    "Ally Sartorius": {
+      "first_appearance": "00:05:28",
+      "last_appearance": "00:05:36",
+      "duration": 7.874533333333318
+    },
+    "Taylor Swift": {
+      "first_appearance": "00:05:28",
+      "last_appearance": "00:05:36",
+      "duration": 7.874533333333318
+    },
+    "Kamala Harris": {
+      "first_appearance": "00:05:28",
+      "last_appearance": "00:05:35",
+      "duration": 6.890216666666674
+    },
+    "Kamala Harri": {
+      "first_appearance": "00:05:29",
+      "last_appearance": "00:05:30",
+      "duration": 0.9843166666667003
+    },
+    "Kamala Harris Fox": {
+      "first_appearance": "00:05:32",
+      "last_appearance": "00:05:36",
+      "duration": 3.9372666666666305
+    },
+    "Travis Kelce": {
+      "first_appearance": "00:05:46",
+      "last_appearance": "00:05:49",
+      "duration": 2.952950000000044
+    },
+    "Kristi Noem": {
+      "first_appearance": "00:08:39",
+      "last_appearance": "00:08:39",
+      "duration": 0.0
+    },
+    "Leox Anews": {
+      "first_appearance": "00:08:55",
+      "last_appearance": "00:08:55",
+      "duration": 0.0
+    }
+  },
+  "efficiency": {
+    "duplicate_frames_skipped": 619,
+    "duplicate_rois_skipped": 619
+  }
+}
