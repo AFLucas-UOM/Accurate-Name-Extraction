@@ -609,7 +609,6 @@ class NewsGraphicsNameDetector:
             }
         }
 
-
 def parse_arguments():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description='News Graphics Name Detection Pipeline')
