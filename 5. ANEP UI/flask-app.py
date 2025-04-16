@@ -11,7 +11,7 @@ import os
 
 start_time = time.time()
 
-FRONTEND_ORIGIN = "http://localhost:8082"
+FRONTEND_ORIGIN = "http://localhost:8080"
 FRONTEND_PORT = FRONTEND_ORIGIN.split(":")[-1]
 
 app = Flask(__name__)
