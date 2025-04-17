@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useTheme } from "./hooks/use-theme";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import { SurveyVisualizerCore } from "./pages/SurveyVisualizerCore";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/survey" element={<SurveyVisualizerCore />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
