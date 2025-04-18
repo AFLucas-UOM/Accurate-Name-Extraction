@@ -38,6 +38,8 @@ FRAME_CACHE_SIZE = 100
 SIMILARITY_THRESHOLD = 0.95  # Threshold for frame similarity (0.0-1.0)
 CONTIGUOUS_SKIP_THRESHOLD = 3  # Skip processing after this many similar frames in a row
 
+# Disable parallelism for tokenizers to avoid warnings
+os.environ["TOKENIZERS_PARALLELISM"] = "false" 
 
 class NewsGraphicsNameDetector:
     """Enhanced News Graphics Name Detection Pipeline with deduplication and improved accuracy."""
@@ -60,13 +62,14 @@ class NewsGraphicsNameDetector:
     def __init__(self, config: Dict[str, Any] = None):
         """Initialize the pipeline with optional configuration."""
         # Set up default configuration
+        self.project_root = Path.cwd()
         self.config = {
             "tesseract_cmd": '/opt/homebrew/bin/tesseract',
             "confidence_threshold": 0.6,
             "iou_threshold": 0.5,
             "ocr_conf_threshold": 40,
             "transformer_conf_threshold": 0.85,
-            "yolo_model_path": "best.pt",
+            "yolo_model_path": str(self.project_root / "3. Yolo Training/runs/detect/NGD-Yolov12_v5/weights/best.pt"),
             "spacy_model": "en_core_web_md",
             "transformer_model": "dbmdz/bert-large-cased-finetuned-conll03-english",
             "similarity_threshold": SIMILARITY_THRESHOLD,
@@ -118,7 +121,7 @@ class NewsGraphicsNameDetector:
             handlers=[RichHandler(console=self.console, rich_tracebacks=True)]
         )
         self.timestamp_str = datetime.now().strftime('%Y%m%d_%H%M%S')
-        LOG_DIR = Path("logs")
+        LOG_DIR = Path.cwd() / "4. ANEP/logs"
         LOG_DIR.mkdir(exist_ok=True)
         log_filename = LOG_DIR / f"extraction_{self.timestamp_str}.log"
         file_handler = logging.FileHandler(log_filename)
@@ -133,11 +136,11 @@ class NewsGraphicsNameDetector:
     
     def create_directories(self):
         """Create necessary directories for outputs."""
-        self.ROI_DIR = Path("regions_of_interest") / self.timestamp_str
-        self.OCR_TEXT_DIR = Path("ocr_text") / self.timestamp_str
-        self.NAMES_DIR = Path("detected_names") / self.timestamp_str
-        self.RESULTS_DIR = Path("results") / self.timestamp_str
-        self.DEDUPLICATED_DIR = Path("deduplicated_frames") / self.timestamp_str
+        self.ROI_DIR = Path.cwd() / "4. ANEP/regions_of_interest" / self.timestamp_str
+        self.OCR_TEXT_DIR = Path.cwd() / "4. ANEP/ocr_text" / self.timestamp_str
+        self.NAMES_DIR = Path.cwd() / "4. ANEP/detected_names" / self.timestamp_str
+        self.RESULTS_DIR = Path.cwd() / "4. ANEP/results" / self.timestamp_str
+        self.DEDUPLICATED_DIR = Path.cwd() / "4. ANEP/deduplicated_frames" / self.timestamp_str
         for directory in [self.ROI_DIR, self.OCR_TEXT_DIR, self.NAMES_DIR, self.RESULTS_DIR, self.DEDUPLICATED_DIR]:
             directory.mkdir(parents=True, exist_ok=True)
             self.logger.info(f"Created directory: {directory}")
@@ -1011,6 +1014,25 @@ class NewsGraphicsNameDetector:
         self.logger.info(f"Generated summary and saved to {summary_file}")
         return summary
     
+    def get_model_versions(self) -> Dict[str, str]:
+        """Return the versions/paths of models used for reproducibility logging."""
+        versions = {
+            "yolo_model": self.config.get("yolo_model_path", "unknown"),
+            "spacy_model": self.config.get("spacy_model", "unknown"),
+            "transformer_model": self.config.get("transformer_model", "unknown"),
+            "gliner_version": "not_installed"
+        }
+        
+        if GLINER_AVAILABLE:
+            try:
+                import gliner_spacy
+                versions["gliner_version"] = getattr(gliner_spacy, '__version__', "unknown")
+            except Exception:
+                versions["gliner_version"] = "unknown"
+        
+        return versions
+
+
     def run(self, video_path: str, sampling_rate: float = 1.0, max_frames: Optional[int] = None, skip_duplicates: bool = True) -> Dict[str, Any]:
         """Run the complete pipeline on a video file with improved efficiency."""
         self.console.print(f"[bold green]Processing video:[/bold green] {video_path}")
@@ -1026,6 +1048,14 @@ class NewsGraphicsNameDetector:
         summary = self.generate_summary(results)
         timeline = self.generate_timeline(results)
         
+        # Save model version info
+        model_versions = self.get_model_versions()
+        versions_file = self.RESULTS_DIR / f"model_versions_{self.timestamp_str}.json"
+        with open(versions_file, 'w', encoding='utf-8') as f:
+            json.dump(model_versions, f, indent=2)
+        self.logger.info(f"Saved model versions to {versions_file}")
+
+
         self.console.print(f"\n[bold]Processing completed in {processing_time:.2f} seconds[/bold]")
         self.console.print("\n[bold]Output directories:[/bold]")
         self.console.print(f"Regions of interest: {self.ROI_DIR}")
@@ -1033,7 +1063,9 @@ class NewsGraphicsNameDetector:
         self.console.print(f"Detected names: {self.NAMES_DIR}")
         self.console.print(f"Results JSON: {self.RESULTS_DIR}")
         self.console.print(f"Log file: {self.log_filename}")
-        
+        self.console.print(f"\n[bold]Model versions used:[/bold]")
+        for k, v in model_versions.items():
+            self.console.print(f"  {k}: {v}")
         return {
             "results": [r.to_dict() for r in results],
             "summary": summary,
@@ -1048,11 +1080,10 @@ class NewsGraphicsNameDetector:
             }
         }
 
-
 def parse_arguments():
     """Parse command line arguments with enhanced options."""
     parser = argparse.ArgumentParser(description='Enhanced News Graphics Name Detection Pipeline')
-    parser.add_argument('--video', '-v', type=str, default='Video_T4.mp4',
+    parser.add_argument('--video', '-v', type=str, default=str(Path.cwd() / "4. ANEP/Videos/Video_T1.mp4"),
                         help='Path to the video file to process')
     parser.add_argument('--sampling_rate', '-s', type=float, default=1.0,
                         help='Sampling rate in seconds (default: 1.0)')

@@ -1,0 +1,6 @@
+{
+  "yolo_model": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/3. Yolo Training/runs/detect/NGD-Yolov12_v5/weights/best.pt",
+  "spacy_model": "en_core_web_md",
+  "transformer_model": "dbmdz/bert-large-cased-finetuned-conll03-english",
+  "gliner_version": "0.0.11"
+}
