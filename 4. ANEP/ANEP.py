@@ -71,7 +71,7 @@ class NewsGraphicsNameDetector:
             "transformer_model": "dbmdz/bert-large-cased-finetuned-conll03-english",
             "similarity_threshold": SIMILARITY_THRESHOLD,
             "contiguous_skip_threshold": CONTIGUOUS_SKIP_THRESHOLD,
-            "roi_padding": 5,  # Add padding to ROIs for better context
+            "roi_padding": 5,  # Added padding to ROIs for better context
             "valid_classes": {
                 "Breaking News Graphic",
                 "Digital On-Screen Graphic",
@@ -128,8 +128,8 @@ class NewsGraphicsNameDetector:
         self.logger = logging.getLogger()
         self.logger.addHandler(file_handler)
         self.log_filename = log_filename
-        self.console.print("[bold green]Starting Enhanced Name Extraction Pipeline (ENEP)[bold green]")
-        self.logger.info("Starting Enhanced Name Extraction Pipeline (ENEP)")
+        self.console.print("[bold green]Starting Enhanced Name Extraction Pipeline (ANEP)[bold green]")
+        self.logger.info("Starting Enhanced Name Extraction Pipeline (ANEP)")
     
     def create_directories(self):
         """Create necessary directories for outputs."""
@@ -174,7 +174,7 @@ class NewsGraphicsNameDetector:
             if GLINER_AVAILABLE:
                 # Add GliNER as a custom component configured to extract only person entities
                 self.nlp.add_pipe("gliner_spacy", config={"labels": ["person"]})
-                self.logger.info("GliNER component added to the spaCy pipeline for zero-shot person NER")
+                self.logger.info("GliNER component added to the spaCy pipeline for zero-shot PERSON NER")
             else:
                 self.logger.warning("GliNER not found; using default spaCy NER")
         except Exception as e:
@@ -185,7 +185,7 @@ class NewsGraphicsNameDetector:
         try:
             self.console.print("[yellow]Loading YOLO model...[/yellow]")
             self.yolo_model = YOLO(self.config["yolo_model_path"])
-            self.logger.info("YOLO model loaded successfully")
+            self.logger.info("YOLOv12 model loaded successfully")
         except Exception as e:
             self.logger.error(f"Failed to load YOLO model: {e}")
             raise RuntimeError(f"YOLO model loading failed: {e}")
@@ -519,8 +519,32 @@ class NewsGraphicsNameDetector:
             name = " ".join(word.capitalize() for word in name.split())
         
         # Handle name prefixes and suffixes
-        prefixes = ["Dr.", "Mr.", "Mrs.", "Ms.", "Prof.", "Rev.", "Hon."]
-        suffixes = ["Jr.", "Sr.", "II", "III", "IV", "PhD", "MD", "Esq."]
+        prefixes = [
+            # Common Titles
+            "Mr.", "Mrs.", "Ms.", "Miss", "Mx.",
+
+            # Academic Titles
+            "Dr.", "Prof.", "Dean",
+
+            # Religious Titles
+            "Rev.", "Fr.", "Br.", "Sr.", "Pr.", "Pope", "Rabbi", "Imam", "Sheikh", "Cardinal", "Archbishop",
+
+            # Honorifics & Nobility
+            "Hon.", "Sir", "Dame", "Lord", "Lady", "Baron", "Baroness", "Count", "Countess", "Viscount", "Marquess", "Duke", "Duchess",
+
+            # Military & Government
+            "Capt.", "Maj.", "Col.", "Gen.", "Lt.", "Sgt.", "Adm.", "Cmdr.", "Chief",
+            "Judge", "Justice", "Pres.", "Gov.", "Amb.", "Sec.",
+
+            # Other Professional or Formal
+            "Engr.", "Arch.", "Atty.", "Supt.", "Chancellor", "Constable", "Inspector",
+        ]
+
+        suffixes = [
+            "Jr.", "Sr.", "II", "III", "IV", "PhD", "MD", "Esq.", "DDS", "DVM", 
+            "MBA", "CPA", "RN", "DO", "OD", "JD", "EdD", "LLD", "ThD", "PE",
+            "Esquire", "Ret.", "CFA", "CM", "KC", "QC", "MP", "MLA", "MPP"
+        ]
         
         # Ensure prefixes and suffixes are properly capitalized
         words = name.split()
@@ -1079,7 +1103,7 @@ def main():
             args.skip_duplicates
         )
     except KeyboardInterrupt:
-        print("\nProcess interrupted by user")
+        print("\nWarning: Process interrupted by user")
     except Exception as e:
         print(f"\nError: {str(e)}")
         import traceback
