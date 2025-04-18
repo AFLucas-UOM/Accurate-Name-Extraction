@@ -927,6 +927,302 @@ class NewsGraphicsNameDetector:
         
         return results
     
+    def cluster_names(self) -> Dict[str, Any]:
+        """
+        Cluster similar names using multiple similarity metrics:
+        1. Fuzzy matching (token set ratio) - robust against titles and word reordering
+        2. Jaccard similarity - compares word set overlap
+        3. spaCy embedding similarity - captures semantic similarity
+        """
+        # Thresholds for different similarity metrics
+        threshold_fuzzy = 90
+        threshold_jaccard = 0.5
+        threshold_embedding = 0.85
+        
+        # Cache for embedding calculations to avoid recomputing
+        embedding_cache = {}
+        
+        def get_embedding(name: str) -> np.ndarray:
+            """Get and cache spaCy embeddings."""
+            if name not in embedding_cache:
+                try:
+                    embedding_cache[name] = self.nlp(name).vector
+                except Exception as e:
+                    self.logger.warning(f"Failed to get embedding for '{name}': {e}")
+                    embedding_cache[name] = np.zeros(self.nlp.vocab.vectors.shape[1])
+            return embedding_cache[name]
+        
+        def jaccard_similarity(name1: str, name2: str) -> float:
+            """Calculate Jaccard similarity between word sets."""
+            set1 = set(name1.lower().split())
+            set2 = set(name2.lower().split())
+            
+            # Special case: single-word names should have higher threshold
+            if len(set1) <= 1 and len(set2) <= 1:
+                return 1.0 if set1 == set2 else 0.0
+                
+            intersection = set1.intersection(set2)
+            union = set1.union(set2)
+            return len(intersection) / len(union) if union else 0
+        
+        def embedding_similarity(name1: str, name2: str) -> float:
+            """Calculate cosine similarity between word embeddings."""
+            vec1 = get_embedding(name1)
+            vec2 = get_embedding(name2)
+            
+            norm1 = np.linalg.norm(vec1)
+            norm2 = np.linalg.norm(vec2)
+            
+            if norm1 < 1e-6 or norm2 < 1e-6:
+                return 0
+                
+            return float(np.dot(vec1, vec2) / (norm1 * norm2))
+        
+        def are_names_similar(name1: str, name2: str) -> bool:
+            """Determine if names are similar using multiple metrics."""
+            # Quick exact match check
+            if name1 == name2:
+                return True
+                
+            # Check if one name is contained within the other
+            if name1 in name2 or name2 in name1:
+                # For contained names, apply stricter checks to avoid false positives
+                # Only allow if the longer name contains titles (Mr, Ms, Dr, etc.)
+                longer = name2 if len(name2) > len(name1) else name1
+                shorter = name1 if len(name2) > len(name1) else name2
+                titles = ["mr", "mrs", "ms", "dr", "prof", "miss", "sir", "madam"]
+                if any(title in longer.lower().split() for title in titles):
+                    return True
+            
+            # Apply all similarity metrics
+            fuzzy = fuzz.token_set_ratio(name1, name2)
+            
+            # Only compute more expensive metrics if fuzzy score is promising
+            if fuzzy >= threshold_fuzzy:
+                return True
+                
+            jaccard = jaccard_similarity(name1, name2)
+            if jaccard >= threshold_jaccard:
+                return True
+                
+            # Only compute embedding similarity as last resort (most expensive)
+            embed = embedding_similarity(name1, name2)
+            return embed >= threshold_embedding
+        
+        # Track best matches to improve clustering
+        name_to_cluster_idx = {}
+        canonical_clusters = []
+        
+        # First pass: create initial clusters
+        for name in self.unique_names:
+            best_match_idx = -1
+            best_match_score = -1
+            
+            # Find best matching existing cluster
+            for idx, cluster in enumerate(canonical_clusters):
+                # Check similarity with each alias in the cluster
+                for alias in cluster["aliases"]:
+                    if are_names_similar(name, alias):
+                        # For tie-breaking, prefer clusters with higher mention counts
+                        cluster_size = sum(self.name_instances.get(a, 0) for a in cluster["aliases"])
+                        current_score = cluster_size
+                        
+                        if current_score > best_match_score:
+                            best_match_score = current_score
+                            best_match_idx = idx
+            
+            if best_match_idx >= 0:
+                # Add to best matching cluster
+                canonical_clusters[best_match_idx]["aliases"].add(name)
+                name_to_cluster_idx[name] = best_match_idx
+            else:
+                # Create new cluster
+                new_idx = len(canonical_clusters)
+                canonical_clusters.append({"canonical": name, "aliases": {name}})
+                name_to_cluster_idx[name] = new_idx
+        
+        # Second pass: merge similar clusters
+        i = 0
+        while i < len(canonical_clusters):
+            j = i + 1
+            while j < len(canonical_clusters):
+                # Check if any aliases between clusters are similar
+                should_merge = False
+                for alias_i in canonical_clusters[i]["aliases"]:
+                    if should_merge:
+                        break
+                        
+                    for alias_j in canonical_clusters[j]["aliases"]:
+                        if are_names_similar(alias_i, alias_j):
+                            should_merge = True
+                            break
+                
+                if should_merge:
+                    # Merge cluster j into cluster i
+                    canonical_clusters[i]["aliases"].update(canonical_clusters[j]["aliases"])
+                    # Update mapping for all aliases from cluster j
+                    for alias in canonical_clusters[j]["aliases"]:
+                        name_to_cluster_idx[alias] = i
+                    # Remove cluster j
+                    canonical_clusters.pop(j)
+                else:
+                    j += 1
+            i += 1
+        
+        # Third pass: select best canonical name for each cluster with improved selection logic
+        for idx, cluster in enumerate(canonical_clusters):
+            aliases = cluster["aliases"]
+            
+            # Choose canonical name based on frequency, completeness, and length
+            best_canonical = cluster["canonical"]
+            max_score = -1
+            
+            for alias in aliases:
+                # Start with mentions count as base score
+                mentions = self.name_instances.get(alias, 0)
+                
+                # Calculate name completeness factors
+                word_count = len(alias.split())
+                char_count = len(alias)
+                
+                # Base length score
+                length_score = 1.0
+                
+                # Penalize very short or very long names
+                if word_count == 1:  # Single word names are likely incomplete
+                    length_score = 0.5
+                elif word_count > 4:  # Very long names may include extra information
+                    length_score = 0.8
+                    
+                # For names with equal word count (like "Shari" vs "Shariff"), 
+                # add a completeness bonus based on character length
+                completeness_bonus = 0
+                if word_count >= 2:
+                    # Add a small bonus proportional to character length
+                    completeness_bonus = min(0.5, char_count / 50)
+                    
+                # Bonus for names that appear to be more complete
+                # Check if a name appears to be a substring of another name
+                for other_alias in aliases:
+                    if alias != other_alias:
+                        # If this name contains all words from another name plus extra characters
+                        if set(other_alias.lower().split()).issubset(set(alias.lower().split())) and len(alias) > len(other_alias):
+                            completeness_bonus += 0.3
+                        # If this appears to be a shortened version
+                        elif other_alias.lower().startswith(alias.lower()) and len(other_alias) > len(alias):
+                            completeness_bonus -= 0.2
+                        
+                # Calculate final score
+                score = (mentions * length_score) + completeness_bonus
+                
+                # Debug logging to understand selection process
+                self.logger.debug(f"Name: {alias}, Score: {score} (Mentions: {mentions}, Length score: {length_score}, Completeness: {completeness_bonus})")
+                
+                if score > max_score:
+                    max_score = score
+                    best_canonical = alias
+                # Tiebreaker: if scores are equal, prefer the longer name (likely more complete)
+                elif score == max_score and len(alias) > len(best_canonical):
+                    best_canonical = alias
+                    
+            canonical_clusters[idx]["canonical"] = best_canonical
+        
+        # Aggregate stats and prepare output
+        grouped_summary = {}
+        
+        for cluster in canonical_clusters:
+            canonical = cluster["canonical"]
+            aliases = cluster["aliases"]
+            
+            # Compute aggregate statistics
+            total_mentions = sum(self.name_instances.get(a, 0) for a in aliases)
+            timestamps = []
+            
+            for alias in aliases:
+                timestamps.extend(self.name_timestamps.get(alias, []))
+                
+            if timestamps:
+                timestamps.sort()  # Ensure chronological order
+                start = timestamps[0]
+                end = timestamps[-1]
+                duration = end - start
+                
+                # Calculate frequency statistics
+                avg_interval = duration / max(total_mentions - 1, 1) if total_mentions > 1 else 0
+                
+                # Calculate activity periods
+                active_periods = []
+                current_period_start = start
+                last_timestamp = start
+                
+                for ts in timestamps[1:]:
+                    # If gap is more than 3 days, consider it a new period
+                    if ts - last_timestamp > 3 * 86400:  # 3 days in seconds
+                        active_periods.append((current_period_start, last_timestamp))
+                        current_period_start = ts
+                    last_timestamp = ts
+                    
+                # Add the last period
+                active_periods.append((current_period_start, last_timestamp))
+                
+                # Format periods for output
+                formatted_periods = [
+                    {
+                        "start": self.format_timestamp(period[0]),
+                        "end": self.format_timestamp(period[1]),
+                        "duration": period[1] - period[0]
+                    }
+                    for period in active_periods
+                ]
+            else:
+                start = end = duration = avg_interval = 0
+                formatted_periods = []
+            
+            # Create summary entry
+            grouped_summary[canonical] = {
+                "aliases": sorted(aliases),
+                "mentions": total_mentions,
+                "first_seen": self.format_timestamp(start),
+                "last_seen": self.format_timestamp(end),
+                "duration": duration,
+                "avg_interval": avg_interval,
+                "active_periods": formatted_periods,
+                "metrics": {
+                    "distinct_aliases": len(aliases)
+                }
+            }
+        
+        # Sort by mentions (most frequent first)
+        sorted_summary = dict(sorted(
+            grouped_summary.items(), 
+            key=lambda item: item[1]["mentions"], 
+            reverse=True
+        ))
+        
+        # Save to disk
+        cluster_path = self.RESULTS_DIR / f"name_clusters_{self.timestamp_str}.json"
+        try:
+            with open(cluster_path, 'w', encoding='utf-8') as f:
+                json.dump(sorted_summary, f, indent=2, ensure_ascii=False)
+            self.logger.info(f"Saved name clustering summary to {cluster_path} with {len(sorted_summary)} clusters")
+        except Exception as e:
+            self.logger.error(f"Failed to save name clustering summary: {e}")
+        
+        # Display summary information
+        self.console.print(f"\n[bold]Name Clustering Results:[/bold]")
+        self.console.print(f"Found {len(sorted_summary)} name clusters from {len(self.unique_names)} unique names")
+        
+        # Print top clusters
+        self.console.print("\n[bold]Top name clusters:[/bold]")
+        for i, (canonical, details) in enumerate(list(sorted_summary.items())[:10]):
+            alias_count = len(details["aliases"])
+            aliases_str = ", ".join(details["aliases"][:3])
+            if alias_count > 3:
+                aliases_str += f" and {alias_count-3} more"
+            self.console.print(f"  {canonical}: {details['mentions']} mentions, {alias_count} aliases [{aliases_str}]")
+        
+        return sorted_summary
+    
     def generate_timeline(self, results: List[DetectionResult]) -> Dict[str, List[Dict[str, Any]]]:
         """Generate a timeline of when each name appears in the video."""
         if not self.name_timestamps:
@@ -957,39 +1253,32 @@ class NewsGraphicsNameDetector:
             self.logger.warning("No results to summarize")
             return {"unique_names": 0, "total_instances": 0, "names": {}}
         
-        # Generate name occurrences
-        name_counts = {name: count for name, count in self.name_instances.items()}
-        sorted_names = sorted(name_counts.items(), key=lambda x: x[1], reverse=True)
+        # First, cluster similar names to improve accuracy
+        self.logger.info("Clustering similar names...")
+        clustered_names = self.cluster_names()
+        
+        # Generate name occurrences based on clustered data
+        sorted_names = sorted(clustered_names.items(), key=lambda x: x[1]["mentions"], reverse=True)
         
         # Generate class statistics
         class_stats = defaultdict(int)
         for result in results:
             class_stats[result.class_name] += 1
         
-        # Calculate time ranges for each name
-        name_time_ranges = {}
-        for name, timestamps in self.name_timestamps.items():
-            if timestamps:
-                start_time = min(timestamps)
-                end_time = max(timestamps)
-                name_time_ranges[name] = {
-                    "first_appearance": self.format_timestamp(start_time),
-                    "last_appearance": self.format_timestamp(end_time),
-                    "duration": end_time - start_time
-                }
-        
         # Print summary
         self.console.print("\n[bold]Name Detection Summary:[/bold]")
         self.console.print(f"Total detected name instances: {len(results)}")
-        self.console.print(f"Unique names detected: {len(self.unique_names)}")
+        self.console.print(f"Unique names after clustering: {len(clustered_names)}")
         
-        self.console.print("\n[bold]Top detected names:[/bold]")
-        for name, count in sorted_names[:10]:
-            time_info = name_time_ranges.get(name, {})
-            first_appearance = time_info.get("first_appearance", "unknown")
-            last_appearance = time_info.get("last_appearance", "unknown")
+        self.console.print("\n[bold]Top detected names (after clustering):[/bold]")
+        for name, details in sorted_names[:10]:
+            first_appearance = details.get("first_seen", "unknown")
+            last_appearance = details.get("last_seen", "unknown")
+            aliases = details.get("aliases", [])
+            alias_count = len(aliases)
             
-            self.console.print(f"  {name}: {count} instances (First: {first_appearance}, Last: {last_appearance})")
+            self.console.print(f"  {name}: {details['mentions']} instances, {alias_count} aliases")
+            self.console.print(f"     First seen: {first_appearance}, Last seen: {last_appearance}")
         
         self.console.print("\n[bold]Detection by graphic type:[/bold]")
         for class_name, count in sorted(class_stats.items(), key=lambda x: x[1], reverse=True):
@@ -997,11 +1286,11 @@ class NewsGraphicsNameDetector:
         
         # Create comprehensive summary
         summary = {
-            "unique_names": len(self.unique_names),
+            "unique_names_original": len(self.unique_names),
+            "unique_names_clustered": len(clustered_names),
             "total_instances": len(results),
-            "names": dict(sorted_names),
+            "clustered_names": clustered_names,
             "class_statistics": dict(class_stats),
-            "time_ranges": name_time_ranges,
             "efficiency": {
                 "duplicate_frames_skipped": self.duplicate_frames_skipped,
                 "duplicate_rois_skipped": self.duplicate_frames_skipped,
@@ -1033,7 +1322,6 @@ class NewsGraphicsNameDetector:
                 versions["gliner_version"] = "unknown"
         
         return versions
-
 
     def run(self, video_path: str, sampling_rate: float = 1.0, max_frames: Optional[int] = None, skip_duplicates: bool = True) -> Dict[str, Any]:
         """Run the complete pipeline on a video file with improved efficiency."""

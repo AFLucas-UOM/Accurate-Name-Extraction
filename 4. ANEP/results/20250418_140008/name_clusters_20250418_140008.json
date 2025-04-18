@@ -1,0 +1,63 @@
+{
+  "Mickey Rourke": {
+    "aliases": [
+      "Mickey Rourke"
+    ],
+    "mentions": 12,
+    "first_seen": "00:00:00",
+    "last_seen": "00:00:54",
+    "duration": 54.0,
+    "avg_interval": 4.909090909090909,
+    "active_periods": [
+      {
+        "start": "00:00:00",
+        "end": "00:00:54",
+        "duration": 54.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Jameel Shariff": {
+    "aliases": [
+      "Jameel Shari",
+      "Jameel Shariff"
+    ],
+    "mentions": 2,
+    "first_seen": "00:00:04",
+    "last_seen": "00:00:05",
+    "duration": 1.0,
+    "avg_interval": 1.0,
+    "active_periods": [
+      {
+        "start": "00:00:04",
+        "end": "00:00:05",
+        "duration": 1.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 2
+    }
+  },
+  "Brother Rourke": {
+    "aliases": [
+      "Brother Rourke"
+    ],
+    "mentions": 1,
+    "first_seen": "00:00:51",
+    "last_seen": "00:00:51",
+    "duration": 0.0,
+    "avg_interval": 0,
+    "active_periods": [
+      {
+        "start": "00:00:51",
+        "end": "00:00:51",
+        "duration": 0.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  }
+}
