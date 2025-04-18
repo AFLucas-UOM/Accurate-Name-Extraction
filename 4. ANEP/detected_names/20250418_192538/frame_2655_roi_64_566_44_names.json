@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Shannon Bream",
+    "methods": [
+      "spacy"
+    ],
+    "confidence": 0.85,
+    "start": 11,
+    "end": 24
+  }
+]

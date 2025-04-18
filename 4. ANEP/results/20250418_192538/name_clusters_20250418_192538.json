@@ -1,0 +1,324 @@
+{
+  "President Trump": {
+    "aliases": [
+      "President Trump"
+    ],
+    "mentions": 25,
+    "first_seen": "00:01:50",
+    "last_seen": "00:02:45",
+    "duration": 55.12173333333334,
+    "avg_interval": 2.296738888888889,
+    "active_periods": [
+      {
+        "start": "00:01:50",
+        "end": "00:02:45",
+        "duration": 55.12173333333334
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Elon Musk": {
+    "aliases": [
+      "Elon Musk"
+    ],
+    "mentions": 17,
+    "first_seen": "00:02:52",
+    "last_seen": "00:03:10",
+    "duration": 18.70201666666668,
+    "avg_interval": 1.1688760416666675,
+    "active_periods": [
+      {
+        "start": "00:02:52",
+        "end": "00:03:10",
+        "duration": 18.70201666666668
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Kamala Harris": {
+    "aliases": [
+      "Kamala Harri",
+      "Kamala Harris",
+      "Kamala Harris Fox"
+    ],
+    "mentions": 11,
+    "first_seen": "00:05:28",
+    "last_seen": "00:05:36",
+    "duration": 7.874533333333318,
+    "avg_interval": 0.7874533333333318,
+    "active_periods": [
+      {
+        "start": "00:05:28",
+        "end": "00:05:36",
+        "duration": 7.874533333333318
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 3
+    }
+  },
+  "Taylor Swift": {
+    "aliases": [
+      "Taylor Swift"
+    ],
+    "mentions": 9,
+    "first_seen": "00:05:28",
+    "last_seen": "00:05:36",
+    "duration": 7.874533333333318,
+    "avg_interval": 0.9843166666666647,
+    "active_periods": [
+      {
+        "start": "00:05:28",
+        "end": "00:05:36",
+        "duration": 7.874533333333318
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Ally Sartorius": {
+    "aliases": [
+      "Ally Sartorius"
+    ],
+    "mentions": 9,
+    "first_seen": "00:05:28",
+    "last_seen": "00:05:36",
+    "duration": 7.874533333333318,
+    "avg_interval": 0.9843166666666647,
+    "active_periods": [
+      {
+        "start": "00:05:28",
+        "end": "00:05:36",
+        "duration": 7.874533333333318
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Mike Johnson": {
+    "aliases": [
+      "Mike Johnson"
+    ],
+    "mentions": 5,
+    "first_seen": "00:03:23",
+    "last_seen": "00:03:28",
+    "duration": 4.921583333333331,
+    "avg_interval": 1.2303958333333327,
+    "active_periods": [
+      {
+        "start": "00:03:23",
+        "end": "00:03:28",
+        "duration": 4.921583333333331
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Travis Kelce": {
+    "aliases": [
+      "Travis Kelce"
+    ],
+    "mentions": 4,
+    "first_seen": "00:05:46",
+    "last_seen": "00:05:49",
+    "duration": 2.952950000000044,
+    "avg_interval": 0.9843166666666813,
+    "active_periods": [
+      {
+        "start": "00:05:46",
+        "end": "00:05:49",
+        "duration": 2.952950000000044
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Kevin Corke": {
+    "aliases": [
+      "Kevin Corke"
+    ],
+    "mentions": 3,
+    "first_seen": "00:01:04",
+    "last_seen": "00:01:06",
+    "duration": 1.9686333333333295,
+    "avg_interval": 0.9843166666666647,
+    "active_periods": [
+      {
+        "start": "00:01:04",
+        "end": "00:01:06",
+        "duration": 1.9686333333333295
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Shannon _": {
+    "aliases": [
+      "Shannon _"
+    ],
+    "mentions": 1,
+    "first_seen": "00:00:43",
+    "last_seen": "00:00:43",
+    "duration": 0.0,
+    "avg_interval": 0,
+    "active_periods": [
+      {
+        "start": "00:00:43",
+        "end": "00:00:43",
+        "duration": 0.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Lm Fox": {
+    "aliases": [
+      "Lm Fox"
+    ],
+    "mentions": 1,
+    "first_seen": "00:01:04",
+    "last_seen": "00:01:04",
+    "duration": 0.0,
+    "avg_interval": 0,
+    "active_periods": [
+      {
+        "start": "00:01:04",
+        "end": "00:01:04",
+        "duration": 0.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Kristi Noem": {
+    "aliases": [
+      "Kristi Noem"
+    ],
+    "mentions": 1,
+    "first_seen": "00:08:39",
+    "last_seen": "00:08:39",
+    "duration": 0.0,
+    "avg_interval": 0,
+    "active_periods": [
+      {
+        "start": "00:08:39",
+        "end": "00:08:39",
+        "duration": 0.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Shannon Eream": {
+    "aliases": [
+      "Shannon Eream"
+    ],
+    "mentions": 1,
+    "first_seen": "00:00:39",
+    "last_seen": "00:00:39",
+    "duration": 0.0,
+    "avg_interval": 0,
+    "active_periods": [
+      {
+        "start": "00:00:39",
+        "end": "00:00:39",
+        "duration": 0.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Sper Wwe": {
+    "aliases": [
+      "Sper Wwe"
+    ],
+    "mentions": 1,
+    "first_seen": "00:03:00",
+    "last_seen": "00:03:00",
+    "duration": 0.0,
+    "avg_interval": 0,
+    "active_periods": [
+      {
+        "start": "00:03:00",
+        "end": "00:03:00",
+        "duration": 0.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Leox Anews": {
+    "aliases": [
+      "Leox Anews"
+    ],
+    "mentions": 1,
+    "first_seen": "00:08:55",
+    "last_seen": "00:08:55",
+    "duration": 0.0,
+    "avg_interval": 0,
+    "active_periods": [
+      {
+        "start": "00:08:55",
+        "end": "00:08:55",
+        "duration": 0.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Shannon Bream": {
+    "aliases": [
+      "Shannon Bream"
+    ],
+    "mentions": 1,
+    "first_seen": "00:00:44",
+    "last_seen": "00:00:44",
+    "duration": 0.0,
+    "avg_interval": 0,
+    "active_periods": [
+      {
+        "start": "00:00:44",
+        "end": "00:00:44",
+        "duration": 0.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  },
+  "Chris Murphy": {
+    "aliases": [
+      "Chris Murphy"
+    ],
+    "mentions": 1,
+    "first_seen": "00:03:08",
+    "last_seen": "00:03:08",
+    "duration": 0.0,
+    "avg_interval": 0,
+    "active_periods": [
+      {
+        "start": "00:03:08",
+        "end": "00:03:08",
+        "duration": 0.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  }
+}

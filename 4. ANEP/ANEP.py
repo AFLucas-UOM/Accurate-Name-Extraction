@@ -934,10 +934,14 @@ class NewsGraphicsNameDetector:
         2. Jaccard similarity - compares word set overlap
         3. spaCy embedding similarity - captures semantic similarity
         """
-        # Thresholds for different similarity metrics
-        threshold_fuzzy = 90
-        threshold_jaccard = 0.5
-        threshold_embedding = 0.85
+        # Stricter thresholds for different similarity metrics
+        threshold_fuzzy = 95       # Increased from 90
+        threshold_jaccard = 0.7    # Increased from 0.5
+        threshold_embedding = 0.9  # Increased from 0.85
+        
+        # New parameters
+        max_cluster_size = 3       # Maximum number of names to allow in a cluster before additional validation
+        max_cluster_variance = 0.2 # Maximum allowed variance in similarity within a cluster
         
         # Cache for embedding calculations to avoid recomputing
         embedding_cache = {}
@@ -957,9 +961,9 @@ class NewsGraphicsNameDetector:
             set1 = set(name1.lower().split())
             set2 = set(name2.lower().split())
             
-            # Special case: single-word names should have higher threshold
-            if len(set1) <= 1 and len(set2) <= 1:
-                return 1.0 if set1 == set2 else 0.0
+            # Special case: names with different word counts should have higher threshold
+            if abs(len(set1) - len(set2)) > 1:
+                return 0.0
                 
             intersection = set1.intersection(set2)
             union = set1.union(set2)
@@ -979,35 +983,71 @@ class NewsGraphicsNameDetector:
             return float(np.dot(vec1, vec2) / (norm1 * norm2))
         
         def are_names_similar(name1: str, name2: str) -> bool:
-            """Determine if names are similar using multiple metrics."""
+            """Determine if names are similar using multiple metrics with stricter validation."""
             # Quick exact match check
             if name1 == name2:
                 return True
+            
+            # Check if names are dramatically different lengths (character-wise)
+            if abs(len(name1) - len(name2)) > 5:
+                return False
                 
-            # Check if one name is contained within the other
-            if name1 in name2 or name2 in name1:
-                # For contained names, apply stricter checks to avoid false positives
-                # Only allow if the longer name contains titles (Mr, Ms, Dr, etc.)
-                longer = name2 if len(name2) > len(name1) else name1
-                shorter = name1 if len(name2) > len(name1) else name2
-                titles = ["mr", "mrs", "ms", "dr", "prof", "miss", "sir", "madam"]
-                if any(title in longer.lower().split() for title in titles):
-                    return True
+            # Check if word counts are very different
+            words1 = name1.split()
+            words2 = name2.split()
+            if abs(len(words1) - len(words2)) > 1:
+                return False
+                
+            # Check for minimum shared word requirement
+            common_words = set(word.lower() for word in words1) & set(word.lower() for word in words2)
+            if not common_words:
+                return False
             
             # Apply all similarity metrics
             fuzzy = fuzz.token_set_ratio(name1, name2)
             
             # Only compute more expensive metrics if fuzzy score is promising
             if fuzzy >= threshold_fuzzy:
+                # Additional validation: Check for common name parts
+                # Detect if either name is completely contained in the other
+                if name1.lower() in name2.lower() or name2.lower() in name1.lower():
+                    return True
+                jaccard = jaccard_similarity(name1, name2)
+                if jaccard >= threshold_jaccard:
+                    # Final check with embedding similarity
+                    embed = embedding_similarity(name1, name2)
+                    return embed >= threshold_embedding
+            
+            return False
+        
+        def validate_cluster(aliases: Set[str]) -> bool:
+            """
+            Check if a cluster is valid based on internal similarity metrics.
+            Returns False if the cluster should be split.
+            """
+            # Small clusters are always valid
+            if len(aliases) <= 2:
                 return True
                 
-            jaccard = jaccard_similarity(name1, name2)
-            if jaccard >= threshold_jaccard:
-                return True
+            # For larger clusters, check internal coherence
+            if len(aliases) > max_cluster_size:
+                # Calculate pairwise similarities for all aliases
+                similarities = []
+                alias_list = list(aliases)
+                for i in range(len(alias_list)):
+                    for j in range(i+1, len(alias_list)):
+                        jaccard = jaccard_similarity(alias_list[i], alias_list[j])
+                        fuzzy = fuzz.token_set_ratio(alias_list[i], alias_list[j]) / 100.0
+                        similarities.append(max(jaccard, fuzzy))
                 
-            # Only compute embedding similarity as last resort (most expensive)
-            embed = embedding_similarity(name1, name2)
-            return embed >= threshold_embedding
+                # Calculate variance of similarities
+                if similarities:
+                    variance = np.var(similarities)
+                    mean_sim = np.mean(similarities)
+                    # If variance is high or mean similarity is low, reject cluster
+                    if variance > max_cluster_variance or mean_sim < 0.75:
+                        return False
+            return True
         
         # Track best matches to improve clustering
         name_to_cluster_idx = {}
@@ -1041,30 +1081,61 @@ class NewsGraphicsNameDetector:
                 canonical_clusters.append({"canonical": name, "aliases": {name}})
                 name_to_cluster_idx[name] = new_idx
         
-        # Second pass: merge similar clusters
+        # Add cluster validation step - split invalid clusters
+        i = 0
+        while i < len(canonical_clusters):
+            aliases = canonical_clusters[i]["aliases"]
+            if not validate_cluster(aliases):
+                self.logger.info(f"Splitting invalid cluster with names: {aliases}")
+                
+                # Remove the current cluster
+                removed_cluster = canonical_clusters.pop(i)
+                
+                # Create new single-name clusters for each name
+                for alias in removed_cluster["aliases"]:
+                    new_idx = len(canonical_clusters)
+                    canonical_clusters.append({"canonical": alias, "aliases": {alias}})
+                    name_to_cluster_idx[alias] = new_idx
+            else:
+                i += 1
+        
+        # Second pass: merge similar clusters with additional validation
         i = 0
         while i < len(canonical_clusters):
             j = i + 1
             while j < len(canonical_clusters):
                 # Check if any aliases between clusters are similar
                 should_merge = False
+                similarity_scores = []
+                
                 for alias_i in canonical_clusters[i]["aliases"]:
                     if should_merge:
                         break
                         
                     for alias_j in canonical_clusters[j]["aliases"]:
                         if are_names_similar(alias_i, alias_j):
+                            # Calculate similarity score for validation
+                            jaccard = jaccard_similarity(alias_i, alias_j)
+                            fuzzy = fuzz.token_set_ratio(alias_i, alias_j) / 100.0
+                            similarity_scores.append(max(jaccard, fuzzy))
                             should_merge = True
                             break
                 
                 if should_merge:
-                    # Merge cluster j into cluster i
-                    canonical_clusters[i]["aliases"].update(canonical_clusters[j]["aliases"])
-                    # Update mapping for all aliases from cluster j
-                    for alias in canonical_clusters[j]["aliases"]:
-                        name_to_cluster_idx[alias] = i
-                    # Remove cluster j
-                    canonical_clusters.pop(j)
+                    # Validate potential merged cluster
+                    merged_aliases = canonical_clusters[i]["aliases"].union(canonical_clusters[j]["aliases"])
+                    if validate_cluster(merged_aliases):
+                        # Merge cluster j into cluster i
+                        canonical_clusters[i]["aliases"].update(canonical_clusters[j]["aliases"])
+                        # Update mapping for all aliases from cluster j
+                        for alias in canonical_clusters[j]["aliases"]:
+                            name_to_cluster_idx[alias] = i
+                        # Remove cluster j
+                        canonical_clusters.pop(j)
+                    else:
+                        # Don't merge if validation fails
+                        self.logger.info(f"Prevented invalid cluster merge between clusters {i} and {j}")
+                        j += 1
                 else:
                     j += 1
             i += 1
@@ -1280,7 +1351,7 @@ class NewsGraphicsNameDetector:
             self.console.print(f"  {name}: {details['mentions']} instances, {alias_count} aliases")
             self.console.print(f"     First seen: {first_appearance}, Last seen: {last_appearance}")
         
-        self.console.print("\n[bold]Detection by graphic type:[/bold]")
+        self.console.print("\n[bold]Detection by graphic type (with Names):[/bold]")
         for class_name, count in sorted(class_stats.items(), key=lambda x: x[1], reverse=True):
             self.console.print(f"  {class_name}: {count} detections")
         
@@ -1373,7 +1444,7 @@ class NewsGraphicsNameDetector:
 def parse_arguments():
     """Parse command line arguments with enhanced options."""
     parser = argparse.ArgumentParser(description='Enhanced News Graphics Name Detection Pipeline')
-    parser.add_argument('--video', '-v', type=str, default=str(Path.cwd() / "4. ANEP/Videos/Video_T1.mp4"),
+    parser.add_argument('--video', '-v', type=str, default=str(Path.cwd() / "4. ANEP/Videos/Video_T4.mp4"),
                         help='Path to the video file to process')
     parser.add_argument('--sampling_rate', '-s', type=float, default=1.0,
                         help='Sampling rate in seconds (default: 1.0)')

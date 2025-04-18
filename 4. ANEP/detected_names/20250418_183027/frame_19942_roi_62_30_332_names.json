@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Ally Sartorius",
+    "methods": [
+      "spacy"
+    ],
+    "confidence": 0.85,
+    "start": 4,
+    "end": 18
+  }
+]

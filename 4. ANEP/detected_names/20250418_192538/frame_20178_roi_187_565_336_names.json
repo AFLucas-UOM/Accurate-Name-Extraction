@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Taylor Swift",
+    "methods": [
+      "spacy"
+    ],
+    "confidence": 0.85,
+    "start": 6,
+    "end": 18
+  },
+  {
+    "name": "Kamala Harris Fox",
+    "methods": [
+      "spacy"
+    ],
+    "confidence": 0.85,
+    "start": 28,
+    "end": 45
+  }
+]
