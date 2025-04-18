@@ -22,6 +22,8 @@ from rich.console import Console
 from rich.logging import RichHandler
 from transformers import pipeline
 from ultralytics import YOLO
+from rapidfuzz import fuzz
+from typing import Dict, Any
 
 # LRU Cache for similar frames
 from functools import lru_cache

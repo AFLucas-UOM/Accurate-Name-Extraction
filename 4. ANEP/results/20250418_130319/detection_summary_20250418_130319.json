@@ -1,0 +1,40 @@
+{
+  "unique_names": 4,
+  "total_instances": 15,
+  "names": {
+    "Mickey Rourke": 12,
+    "Jameel Shari": 1,
+    "Jameel Shariff": 1,
+    "Brother Rourke": 1
+  },
+  "class_statistics": {
+    "Lower Third Graphic": 12,
+    "News Headline": 3
+  },
+  "time_ranges": {
+    "Mickey Rourke": {
+      "first_appearance": "00:00:00",
+      "last_appearance": "00:00:54",
+      "duration": 54.0
+    },
+    "Jameel Shari": {
+      "first_appearance": "00:00:04",
+      "last_appearance": "00:00:04",
+      "duration": 0.0
+    },
+    "Jameel Shariff": {
+      "first_appearance": "00:00:05",
+      "last_appearance": "00:00:05",
+      "duration": 0.0
+    },
+    "Brother Rourke": {
+      "first_appearance": "00:00:51",
+      "last_appearance": "00:00:51",
+      "duration": 0.0
+    }
+  },
+  "efficiency": {
+    "duplicate_frames_skipped": 7,
+    "duplicate_rois_skipped": 7
+  }
+}

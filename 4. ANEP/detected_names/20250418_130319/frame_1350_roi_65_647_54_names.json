@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Mickey Rourke",
+    "methods": [
+      "spacy",
+      "transformer"
+    ],
+    "confidence": 0.9991668462753296,
+    "start": 39,
+    "end": 52
+  }
+]
