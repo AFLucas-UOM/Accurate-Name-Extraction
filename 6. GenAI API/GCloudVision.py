@@ -471,7 +471,7 @@ if __name__ == "__main__":
                 formatter_class=argparse.ArgumentDefaultsHelpFormatter,
                 usage=(
                     '\npython "6. GenAI API/GCloudVision.py" '
-                    '"6. GenAI API/Videos/Video_T2.mp4" '
+                    '"6. GenAI API/Videos/XXXX.mp4" '
                     '"6. GenAI API/results" '
                     '"6. GenAI API/config.json"\n'
                 )

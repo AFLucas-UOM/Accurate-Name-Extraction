@@ -7,6 +7,7 @@ import {
   Info,
   CheckCircle2,
   HardDrive,
+  AlertTriangle
 } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
@@ -18,20 +19,24 @@ interface ConfirmationStepProps {
 
 const MODEL_DATA = {
   anep: {
-    name: "ANEP",
-    time: "~ 2 minutes",
+    name: "Accurate Name Extraction Pipeline (ANEP)",
+    time: "~ 10–15 minutes",
+    description: "Advanced custom pipeline using YOLOv12, multi-method OCR with Tesseract, spaCy + GliNER, and transformer-based NER"
   },
   model1: {
-    name: "Google Vision OCR",
-    time: "~ 3–4 minutes",
+    name: "Google Cloud Vision & Gemini 1.5 Pro",
+    time: "~ 3–5 minutes",
+    description: "Hybrid pipeline leveraging Google Cloud Vision API for OCR and Gemini 1.5 Pro for accurate name extraction"
   },
   model2: {
-    name: "Llama 3.2 Vision",
-    time: "~ 4–5 minutes",
+    name: "Claude AI",
+    time: "~ 5–10 minutes",
+    description: "Claude AI model for name extraction, delivering fast results with good accuracy"
   },
   all: {
-    name: "All Models (Comparative)",
-    time: "~ 7–9 minutes",
+    name: "Comparative Analysis",
+    time: "~ 20–25 minutes",
+    description: "Run all models and compare their performance side by side"
   }
 };
 
@@ -75,6 +80,7 @@ const ConfirmationStep = ({
   const modelInfo = MODEL_DATA[selectedModel as keyof typeof MODEL_DATA] || {
     name: "Unknown Model",
     time: "Unknown",
+    description: "Unknown model description"
   };
 
   const handleTooltipToggle = (
@@ -109,13 +115,13 @@ const ConfirmationStep = ({
   }, []);
 
   return (
-    <div className={`w-full max-w-4xl mx-auto ${className}`}>
+    <div className={`w-full max-w-5xl mx-auto ${className}`}>
       <h2 className="text-2xl font-bold mb-2">Confirm Analysis Details</h2>
       <p className="text-muted-foreground mb-6">
         Review your selection before starting the analysis
       </p>
 
-      <div className="bg-secondary/50 rounded-lg p-6 border border-secondary shadow-sm transition-all duration-300 hover:shadow-md">
+      <div className="bg-gray-50 dark:bg-[#172133] rounded-lg p-6 border-2 border-gray-200 dark:border-transparent shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#2463EB] dark:hover:border-[#2463EB] hover:bg-[#f5faff] dark:hover:bg-[#172133]">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-lg font-medium">Analysis Summary</h3>
           <div className="flex items-center text-sm text-emerald-600 dark:text-emerald-400">
@@ -142,7 +148,7 @@ const ConfirmationStep = ({
                   >
                     <Info className="w-4 h-4 text-muted-foreground cursor-pointer" />
                   </TooltipTrigger>
-                  <TooltipContent side="right" className="w-52 p-3 text-sm space-y-2">
+                  <TooltipContent side="right" className="w-52 p-3 text-sm space-y-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600">
                     <p className="font-medium mb-2">Video Statistics</p>
                     <div className="flex items-center justify-between text-muted-foreground">
                       <span className="flex items-center gap-1">
@@ -185,7 +191,7 @@ const ConfirmationStep = ({
             </div>
             <div className="flex-1">
               <h4 className="font-medium mb-1">Selected Model</h4>
-              <p className="text-sm">{modelInfo.name}</p>
+              <p className="text-sm font-medium">{modelInfo.name}</p>
             </div>
           </div>
 
@@ -206,7 +212,7 @@ const ConfirmationStep = ({
                   >
                     <Info className="w-4 h-4 text-muted-foreground cursor-pointer" />
                   </TooltipTrigger>
-                  <TooltipContent side="right" className="max-w-xs p-3 text-justify">
+                  <TooltipContent side="right" className="max-w-xs p-3 text-justify bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600">
                     <p className="font-medium mb-1">Processing Time Information</p>
                     <p className="text-xs text-muted-foreground">
                       Times are estimates and may vary based on video length, resolution, and the
@@ -218,9 +224,11 @@ const ConfirmationStep = ({
               <div className="flex items-center">
                 <p className="font-medium text-amber-600 dark:text-amber-300">{modelInfo.time}</p>
                 {selectedModel === "all" && (
-                  <span className="ml-2 text-xs bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-100 px-2 py-0.5 rounded-full">
-                    Longest option
-                  </span>
+                  <div className="ml-2">
+                    <span className="text-xs bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-100 px-2 py-0.5 rounded-full">
+                      Longest option
+                    </span>
+                  </div>
                 )}
               </div>
             </div>
@@ -238,6 +246,12 @@ const ConfirmationStep = ({
                 <p>• Confidence scores for each detection</p>
                 {selectedModel === "all" && (
                   <p>• Comparative performance metrics across all models</p>
+                )}
+                {selectedModel === "model1" && (
+                  <p>• High accuracy results with Google Vision API</p>
+                )}
+                {selectedModel === "anep" && (
+                  <p>• Offline processing with complete data ownership</p>
                 )}
               </div>
             </div>
