@@ -4,6 +4,8 @@ Uploads/
 *.mp4
 *.mov
 
+# API KEYS
+config.json
 
 # Logs
 logs
