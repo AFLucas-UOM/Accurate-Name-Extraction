@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Full path to your project
 PROJECT_DIR="/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/5. ANEP UI"
 
