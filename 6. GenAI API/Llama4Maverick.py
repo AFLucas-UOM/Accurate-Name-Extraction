@@ -13,7 +13,7 @@ from rich.panel import Panel
 from rich.table import Table
 from dataclasses import dataclass, field
 from typing import Optional, List, Dict, Tuple, Any
-import backoff  # Install with: pip install backoff
+import backoff 
 
 # ── OpenAI / OpenRouter client (>=1.0.0) ────────────────────────────────
 try:
