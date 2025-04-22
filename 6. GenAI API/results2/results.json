@@ -1,0 +1,554 @@
+[
+  {
+    "timestamp": "00:00:00",
+    "frame": "frame_00000.jpg",
+    "text": "BBC\nPosted on 14.04.2025\nTikTok\nWhy was Mickey Rourke asked to leave Celebrity Big Brother?\n@bbcnews",
+    "frame_num": 0,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00000.jpg"
+  },
+  {
+    "timestamp": "00:00:01",
+    "frame": "frame_00045.jpg",
+    "text": "The visible text in the image is:\n\n\"BBC\nPosted on 14.04.2025\nCelebrity Big Brother / ITV\nTikTok\n@bbcnews\nWhy was Mickey Rourke asked to leave Celebrity Big Brother?\"\n\nThis is the plain text extracted from the image.",
+    "frame_num": 45,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00045.jpg"
+  },
+  {
+    "timestamp": "00:00:02",
+    "frame": "frame_00060.jpg",
+    "text": "TikTok @bbcnews BBC Posted on 14.04.2025 Celebrity Big Brother / ITV",
+    "frame_num": 60,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00060.jpg"
+  },
+  {
+    "timestamp": "00:00:02",
+    "frame": "frame_00070.jpg",
+    "text": "The visible text in the image is:\n\n- BBC\n- Posted on 14.04.2025\n- Celebrity Big Brother / ITV\n- TikTok\n- @bbcnews",
+    "frame_num": 70,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00070.jpg"
+  },
+  {
+    "timestamp": "00:00:03",
+    "frame": "frame_00080.jpg",
+    "text": "BRC\nPosted on 14.04.2025 Celebrity Big Brother / ITV\nTikTok\n@bbcnews",
+    "frame_num": 80,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00080.jpg"
+  },
+  {
+    "timestamp": "00:00:03",
+    "frame": "frame_00095.jpg",
+    "text": "BBC\nTikTok\n@bbcnews \nJ",
+    "frame_num": 95,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00095.jpg"
+  },
+  {
+    "timestamp": "00:00:05",
+    "frame": "frame_00125.jpg",
+    "text": "JAMEEL SHARIFF \nBBC Journalist \n@bbcnews",
+    "frame_num": 125,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00125.jpg"
+  },
+  {
+    "timestamp": "00:00:05",
+    "frame": "frame_00145.jpg",
+    "text": "JAMEEL SHARIFF\nBBC Journalist\nTikTok\n@bbcnews",
+    "frame_num": 145,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00145.jpg"
+  },
+  {
+    "timestamp": "00:00:06",
+    "frame": "frame_00155.jpg",
+    "text": "JAMEEL TikTok @bbcnews",
+    "frame_num": 155,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00155.jpg"
+  },
+  {
+    "timestamp": "00:00:06",
+    "frame": "frame_00160.jpg",
+    "text": "BBC \nPosted on 14.04.2025 \nLONGINES \nTikTok \n@bbcnews \nPETIT \nAFLAT \nPLAT \nAFLAT",
+    "frame_num": 160,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00160.jpg"
+  },
+  {
+    "timestamp": "00:00:07",
+    "frame": "frame_00185.jpg",
+    "text": "BBC\nPosted on 14.04.2025\nLONGINES\nTikTok\n@bbcnews\nPETIT JAFAR",
+    "frame_num": 185,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00185.jpg"
+  },
+  {
+    "timestamp": "00:00:07",
+    "frame": "frame_00195.jpg",
+    "text": "BBC\nPosted on 14.04.2025\nTikTok\n@bbcnews\nPETIT \nPIAT \nPETIT \nPIAT",
+    "frame_num": 195,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00195.jpg"
+  },
+  {
+    "timestamp": "00:00:08",
+    "frame": "frame_00210.jpg",
+    "text": "BBC\nPosted on 14.04.2025\nLONGINE\nTikTok\n@bbcnews\nPIAF\nVEUVE\nCLIQUE\nGRAND CRU",
+    "frame_num": 210,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00210.jpg"
+  },
+  {
+    "timestamp": "00:00:09",
+    "frame": "frame_00230.jpg",
+    "text": "BBC \nPosition 11.04.2025 \nTikTok \n@bbcnews",
+    "frame_num": 230,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00230.jpg"
+  },
+  {
+    "timestamp": "00:00:09",
+    "frame": "frame_00235.jpg",
+    "text": "BBC \nTikTok\n@bbcnews",
+    "frame_num": 235,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00235.jpg"
+  },
+  {
+    "timestamp": "00:00:09",
+    "frame": "frame_00245.jpg",
+    "text": "BBC \nP \n11.04.2025 \nTikTok \n@bbcnews",
+    "frame_num": 245,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00245.jpg"
+  },
+  {
+    "timestamp": "00:00:10",
+    "frame": "frame_00255.jpg",
+    "text": "BBC \nP \nn 11.04.2025 \nTikTok \n@bbcnews",
+    "frame_num": 255,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00255.jpg"
+  },
+  {
+    "timestamp": "00:00:10",
+    "frame": "frame_00260.jpg",
+    "text": "BBC TikTok @bbcnews",
+    "frame_num": 260,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00260.jpg"
+  },
+  {
+    "timestamp": "00:00:11",
+    "frame": "frame_00275.jpg",
+    "text": "BBC \nTikTok \n@bbcnews",
+    "frame_num": 275,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00275.jpg"
+  },
+  {
+    "timestamp": "00:00:11",
+    "frame": "frame_00280.jpg",
+    "text": "BBC \nPosition 11.04.2025 \nTikTok \n@bbcnews",
+    "frame_num": 280,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00280.jpg"
+  },
+  {
+    "timestamp": "00:00:15",
+    "frame": "frame_00385.jpg",
+    "text": "The visible text in the image is: \nBBC \nPosted on 14.04.2025 \nTikTok \n@bbcnews",
+    "frame_num": 385,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00385.jpg"
+  },
+  {
+    "timestamp": "00:00:15",
+    "frame": "frame_00390.jpg",
+    "text": "BBC\nPosted on 14.04.2025\nTikTok\n@bbcnews",
+    "frame_num": 390,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00390.jpg"
+  },
+  {
+    "timestamp": "00:00:16",
+    "frame": "frame_00400.jpg",
+    "text": "BBC \nPosted on 14.04.2025 \nTikTok \n@bbcnews",
+    "frame_num": 400,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00400.jpg"
+  },
+  {
+    "timestamp": "00:00:18",
+    "frame": "frame_00470.jpg",
+    "text": "BBC \nPosted on 14.04.2025 \nTikTok \n@bbcnews",
+    "frame_num": 470,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00470.jpg"
+  },
+  {
+    "timestamp": "00:00:21",
+    "frame": "frame_00530.jpg",
+    "text": "BBC\nPosted on 14.04.2025\nTikTok\n@bbcnews",
+    "frame_num": 530,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00530.jpg"
+  },
+  {
+    "timestamp": "00:00:21",
+    "frame": "frame_00540.jpg",
+    "text": "The visible text in the image is: \nBBC \nPosted on 14.04.2025 \nTikTok \n@bbcnews",
+    "frame_num": 540,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00540.jpg"
+  },
+  {
+    "timestamp": "00:00:22",
+    "frame": "frame_00560.jpg",
+    "text": "BBC TikTok @bbcnews",
+    "frame_num": 560,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00560.jpg"
+  },
+  {
+    "timestamp": "00:00:22",
+    "frame": "frame_00565.jpg",
+    "text": "B B C \nTikTok \n@bbcnews",
+    "frame_num": 565,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00565.jpg"
+  },
+  {
+    "timestamp": "00:00:24",
+    "frame": "frame_00620.jpg",
+    "text": "B B C \nPosted on 11.04.2025 \nTikTok \n@bbcnews",
+    "frame_num": 620,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00620.jpg"
+  },
+  {
+    "timestamp": "00:00:25",
+    "frame": "frame_00630.jpg",
+    "text": "BRC \n TikTok \n@bbcnews",
+    "frame_num": 630,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00630.jpg"
+  },
+  {
+    "timestamp": "00:00:25",
+    "frame": "frame_00635.jpg",
+    "text": "BRC \nTikTok\n@bbcnews",
+    "frame_num": 635,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00635.jpg"
+  },
+  {
+    "timestamp": "00:00:26",
+    "frame": "frame_00650.jpg",
+    "text": "BRC\nPosition 11.04.2025\nTikTok\n@bbcnews",
+    "frame_num": 650,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00650.jpg"
+  },
+  {
+    "timestamp": "00:00:26",
+    "frame": "frame_00655.jpg",
+    "text": "BBC\nPosted on 11.04.2025\nTikTok\n@bbcnews",
+    "frame_num": 655,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00655.jpg"
+  },
+  {
+    "timestamp": "00:00:26",
+    "frame": "frame_00665.jpg",
+    "text": "The visible text in the image is: BRC, TikTok, @bbcnews.",
+    "frame_num": 665,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00665.jpg"
+  },
+  {
+    "timestamp": "00:00:27",
+    "frame": "frame_00675.jpg",
+    "text": "BRC Position 11.04.2025 TikTok @bbcnews",
+    "frame_num": 675,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00675.jpg"
+  },
+  {
+    "timestamp": "00:00:27",
+    "frame": "frame_00690.jpg",
+    "text": "BBC Position 11.04.2025 TikTok @bbcnews",
+    "frame_num": 690,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00690.jpg"
+  },
+  {
+    "timestamp": "00:00:27",
+    "frame": "frame_00695.jpg",
+    "text": "BBC \nPosted on 14.04.2025 \nCelebrity Big Brother / ITV \nSomething Very Special \nTikTok \n@bbcnews",
+    "frame_num": 695,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00695.jpg"
+  },
+  {
+    "timestamp": "00:00:29",
+    "frame": "frame_00730.jpg",
+    "text": "something very special \nBBC \nPosted on 14.04.2025 \nCelebrity Big Brother / ITV \nTikTok \n@bbcnews",
+    "frame_num": 730,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00730.jpg"
+  },
+  {
+    "timestamp": "00:00:29",
+    "frame": "frame_00740.jpg",
+    "text": "The text visible in the image is:\n\nBBC\nPosted on 14.04.2025\nCelebrity Big Brother / ITV\nSomething Very Special\nTikTok\n@bbcnews",
+    "frame_num": 740,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00740.jpg"
+  },
+  {
+    "timestamp": "00:00:30",
+    "frame": "frame_00765.jpg",
+    "text": "B B C \nPo n 04.2025 \nTik Tok \n@bbcnews",
+    "frame_num": 765,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00765.jpg"
+  },
+  {
+    "timestamp": "00:00:39",
+    "frame": "frame_00995.jpg",
+    "text": "BBC\nPosted on 14.04.2025\nTikTok\n@bbcnews",
+    "frame_num": 995,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_00995.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:40",
+    "frame": "frame_01010.jpg",
+    "text": "B B C\nPosted on 14.04.2025\nTikTok\n@bbcnews",
+    "frame_num": 1010,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01010.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:40",
+    "frame": "frame_01020.jpg",
+    "text": "B B C\nPosted on 14.04.2025\nTikTok\n@bbcnews",
+    "frame_num": 1020,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01020.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:41",
+    "frame": "frame_01040.jpg",
+    "text": "BBC\nPosted on 14.04.2025\nTikTok\n@bbcnews",
+    "frame_num": 1040,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01040.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:42",
+    "frame": "frame_01065.jpg",
+    "text": "BBC\nPosted on 14.04.2025\nTikTok\n@bbcnews",
+    "frame_num": 1065,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01065.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:43",
+    "frame": "frame_01075.jpg",
+    "text": "B B C  \nPosted on 14.04.2025  \nTikTok  \n@bbcnews",
+    "frame_num": 1075,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01075.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:43",
+    "frame": "frame_01085.jpg",
+    "text": "The visible text in the image is:\n\n- BBC\n- Posted on 14.04.2025\n- TikTok\n- @bbcnews",
+    "frame_num": 1085,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01085.jpg"
+  },
+  {
+    "timestamp": "00:00:44",
+    "frame": "frame_01105.jpg",
+    "text": "BBC\nPosted \nTikTok \n@bbcnews",
+    "frame_num": 1105,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01105.jpg"
+  },
+  {
+    "timestamp": "00:00:46",
+    "frame": "frame_01150.jpg",
+    "text": "BBC\nPosted on 14\nTikTok\n@bbcnews",
+    "frame_num": 1150,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01150.jpg"
+  },
+  {
+    "timestamp": "00:00:46",
+    "frame": "frame_01165.jpg",
+    "text": "BBC\nPosted on 24.2025\nA spokesperson for the ITV show said: \"Mickey Rourke has agreed to leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1165,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01165.jpg"
+  },
+  {
+    "timestamp": "00:00:47",
+    "frame": "frame_01175.jpg",
+    "text": "A spokesperson for the ITV show said: \"Mickey Rourke has agreed to leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1175,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01175.jpg"
+  },
+  {
+    "timestamp": "00:00:47",
+    "frame": "frame_01180.jpg",
+    "text": "BBC\nPosted on\n24.2025\nA spokesperson for the ITV show said:\n\"Mickey Rourke has agreed to 'eave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1180,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01180.jpg"
+  },
+  {
+    "timestamp": "00:00:47",
+    "frame": "frame_01185.jpg",
+    "text": "BBC\nPosted on 4.2025\nA spokesperson for the ITV show said:\n\"Mickey Rourke has agreed to leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1185,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01185.jpg"
+  },
+  {
+    "timestamp": "00:00:47",
+    "frame": "frame_01190.jpg",
+    "text": "A spokesperson for the ITV show said: \"Mickey Rourke has agreed to 'leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1190,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01190.jpg"
+  },
+  {
+    "timestamp": "00:00:48",
+    "frame": "frame_01205.jpg",
+    "text": "BBC Posted on 4.2025 A spokesperson for the ITV show said: \"Mickey Rourke has agreed to leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.",
+    "frame_num": 1205,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01205.jpg"
+  },
+  {
+    "timestamp": "00:00:49",
+    "frame": "frame_01235.jpg",
+    "text": "BBC \nPosted on 14-04-2025 \nA spokesperson for the ITV show said:\n\"Mickey Rourke has agreed to leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1235,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01235.jpg"
+  },
+  {
+    "timestamp": "00:00:50",
+    "frame": "frame_01250.jpg",
+    "text": "BBC \nPosted on 14.04.2025\nA spokesperson for the ITV show said: \n\"Mickey Rourke has agreed to 'eave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1250,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01250.jpg"
+  },
+  {
+    "timestamp": "00:00:50",
+    "frame": "frame_01270.jpg",
+    "text": "BBC\nPosted on 14.2025\nA spokesperson for the ITV show said: \"Mickey Rourke has agreed to leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1270,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01270.jpg"
+  },
+  {
+    "timestamp": "00:00:51",
+    "frame": "frame_01285.jpg",
+    "text": "The visible text in the image is: BBC, Posted on 4.2025, A spokesperson for the ITV show said: \"Mickey Rourke has agreed to 'leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1285,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01285.jpg"
+  },
+  {
+    "timestamp": "00:00:52",
+    "frame": "frame_01300.jpg",
+    "text": "BBC Posted 4.2025 A spokesperson for the ITV show said: \"Mickey Rourke has agreed to 'eave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1300,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01300.jpg"
+  },
+  {
+    "timestamp": "00:00:52",
+    "frame": "frame_01315.jpg",
+    "text": "A spokesperson for the ITV show said:\n\"Mickey Rourke has agreed to leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1315,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01315.jpg"
+  },
+  {
+    "timestamp": "00:00:52",
+    "frame": "frame_01320.jpg",
+    "text": "BBC\nPosted on 14.04.2025\nA spokesperson for the ITV show said:\n\"Mickey Rourke has agreed to 'eave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1320,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01320.jpg"
+  },
+  {
+    "timestamp": "00:00:53",
+    "frame": "frame_01335.jpg",
+    "text": "BBC \nPosted on 12.04.2025 \nA spokesperson for the ITV show said: \n\"Mickey Rourke has agreed to leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1335,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01335.jpg"
+  },
+  {
+    "timestamp": "00:00:53",
+    "frame": "frame_01345.jpg",
+    "text": "BBC \nPosted on 14.04.2025\nA spokesperson for the ITV show said: \n\"Mickey Rourke has agreed to leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1345,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01345.jpg"
+  },
+  {
+    "timestamp": "00:00:54",
+    "frame": "frame_01355.jpg",
+    "text": "A spokesperson for the ITV show said: \"Mickey Rourke has agreed to leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.",
+    "frame_num": 1355,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01355.jpg"
+  },
+  {
+    "timestamp": "00:00:54",
+    "frame": "frame_01360.jpg",
+    "text": "BBC \n\nPosted on 1 . 04.2025\n\nA spokesperson for the ITV show said: \"Mickey Rourke has agreed to 'eave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1360,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01360.jpg"
+  },
+  {
+    "timestamp": "00:00:54",
+    "frame": "frame_01365.jpg",
+    "text": "BBC \nPosted on 14.4.2025 \nA spokesperson for the ITV show said: \n\"Mickey Rourke has agreed to leave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1365,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01365.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:54",
+    "frame": "frame_01370.jpg",
+    "text": "B B C\nPosted on 14.04.2025\nA spokesperson for the ITV show said:\n\"Mickey Rourke has agreed to 'eave the Celebrity Big Brother House this evening following a discussion with Big Brother regarding further use of inappropriate language and instances of unacceptable behaviour.\"",
+    "frame_num": 1370,
+    "processed_successfully": true,
+    "path": "6. GenAI API/results2/frames/frame_01370.jpg",
+    "was_retry": true
+  }
+]
