@@ -29,9 +29,9 @@ const MODEL_DATA = {
     description: "Hybrid pipeline leveraging Google Cloud Vision API for OCR and Gemini 1.5 Pro for accurate name extraction"
   },
   model2: {
-    name: "Claude AI",
+    name: "Llama 4 Maverick",
     time: "~ 5–10 minutes",
-    description: "Claude AI model for name extraction, delivering fast results with good accuracy"
+    description: "Lightweight pipeline using Llama 4 Maverick for OCR and name extraction. Ideal for short-form news videos with simple frames and layouts, providing a balance between speed and accuracy."
   },
   all: {
     name: "Comparative Analysis",

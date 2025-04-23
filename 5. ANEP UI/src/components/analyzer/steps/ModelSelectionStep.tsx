@@ -17,6 +17,7 @@ interface Model {
   pricing: string;
   websiteUrl: string;
   bestFor: string;
+  warning?: string;
 }
 
 interface ModelSelectionStepProps {
@@ -38,26 +39,27 @@ interface ModelSelectionStepProps {
     bestFor: "High volume processing, offline usage, and complete customization"
   },
   {
+    id: "model2",
+    name: "Llama 4 Maverick",
+    description: "Lightweight pipeline using Llama 4 Maverick for OCR and name extraction. Ideal for short-form news videos with simple frames and layouts, providing a balance between speed and accuracy.",
+    speed: { label: "Fast", level: 2 },
+    accuracy: { label: "High", level: 2 },
+    apiRequired: true,
+    pricing: "Pay-per-use, starting at $10 for 1000 API request calls per day",
+    websiteUrl: "https://openrouter.ai/meta-llama/llama-4-maverick:free",
+    bestFor: "Fast OCR and name extraction in short news clips and simple video layouts.",
+    warning: "Limited free API calls available (1000 per day). Each 1 minute video clip takes around 70 requests."
+  },
+  {
     id: "model1",
     name: "Google Cloud Vision & Gemini 1.5 Pro",
     description: "Hybrid pipeline leveraging Google Cloud Vision API for OCR and Gemini 1.5 Pro for accurate name extraction. Efficient and highly accurate on short-form news videos with distinct frames and various layouts.",
-    speed: { label: "Fast", level: 2 },
+    speed: { label: "Very Fast", level: 3 },
     accuracy: { label: "Excellent", level: 3 },
     apiRequired: true,
     pricing: "Pay-per-use, starting at $1.50 per 1000 API calls",
     websiteUrl: "https://cloud.google.com/pricing?hl=en",
     bestFor: "High accuracy requirements, professional productions, and complex layouts"
-  },
-  {
-    id: "model2",
-    name: "Claude AI",
-    description: "Claude AI model for name extraction, delivering fast results with good accuracy. Suitable for short-form news videos with distinct frames and standardized lower-third graphics that require quick processing times.",
-    speed: { label: "Very Fast", level: 3 },
-    accuracy: { label: "High", level: 1 },
-    apiRequired: true,
-    pricing: "Subscription-based, starting at $20/month",
-    websiteUrl: "https://www.anthropic.com/pricing#api",
-    bestFor: "Quick results, simple layouts, and routine extraction tasks requiring rapid processing"
   },
   {
     id: "all",
@@ -68,7 +70,8 @@ interface ModelSelectionStepProps {
     apiRequired: true,
     pricing: "Combines costs of all selected services",
     websiteUrl: "",
-    bestFor: "Benchmark testing, research purposes, and finding the optimal model for specific use cases"
+    bestFor: "Benchmark testing, research purposes, and finding the optimal model for specific use cases",
+    warning: "This analysis will take considerably longer as all three models will be processed sequentially."
   }
 ];
 
@@ -231,19 +234,21 @@ const ModelSelectionStep = ({
               </div>
             )}
             
-            <button
-              className="w-full text-left focus:outline-none focus:ring-0 focus:ring-transparent"
+            {/* Make entire card clickable by wrapping all content in a button */}
+            <div 
+              className="flex flex-col h-full cursor-pointer"
               onClick={() => onModelSelected(model.id)}
-              aria-pressed={selectedModel === model.id}
             >
               <div className="flex justify-between items-start mb-2">
                 <h3 className="text-lg font-medium">
                   {model.name}
-                  {model.id === "all" && (
+                  {/* Add warning sign for both models with warnings */}
+                  {model.warning && (
                     <span 
                       className="inline-block ml-2 relative"
                       onMouseEnter={() => showTooltip(`warning-${model.id}`)}
                       onMouseLeave={hideTooltip}
+                      onClick={(e) => e.stopPropagation()} // Prevent triggering card click when clicking warning
                     >
                       <div className="text-amber-500 dark:text-amber-400">
                         <AlertTriangle size={16} />
@@ -256,9 +261,9 @@ const ModelSelectionStep = ({
                           onMouseEnter={() => showTooltip(`warning-${model.id}`)}
                           onMouseLeave={hideTooltip}
                         >
-                          <p className="font-medium mb-1 text-amber-700 dark:text-amber-400">Processing Time Warning</p>
+                          <p className="font-medium mb-1 text-amber-700 dark:text-amber-400">Warning</p>
                           <p className="text-amber-700 dark:text-amber-300">
-                            This analysis will take considerably longer as all three models will be processed sequentially.
+                            {model.warning}
                           </p>
                         </div>
                       )}
@@ -273,53 +278,46 @@ const ModelSelectionStep = ({
               </div>
               <p className="text-muted-foreground text-sm mb-3 text-justify">{model.description}</p>
 
-              {/* Remove warning banner and replace with tooltip */}
-              {model.id === "all" && (
-                <div className="hidden">
-                  {/* Hidden - now using tooltip */}
-                </div>
-              )}
-
-              {/* Removed performance metrics from cards as requested */}
-            </button>
-
-                          <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-600">
-              <div className="flex justify-between items-center">
-                <div 
-                  className="relative flex items-center gap-1 text-xs text-gray-500 cursor-pointer"
-                  onMouseEnter={() => showTooltip(`pricing-${model.id}`)}
-                  onMouseLeave={hideTooltip}
-                >
-                  {/* Changed from dollar to euro sign */}
-                  <div className="text-gray-400">€</div>
-                  <span>Pricing Info</span>
-                  <Info size={12} className="text-gray-400" />
+              <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-600">
+                <div className="flex justify-between items-center">
+                  <div 
+                    className="relative flex items-center gap-1 text-xs text-gray-500 cursor-pointer"
+                    onMouseEnter={() => showTooltip(`pricing-${model.id}`)}
+                    onMouseLeave={hideTooltip}
+                    onClick={(e) => e.stopPropagation()} // Prevent triggering card click when clicking pricing info
+                  >
+                    {/* Changed from dollar to euro sign */}
+                    <div className="text-gray-400">€</div>
+                    <span>Pricing Info</span>
+                    <Info size={12} className="text-gray-400" />
+                    
+                    {/* Pricing tooltip - with solid background */}
+                    {activeTooltip === `pricing-${model.id}` && (
+                      <div 
+                        className="absolute bottom-full left-0 mb-2 p-3 bg-white dark:bg-gray-800 shadow-lg rounded-md border border-gray-200 dark:border-gray-600 w-64 z-10 text-xs"
+                        onMouseEnter={() => showTooltip(`pricing-${model.id}`)}
+                        onMouseLeave={hideTooltip}
+                      >
+                        <p className="font-medium mb-1">Pricing</p>
+                        <p>{model.pricing}</p>
+                      </div>
+                    )}
+                  </div>
                   
-                  {/* Pricing tooltip - with solid background */}
-                  {activeTooltip === `pricing-${model.id}` && (
-                    <div 
-                      className="absolute bottom-full left-0 mb-2 p-3 bg-white dark:bg-gray-800 shadow-lg rounded-md border border-gray-200 dark:border-gray-600 w-64 z-10 text-xs"
-                      onMouseEnter={() => showTooltip(`pricing-${model.id}`)}
-                      onMouseLeave={hideTooltip}
+                  {/* Only show "Learn more" for non-ANEP models */}
+                  {model.websiteUrl && model.id !== "anep" && (
+                    <a 
+                      href={model.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs flex items-center gap-1 text-blue-500 hover:text-blue-700 group dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                      onClick={(e) => e.stopPropagation()} // Prevent triggering card click when clicking external link
                     >
-                      <p className="font-medium mb-1">Pricing</p>
-                      <p>{model.pricing}</p>
-                    </div>
+                      <span className="hover:underline group-hover:underline">Learn more</span>
+                      <ExternalLink size={12} className="group-hover:underline" />
+                    </a>
                   )}
                 </div>
-                
-                {/* Only show "Learn more" for non-ANEP models */}
-                {model.websiteUrl && model.id !== "anep" && (
-                  <a 
-                    href={model.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs flex items-center gap-1 text-blue-500 hover:text-blue-700 group dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
-                  >
-                    <span className="hover:underline group-hover:underline">Learn more</span>
-                    <ExternalLink size={12} className="group-hover:underline" />
-                  </a>
-                )}
               </div>
             </div>
           </div>
