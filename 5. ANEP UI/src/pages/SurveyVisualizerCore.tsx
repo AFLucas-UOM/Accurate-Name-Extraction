@@ -1,639 +1,710 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Papa from "papaparse";
-import { FileBarChart2, Filter, Loader2, PieChart as PieIcon, BarChart as BarIcon, 
-         Info, Download, ChevronDown, Percent, Calculator, Users, LineChart } from "lucide-react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, 
-         ResponsiveContainer, PieChart, Pie, Cell, Legend, 
-         ScatterChart, Scatter, ZAxis, LineChart as RechartLineChart, Line } from "recharts";
+import {
+  BarChart as BarChartIcon,
+  PieChart as PieChartIcon,
+  LineChart as LineChartIcon,
+  Loader2,
+  Download,
+  Filter,
+  Layers,
+  UserCircle2,
+  X,
+  Copy,
+  Check,
+} from "lucide-react";
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip as RechartTooltip,
+  Legend,
+  PieChart,
+  Pie,
+  Cell,
+  LineChart,
+  Line,
+} from "recharts";
 import { Button } from "@/components/ui/button";
-import * as math from 'mathjs';
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 
-
-// Extend the Window interface to include the 'fs' property exposed by Electron preload script
-declare global {
-  interface Window {
-    fs: {
-      readFile: (path: string, options?: { encoding?: string }) => Promise<string>;
-      // Add other fs methods used here if any
-    };
-  }
+// Types
+export type SurveyRow = Record<string, string | number | undefined>;
+interface DashboardProps {
+  csvUrl?: string;     // URL of the CSV file to load. Defaults to /ANEP.csv
+  title?: string;      // Optional friendly title in header
 }
 
-type SurveyResponse = Record<string, any>;
+// Accessible palette (WCAG-AA compliant)
+const PALETTE = [
+  "#2563eb",
+  "#10b981",
+  "#f59e0b",
+  "#ef4444",
+  "#8b5cf6",
+  "#ec4899",
+  "#14b8a6",
+  "#f97316",
+  "#22c55e",
+  "#6366f1",
+];
 
-interface FilterOption {
-  question: string;
-  answer: string;
+// Helper – persisted state
+function useLocalState<T>(key: string, initial: T) {
+  const [state, setState] = useState<T>(() => {
+    try {
+      const cached = localStorage.getItem(key);
+      return cached ? (JSON.parse(cached) as T) : initial;
+    } catch {
+      return initial;
+    }
+  });
+  const setPersisted = useCallback(
+    (val: T) => {
+      setState(val);
+      try {
+        localStorage.setItem(key, JSON.stringify(val));
+      } catch {
+        /* ignore quota errors */
+      }
+    },
+    [key],
+  );
+  return [state, setPersisted] as const;
 }
 
-// Custom tooltip component for charts
-const CustomTooltip = ({ active, payload, label }: any) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="bg-white dark:bg-gray-800 p-3 border border-gray-200 dark:border-gray-700 rounded shadow-lg">
-        <p className="font-medium">{label}</p>
-        <p className="text-blue-600 dark:text-blue-400">
-          Count: {payload[0].value}
-        </p>
-        {payload[0].payload.percentage && (
-          <p className="text-green-600 dark:text-green-400">
-            Percentage: {payload[0].payload.percentage.toFixed(1)}%
-          </p>
-        )}
-      </div>
-    );
-  }
-  return null;
-};
+// Helper – header splitting
+function splitHeaders(headers: string[]) {
+  // Remove "employment" from the keywords to exclude employment status from demographics
+  const kws = ["age", "gender", "reside", "country", "location"];
+  const demographics = headers.filter((h) => kws.some((k) => h.toLowerCase().includes(k)));
+  
+  // Filter out "Word of mouth / Private messages" and timestamp questions from headers
+  const filteredHeaders = headers.filter(h => 
+    !h.includes("Word of mouth") && 
+    !h.includes("Private messages") &&
+    !h.includes("timestamp") && 
+    !h.toLowerCase().includes("time") && 
+    !h.toLowerCase().includes("date")
+  );
+  
+  const opinions = filteredHeaders.filter((h) => !demographics.includes(h));
+  return { demographics, opinions } as const;
+}
 
-const SurveyVisualizerCore = () => {
-  const [data, setData] = useState<SurveyResponse[]>([]);
-  const [filteredData, setFilteredData] = useState<SurveyResponse[]>([]);
-  const [chartData, setChartData] = useState<any[]>([]);
-  const [question, setQuestion] = useState<string>("");
-  const [questions, setQuestions] = useState<string[]>([]);
+// Main Component
+export default function SurveyDashboard({ csvUrl = "/ANEP.csv", title = "Survey Results Dashboard" }: DashboardProps) {
+  // Raw data + header meta
+  const [rows, setRows] = useState<SurveyRow[]>([]);
+  const [headers, setHeaders] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [filters, setFilters] = useState<FilterOption[]>([]);
-  const [availableFilters, setAvailableFilters] = useState<Record<string, string[]>>({});
-  const [chartType, setChartType] = useState<string>("bar");
-  const [showStats, setShowStats] = useState<boolean>(false);
-  const [comparisonQuestion, setComparisonQuestion] = useState<string>("");
-  const [showComparison, setShowComparison] = useState<boolean>(false);
-  const [sortBy, setSortBy] = useState<string>("value");
-  const [sortOrder, setSortOrder] = useState<string>("desc");
+  const [copied, setCopied] = useState(false);
 
-  const COLORS = ["#3B82F6", "#10B981", "#F59E0B", "#EF4444", "#8B5CF6", "#EC4899", 
-                  "#06B6D4", "#F43F5E", "#84CC16", "#6366F1", "#14B8A6", "#D946EF"];
+  // UI state – persisted between sessions
+  const [primaryQ, setPrimaryQ] = useLocalState<string>("sd_primaryQ", "");
+  const [chartType, setChartType] = useLocalState<"bar" | "pie" | "line">("sd_chartType", "bar");
+  const [filters, setFilters] = useLocalState<{ q: string; a: string }[]>("sd_filters", []);
+  const [sortOrder, setSortOrder] = useLocalState<"asc" | "desc" | "none">("sd_sortOrder", "none");
 
+  // Fetch & parse CSV
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/ANEP.csv");
-        const text = await response.text();
-        Papa.parse(text, {
-          header: true,
-          dynamicTyping: true,
-          skipEmptyLines: true,
-          complete: (result) => {
-            const parsedData = result.data as SurveyResponse[];
-            setData(parsedData);
-            setFilteredData(parsedData);
-            
-            const fields = result.meta.fields || [];
-            const opinionQs = fields.filter(q =>
-              q.includes("?") &&
-              !q.toLowerCase().includes("age") &&
-              !q.toLowerCase().includes("gender") &&
-              !q.toLowerCase().includes("reside") &&
-              !q.toLowerCase().includes("employment")
-            );
-            
-            const demographicQs = fields.filter(q =>
-              q.toLowerCase().includes("age") ||
-              q.toLowerCase().includes("gender") ||
-              q.toLowerCase().includes("reside") ||
-              q.toLowerCase().includes("employment")
-            );
-            
-            // Build available filters from demographic questions
-            const filterOptions: Record<string, string[]> = {};
-            demographicQs.forEach(question => {
-              const uniqueAnswers = Array.from(new Set(
-                parsedData.map(row => row[question]).filter(Boolean)
-              )) as string[];
-              filterOptions[question] = uniqueAnswers;
-            });
-            
-            setAvailableFilters(filterOptions);
-            setQuestions(opinionQs);
-            setQuestion(opinionQs[0]);
-            setLoading(false);
-          },
-          error: (err) => setError(err.message),
-        });
-      } catch (err: any) {
+    setLoading(true);
+    Papa.parse(csvUrl, {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: (res) => {
+        if (res.errors.length) {
+          setError(res.errors[0].message);
+        } else {
+          setRows(res.data as SurveyRow[]);
+          setHeaders(res.meta.fields || []);
+          if (!primaryQ && res.meta.fields?.length) setPrimaryQ(res.meta.fields[0]);
+        }
+        setLoading(false);
+      },
+      error: (err) => {
         setError(err.message);
         setLoading(false);
-      }
-    };
+      },
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [csvUrl]);
+
+  const { demographics, opinions } = useMemo(() => splitHeaders(headers), [headers]);
+
+  // Improved filtering
+  const addFilter = (q: string, a: string) => {
+    // Allow multiple filters for the same demographic question
+    setFilters([...filters, { q, a }]);
+  };
   
-    fetchData();
-  }, []);  
+  const removeFilter = (idx: number) => setFilters(filters.filter((_, i) => i !== idx));
+  const clearFilters = () => setFilters([]);
 
-  // Apply filters to data
-  useEffect(() => {
-    if (data.length) {
-      let result = [...data];
-      
-      // Apply each filter
-      filters.forEach(filter => {
-        result = result.filter(row => row[filter.question] === filter.answer);
-      });
-      
-      setFilteredData(result);
-    }
-  }, [data, filters]);
-
-  // Update chart data based on selected question and filtered data
-  useEffect(() => {
-    if (filteredData.length && question) {
-      const counts: Record<string, number> = {};
-      let total = 0;
-      
-      filteredData.forEach(row => {
-        const res = row[question];
-        if (res) {
-          counts[res] = (counts[res] || 0) + 1;
-          total++;
-        }
-      });
-      
-      // Convert to array and add percentage
-      let result = Object.entries(counts).map(([name, value]) => ({ 
-        name, 
-        value,
-        percentage: (value / total) * 100
-      }));
-      
-      // Sort data based on user preference
-      if (sortBy === "value") {
-        result.sort((a, b) => sortOrder === "desc" ? b.value - a.value : a.value - b.value);
-      } else if (sortBy === "name") {
-        result.sort((a, b) => sortOrder === "desc" ? 
-          b.name.localeCompare(a.name) : a.name.localeCompare(b.name));
-      }
-      
-      setChartData(result);
-    }
-  }, [question, filteredData, sortBy, sortOrder]);
-
-  // Prepare comparison data when two questions are selected for comparison
-  const comparisonData = useMemo(() => {
-    if (!showComparison || !comparisonQuestion || !question || !filteredData.length) return [];
+  // Filtered rows with improved OR logic for same-question filters
+  const filteredRows = useMemo(() => {
+    // Group filters by question
+    const filtersByQuestion: Record<string, string[]> = {};
     
-    const result: any[] = [];
-    
-    filteredData.forEach(row => {
-      const xValue = row[question];
-      const yValue = row[comparisonQuestion];
-      
-      if (xValue && yValue) {
-        // Find existing entry or create new one
-        let entry = result.find(item => item.x === xValue && item.y === yValue);
-        
-        if (entry) {
-          entry.count++;
-        } else {
-          result.push({
-            x: xValue,
-            y: yValue,
-            count: 1
-          });
-        }
+    filters.forEach(f => {
+      if (!filtersByQuestion[f.q]) {
+        filtersByQuestion[f.q] = [];
       }
+      filtersByQuestion[f.q].push(f.a);
     });
     
+    // Apply filters with OR logic within same question, AND between questions
+    return rows.filter(row => {
+      // Check if this row matches all filter groups
+      return Object.entries(filtersByQuestion).every(([question, answers]) => {
+        // For each question, check if row matches ANY of its filters (OR logic)
+        return answers.some(answer => row[question] === answer);
+      });
+    });
+  }, [rows, filters]);
+
+  // Chart data
+  const chartData = useMemo(() => {
+    if (!primaryQ) return [];
+    const counts: Record<string, number> = {};
+    filteredRows.forEach((r) => {
+      const ans = r[primaryQ];
+      if (ans !== undefined && ans !== "") counts[String(ans)] = (counts[String(ans)] || 0) + 1;
+    });
+    const total = Object.values(counts).reduce((s, v) => s + v, 0);
+    
+    let result = Object.entries(counts).map(([name, value]) => ({
+      name,
+      value,
+      percentage: (value / total) * 100,
+    }));
+    
+    // Apply sorting if requested
+    if (sortOrder !== "none") {
+      result = [...result].sort((a, b) => {
+        if (sortOrder === "asc") {
+          return a.value - b.value;
+        } else {
+          return b.value - a.value;
+        }
+      });
+    }
+    
     return result;
-  }, [filteredData, question, comparisonQuestion, showComparison]);
+  }, [filteredRows, primaryQ, sortOrder]);
 
-  // Calculate statistics
-  const statistics = useMemo(() => {
-    if (!chartData.length) return null;
-    
-    const values = chartData.map(item => item.value);
-    
-    return {
-      total: values.reduce((sum, val) => sum + val, 0),
-      mean: math.mean(values),
-      median: math.median(values),
-      mode: math.mode(values),
-      stdDev: math.std(values),
-      min: math.min(values),
-      max: math.max(values)
-    };
-  }, [chartData]);
-  
-  // Add a filter
-  const addFilter = (question: string, answer: string) => {
-    setFilters([...filters, { question, answer }]);
-  };
-  
-  // Remove a filter
-  const removeFilter = (index: number) => {
-    const newFilters = [...filters];
-    newFilters.splice(index, 1);
-    setFilters(newFilters);
-  };
-
-  // Export data as CSV
-  const exportCSV = () => {
+  // Export CSV
+  const exportCsv = () => {
     if (!chartData.length) return;
+    const csv = ["Response,Count,Percentage", ...chartData.map((d) => `${d.name},${d.value},${d.percentage.toFixed(2)}`)].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${primaryQ.replace(/[^a-z0-9]/gi, "_")}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+  
+  // Copy chart as image
+  const copyChart = () => {
+    const chartElement = document.querySelector('.recharts-wrapper');
+    if (!chartElement) return;
     
-    const csvContent = "data:text/csv;charset=utf-8," 
-      + "Response,Count,Percentage\n"
-      + chartData.map(item => 
-          `"${item.name}",${item.value},${item.percentage.toFixed(2)}`
-        ).join("\n");
+    // Show copy success indicator for 2 seconds
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
     
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `${question.replace(/[^a-z0-9]/gi, '_')}_results.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Get SVG element within the chart
+    const svgElement = chartElement.querySelector('svg');
+    if (!svgElement) return;
+    
+    // Create canvas
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const bbox = svgElement.getBBox();
+    
+    // Set canvas dimensions to match the SVG
+    canvas.width = chartElement.clientWidth;
+    canvas.height = chartElement.clientHeight;
+    
+    // Create image from SVG
+    const data = new XMLSerializer().serializeToString(svgElement);
+    const img = new Image();
+    const blob = new Blob([data], {type: 'image/svg+xml'});
+    const url = URL.createObjectURL(blob);
+    
+    img.onload = () => {
+      // Draw white background (important for transparency)
+      if (ctx) {
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        
+        // Convert canvas to blob and copy to clipboard
+        canvas.toBlob(blob => {
+          if (blob) {
+            const item = new ClipboardItem({ 'image/png': blob });
+            navigator.clipboard.write([item]).catch(err => {
+              console.error('Could not copy image: ', err);
+            });
+          }
+        });
+      }
+      URL.revokeObjectURL(url);
+    };
+    
+    img.src = url;
   };
 
-  if (loading) {
+  // Guards
+  if (loading)
     return (
-      <div className="flex flex-col items-center justify-center h-[60vh] text-center">
-        <Loader2 className="h-8 w-8 animate-spin text-blue-600 mb-4" />
-        <p className="text-muted-foreground">Loading survey responses...</p>
-      </div>
+      <>
+        <NavBar />
+        <div className="flex flex-col items-center justify-center h-[60vh] text-muted-foreground text-center">
+          <Loader2 className="w-10 h-10 animate-spin mb-4 text-blue-600" /> 
+          <p className="text-xl font-medium">Loading survey data...</p>
+          <p className="text-sm mt-2 text-gray-500">This may take a moment</p>
+        </div>
+        <Footer />
+      </>
     );
-  }
-
-  if (error) {
+  if (error)
     return (
-      <div className="p-6 text-red-600 text-center">
-        <p className="font-semibold">Error loading data</p>
-        <p className="text-sm">{error}</p>
-      </div>
+      <>
+        <NavBar />
+        <div className="p-8 text-center">
+          <div className="inline-flex items-center justify-center p-4 bg-red-50 rounded-full mb-4">
+            <X className="w-8 h-8 text-red-600" />
+          </div>
+          <p className="text-xl font-semibold mb-2 text-red-600">Error Loading Survey Data</p>
+          <p className="text-gray-600 max-w-lg mx-auto mb-6">{error}</p>
+          <Button
+            onClick={() => window.location.reload()}
+            className="bg-red-600 hover:bg-red-700 text-white"
+          >
+            Try Again
+          </Button>
+        </div>
+        <Footer />
+      </>
     );
-  }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6">
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold mb-1 flex items-center gap-2">
-          <FileBarChart2 className="w-6 h-6 text-blue-500" />
-          Advanced Survey Visualizer
-        </h2>
-        <p className="text-muted-foreground">
-          Interactive survey analysis with filtering, comparison, and statistics.
-        </p>
-      </div>
+    <>
+      <NavBar />
+      <div className="mx-auto max-w-7xl px-4 py-8 space-y-8 bg-gray-50 dark:bg-gray-950 min-h-screen">
+        {/* Header */}
+        <header className="text-center space-y-3 mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 p-6 rounded-xl shadow-sm">
+          <h1 className="text-4xl font-bold flex justify-center items-center gap-3 text-gray-800 dark:text-white">
+            <Layers className="w-10 h-10 text-blue-600 dark:text-blue-400" /> {title}
+          </h1>
+          <p className="text-muted-foreground text-base max-w-2xl mx-auto">
+            Explore survey results with interactive charts and demographic filters
+          </p>
+          <div className="h-1 w-20 bg-blue-600 dark:bg-blue-400 mx-auto rounded-full mt-2"></div>
+        </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6">
-        <div className="lg:col-span-2">
-          <label className="block mb-1 font-medium flex items-center gap-1">
-            <Filter className="w-4 h-4" /> Select Primary Question
-          </label>
-          <select
-            className="w-full border border-gray-300 dark:border-gray-600 rounded p-2 bg-white dark:bg-gray-800"
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-          >
-            {questions.map((q) => (
-              <option key={q} value={q}>{q}</option>
-            ))}
-          </select>
-        </div>
-        
-        <div>
-          <label className="block mb-1 font-medium flex items-center gap-1">
-            <BarIcon className="w-4 h-4" /> Chart Type
-          </label>
-          <select
-            className="w-full border border-gray-300 dark:border-gray-600 rounded p-2 bg-white dark:bg-gray-800"
-            value={chartType}
-            onChange={(e) => setChartType(e.target.value)}
-          >
-            <option value="bar">Bar Chart</option>
-            <option value="pie">Pie Chart</option>
-            <option value="line">Line Chart</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block mb-1 font-medium flex items-center gap-1">
-            <Calculator className="w-4 h-4" /> Sort Results
-          </label>
-          <div className="flex gap-2">
+        {/* Controls */}
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          {/* Primary Question */}
+          <div className="lg:col-span-2">
+            <label className="block mb-1 text-lg font-medium flex items-center gap-1">
+              <Filter className="w-5 h-5 text-blue-600" /> Select Question to Visualize
+            </label>
             <select
-              className="flex-1 border border-gray-300 dark:border-gray-600 rounded p-2 bg-white dark:bg-gray-800"
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
+              className="w-full rounded-lg shadow-sm border border-gray-300 dark:border-gray-600 p-3 bg-white dark:bg-gray-800 text-base"
+              value={primaryQ}
+              onChange={(e) => setPrimaryQ(e.target.value)}
             >
-              <option value="value">Count</option>
-              <option value="name">Name</option>
+              <option value="" disabled>-- Select a question --</option>
+              {opinions.map((q) => (
+                <option key={q} value={q}>{q}</option>
+              ))}
             </select>
-            <select
-              className="flex-1 border border-gray-300 dark:border-gray-600 rounded p-2 bg-white dark:bg-gray-800"
-              value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value)}
-            >
-              <option value="desc">Descending</option>
-              <option value="asc">Ascending</option>
-            </select>
+            {!primaryQ && (
+              <p className="text-sm text-blue-600 mt-1">Please select a question to visualize the results</p>
+            )}
           </div>
-        </div>
-      </div>
-
-      {/* Filters Section */}
-      <div className="mb-6 bg-gray-50 dark:bg-gray-900 p-4 rounded border border-gray-200 dark:border-gray-700">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="font-semibold flex items-center gap-1">
-            <Filter className="w-4 h-4" /> Demographic Filters
-          </h3>
-          {filters.length > 0 && (
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={() => setFilters([])}
-              className="text-xs"
-            >
-              Clear All
-            </Button>
-          )}
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-3">
-          {Object.entries(availableFilters).map(([filterQuestion, answers]) => (
-            <div key={filterQuestion} className="flex flex-col">
-              <label className="text-sm font-medium mb-1">{filterQuestion}</label>
-              <select
-                className="border border-gray-300 dark:border-gray-600 rounded p-1 text-sm bg-white dark:bg-gray-800"
-                onChange={(e) => e.target.value && addFilter(filterQuestion, e.target.value)}
-                value=""
+          {/* Chart Type */}
+          {/* Chart Type */}
+          <div>
+            <label className="block mb-1 text-lg font-medium flex items-center gap-1">
+              <BarChartIcon className="w-5 h-5 text-blue-600" /> Chart Style
+            </label>
+            <div className="flex gap-2">
+              <button 
+                onClick={() => setChartType("bar")}
+                className={`flex-1 p-3 rounded-lg border flex justify-center items-center gap-2 ${
+                  chartType === "bar" 
+                    ? "bg-blue-100 dark:bg-blue-900 border-blue-500 text-blue-700 dark:text-blue-300 font-medium" 
+                    : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                }`}
               >
-                <option value="">Select {filterQuestion}</option>
-                {answers.map(answer => (
-                  <option 
-                    key={answer} 
-                    value={answer}
-                    disabled={filters.some(f => f.question === filterQuestion && f.answer === answer)}
-                  >
-                    {answer}
-                  </option>
-                ))}
-              </select>
+                <BarChartIcon className="w-5 h-5" /> Bar
+              </button>
+              <button 
+                onClick={() => setChartType("pie")}
+                className={`flex-1 p-3 rounded-lg border flex justify-center items-center gap-2 ${
+                  chartType === "pie" 
+                    ? "bg-blue-100 dark:bg-blue-900 border-blue-500 text-blue-700 dark:text-blue-300 font-medium" 
+                    : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                }`}
+              >
+                <PieChartIcon className="w-5 h-5" /> Pie
+              </button>
+              <button 
+                onClick={() => setChartType("line")}
+                className={`flex-1 p-3 rounded-lg border flex justify-center items-center gap-2 ${
+                  chartType === "line" 
+                    ? "bg-blue-100 dark:bg-blue-900 border-blue-500 text-blue-700 dark:text-blue-300 font-medium" 
+                    : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                }`}
+              >
+                <LineChartIcon className="w-5 h-5" /> Line
+              </button>
             </div>
-          ))}
-        </div>
-        
-        {filters.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-2">
-            {filters.map((filter, index) => (
-              <div 
-                key={index} 
-                className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm flex items-center gap-1"
+          </div>
+          {/* Sort Order */}
+          <div className="lg:col-span-3">
+            <label className="block mb-1 text-lg font-medium flex items-center gap-1">
+              <Filter className="w-5 h-5 text-blue-600" /> Sort Order
+            </label>
+            <div className="flex gap-2 flex-wrap">
+              <button 
+                onClick={() => setSortOrder("none")}
+                className={`flex-1 p-3 rounded-lg border flex justify-center items-center gap-2 transition-all ${
+                  sortOrder === "none" 
+                    ? "bg-blue-100 dark:bg-blue-900 border-blue-500 text-blue-700 dark:text-blue-300 font-medium shadow-md" 
+                    : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                }`}
               >
-                <span className="text-xs font-medium">{filter.question}: {filter.answer}</span>
-                <button 
-                  onClick={() => removeFilter(index)}
-                  className="ml-1 text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-100"
+                Default Order
+              </button>
+              <button 
+                onClick={() => setSortOrder("asc")}
+                className={`flex-1 p-3 rounded-lg border flex justify-center items-center gap-2 transition-all ${
+                  sortOrder === "asc" 
+                    ? "bg-blue-100 dark:bg-blue-900 border-blue-500 text-blue-700 dark:text-blue-300 font-medium shadow-md" 
+                    : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                }`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
+                  <path d="m3 8 4-4 4 4"/>
+                  <path d="M7 4v16"/>
+                  <path d="M11 12h4"/>
+                  <path d="M11 16h7"/>
+                  <path d="M11 20h10"/>
+                </svg>
+                Ascending (Low to High)
+              </button>
+              <button 
+                onClick={() => setSortOrder("desc")}
+                className={`flex-1 p-3 rounded-lg border flex justify-center items-center gap-2 transition-all ${
+                  sortOrder === "desc" 
+                    ? "bg-blue-100 dark:bg-blue-900 border-blue-500 text-blue-700 dark:text-blue-300 font-medium shadow-md" 
+                    : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                }`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
+                  <path d="M3 16l4 4 4-4"/>
+                  <path d="M7 20V4"/>
+                  <path d="M11 4h10"/>
+                  <path d="M11 8h7"/>
+                  <path d="M11 12h4"/>
+                </svg>
+                Descending (High to Low)
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Demographic Filters */}
+        {demographics.length > 0 && (
+          <section className="bg-gray-50 dark:bg-gray-900 p-5 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-lg font-semibold flex items-center gap-2">
+                <UserCircle2 className="w-5 h-5 text-blue-600" /> Filter by Demographics
+              </h2>
+              {filters.length > 0 && (
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={clearFilters}
+                  className="flex items-center gap-1 hover:bg-red-50 text-red-600 hover:text-red-700 border-red-200 hover:border-red-300"
                 >
-                  ×
-                </button>
-              </div>
-            ))}
-          </div>
-        )}
-        
-        <div className="text-sm text-muted-foreground mt-2">
-          <Users className="w-3 h-3 inline-block mr-1" />
-          {filteredData.length} of {data.length} responses match your filters 
-          ({((filteredData.length / data.length) * 100).toFixed(1)}%)
-        </div>
-      </div>
-
-      {/* Comparison Controls */}
-      <div className="mb-4 flex flex-col md:flex-row gap-3 items-center">
-        <Button 
-          variant={showStats ? "default" : "outline"}
-          onClick={() => setShowStats(!showStats)}
-          className="flex items-center gap-1"
-        >
-          <Calculator className="w-4 h-4" />
-          {showStats ? "Hide Statistics" : "Show Statistics"}
-        </Button>
-        
-        <Button 
-          variant={showComparison ? "default" : "outline"}
-          onClick={() => setShowComparison(!showComparison)}
-          className="flex items-center gap-1"
-        >
-          <LineChart className="w-4 h-4" />
-          {showComparison ? "Hide Comparison" : "Compare Questions"}
-        </Button>
-        
-        <Button 
-          variant="outline"
-          onClick={exportCSV}
-          className="flex items-center gap-1 ml-auto"
-        >
-          <Download className="w-4 h-4" />
-          Export Results
-        </Button>
-      </div>
-      
-      {/* Comparison Question Selector */}
-      {showComparison && (
-        <div className="mb-4">
-          <label className="block mb-1 font-medium flex items-center gap-1">
-            <ChevronDown className="w-4 h-4" /> Select Comparison Question
-          </label>
-          <select
-            className="w-full border border-gray-300 dark:border-gray-600 rounded p-2 bg-white dark:bg-gray-800"
-            value={comparisonQuestion}
-            onChange={(e) => setComparisonQuestion(e.target.value)}
-          >
-            <option value="">Select a question to compare with...</option>
-            {questions.filter(q => q !== question).map((q) => (
-              <option key={q} value={q}>{q}</option>
-            ))}
-          </select>
-        </div>
-      )}
-      
-      {/* Statistics Panel */}
-      {showStats && statistics && (
-        <div className="mb-6 bg-white dark:bg-gray-900 p-4 rounded shadow border border-gray-200 dark:border-gray-700">
-          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-            <Calculator className="w-5 h-5 text-blue-500" /> Statistical Analysis
-          </h3>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-              <div className="text-sm text-muted-foreground">Total Responses</div>
-              <div className="text-xl font-bold">{statistics.total}</div>
+                  <X className="w-4 h-4" /> Clear All Filters
+                </Button>
+              )}
             </div>
             
-            <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-              <div className="text-sm text-muted-foreground">Mean (Average)</div>
-              <div className="text-xl font-bold">{statistics.mean.toFixed(2)}</div>
-            </div>
-            
-            <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-              <div className="text-sm text-muted-foreground">Median</div>
-              <div className="text-xl font-bold">{statistics.median.toFixed(2)}</div>
-            </div>
-            
-            <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-              <div className="text-sm text-muted-foreground">Standard Deviation</div>
-              <div className="text-xl font-bold">{statistics.stdDev.toFixed(2)}</div>
-            </div>
-          </div>
-          
-          <div className="mt-3 grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium">Mode:</span>
-              <span>{Array.isArray(statistics.mode) 
-                ? statistics.mode.join(", ") 
-                : statistics.mode}</span>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium">Min:</span>
-              <span>{statistics.min}</span>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium">Max:</span>
-              <span>{statistics.max}</span>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Main Chart Section */}
-      {!showComparison ? (
-        <div className="grid grid-cols-1 gap-6">
-          <div className="bg-white dark:bg-gray-900 p-4 rounded shadow border border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold mb-2 text-center">
-              {chartType === "bar" && <span className="flex items-center justify-center gap-2"><BarIcon className="w-5 h-5" /> Bar Chart View</span>}
-              {chartType === "pie" && <span className="flex items-center justify-center gap-2"><PieIcon className="w-5 h-5" /> Pie Chart View</span>}
-              {chartType === "line" && <span className="flex items-center justify-center gap-2"><LineChart className="w-5 h-5" /> Line Chart View</span>}
-            </h3>
-            
-            <div className="h-96">
-              <ResponsiveContainer width="100%" height="100%">
-                {chartType === "bar" && (
-                  <BarChart data={chartData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <RechartsTooltip content={<CustomTooltip />} />
-                    <Legend />
-                    <Bar dataKey="value" name="Count" fill="#3B82F6" />
-                  </BarChart>
-                )}
-                
-                {chartType === "pie" && (
-                  <PieChart>
-                    <Pie
-                      data={chartData}
-                      cx="50%"
-                      cy="50%"
-                      labelLine={true}
-                      label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-                      outerRadius={130}
-                      fill="#8884d8"
-                      dataKey="value"
+            {/* Active Filters Display */}
+            {filters.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-3 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg shadow-inner border border-blue-100 dark:border-blue-800">
+                <span className="text-sm font-medium text-blue-700 dark:text-blue-300 mr-2">Active filters:</span>
+                {filters.map((f, i) => (
+                  <span key={i} className="flex items-center gap-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm shadow-sm border border-blue-200 dark:border-blue-800 transition-all hover:shadow-md">
+                    <span className="font-medium">{f.q}:</span> {f.a}
+                    <button 
+                      onClick={() => removeFilter(i)}
+                      className="ml-1 hover:bg-blue-200 dark:hover:bg-blue-800 rounded-full p-1 transition-colors"
+                      aria-label={`Remove ${f.q} filter`}
                     >
-                      {chartData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                      ))}
-                    </Pie>
-                    <RechartsTooltip />
-                    <Legend />
-                  </PieChart>
-                )}
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                ))}
+              </div>
+            )}
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {demographics.map((q) => {
+                const options = Array.from(new Set(rows.map((r) => String(r[q] ?? "")).filter(Boolean)));
+                // Count how many active filters for this question
+                const activeFiltersCount = filters.filter(f => f.q === q).length;
                 
-                {chartType === "line" && (
-                  <RechartLineChart data={chartData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <RechartsTooltip content={<CustomTooltip />} />
-                    <Legend />
-                    <Line 
-                      type="monotone" 
-                      dataKey="value" 
-                      name="Count" 
-                      stroke="#3B82F6" 
-                      activeDot={{ r: 8 }} 
-                    />
-                  </RechartLineChart>
-                )}
-              </ResponsiveContainer>
+                return (
+                  <div key={q} className="flex flex-col">
+                    <label className="text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                      {q} {activeFiltersCount > 0 && <span className="text-blue-600">({activeFiltersCount} filter{activeFiltersCount > 1 ? 's' : ''})</span>}
+                    </label>
+                    <select
+                      className="border border-gray-300 dark:border-gray-600 rounded-md p-2 text-sm bg-white dark:bg-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                      onChange={(e) => e.target.value && addFilter(q, e.target.value)}
+                      value=""
+                      aria-label={`Filter by ${q}`}
+                    >
+                      <option value="">All options...</option>
+                      {options.map((opt) => {
+                        // Check if this option is already in an active filter
+                        const isAlreadyFiltered = filters.some(f => f.q === q && f.a === opt);
+                        
+                        return (
+                          <option 
+                            key={opt} 
+                            value={opt}
+                            style={isAlreadyFiltered ? { color: '#3b82f6', fontWeight: 'bold' } : {}}
+                          >
+                            {opt} {isAlreadyFiltered ? '(active)' : ''}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                );
+              })}
             </div>
+            
+            <div className="flex justify-between items-center pt-2 border-t border-gray-200 dark:border-gray-700">
+              <p className="text-sm text-muted-foreground flex items-center gap-1">
+                <UserCircle2 className="w-4 h-4" /> 
+                <strong>{filteredRows.length}</strong> of <strong>{rows.length}</strong> responses 
+                ({((filteredRows.length / rows.length) * 100).toFixed(1)}%)
+              </p>
+              
+              {filters.length > 0 && (
+                <p className="text-xs text-blue-600 dark:text-blue-400">
+                  Showing filtered results
+                </p>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* Action Row */}
+        <div className="flex flex-wrap gap-3 justify-between items-center mt-6">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            {filteredRows.length > 0 ? 
+              `Showing results from ${filteredRows.length} respondents` : 
+              "No data with current filters. Try adjusting your filters."
+            }
+          </p>
+          <div className="flex gap-2">
+                          <Button 
+              onClick={copyChart} 
+              className={`flex items-center gap-2 ${
+                copied 
+                  ? "bg-green-600 hover:bg-green-700" 
+                  : "bg-gray-600 hover:bg-gray-700"
+              } text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1`}
+              disabled={chartData.length === 0}
+            >
+              {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />} 
+              {copied ? "Copied!" : "Copy Chart"}
+            </Button>
+            <Button 
+              onClick={exportCsv} 
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1"
+              disabled={chartData.length === 0}
+            >
+              <Download className="w-5 h-5" /> Export Data
+            </Button>
           </div>
         </div>
-      ) : (
-        // Comparison View
-        comparisonQuestion && (
-          <div className="grid grid-cols-1 gap-6">
-            <div className="bg-white dark:bg-gray-900 p-4 rounded shadow border border-gray-200 dark:border-gray-700">
-              <h3 className="text-lg font-semibold mb-2 text-center flex items-center justify-center gap-2">
-                <LineChart className="w-5 h-5" /> Question Comparison
-              </h3>
+
+        {/* Main Chart */}
+        <section className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 transition-all hover:shadow-xl">
+          {primaryQ ? (
+            <>
+              <h2 className="text-xl font-semibold mb-6 text-center flex items-center justify-center gap-2 bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg shadow-sm">
+                <div className="bg-blue-100 dark:bg-blue-800 p-2 rounded-full shadow-inner">
+                  {chartType === "bar" && <BarChartIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />}
+                  {chartType === "pie" && <PieChartIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />}
+                  {chartType === "line" && <LineChartIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />}
+                </div>
+                <span className="text-blue-800 dark:text-blue-300 truncate max-w-lg">{primaryQ}</span>
+              </h2>
               
-              <div className="h-96">
-                <ResponsiveContainer width="100%" height="100%">
-                  <ScatterChart>
-                    <CartesianGrid />
-                    <XAxis 
-                      dataKey="x" 
-                      name={question} 
-                      type="category"
-                    />
-                    <YAxis 
-                      dataKey="y" 
-                      name={comparisonQuestion} 
-                      type="category"
-                    />
-                    <ZAxis 
-                      dataKey="count" 
-                      range={[40, 200]} 
-                      name="Count" 
-                    />
-                    <RechartsTooltip 
-                      cursor={{ strokeDasharray: '3 3' }}
-                      content={({ active, payload }) => {
-                        if (active && payload && payload.length) {
-                          return (
-                            <div className="bg-white dark:bg-gray-800 p-3 border border-gray-200 dark:border-gray-700 rounded shadow-lg">
-                              <p className="font-medium">{question}: {payload[0].value}</p>
-                              <p className="font-medium">{comparisonQuestion}: {payload[1].value}</p>
-                              <p className="text-blue-600 dark:text-blue-400">
-                                Count: {payload[2].value}
-                              </p>
-                            </div>
-                          );
-                        }
-                        return null;
-                      }}
-                    />
-                    <Scatter 
-                      name="Responses" 
-                      data={comparisonData} 
-                      fill="#3B82F6"
-                    />
-                  </ScatterChart>
-                </ResponsiveContainer>
-              </div>
-              
-              <div className="mt-4 text-sm text-center text-muted-foreground">
-                The size of each bubble represents the number of respondents who selected both answers
-              </div>
+              {chartData.length === 0 ? (
+                <div className="h-64 flex items-center justify-center text-muted-foreground">
+                  No data available for this question
+                </div>
+              ) : (
+                <div className="h-[500px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    {chartType === "bar" && (
+                      <BarChart 
+                        data={chartData} 
+                        margin={{ top: 20, right: 30, left: 20, bottom: 90 }}
+                        barCategoryGap="20%"
+                      >
+                        <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
+                        <XAxis 
+                          dataKey="name" 
+                          angle={-45} 
+                          textAnchor="end" 
+                          height={90} 
+                          interval={0}
+                          tick={{ fontSize: 12 }}
+                          tickMargin={20}
+                        />
+                        <YAxis allowDecimals={false} />
+                        <RechartTooltip 
+                          formatter={(value, name) => [
+                            `${value} responses (${chartData.find(d => d.value === value)?.percentage.toFixed(1)}%)`, 
+                            "Count"
+                          ]}
+                          contentStyle={{ 
+                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                            padding: '10px',
+                            boxShadow: '0 2px 5px rgba(0,0,0,0.15)',
+                            fontWeight: 500,
+                            color: '#333'
+                          }}
+                          labelStyle={{ fontWeight: 'bold', color: '#000' }}
+                          itemStyle={{ color: '#333' }}
+                          cursor={{ fill: 'rgba(200, 200, 200, 0.2)' }}
+                        />
+                        <Legend wrapperStyle={{ paddingTop: 20 }} />
+                        <Bar dataKey="value" name="Count" fill={PALETTE[0]} barSize={60} />
+                      </BarChart>
+                    )}
+                    {chartType === "pie" && (
+                      <PieChart margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+                        <Pie 
+                          data={chartData} 
+                          dataKey="value" 
+                          nameKey="name" 
+                          cx="50%" 
+                          cy="50%" 
+                          outerRadius={180} 
+                          labelLine={true}
+                          label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
+                        >
+                          {chartData.map((_, idx) => (
+                            <Cell key={`cell-${idx}`} fill={PALETTE[idx % PALETTE.length]} />
+                          ))}
+                        </Pie>
+                        <Legend 
+                          layout="horizontal" 
+                          verticalAlign="bottom" 
+                          align="center"
+                          formatter={(value) => {
+                            const entry = chartData.find(d => d.name === value);
+                            return `${value} (${entry?.value} responses)`;
+                          }}
+                          wrapperStyle={{ paddingTop: 20 }}
+                        />
+                        <RechartTooltip 
+                          formatter={(value) => `${value} responses`} 
+                          contentStyle={{ 
+                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                            border: '1px solid #ccc', 
+                            borderRadius: '4px',
+                            padding: '10px',
+                            boxShadow: '0 2px 5px rgba(0,0,0,0.15)',
+                            fontWeight: 500,
+                            color: '#333'
+                          }}
+                          labelStyle={{ fontWeight: 'bold', color: '#000' }}
+                          itemStyle={{ color: '#333' }}
+                        />
+                      </PieChart>
+                    )}
+                    {chartType === "line" && (
+                      <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 90 }}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis 
+                          dataKey="name" 
+                          angle={-45} 
+                          textAnchor="end" 
+                          height={90} 
+                          interval={0}
+                          tick={{ fontSize: 12 }}
+                          tickMargin={20}
+                        />
+                        <YAxis allowDecimals={false} />
+                        <RechartTooltip 
+                          formatter={(value) => [`${value} responses`, "Count"]} 
+                          contentStyle={{ 
+                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                            border: '1px solid #ccc', 
+                            borderRadius: '4px',
+                            padding: '10px',
+                            boxShadow: '0 2px 5px rgba(0,0,0,0.15)',
+                            fontWeight: 500,
+                            color: '#333'
+                          }}
+                          labelStyle={{ fontWeight: 'bold', color: '#000' }}
+                          itemStyle={{ color: '#333' }}
+                        />
+                        <Legend wrapperStyle={{ paddingTop: 20 }} />
+                        <Line 
+                          type="monotone" 
+                          dataKey="value" 
+                          stroke={PALETTE[0]} 
+                          strokeWidth={3}
+                          activeDot={{ r: 8 }} 
+                        />
+                      </LineChart>
+                    )}
+                  </ResponsiveContainer>
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="h-64 flex flex-col items-center justify-center text-muted-foreground space-y-4">
+              <Filter className="w-12 h-12 text-blue-300" />
+              <p className="text-xl">Please select a question to visualize</p>
+              <p className="text-sm max-w-md text-center">
+                Choose a question from the dropdown above to see the distribution of responses
+              </p>
             </div>
-          </div>
-        )
-      )}
+          )}
+        </section>
 
-      <div className="mt-6 text-sm text-muted-foreground text-center">
-        Showing results for: <span className="font-medium">{question}</span>
-        {filters.length > 0 && (
-          <> (filtered by {filters.length} demographic filter{filters.length !== 1 ? 's' : ''})</>
-        )}
+
       </div>
-    </div>
+      <Footer />
+    </>
   );
-};
-
-export { SurveyVisualizerCore };
+}
