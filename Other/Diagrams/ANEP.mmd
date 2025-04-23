@@ -1,0 +1,54 @@
+flowchart TB
+    %% Main Process Flow (top to bottom)
+    A[Video Input] --> A1[Detect Duplicate Frame]
+    A1 --> B[Frame Sampling]
+    B --> C{Frame Duplicate?}
+    C -->|Yes| D[Skip Frame]
+    C -->|No| E[Extract ROIs with YOLO]
+    D --> F[Non-Max Suppression]
+    E --> F
+    
+    F --> G{Similar ROI to Previous?}
+    G -->|Yes| H[Skip ROI]
+    G -->|No| I[Save ROI Image & Preprocess]
+    H --> J[Apply Preprocessing Techniques]
+    I --> J
+    
+    %% Detailed Preprocessing
+    J --> J1[CLAHE + Gaussian Blur]
+    J --> J2[Otsu Thresholding]
+    J --> J3[Adaptive Thresholding]
+    J --> J4[Grayscale Resize]
+    J --> J5[Morphological Cleanup]
+
+    J1 --> K[Tesseract OCR]
+    J2 --> K
+    J3 --> K
+    J4 --> K
+    J5 --> K
+
+    K --> L[Select Best OCR Result]
+    L --> M[Save OCR Text File]
+    
+    M --> N[spaCy NER + GliNER]
+    M --> O[Transformer NER]
+    N --> P[Name Validation]
+    O --> P
+    P --> Q[Combine & Deduplicate]
+    Q --> R[Save Valid Names]
+    
+    R --> S[Name Clustering Fuzzy+Embedding]
+    S --> T[Timeline Generation]
+    T --> U[Summary Statistics]
+    U --> V[Final Results]
+    V --> W[Save Logs]
+
+    %% Style Definitions
+    classDef processing fill:#dae8fc,stroke:#6c8ebf,stroke-width:1px,color:#000000;
+    classDef decision fill:#ffe6cc,stroke:#d79b00,stroke-width:1px,color:#000000;
+    classDef output fill:#d5e8d4,stroke:#82b366,stroke-width:1px,color:#000000;
+    
+    %% Apply Styles
+    class A,A1,B,E,F,I,J,J1,J2,J3,J4,J5,K,L,M,N,O,Q,R,S,T,U processing;
+    class C,G decision;
+    class D,H,P,V,W output;
