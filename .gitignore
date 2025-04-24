@@ -6,6 +6,7 @@ Uploads/
 
 # API KEYS
 config.json
+.env
 
 # Logs
 logs

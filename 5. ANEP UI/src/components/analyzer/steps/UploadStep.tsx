@@ -56,17 +56,29 @@ const UploadStep = ({
   const uploadToServer = async (file: File) => {
     const formData = new FormData();
     formData.append("video", file);
-
+  
     try {
       const response = await fetch("http://localhost:5050/api/upload", {
         method: "POST",
         body: formData,
       });
-
+  
       if (!response.ok) throw new Error("Upload failed");
+  
       console.log("✅ Server upload complete");
+  
+      const res = await fetch("http://localhost:5050/api/latest-upload");
+      const data = await res.json();
+  
+      if (data.latest) {
+        console.log("💾 Latest uploaded video:", data.latest);
+        localStorage.setItem("CurrentVideoName", data.latest);
+      } else {
+        console.log("⚠️ No uploads yet");
+      }
+  
     } catch (err) {
-      console.error("❌ Server upload error:", err);
+      console.error("❌ Server upload error or fetch failed:", err);
       toast({
         title: "Upload failed",
         description: "There was an issue uploading your video to the server.",
@@ -74,7 +86,7 @@ const UploadStep = ({
       });
     }
   };
-
+  
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(true);

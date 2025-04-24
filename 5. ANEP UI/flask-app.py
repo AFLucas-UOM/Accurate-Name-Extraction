@@ -8,6 +8,7 @@ import torch
 import importlib.metadata
 import subprocess
 import os
+import threading
 
 start_time = time.time()
 
@@ -19,6 +20,8 @@ CORS(app, origins=[FRONTEND_ORIGIN])
 
 UPLOAD_FOLDER = os.path.join(os.getcwd(), "5. ANEP UI/Uploads")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+latest_uploaded_filename = None  # Global variable to track last upload
 
 def get_apple_chip():
     try:
@@ -81,29 +84,82 @@ def ping():
 
 @app.route("/api/upload", methods=["POST"])
 def upload_video():
-    print("[INFO] Received file upload request")
+    global latest_uploaded_filename
 
     if "video" not in request.files:
-        print("[ERROR] No file part in the request")
         return jsonify({"error": "No file part in the request"}), 400
 
     file = request.files["video"]
-    print(f"[INFO] File received: {file.filename}")
 
-    if file.filename == "":
-        print("[ERROR] No selected file")
-        return jsonify({"error": "No selected file"}), 400
-
-    if not file.content_type.startswith("video/"):
-        print("[ERROR] File is not a video")
-        return jsonify({"error": "Only video files are allowed"}), 400
+    if file.filename == "" or not file.content_type.startswith("video/"):
+        return jsonify({"error": "Invalid file"}), 400
 
     save_path = os.path.join(UPLOAD_FOLDER, file.filename)
-    print(f"[INFO] Saving file to: {save_path}")
     file.save(save_path)
 
-    print("[SUCCESS] File uploaded successfully")
+    latest_uploaded_filename = file.filename
     return jsonify({"message": "File uploaded successfully", "filename": file.filename})
+
+@app.route("/api/latest-upload", methods=["GET"])
+def get_latest_upload():
+    if latest_uploaded_filename:
+        return jsonify({"latest": latest_uploaded_filename})
+    else:
+        return jsonify({"latest": None, "message": "No uploads yet"})
+
+def run_script(cmd):
+    try:
+        result = subprocess.run(cmd, shell=True, text=True, capture_output=True)
+        return {"success": result.returncode == 0, "stdout": result.stdout, "stderr": result.stderr}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+@app.route("/api/run/anep", methods=["POST"])
+def run_anep():
+    if not latest_uploaded_filename:
+        return jsonify({"error": "No video uploaded yet"}), 400
+    cmd = f'python "4. ANEP/ANEP.py" --video "5. ANEP UI/Uploads/{latest_uploaded_filename}"'
+    result = run_script(cmd)
+    return jsonify(result)
+
+@app.route("/api/run/gcloud", methods=["POST"])
+def run_gcloud():
+    if not latest_uploaded_filename:
+        return jsonify({"error": "No video uploaded yet"}), 400
+    cmd = f'python "6. GenAI API/GCloudVision.py" "5. ANEP UI/Uploads/{latest_uploaded_filename}" "6. GenAI API/GoogleResults" "6. GenAI API/config.json"'
+    result = run_script(cmd)
+    return jsonify(result)
+
+@app.route("/api/run/llama", methods=["POST"])
+def run_llama():
+    if not latest_uploaded_filename:
+        return jsonify({"error": "No video uploaded yet"}), 400
+    cmd = f'python "6. GenAI API/LLaMAOpenRouter.py" "5. ANEP UI/Uploads/{latest_uploaded_filename}" "6. GenAI API/LlamaResults" "6. GenAI API/config.json"'
+    result = run_script(cmd)
+    return jsonify(result)
+
+@app.route("/api/run/ensemble", methods=["POST"])
+def run_ensemble():
+    if not latest_uploaded_filename:
+        return jsonify({"error": "No video uploaded yet"}), 400
+
+    results = {}
+
+    def call_and_store(name, cmd):
+        results[name] = run_script(cmd)
+
+    threads = [
+        threading.Thread(target=call_and_store, args=("anep", f'python "4. ANEP/ANEP.py" --video "5. ANEP UI/Uploads/{latest_uploaded_filename}"')),
+        threading.Thread(target=call_and_store, args=("gcloud", f'python "6. GenAI API/GCloudVision.py" "5. ANEP UI/Uploads/{latest_uploaded_filename}" "6. GenAI API/GoogleResults" "6. GenAI API/config.json"')),
+        threading.Thread(target=call_and_store, args=("llama", f'python "6. GenAI API/LLaMAOpenRouter.py" "5. ANEP UI/Uploads/{latest_uploaded_filename}" "6. GenAI API/LlamaResults" "6. GenAI API/config.json"')),
+    ]
+
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    return jsonify(results)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5050)
