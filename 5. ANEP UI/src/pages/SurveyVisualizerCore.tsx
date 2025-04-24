@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useState, Suspense } from "react";
 import Papa from "papaparse";
 import {
-  BarChart as BarChartIcon,
-  PieChart as PieChartIcon,
-  LineChart as LineChartIcon,
+  BarChart,
+  PieChart,
+  LineChart,
   Loader2,
   Download,
   Filter,
@@ -17,27 +17,34 @@ import {
   ChevronDown,
   ChevronRight,
   MoreHorizontal,
-  Share
+  Share,
+  Sliders,
+  Settings,
+  ArrowDownAZ,
+  ArrowUpZA,
+  LayoutGrid
 } from "lucide-react";
 import {
   ResponsiveContainer,
-  BarChart,
+  BarChart as RechartBarChart,
   Bar,
   CartesianGrid,
   XAxis,
   YAxis,
   Tooltip as RechartTooltip,
   Legend,
-  PieChart,
+  PieChart as RechartPieChart,
   Pie,
   Cell,
-  LineChart,
+  LineChart as RechartLineChart,
   Line,
 } from "recharts";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
+
+import {List, SortAsc, SortDesc } from "lucide-react";
 
 // Types
 export type SurveyRow = Record<string, string | number | undefined>;
@@ -202,18 +209,20 @@ const CollapsibleSection = ({
     headerClasses += isOpen
       ? " bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300"
       : " bg-gray-50 dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-gray-800 dark:text-gray-200";
-  } else if (type === "filter") {
+    } else if (type === "filter") {
     containerClasses += isOpen 
       ? " border-blue-300 dark:border-blue-700 shadow-lg" 
       : " border-gray-200 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800";
-      
+    
     headerClasses += isOpen
       ? " bg-blue-50 dark:bg-blue-900/20 text-blue-800 dark:text-blue-300"
-      : " bg-gray-50 dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-gray-800 dark:text-gray-200";
+      : " bg-gray-50 dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-[#121E3C] text-gray-800 dark:text-gray-200";
   } else {
     containerClasses += " border-gray-200 dark:border-gray-700";
-    headerClasses += " bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700";
-  }
+    headerClasses += isOpen
+      ? " bg-gray-50 dark:bg-gray-800"
+      : " bg-gray-50 dark:bg-gray-800 hover:bg-[#121E3C]";
+  }  
   
   return (
     <div className={`${containerClasses} ${className}`}>
@@ -332,6 +341,49 @@ const NoQuestionSelectedPlaceholder = () => (
   </div>
 );
 
+// Control option component - reusable component for control options
+const ControlOption = ({ 
+  active, 
+  onClick, 
+  icon, 
+  label, 
+  description = null 
+}: { 
+  active: boolean; 
+  onClick: () => void; 
+  icon: React.ReactNode; 
+  label: string;
+  description?: React.ReactNode;
+}) => (
+  <button 
+    onClick={onClick}
+    className={`relative overflow-hidden p-3 rounded-lg flex items-center justify-center gap-3 transition-all
+      ${active 
+        ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 ring-2 ring-blue-400 dark:ring-blue-600 font-medium w-full" 
+        : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 w-full"
+      }
+      ${description ? 'flex-col items-start' : ''}
+    `}
+  >
+    <div className="flex items-center gap-2">
+      <div className={`p-1.5 rounded-full ${active ? "bg-white/90 dark:bg-gray-800/70" : "bg-blue-50 dark:bg-blue-900/20"}`}>
+        {icon}
+      </div>
+      <span>{label}</span>
+    </div>
+    
+    {description && (
+      <div className="text-xs text-gray-500 dark:text-gray-400 ml-9 -mt-1">
+        {description}
+      </div>
+    )}
+    
+    {active && (
+      <span className="absolute inset-x-0 bottom-0 h-0.5 bg-blue-500 dark:bg-blue-600"></span>
+    )}
+  </button>
+);
+
 // Main Component
 // Add keyframes for animations
 const fadeInAnimation = `
@@ -377,6 +429,11 @@ export default function SurveyDashboard({
   const [sortOrder, setSortOrder] = useLocalState<"asc" | "desc" | "none">("sd_sortOrder", "none");
   const [viewMode, setViewMode] = useLocalState<"chart" | "table">("sd_viewMode", "chart");
   const [demographicsCollapsed, setDemographicsCollapsed] = useState(false);
+  
+  // New UI state additions
+  const [showPercentages, setShowPercentages] = useState(true);
+  const [chartHeight, setChartHeight] = useState(500);
+  const [gridLines, setGridLines] = useState(true);
 
   // Fetch & parse CSV
   useEffect(() => {
@@ -656,228 +713,300 @@ filteredRows.forEach((r) => {
           )}
         </div>
 
-        {/* Improved Controls Section */}
-        <section className="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 mb-5">
-          <div className="p-4 flex justify-between items-center border-b border-gray-200 dark:border-gray-700">
-            <h2 className="text-lg font-medium text-gray-800 dark:text-gray-200 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600 dark:text-blue-400">
-                <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path>
-                <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
-                <path d="M12 2v2"></path>
-                <path d="M12 22v-2"></path>
-                <path d="m17 20.66-1-1.73"></path>
-                <path d="M11 10.27 7 3.34"></path>
-                <path d="m20.66 17-1.73-1"></path>
-                <path d="m3.34 7 1.73 1"></path>
-                <path d="M14 12h8"></path>
-                <path d="M2 12h2"></path>
-                <path d="m20.66 7-1.73 1"></path>
-                <path d="m3.34 17 1.73-1"></path>
-                <path d="m17 3.34-1 1.73"></path>
-                <path d="m7 20.66 1-1.73"></path>
-              </svg>
-              Visualization Controls
-            </h2>
-            <button
-              onClick={() => setControlsExpanded(!controlsExpanded)}
-              className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+        {/* Visualisation Controls using CollapsibleSection */}
+        <CollapsibleSection 
+          title="Visualisation Controls" 
+          icon={<Sliders className="w-5 h-5 text-blue-600" />}
+          defaultOpen={true}
+          type="filter"
+          className="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 mb-6"
+        >
+          {/* Basic and Advanced Tabs */}
+          <div className="flex border-b border-gray-200 dark:border-gray-700 mb-4">
+            <button 
+              className={`py-2 px-4 font-medium text-sm relative ${
+                !viewMode || viewMode === "chart" 
+                  ? "text-blue-600 dark:text-blue-400" 
+                  : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+              }`}
+              onClick={() => viewMode !== "chart" && setViewMode("chart")}
             >
-              {controlsExpanded ? (
-                <ChevronDown className="w-5 h-5" />
-              ) : (
-                <ChevronRight className="w-5 h-5" />
+              Chart View
+              {(!viewMode || viewMode === "chart") && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400"></span>
+              )}
+            </button>
+            <button 
+              className={`py-2 px-4 font-medium text-sm relative ${
+                viewMode === "table" 
+                  ? "text-blue-600 dark:text-blue-400" 
+                  : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+              }`}
+              onClick={() => viewMode !== "table" && setViewMode("table")}
+            >
+              Table View
+              {viewMode === "table" && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400"></span>
               )}
             </button>
           </div>
           
-          {controlsExpanded && (
-            <div className="p-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Display Mode */}
-                <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-                    Display Mode
-                  </label>
-                  <div className="flex gap-3">
-                    <button 
-                      onClick={() => setViewMode("chart")}
-                      className={`relative overflow-hidden flex-1 p-3 rounded-lg flex justify-center items-center gap-2 transition-all ${
-                        viewMode === "chart" 
-                          ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 ring-2 ring-blue-400 dark:ring-blue-600 font-medium" 
-                          : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
-                      }`}
-                    >
-                      <BarChart2 className="w-5 h-5" />
-                      <span>Chart</span>
-                      {viewMode === "chart" && (
-                        <span className="absolute inset-x-0 bottom-0 h-0.5 bg-blue-500 dark:bg-blue-600"></span>
-                      )}
-                    </button>
-                    <button 
-                      onClick={() => setViewMode("table")}
-                      className={`relative overflow-hidden flex-1 p-3 rounded-lg flex justify-center items-center gap-2 transition-all ${
-                        viewMode === "table" 
-                          ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 ring-2 ring-blue-400 dark:ring-blue-600 font-medium" 
-                          : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
-                      }`}
-                    >
-                      <Layers className="w-5 h-5" />
-                      <span>Table</span>
-                      {viewMode === "table" && (
-                        <span className="absolute inset-x-0 bottom-0 h-0.5 bg-blue-500 dark:bg-blue-600"></span>
-                      )}
-                    </button>
-                  </div>
+          {/* Control Groups in Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Chart Type - Only show when Chart view is selected */}
+            {viewMode === "chart" && (
+              <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3 border border-gray-200 dark:border-gray-700">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="font-medium text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="3" y1="9" x2="21" y2="9"></line>
+                      <line x1="3" y1="15" x2="21" y2="15"></line>
+                      <line x1="9" y1="3" x2="9" y2="21"></line>
+                      <line x1="15" y1="3" x2="15" y2="21"></line>
+                    </svg>
+                    Chart Type
+                  </h3>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Info className="w-4 h-4 text-gray-400 hover:text-blue-500 cursor-help" />
+                      </TooltipTrigger>
+                      <TooltipContent side="top">
+                        <p className="text-xs">Each chart type visualizes data differently</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 </div>
                 
-                {/* Chart Type Options - Only show when Chart view is selected */}
-                {viewMode === "chart" && (
-                  <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Chart Type
-                    </label>
-                    <div className="flex gap-3">
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <button 
-                              onClick={() => setChartType("bar")}
-                              className={`relative overflow-hidden flex-1 p-3 rounded-lg flex justify-center items-center gap-2 transition-all ${
-                                chartType === "bar" 
-                                  ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 ring-2 ring-blue-400 dark:ring-blue-600 font-medium" 
-                                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
-                              }`}
-                            >
-                              <BarChartIcon className="w-5 h-5" />
-                              <span>Bar</span>
-                              {chartType === "bar" && (
-                                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-blue-500 dark:bg-blue-600"></span>
-                              )}
-                            </button>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>Bar chart - good for comparing values</p>
-                          </TooltipContent>
-                        </Tooltip>
-
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <button 
-                              onClick={() => setChartType("pie")}
-                              className={`relative overflow-hidden flex-1 p-3 rounded-lg flex justify-center items-center gap-2 transition-all ${
-                                chartType === "pie" 
-                                  ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 ring-2 ring-blue-400 dark:ring-blue-600 font-medium" 
-                                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
-                              }`}
-                            >
-                              <PieChartIcon className="w-5 h-5" />
-                              <span>Pie</span>
-                              {chartType === "pie" && (
-                                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-blue-500 dark:bg-blue-600"></span>
-                              )}
-                            </button>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>Pie chart - good for showing proportions</p>
-                          </TooltipContent>
-                        </Tooltip>
-
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <button 
-                              onClick={() => setChartType("line")}
-                              className={`relative overflow-hidden flex-1 p-3 rounded-lg flex justify-center items-center gap-2 transition-all ${
-                                chartType === "line" 
-                                  ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 ring-2 ring-blue-400 dark:ring-blue-600 font-medium"
-                                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
-                              }`}
-                            >
-                              <LineChartIcon className="w-5 h-5" />
-                              <span>Line</span>
-                              {chartType === "line" && (
-                                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-blue-500 dark:bg-blue-600"></span>
-                              )}
-                            </button>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>Line chart - good for showing trends</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </div>
-                  </div>
-                )}
-                
-                {/* Sort Order */}
-                <div className="md:col-span-2">
-                  <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-                    Sort Order
-                  </label>
-                  <div className="flex flex-wrap gap-3">
-                    <button 
-                      onClick={() => setSortOrder("none")}
-                      className={`relative overflow-hidden flex-1 p-3 rounded-lg flex justify-center items-center gap-2 transition-all ${
-                        sortOrder === "none" 
-                          ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 ring-2 ring-blue-400 dark:ring-blue-600 font-medium" 
-                          : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
-                      }`}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect width="21" height="6" x="2" y="3" rx="2"></rect>
-                        <rect width="15" height="6" x="2" y="9" rx="2"></rect>
-                        <rect width="17" height="6" x="2" y="15" rx="2"></rect>
-                      </svg>
-                      <span>Original Order</span>
-                      {sortOrder === "none" && (
-                        <span className="absolute inset-x-0 bottom-0 h-0.5 bg-blue-500 dark:bg-blue-600"></span>
-                      )}
-                    </button>
-                    <button 
-                      onClick={() => setSortOrder("asc")}
-                      className={`relative overflow-hidden flex-1 p-3 rounded-lg flex justify-center items-center gap-2 transition-all ${
-                        sortOrder === "asc" 
-                          ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 ring-2 ring-blue-400 dark:ring-blue-600 font-medium" 
-                          : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
-                      }`}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="m3 8 4-4 4 4"></path>
-                        <path d="M7 4v16"></path>
-                        <path d="M11 12h4"></path>
-                        <path d="M11 16h7"></path>
-                        <path d="M11 20h10"></path>
-                      </svg>
-                      <span>Ascending (Low to High)</span>
-                      {sortOrder === "asc" && (
-                        <span className="absolute inset-x-0 bottom-0 h-0.5 bg-blue-500 dark:bg-blue-600"></span>
-                      )}
-                    </button>
-                    <button 
-                      onClick={() => setSortOrder("desc")}
-                      className={`relative overflow-hidden flex-1 p-3 rounded-lg flex justify-center items-center gap-2 transition-all ${
-                        sortOrder === "desc" 
-                          ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 ring-2 ring-blue-400 dark:ring-blue-600 font-medium" 
-                          : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
-                      }`}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M3 16l4 4 4-4"></path>
-                        <path d="M7 20V4"></path>
-                        <path d="M11 4h10"></path>
-                        <path d="M11 8h7"></path>
-                        <path d="M11 12h4"></path>
-                      </svg>
-                      <span>Descending (High to Low)</span>
-                      {sortOrder === "desc" && (
-                        <span className="absolute inset-x-0 bottom-0 h-0.5 bg-blue-500 dark:bg-blue-600"></span>
-                      )}
-                    </button>
-                  </div>
+                <div className="grid grid-cols-3 gap-2">
+                  <button 
+                    onClick={() => setChartType("bar")}
+                    className={`flex flex-col items-center justify-center p-2 rounded-md border ${
+                      chartType === "bar" 
+                        ? "bg-blue-100 dark:bg-blue-900/40 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300" 
+                        : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                    }`}
+                  >
+                    <BarChart className={`w-6 h-6 mb-1 ${chartType === "bar" ? "text-blue-600 dark:text-blue-400" : ""}`} />
+                    <span className="text-xs font-medium">Bar</span>
+                  </button>
+                  
+                  <button 
+                    onClick={() => setChartType("pie")}
+                    className={`flex flex-col items-center justify-center p-2 rounded-md border ${
+                      chartType === "pie" 
+                        ? "bg-blue-100 dark:bg-blue-900/40 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300" 
+                        : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                    }`}
+                  >
+                    <PieChart className={`w-6 h-6 mb-1 ${chartType === "pie" ? "text-blue-600 dark:text-blue-400" : ""}`} />
+                    <span className="text-xs font-medium">Pie</span>
+                  </button>
+                  
+                  <button 
+                    onClick={() => setChartType("line")}
+                    className={`flex flex-col items-center justify-center p-2 rounded-md border ${
+                      chartType === "line" 
+                        ? "bg-blue-100 dark:bg-blue-900/40 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300" 
+                        : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                    }`}
+                  >
+                    <LineChart className={`w-6 h-6 mb-1 ${chartType === "line" ? "text-blue-600 dark:text-blue-400" : ""}`} />
+                    <span className="text-xs font-medium">Line</span>
+                  </button>
                 </div>
               </div>
+            )}
+            
+            {/* Sort Order */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3 border border-gray-200 dark:border-gray-700">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-medium text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                  <List className="w-4 h-4 text-blue-600" />
+                  Sort Order
+                </h3>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Info className="w-4 h-4 text-gray-400 hover:text-blue-500 cursor-help" />
+                    </TooltipTrigger>
+                    <TooltipContent side="top">
+                      <p className="text-xs">Arrange responses by frequency</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
+
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  onClick={() => setSortOrder("none")}
+                  className={`flex flex-col items-center justify-center p-2 rounded-md border ${
+                    sortOrder === "none"
+                      ? "bg-blue-100 dark:bg-blue-900/40 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300"
+                      : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  <List className={`mb-1 h-5 w-5 ${sortOrder === "none" ? "text-blue-600 dark:text-blue-400" : ""}`} />
+                  <span className="text-xs font-medium">Original</span>
+                </button>
+
+                <button
+                  onClick={() => setSortOrder("asc")}
+                  className={`flex flex-col items-center justify-center p-2 rounded-md border ${
+                    sortOrder === "asc"
+                      ? "bg-blue-100 dark:bg-blue-900/40 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300"
+                      : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  <SortAsc className={`mb-1 h-5 w-5 ${sortOrder === "asc" ? "text-blue-600 dark:text-blue-400" : ""}`} />
+                  <span className="text-xs font-medium">Low-to-High</span>
+                </button>
+
+                <button
+                  onClick={() => setSortOrder("desc")}
+                  className={`flex flex-col items-center justify-center p-2 rounded-md border ${
+                    sortOrder === "desc"
+                      ? "bg-blue-100 dark:bg-blue-900/40 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300"
+                      : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  <SortDesc className={`mb-1 h-5 w-5 ${sortOrder === "desc" ? "text-blue-600 dark:text-blue-400" : ""}`} />
+                  <span className="text-xs font-medium">High-to-Low</span>
+                </button>
+              </div>
             </div>
-          )}
-        </section>
+            
+            {/* Advanced Controls - Only show for chart view */}
+            {viewMode === "chart" && (
+              <>
+                {/* Chart Height */}
+                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3 border border-gray-200 dark:border-gray-700">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-medium text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
+                        <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                        <line x1="3" y1="8" x2="21" y2="8"></line>
+                        <line x1="3" y1="16" x2="21" y2="16"></line>
+                      </svg>
+                      Chart Height
+                    </h3>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Info className="w-4 h-4 text-gray-400 hover:text-blue-500 cursor-help" />
+                        </TooltipTrigger>
+                        <TooltipContent side="top">
+                          <p className="text-xs">Adjust the height of the chart</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 gap-2">
+                    <button 
+                      onClick={() => setChartHeight(400)}
+                      className={`flex flex-col items-center justify-center p-2 rounded-md border ${
+                        chartHeight === 400 
+                          ? "bg-blue-100 dark:bg-blue-900/40 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300" 
+                          : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      }`}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`mb-1 ${chartHeight === 400 ? "text-blue-600 dark:text-blue-400" : ""}`}>
+                        <rect width="18" height="8" x="3" y="10" rx="2"></rect>
+                      </svg>
+                      <span className="text-xs font-medium">Compact</span>
+                    </button>
+                    
+                    <button 
+                      onClick={() => setChartHeight(500)}
+                      className={`flex flex-col items-center justify-center p-2 rounded-md border ${
+                        chartHeight === 500 
+                          ? "bg-blue-100 dark:bg-blue-900/40 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300" 
+                          : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      }`}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`mb-1 ${chartHeight === 500 ? "text-blue-600 dark:text-blue-400" : ""}`}>
+                        <rect width="18" height="12" x="3" y="6" rx="2"></rect>
+                      </svg>
+                      <span className="text-xs font-medium">Standard</span>
+                    </button>
+                    
+                    <button 
+                      onClick={() => setChartHeight(600)}
+                      className={`flex flex-col items-center justify-center p-2 rounded-md border ${
+                        chartHeight === 600 
+                          ? "bg-blue-100 dark:bg-blue-900/40 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300" 
+                          : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      }`}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`mb-1 ${chartHeight === 600 ? "text-blue-600 dark:text-blue-400" : ""}`}>
+                        <rect width="18" height="16" x="3" y="4" rx="2"></rect>
+                      </svg>
+                      <span className="text-xs font-medium">Large</span>
+                    </button>
+                  </div>
+                </div>
+                
+                {/* Display Options */}
+                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3 border border-gray-200 dark:border-gray-700">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-medium text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                      <Settings className="w-4 h-4 text-blue-600" />
+                      Display Options
+                    </h3>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Info className="w-4 h-4 text-gray-400 hover:text-blue-500 cursor-help" />
+                        </TooltipTrigger>
+                        <TooltipContent side="top">
+                          <p className="text-xs">Configure chart display features</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-3">
+                    {/* Percentages Toggle */}
+                    <div className="flex items-center justify-between bg-white dark:bg-gray-800 p-2 rounded-md border border-gray-200 dark:border-gray-700">
+                      <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Show Percentages</span>
+                      <button
+                        onClick={() => setShowPercentages(!showPercentages)}
+                        className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors ${
+                          showPercentages ? 'bg-blue-600' : 'bg-gray-200 dark:bg-gray-700'
+                        }`}
+                      >
+                        <span
+                          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                            showPercentages ? 'translate-x-5' : 'translate-x-1'
+                          }`}
+                        />
+                      </button>
+                    </div>
+                    
+                    {/* Grid Lines Toggle */}
+                    <div className="flex items-center justify-between bg-white dark:bg-gray-800 p-2 rounded-md border border-gray-200 dark:border-gray-700">
+                      <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Grid Lines</span>
+                      <button
+                        onClick={() => setGridLines(!gridLines)}
+                        className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors ${
+                          gridLines ? 'bg-blue-600' : 'bg-gray-200 dark:bg-gray-700'
+                        }`}
+                      >
+                        <span
+                          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                            gridLines ? 'translate-x-5' : 'translate-x-1'
+                          }`}
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        </CollapsibleSection>
 
         {/* Demographic Filters - Less Boxy Design */}
         {demographics.length > 0 && (
@@ -1115,7 +1244,7 @@ filteredRows.forEach((r) => {
           </div>
         </div>
 
-        {/* Main Visualization Area */}
+        {/* Main Visualisation Area */}
         <section className="bg-white dark:bg-[#1E293B] p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 transition-all hover:shadow-xl">
           {primaryQ ? (
             <>
@@ -1123,15 +1252,15 @@ filteredRows.forEach((r) => {
                 <div className="bg-blue-100 dark:bg-blue-800 p-2 rounded-full shadow-inner">
                   {viewMode === "chart" ? (
                     <>
-                      {chartType === "bar" && <BarChartIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />}
-                      {chartType === "pie" && <PieChartIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />}
-                      {chartType === "line" && <LineChartIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />}
+                      {chartType === "bar" && <BarChart className="w-6 h-6 text-blue-600 dark:text-blue-400" />}
+                      {chartType === "pie" && <PieChart className="w-6 h-6 text-blue-600 dark:text-blue-400" />}
+                      {chartType === "line" && <LineChart className="w-6 h-6 text-blue-600 dark:text-blue-400" />}
                     </>
                   ) : (
                     <Layers className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   )}
                 </div>
-                <span className="text-blue-800 dark:text-blue-300 truncate max-w-lg">{primaryQ}</span>
+                <span className="text-blue-800 dark:text-blue-300 break-words max-w-full">{primaryQ}</span>
               </h2>
               
               {chartData.length === 0 ? (
@@ -1194,15 +1323,15 @@ filteredRows.forEach((r) => {
                   }
                 >
                   <Suspense fallback={<div className="h-64 flex items-center justify-center"><Loader2 className="w-10 h-10 animate-spin" /></div>}>
-                    <div className="h-[500px]">
+                    <div className="h-[500px]" style={{ height: `${chartHeight}px` }}>
                     {chartType === "bar" && (
                       <ResponsiveContainer width="100%" height="100%">
-                        <BarChart 
+                        <RechartBarChart 
                           data={chartData} 
                           margin={{ top: 20, right: 30, left: 20, bottom: 90 }}
                           barCategoryGap="20%"
                         >
-                          <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
+                          {gridLines && <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />}
                           <XAxis 
                             dataKey="name" 
                             angle={-45} 
@@ -1218,7 +1347,7 @@ filteredRows.forEach((r) => {
                           />
                           <RechartTooltip 
                             formatter={(value, name) => [
-                              `${value.toLocaleString()} responses (${chartData.find(d => d.value === value)?.percentage.toFixed(1)}%)`, 
+                              `${value.toLocaleString()} responses ${showPercentages ? `(${chartData.find(d => d.value === value)?.percentage.toFixed(1)}%)` : ''}`, 
                               "Count"
                             ]}
                             contentStyle={{ 
@@ -1241,14 +1370,20 @@ filteredRows.forEach((r) => {
                             fill={colorPalette[0]} 
                             barSize={60} 
                             animationDuration={1000}
+                            label={showPercentages ? {
+                              position: 'top',
+                              formatter: (value) => `${(chartData.find(d => d.value === value)?.percentage.toFixed(1) || 0)}%`,
+                              fill: '#666',
+                              fontSize: 12
+                            } : null}
                           />
-                        </BarChart>
+                        </RechartBarChart>
                       </ResponsiveContainer>
                     )}
 
                     {chartType === "pie" && (
                       <ResponsiveContainer width="100%" height="100%">
-                        <PieChart margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+                        <RechartPieChart margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
                           <Pie 
                             data={chartData} 
                             dataKey="value" 
@@ -1257,7 +1392,8 @@ filteredRows.forEach((r) => {
                             cy="50%" 
                             outerRadius={180} 
                             labelLine={true}
-                            label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
+                            label={showPercentages ? ({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%` : 
+                              ({ name }) => `${name}`}
                             animationDuration={1000}
                           >
                             {chartData.map((_, idx) => (
@@ -1270,12 +1406,12 @@ filteredRows.forEach((r) => {
                             align="center"
                             formatter={(value) => {
                               const entry = chartData.find(d => d.name === value);
-                              return `${value} (${entry?.value.toLocaleString()} responses)`;
+                              return `${value} (${entry?.value.toLocaleString()} responses${showPercentages ? `, ${entry?.percentage.toFixed(1)}%` : ''})`;
                             }}
                             wrapperStyle={{ paddingTop: 20 }}
                           />
                           <RechartTooltip 
-                            formatter={(value) => `${value.toLocaleString()} responses`} 
+                            formatter={(value) => `${value.toLocaleString()} responses${showPercentages ? ` (${chartData.find(d => d.value === value)?.percentage.toFixed(1) || 0}%)` : ''}`} 
                             contentStyle={{ 
                               backgroundColor: 'rgba(255, 255, 255, 0.95)',
                               border: '1px solid #ccc', 
@@ -1288,14 +1424,14 @@ filteredRows.forEach((r) => {
                             labelStyle={{ fontWeight: 'bold', color: '#000' }}
                             itemStyle={{ color: '#333' }}
                           />
-                        </PieChart>
+                        </RechartPieChart>
                       </ResponsiveContainer>
                     )}
 
                     {chartType === "line" && (
                       <ResponsiveContainer width="100%" height="100%">
-                        <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 90 }}>
-                          <CartesianGrid strokeDasharray="3 3" />
+                        <RechartLineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 90 }}>
+                          {gridLines && <CartesianGrid strokeDasharray="3 3" />}
                           <XAxis 
                             dataKey="name" 
                             angle={-45} 
@@ -1310,7 +1446,7 @@ filteredRows.forEach((r) => {
                             tickFormatter={(value) => value.toLocaleString()} 
                           />
                           <RechartTooltip 
-                            formatter={(value) => [`${value.toLocaleString()} responses`, "Count"]} 
+                            formatter={(value) => [`${value.toLocaleString()} responses${showPercentages ? ` (${chartData.find(d => d.value === value)?.percentage.toFixed(1) || 0}%)` : ''}`, "Count"]} 
                             contentStyle={{ 
                               backgroundColor: 'rgba(255, 255, 255, 0.95)',
                               border: '1px solid #ccc', 
@@ -1331,8 +1467,14 @@ filteredRows.forEach((r) => {
                             strokeWidth={3}
                             activeDot={{ r: 8 }}
                             animationDuration={1000}
+                            label={showPercentages ? {
+                              position: 'top',
+                              formatter: (value) => `${(chartData.find(d => d.value === value)?.percentage.toFixed(1) || 0)}%`,
+                              fill: '#666',
+                              fontSize: 12
+                            } : null}
                           />
-                        </LineChart>
+                        </RechartLineChart>
                       </ResponsiveContainer>
                     )}
                     </div>
@@ -1383,7 +1525,7 @@ filteredRows.forEach((r) => {
                       <path d="M12 13.5V8"></path>
                     </svg>
                   </span>
-                  Analysis of "{primaryQ.length > 40 ? primaryQ.substring(0, 40) + '...' : primaryQ}"
+                  Analysis of "{primaryQ}"
                 </h3>
                 
                 <div className="flex items-center gap-2">
@@ -1398,7 +1540,7 @@ filteredRows.forEach((r) => {
                 <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
                   <div className="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/80">
                     <h4 className="font-medium text-gray-800 dark:text-gray-200 flex items-center gap-2">
-                      <BarChartIcon className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                      <BarChart className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                       Response Distribution
                     </h4>
                   </div>
@@ -1412,8 +1554,8 @@ filteredRows.forEach((r) => {
                         .map((item, index) => (
                           <div key={index} className="space-y-1">
                             <div className="flex justify-between text-sm">
-                              <span className="font-medium text-gray-700 dark:text-gray-300 truncate max-w-[60%]" title={item.name}>
-                                {item.name.length > 40 ? item.name.substring(0, 40) + '...' : item.name}
+                              <span className="font-medium text-gray-700 dark:text-gray-300 break-words max-w-[60%]" title={item.name}>
+                                {item.name}
                               </span>
                               <span className="text-gray-600 dark:text-gray-400">
                                 {item.value.toLocaleString()} ({formatPercentage(item.percentage)})
@@ -1446,8 +1588,8 @@ filteredRows.forEach((r) => {
                               .slice(5)
                               .map((item, index) => (
                                 <div key={index} className="flex justify-between text-sm">
-                                  <span className="text-gray-700 dark:text-gray-300 truncate max-w-[60%]" title={item.name}>
-                                    {item.name.length > 40 ? item.name.substring(0, 40) + '...' : item.name}
+                                  <span className="text-gray-700 dark:text-gray-300 break-words max-w-[60%]" title={item.name}>
+                                    {item.name}
                                   </span>
                                   <span className="text-gray-600 dark:text-gray-400">
                                     {item.value.toLocaleString()} ({formatPercentage(item.percentage)})
@@ -1483,7 +1625,7 @@ filteredRows.forEach((r) => {
                       <div className="font-medium text-gray-900 dark:text-gray-100">
                         {chartData.length > 0 ? (
                           <div className="flex items-center gap-2">
-                            <span className="text-base truncate max-w-full" title={[...chartData].sort((a, b) => b.value - a.value)[0].name}>
+                            <span className="text-base break-words max-w-full" title={[...chartData].sort((a, b) => b.value - a.value)[0].name}>
                               {[...chartData].sort((a, b) => b.value - a.value)[0].name}
                             </span>
                           </div>
@@ -1507,7 +1649,7 @@ filteredRows.forEach((r) => {
                       <div className="font-medium text-gray-900 dark:text-gray-100">
                         {chartData.length > 0 ? (
                           <div className="flex items-center gap-2">
-                            <span className="text-base truncate max-w-full" title={[...chartData].sort((a, b) => a.value - b.value)[0].name}>
+                            <span className="text-base break-words max-w-full" title={[...chartData].sort((a, b) => a.value - b.value)[0].name}>
                               {[...chartData].sort((a, b) => a.value - b.value)[0].name}
                             </span>
                           </div>
