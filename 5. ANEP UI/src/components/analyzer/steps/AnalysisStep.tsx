@@ -687,17 +687,6 @@ const AnalysisStep = ({
                   {selectedModel === "all" && "A combination of all three models utilized for comparison and research purposes."}
                 </p>
               </div>
-              
-              {/* Server information */}
-              <div className="bg-blue-50 dark:bg-blue-900/10 p-4 rounded-lg border border-blue-100 dark:border-blue-800/20">
-                <h5 className="font-medium mb-3 flex items-center text-blue-700 dark:text-blue-300">
-                  <Server className="h-4 w-4 mr-2" />
-                  Server Processing
-                </h5>
-                <p className="text-sm text-blue-700 dark:text-blue-300">
-                  Your video is being processed by our Flask backend server. This may take several minutes depending on the video length and complexity.
-                </p>
-              </div>
             </div>
           </CollapsibleSection>
 
