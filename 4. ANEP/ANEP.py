@@ -510,8 +510,8 @@ class NewsGraphicsNameDetector:
                 f.write(best_text)
             
             self.logger.debug(f"Extracted text from ROI and saved to {text_file_path}")
-            self.console.print(f"[cyan]Text from frame {frame_idx}:[/cyan]")
-            self.console.print(best_text)
+            # self.console.print(f"[cyan]Text from frame {frame_idx}:[/cyan]")
+            # self.console.print(best_text)
             
             return best_text, best_words
         
