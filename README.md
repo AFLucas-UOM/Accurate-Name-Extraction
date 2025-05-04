@@ -5,41 +5,47 @@ This repository contains the full implementation of <strong>ANEP</strong> (Accur
 </p>
 
 <p align="center">
-  <!-- Core Setup -->
+  <!-- Language & License -->
   <a href="https://www.python.org/downloads/">
-    <img src="https://img.shields.io/badge/python-3.10+-blue.svg" alt="Python Version">
+    <img src="https://img.shields.io/badge/Python-3.10%2B-blue.svg" alt="Python 3.10+">
   </a>
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License">
   </a>
-  
+</p>
+
+<p align="center">
   <!-- Dataset & Model -->
   <a href="https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset">
-    <img src="https://app.roboflow.com/images/download-dataset-badge.svg" alt="Roboflow Dataset">
+    <img src="https://app.roboflow.com/images/download-dataset-badge.svg" alt="Download Dataset on Roboflow">
   </a>
   <a href="https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset/model/7">
-    <img src="https://app.roboflow.com/images/try-model-badge.svg" alt="Roboflow Model">
+    <img src="https://app.roboflow.com/images/try-model-badge.svg" alt="Try Model on Roboflow">
   </a>
+</p>
 
+<p align="center">
   <!-- APIs Used -->
   <a href="https://cloud.google.com/vision">
     <img src="https://img.shields.io/badge/API-Google%20Cloud%20Vision-blue?logo=googlecloud" alt="Google Cloud Vision API">
   </a>
   <a href="https://ai.google.dev/gemini">
-    <img src="https://img.shields.io/badge/API-Gemini%201.5%20Pro-4285F4?logo=google" alt="Gemini API">
+    <img src="https://img.shields.io/badge/API-Gemini%201.5%20Pro-4285F4?logo=google" alt="Gemini 1.5 Pro API">
   </a>
   <a href="https://openrouter.ai/meta-llama/llama-4-maverick:free">
-    <img src="https://img.shields.io/badge/API-LLaMA%204%20%7C%20OpenRouter-6533FF?logo=openai" alt="LLaMA 4 via OpenRouter">
+    <img src="https://img.shields.io/badge/API-LLaMA%204%20(Maverick)%20via%20OpenRouter-6533FF?logo=Meta" alt="LLaMA 4 Maverick via OpenRouter">
   </a>
+</p>
 
-  <!-- GitHub Metadata
+<!-- GitHub Metadata (optional, uncomment if needed) 
+<p align="center">
   <a href="https://github.com/AFLucas-UOM/Accurate-Name-Extraction/stargazers">
     <img src="https://img.shields.io/github/stars/AFLucas-UOM/Accurate-Name-Extraction.svg?style=social" alt="GitHub Stars">
   </a>
   <a href="https://github.com/AFLucas-UOM/Accurate-Name-Extraction/commits/main">
     <img src="https://img.shields.io/github/last-commit/AFLucas-UOM/Accurate-Name-Extraction.svg" alt="Last Commit">
-  </a> -->
-</p>
+  </a>
+</p> -->
 
 ## 📚 Table of Contents
 
@@ -167,28 +173,31 @@ flowchart TB
 - **Progressive Web App (PWA)**  
   Fully featured frontend built with **React**, **Tailwind CSS**, and **Vite**. Provides a clean, step-by-step UI for uploading videos, selecting models, and visualising extracted results.
 
+## 🔐 Ethics & Data Usage
+
+- All data used in the NGD dataset is sourced from publicly available news footage under fair use for research purposes.
+- No biometric or private personal data is collected or stored.
+- The system is **NOT** intended for surveillance or use in sensitive political contexts.
+
 ## 📊 Dataset & Model (Roboflow)
 
 <div align="center">
 
-<table>
-  <tr>
-    <th>Download the annotated NGD dataset</th>
-    <th>Try the fine-tuned YOLOv12 model</th>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset">
-        <img src="https://app.roboflow.com/images/download-dataset-badge.svg" alt="Download the NGD Dataset on Roboflow">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset/model/7">
-        <img src="https://app.roboflow.com/images/try-model-badge.svg" alt="Try Model on Roboflow">
-      </a>
-    </td>
-  </tr>
-</table>
+<p>
+  <em>
+    Explore the <strong>News Graphics Dataset (NGD)</strong> and experiment with the <strong>fine-tuned YOLOv12 model</strong> directly on Roboflow.
+  </em>
+</p>
+
+<a href="https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset">
+  <img src="https://app.roboflow.com/images/download-dataset-badge.svg" alt="Download NGD Dataset" style="margin: 10px;">
+</a>
+
+<a href="https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset/model/7">
+  <img src="https://app.roboflow.com/images/try-model-badge.svg" alt="Try YOLOv12 Model" style="margin: 10px;">
+</a>
+</div>
+
 
 </div>
 
@@ -232,6 +241,35 @@ The full dissertation, containing methodology, evaluation, and survey results, i
 📄 **[Download PDF](./7.%20Documentation/Dissertation.pdf)**
 
 </div>
+
+## 📘 Citation
+
+If you use the **News Graphic Dataset (NGD)** or the **ANEP pipeline** in your research, please cite the following:
+
+### 📂 News Graphic Dataset (NGD)
+
+```bibtex
+@dataset{news_graphic_dataset,
+  title     = {News Graphic Dataset (NGD)},
+  type      = {Open Source Dataset},
+  author    = {Andrea Filiberto Lucas},
+  year      = {2025},
+  publisher = {Roboflow},
+  howpublished = {\url{https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset}},
+  url       = {https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset}
+}
+
+```
+### 🎓 Dissertation
+```bibtex
+@thesis{lucas2025anep,
+  title     = {Accurate Name Extraction from News Video Graphics},
+  author    = {Andrea Filiberto Lucas},
+  year      = {2025},
+  school    = {University of Malta},
+  type      = {B.Sc. (Hons.) Dissertation}
+}
+```
 
 ## ✨ Contribution
 
