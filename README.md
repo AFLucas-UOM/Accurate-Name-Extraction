@@ -85,59 +85,91 @@ By combining traditional deep learning (DL) with cutting-edge GenAI, this projec
 
 ```mermaid
 flowchart TB
-    %% Main Process Flow (top to bottom)
-    A[Video Input] --> A1[Detect Duplicate Frame]
-    A1 --> B[Frame Sampling]
-    B --> C{Frame Duplicate?}
-    C -->|Yes| D[Skip Frame]
-    C -->|No| E[Extract ROIs with YOLO]
-    D --> F[Non-Max Suppression]
-    E --> F
+    %% Start of Pipeline
+    Start([Start Pipeline]) --> Init[Initialize NewsGraphicsNameDetector]
+    Init --> Models[Load Models:<br/>YOLO, spaCy, Transformer NER]
+    Models --> Video[Load Video]
     
-    F --> G{Similar ROI to Previous?}
-    G -->|Yes| H[Skip ROI]
-    G -->|No| I[Save ROI Image & Preprocess]
-    H --> J[Apply Preprocessing Techniques]
-    I --> J
+    %% Frame Processing Loop
+    Video --> FrameLoop{More Frames?}
+    FrameLoop -->|No| EndProcessing[End Processing]
+    FrameLoop -->|Yes| ReadFrame[Read Frame]
     
-    %% Detailed Preprocessing
-    J --> J1[CLAHE + Gaussian Blur]
-    J --> J2[Otsu Thresholding]
-    J --> J3[Adaptive Thresholding]
-    J --> J4[Grayscale Resize]
-    J --> J5[Morphological Cleanup]
-
-    J1 --> K[Tesseract OCR]
-    J2 --> K
-    J3 --> K
-    J4 --> K
-    J5 --> K
-
-    K --> L[Select Best OCR Result]
-    L --> M[Save OCR Text File]
+    ReadFrame --> CheckInterval{Frame at<br/>Sampling Interval?}
+    CheckInterval -->|No| FrameLoop
+    CheckInterval -->|Yes| FrameHash[Compute Frame Hash]
     
-    M --> N[spaCy NER + GliNER]
-    M --> O[Transformer NER]
-    N --> P[Name Validation]
-    O --> P
-    P --> Q[Combine & Deduplicate]
-    Q --> R[Save Valid Names]
+    FrameHash --> DupeCheck{Similar to<br/>Previous Frames?}
+    DupeCheck -->|Yes| SkipFrame[Skip Frame<br/>Count++]
+    DupeCheck -->|No| ExtractROI[Extract ROIs<br/>with YOLO]
     
-    R --> S[Name Clustering Fuzzy+Embedding]
-    S --> T[Timeline Generation]
-    T --> U[Summary Statistics]
-    U --> V[Final Results]
-    V --> W[Save Logs]
-
-    %% Style Definitions
-    classDef processing fill:#dae8fc,stroke:#6c8ebf,stroke-width:1px,color:#000000;
-    classDef decision fill:#ffe6cc,stroke:#d79b00,stroke-width:1px,color:#000000;
-    classDef output fill:#d5e8d4,stroke:#82b366,stroke-width:1px,color:#000000;
+    SkipFrame --> FrameLoop
     
-    %% Apply Styles
-    class A,A1,B,E,F,I,J,J1,J2,J3,J4,J5,K,L,M,N,O,Q,R,S,T,U processing;
-    class C,G decision;
-    class D,H,P,V,W output;
+    %% ROI Processing
+    ExtractROI --> FilterClasses{Valid Class?}
+    FilterClasses -->|No| NextROI
+    FilterClasses -->|Yes| NMS[Non-Max Suppression]
+    
+    NMS --> PadROI[Add Padding to ROI]
+    PadROI --> ROIHash[Compute Perceptual Hash]
+    
+    ROIHash --> ContiguousCheck{Too Many<br/>Similar ROIs<br/>in a Row?}
+    ContiguousCheck -->|Yes| SkipROI[Skip ROI<br/>Count++]
+    ContiguousCheck -->|No| SaveImage[Save ROI Image]
+    
+    SkipROI --> NextROI[Next ROI]
+    NextROI --> ROILoop{More ROIs?}
+    ROILoop -->|Yes| FilterClasses
+    ROILoop -->|No| FrameLoop
+    
+    %% OCR Processing
+    SaveImage --> Preprocess[Preprocess for OCR:<br/>- CLAHE Enhancement<br/>- Otsu Thresholding<br/>- Adaptive Threshold<br/>- Original Gray<br/>- Combined Approach]
+    
+    Preprocess --> OCR[Tesseract OCR on<br/>All Preprocessed Images]
+    OCR --> SelectBest[Select Best OCR Result<br/>Based on Confidence]
+    SelectBest --> SaveText[Save OCR Text File]
+    
+    %% NER Processing
+    SaveText --> SpacyNER[spaCy NER<br/>+ GliNER if available]
+    SaveText --> TransformerNER[Transformer NER<br/>BERT-based]
+    
+    SpacyNER --> ValidateNames[Validate Names:<br/>- Length Check<br/>- Character Check<br/>- Common Words Filter<br/>- News Phrase Filter]
+    TransformerNER --> ValidateNames
+    
+    ValidateNames --> CombineNames[Combine & Deduplicate<br/>Names from Both Methods]
+    CombineNames --> DoubleCheck{Really a Person?}
+    DoubleCheck -->|No| NextROI
+    DoubleCheck -->|Yes| SaveNames[Save Valid Names JSON]
+    
+    SaveNames --> UpdateStats[Update Name Statistics:<br/>- Unique Names Set<br/>- Instance Counts<br/>- Timestamps]
+    UpdateStats --> NextROI
+    
+    %% Post Processing
+    EndProcessing --> Clustering[Name Clustering:<br/>- Fuzzy Matching<br/>- Jaccard Similarity<br/>- Embedding Similarity]
+    
+    Clustering --> ValidateCluster{Cluster Valid?}
+    ValidateCluster -->|No| SplitCluster[Split Invalid Cluster]
+    ValidateCluster -->|Yes| SelectCanonical[Select Canonical Name<br/>Based on Frequency<br/>and Completeness]
+    
+    SplitCluster --> SelectCanonical
+    
+    SelectCanonical --> Timeline[Generate Timeline]
+    Timeline --> Summary[Generate Summary:<br/>- Class Statistics<br/>- Name Frequencies<br/>- Efficiency Metrics]
+    
+    Summary --> SaveResults[Save All Results:<br/>- Detections JSON<br/>- Clusters JSON<br/>- Timeline JSON<br/>- Summary JSON<br/>- Model Versions JSON]
+    
+    SaveResults --> End([End Pipeline])
+    
+    %% Styles
+    classDef process fill:#dae8fc,stroke:#6c8ebf,stroke-width:2px;
+    classDef decision fill:#ffe6cc,stroke:#d79b00,stroke-width:2px;
+    classDef storage fill:#d5e8d4,stroke:#82b366,stroke-width:2px;
+    classDef start fill:#f8cecc,stroke:#b85450,stroke-width:2px;
+    
+    class Init,Models,Video,ReadFrame,FrameHash,ExtractROI,NMS,PadROI,ROIHash,Preprocess,OCR,SelectBest,SpacyNER,TransformerNER,CombineNames,Clustering,SelectCanonical,Timeline,Summary process;
+    class FrameLoop,CheckInterval,DupeCheck,FilterClasses,ContiguousCheck,ROILoop,ValidateNames,DoubleCheck,ValidateCluster decision;
+    class SaveImage,SaveText,SaveNames,SaveResults,UpdateStats storage;
+    class Start,End,EndProcessing start;
 ```
 
 ## 🔎 Key Features
