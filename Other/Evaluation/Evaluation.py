@@ -194,10 +194,10 @@ def export_results_to_csv(models: Dict[str, Tuple[Dict[str, Set[str]], List[floa
 def main():
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Evaluate name recognition models against ground truth.')
-    parser.add_argument('--gt', default='GT.json', help='Path to ground truth JSON file')
-    parser.add_argument('--anep', default='ANEP.json', help='Path to ANEP predictions')
-    parser.add_argument('--google', default='Google.json', help='Path to Google predictions')
-    parser.add_argument('--llama', default='Llama4.json', help='Path to Llama4 predictions')
+    parser.add_argument('--gt', default='Json/GT.json', help='Path to ground truth JSON file')
+    parser.add_argument('--anep', default='Json/ANEP.json', help='Path to ANEP predictions')
+    parser.add_argument('--google', default='Json/Google.json', help='Path to Google predictions')
+    parser.add_argument('--llama', default='Json/Llama4.json', help='Path to Llama4 predictions')
     parser.add_argument('--output-csv', default='results.csv', help='Path to output CSV file')
     parser.add_argument('--plots', action='store_true', help='Generate comparison plots')
     parser.add_argument('--plot-dir', default='./plots', help='Directory to save plots')
