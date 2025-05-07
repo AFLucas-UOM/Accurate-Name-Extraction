@@ -1,0 +1,212 @@
+[
+  {
+    "timestamp": 2.0,
+    "frame_idx": 60,
+    "class_name": "Lower Third Graphic",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250507_120051/frame_60_roi_101_600_2.00_Lower Third Graphic_0.97.png",
+    "text": "Daily Mail\nDylan Page, 2nd largest\nnews account on TikTok\nafter Daily Mail, will star in\nSidemen Inside Season 2",
+    "names": [
+      {
+        "name": "Dylan Page",
+        "methods": [
+          "transformer",
+          "spacy"
+        ],
+        "confidence": 0.9992116689682007,
+        "start": 11,
+        "end": 21
+      }
+    ],
+    "confidence": 0.9685232043266296,
+    "hash_value": "1010111101011010010100100001101010101101101001001101010000001111"
+  },
+  {
+    "timestamp": 4.0,
+    "frame_idx": 120,
+    "class_name": "Lower Third Graphic",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250507_120051/frame_120_roi_98_597_4.00_Lower Third Graphic_0.97.png",
+    "text": "Daily Mail\nDylan Page, 2nd largest\nnews account on TikTok\nafter Daily Mail, will star in\nSidemen Inside Season 2",
+    "names": [
+      {
+        "name": "Dylan Page",
+        "methods": [
+          "transformer",
+          "spacy"
+        ],
+        "confidence": 0.9992116689682007,
+        "start": 11,
+        "end": 21
+      }
+    ],
+    "confidence": 0.9669432640075684,
+    "hash_value": "1010111101010010010100100011000011100101111001001111000001100111"
+  },
+  {
+    "timestamp": 1.0,
+    "frame_idx": 30,
+    "class_name": "Lower Third Graphic",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250507_120051/frame_30_roi_102_601_1.00_Lower Third Graphic_0.97.png",
+    "text": "Daily Mail\nDylan Page, 2nd largest\nnews account on TikTok\nafter Daily Mail, will star in\n| Sidemen Inside Season 2",
+    "names": [
+      {
+        "name": "Dylan Page",
+        "methods": [
+          "transformer",
+          "spacy"
+        ],
+        "confidence": 0.9990020394325256,
+        "start": 11,
+        "end": 21
+      }
+    ],
+    "confidence": 0.9651264548301697,
+    "hash_value": "1010101101010011010100110001101011100101101000001101010000101111"
+  },
+  {
+    "timestamp": 3.0,
+    "frame_idx": 90,
+    "class_name": "Lower Third Graphic",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250507_120051/frame_90_roi_100_598_3.00_Lower Third Graphic_0.97.png",
+    "text": "DailyMail\nDylan Page, 2nd largest\nnews account on TikTok\nafter Daily Mail, will star in\nSidemen Inside Season 2",
+    "names": [
+      {
+        "name": "Dylan Page",
+        "methods": [
+          "transformer",
+          "spacy"
+        ],
+        "confidence": 0.9992822408676147,
+        "start": 10,
+        "end": 20
+      }
+    ],
+    "confidence": 0.9678797721862793,
+    "hash_value": "1010111101010010010100100011100001101101111001000111000000101111"
+  },
+  {
+    "timestamp": 6.0,
+    "frame_idx": 180,
+    "class_name": "Lower Third Graphic",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250507_120051/frame_180_roi_95_594_6.00_Lower Third Graphic_0.96.png",
+    "text": "Daily Mail\nDylan Page, 2nd largest\nnews account on TikTok\nafter Daily Mail, will star in \u201c)\nSidemen Inside Season 2",
+    "names": [
+      {
+        "name": "Dylan Page",
+        "methods": [
+          "transformer",
+          "spacy"
+        ],
+        "confidence": 0.9987826347351074,
+        "start": 11,
+        "end": 21
+      }
+    ],
+    "confidence": 0.9635315537452698,
+    "hash_value": "1010111101010010010100100011100011100101111001000111000001101101"
+  },
+  {
+    "timestamp": 7.0,
+    "frame_idx": 210,
+    "class_name": "Lower Third Graphic",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250507_120051/frame_210_roi_92_593_7.00_Lower Third Graphic_0.96.png",
+    "text": "Daily Mail\nDylan Page, 2nd largest\nnews account on TikTok\nafter Daily Mail, will star in J\nSidemen Inside Season 2",
+    "names": [
+      {
+        "name": "Dylan Page",
+        "methods": [
+          "transformer",
+          "spacy"
+        ],
+        "confidence": 0.9992074370384216,
+        "start": 11,
+        "end": 21
+      }
+    ],
+    "confidence": 0.9618825912475586,
+    "hash_value": "1010100001011011010110110001101011100101101000001101111001100001"
+  },
+  {
+    "timestamp": 5.0,
+    "frame_idx": 150,
+    "class_name": "Lower Third Graphic",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250507_120051/frame_150_roi_96_595_5.00_Lower Third Graphic_0.96.png",
+    "text": "Daily Mail\nDylan Page, 2nd largest\nnews account on TikTok\nafter Daily Mail, will star in \u00a9\nSidemen Inside Season 2",
+    "names": [
+      {
+        "name": "Dylan Page",
+        "methods": [
+          "transformer",
+          "spacy"
+        ],
+        "confidence": 0.9987689256668091,
+        "start": 11,
+        "end": 21
+      }
+    ],
+    "confidence": 0.9649285078048706,
+    "hash_value": "1010101101011011010110110011101010101101101000000000110000101101"
+  },
+  {
+    "timestamp": 8.0,
+    "frame_idx": 240,
+    "class_name": "Lower Third Graphic",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250507_120051/frame_240_roi_91_592_8.00_Lower Third Graphic_0.96.png",
+    "text": "DailyMail\nDylan Page, 2nd largest\nnews account on TikTok\nafter Daily Mail, will star in \u201c) |\nSidemen Inside Season 2",
+    "names": [
+      {
+        "name": "Dylan Page",
+        "methods": [
+          "transformer",
+          "spacy"
+        ],
+        "confidence": 0.9991217851638794,
+        "start": 10,
+        "end": 20
+      }
+    ],
+    "confidence": 0.9609020948410034,
+    "hash_value": "1010100001011011010110110001101011100101101000001001111010100101"
+  },
+  {
+    "timestamp": 9.0,
+    "frame_idx": 270,
+    "class_name": "Lower Third Graphic",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250507_120051/frame_270_roi_90_590_9.00_Lower Third Graphic_0.96.png",
+    "text": "Daily Mail\nDylan Page, 2nd largest\nnews account on TikTok\nafter Daily Mail, will star in@\nSidemen Inside Season 2 }",
+    "names": [
+      {
+        "name": "Dylan Page",
+        "methods": [
+          "transformer",
+          "spacy"
+        ],
+        "confidence": 0.9987123608589172,
+        "start": 11,
+        "end": 21
+      }
+    ],
+    "confidence": 0.9623178839683533,
+    "hash_value": "1010111001010001010100100011001011100101111001001101010011100101"
+  },
+  {
+    "timestamp": 10.0,
+    "frame_idx": 300,
+    "class_name": "Lower Third Graphic",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250507_120051/frame_300_roi_88_588_10.00_Lower Third Graphic_0.96.png",
+    "text": "Daily Mail\nDylan Page, 2nd largest\nnews account on TikTok\nafter Daily Mail, will\n| Sidemen Inside Season 2",
+    "names": [
+      {
+        "name": "Dylan Page",
+        "methods": [
+          "transformer",
+          "spacy"
+        ],
+        "confidence": 0.9552925825119019,
+        "start": 11,
+        "end": 21
+      }
+    ],
+    "confidence": 0.9627371430397034,
+    "hash_value": "1010000001011111010100101011101011100101101001001100010011100101"
+  }
+]
