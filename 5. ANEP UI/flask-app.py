@@ -45,7 +45,7 @@ latest_uploaded_filename = None
 active_processes = {}  # Store process objects by ID
 process_logs = {}      # Store logs by process ID
 clients = {}           # Store client queues by client ID
-
+ensemble_map = {}  # ensemble_id -> list of subprocess_ids
 
 @dataclass
 class LogEntry:
@@ -90,7 +90,6 @@ def add_log_entry(process_id: str, message: str, log_type: str = "info"):
     for client_queue in clients.values():
         client_queue.put(entry)
 
-
 def stream_events():
     """Generate SSE stream for client"""
     client_id = str(uuid.uuid4())
@@ -116,7 +115,6 @@ def stream_events():
         if client_id in clients:
             del clients[client_id]
 
-
 @app.route("/api/events", methods=["GET"])
 def events():
     """SSE endpoint to stream logs to clients"""
@@ -130,7 +128,6 @@ def events():
         }
     )
 
-
 @app.route("/api/process/<process_id>/logs", methods=["GET"])
 def get_process_logs(process_id):
     """Get all logs for a specific process"""
@@ -140,7 +137,6 @@ def get_process_logs(process_id):
         })
     return jsonify({"logs": []})
 
-
 @app.route("/api/process/<process_id>/status", methods=["GET"])
 def get_process_status(process_id):
     """Check if a process is still running"""
@@ -149,7 +145,6 @@ def get_process_status(process_id):
         "active": is_active,
         "log_count": len(process_logs.get(process_id, []))
     })
-
 
 @app.route("/api/ping", methods=["GET"])
 def ping():
@@ -198,7 +193,6 @@ def ping():
         "gpuName": gpu_status["name"] or "None"
     })
 
-
 @app.route("/api/upload", methods=["POST"])
 def upload_video():
     """Handle video file uploads"""
@@ -221,7 +215,6 @@ def upload_video():
     logger.info(f"Successfully uploaded: {file.filename}")
     return jsonify({"message": "File uploaded successfully", "filename": file.filename})
 
-
 @app.route("/api/latest-upload", methods=["GET"])
 def get_latest_upload():
     """Return information about the latest uploaded file"""
@@ -230,25 +223,76 @@ def get_latest_upload():
     else:
         return jsonify({"latest": None, "message": "No uploads yet"})
 
+@app.route("/api/process/<process_id>/cancel", methods=["POST"])
+def cancel_process(process_id):
+    """Cancel and forcefully terminate the running process"""
+    process = active_processes.get(process_id)
+    if not process:
+        add_log_entry(process_id, f"No active process found with ID {process_id}", "error")
+        return jsonify({"error": "Process not found"}), 404
+
+    try:
+        import psutil
+        proc = psutil.Process(process.pid)
+        for child in proc.children(recursive=True):
+            child.kill()
+        proc.kill()
+
+        add_log_entry(process_id, "Process was successfully terminated by user", "warning")
+
+        # Remove from active tracking and logs
+        del active_processes[process_id]
+        process_logs.pop(process_id, None)
+
+        return jsonify({"message": "Process terminated"}), 200
+
+    except Exception as e:
+        error_msg = f"Failed to terminate process: {e}"
+        logger.error(error_msg)
+        add_log_entry(process_id, error_msg, "error")
+        return jsonify({"error": error_msg}), 500
+
+@app.route("/api/process/ensemble/<ensemble_id>/cancel", methods=["POST"])
+def cancel_ensemble(ensemble_id):
+    """Cancel all subprocesses of an ensemble"""
+    subprocess_ids = ensemble_map.get(ensemble_id)
+    if not subprocess_ids:
+        return jsonify({"error": "No subprocesses found for this ensemble"}), 404
+
+    for pid in subprocess_ids:
+        process = active_processes.get(pid)
+        if process:
+            try:
+                proc = psutil.Process(process.pid)
+                for child in proc.children(recursive=True):
+                    child.kill()
+                proc.kill()
+                del active_processes[pid]
+                process_logs.pop(pid, None)
+                add_log_entry(ensemble_id, f"Terminated subprocess {pid}", "warning")
+            except Exception as e:
+                add_log_entry(ensemble_id, f"Failed to kill subprocess {pid}: {e}", "error")
+
+    add_log_entry(ensemble_id, "All subprocesses terminated", "warning")
+    return jsonify({"message": "Ensemble processes terminated"}), 200
 
 def run_script(cmd, process_id=None):
     """Execute a command and stream output live to Flask CLI and connected clients"""
     if process_id is None:
         process_id = str(uuid.uuid4())
 
-    active_processes[process_id] = True
-    
+    process = subprocess.Popen(
+        cmd,
+        shell=True,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT
+    )
+    active_processes[process_id] = process
+
     try:
         logger.info(f"Executing command: {cmd}")
         add_log_entry(process_id, f"Starting command: {cmd}")
-        
-        process = subprocess.Popen(
-            cmd,
-            shell=True,
-            text=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT  # Combine stderr with stdout
-        )
 
         output_lines = []
         for line in iter(process.stdout.readline, ''):
@@ -296,7 +340,6 @@ def run_script(cmd, process_id=None):
             "process_id": process_id
         }
 
-
 def run_script_async(cmd, process_id=None):
     """Run script in a background thread and return the process ID immediately"""
     if process_id is None:
@@ -310,7 +353,6 @@ def run_script_async(cmd, process_id=None):
     thread.start()
     
     return process_id
-
 
 @app.route("/api/run/anep", methods=["POST"])
 def run_anep():
@@ -359,7 +401,6 @@ def run_llama():
         "process_id": process_id
     })
 
-
 @app.route("/api/run/ensemble", methods=["POST"])
 def run_ensemble():
     """Run all processing methods in parallel on the latest uploaded video"""
@@ -379,6 +420,8 @@ def run_ensemble():
         "llama": run_script_async(f'python "6. GenAI API/LLaMAOpenRouter.py" {video_path} "6. GenAI API/LlamaResults" "6. GenAI API/config.json"')
     }
     
+    ensemble_map[ensemble_id] = list(process_ids.values())
+    
     # Store process IDs in the ensemble log
     for model, pid in process_ids.items():
         add_log_entry(ensemble_id, f"Started {model} process with ID: {pid}")
@@ -389,7 +432,6 @@ def run_ensemble():
         "process_id": ensemble_id,
         "sub_processes": process_ids
     })
-
 
 if __name__ == "__main__":
     logger.info(f"Starting ANEP API server on port {API_PORT}")
