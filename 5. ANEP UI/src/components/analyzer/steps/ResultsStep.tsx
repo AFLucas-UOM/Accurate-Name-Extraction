@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
-import { Download, RefreshCw, Copy, Maximize2, X, Calendar, Clock, FileType, HardDrive, ChevronRight, CheckCircle, ExternalLink, Tag } from "lucide-react";
+import { Download, RefreshCw, Copy, Maximize2, X, Calendar, Clock, FileType, HardDrive, ChevronRight, CheckCircle, ExternalLink, Tag, Search, Filter, Info, Code, Eye, EyeOff, Film, PlusCircle, Database, Trash2, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Input } from "@/components/ui/input";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 interface NameDetection {
   name: string;
@@ -38,72 +43,73 @@ interface ResultsStepProps {
   className?: string;
 }
 
-// Function to extract metadata from a video file or URL
-const extractVideoMetadata = (source: File | string | null): Promise<Partial<VideoMetadata>> => {
-  return new Promise((resolve) => {
-    const video = document.createElement("video");
-    video.preload = "metadata";
-    
-    // Handle both File objects and URLs
-    if (source instanceof File) {
-      video.src = URL.createObjectURL(source);
-    } else if (typeof source === 'string') {
-      video.src = source;
-    } else {
-      // If neither, resolve with unknown values
-      resolve({
-        duration: "Unknown duration",
-        resolution: "Unknown resolution"
-      });
-      return;
-    }
-    
-    video.onloadedmetadata = () => {
-      // Format duration as HH:MM:SS
-      const formatDuration = (seconds: number): string => {
-        const hrs = Math.floor(seconds / 3600);
-        const mins = Math.floor((seconds % 3600) / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  // Function to extract metadata from a video file or URL
+  const extractVideoMetadata = (source: File | string | null): Promise<Partial<VideoMetadata>> => {
+    return new Promise((resolve) => {
+      if (!source) {
+        resolve({
+          duration: "Unknown",
+          resolution: "Unknown"
+        });
+        return;
+      }
+
+      const video = document.createElement("video");
+      video.preload = "metadata";
+      
+      // Handle both File objects and URLs
+      if (source instanceof File) {
+        video.src = URL.createObjectURL(source);
+      } else if (typeof source === 'string') {
+        video.src = source;
+      }
+      
+      video.onloadedmetadata = () => {
+        // Format duration as HH:MM:SS
+        const formatDuration = (seconds: number): string => {
+          const hrs = Math.floor(seconds / 3600);
+          const mins = Math.floor((seconds % 3600) / 60);
+          const secs = Math.floor(seconds % 60);
+          return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        };
+        
+        // Extract metadata
+        const metadata: Partial<VideoMetadata> = {
+          duration: formatDuration(video.duration),
+          resolution: `${video.videoWidth}x${video.videoHeight}`,
+        };
+        
+        // Cleanup
+        if (source instanceof File) {
+          URL.revokeObjectURL(video.src);
+        }
+        
+        resolve(metadata);
       };
       
-      // Extract metadata
-      const metadata: Partial<VideoMetadata> = {
-        duration: formatDuration(video.duration),
-        resolution: `${video.videoWidth}x${video.videoHeight}`,
+      // Handle errors
+      video.onerror = () => {
+        if (source instanceof File) {
+          URL.revokeObjectURL(video.src);
+        }
+        resolve({
+          duration: "Unknown",
+          resolution: "Unknown"
+        });
       };
       
-      // Cleanup
-      if (source instanceof File) {
-        URL.revokeObjectURL(video.src);
-      }
-      
-      resolve(metadata);
-    };
-    
-    // Handle errors
-    video.onerror = () => {
-      if (source instanceof File) {
-        URL.revokeObjectURL(video.src);
-      }
-      resolve({
-        duration: "Unknown duration",
-        resolution: "Unknown resolution"
-      });
-    };
-    
-    // Set a timeout in case metadata loading takes too long
-    setTimeout(() => {
-      if (source instanceof File) {
-        URL.revokeObjectURL(video.src);
-      }
-      resolve({
-        duration: "Unknown duration",
-        resolution: "Unknown resolution"
-      });
-    }, 5000); // 5 second timeout
-  });
-};
+      // Set a timeout in case metadata loading takes too long
+      setTimeout(() => {
+        if (source instanceof File) {
+          URL.revokeObjectURL(video.src);
+        }
+        resolve({
+          duration: "Unknown",
+          resolution: "Unknown"
+        });
+      }, 5000); // 5 second timeout
+    });
+  };
 
 const ResultsStep = ({
   results,
@@ -115,57 +121,15 @@ const ResultsStep = ({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [selectedName, setSelectedName] = useState<NameDetection | null>(null);
   const [enhancedMetadata, setEnhancedMetadata] = useState<VideoMetadata>(results.videoMetadata);
+  const [jsonFilter, setJsonFilter] = useState("");
+  const [expandedSections, setExpandedSections] = useState<string[]>(["names", "videoMetadata", "model"]);
+  const [showLineNumbers, setShowLineNumbers] = useState(true);
   
-  // Extract video metadata on component mount
+  // Extract video metadata on component mount - but NEVER modify the incoming values
   useEffect(() => {
-    const extractMetadata = async () => {
-      let source = null;
-      
-      // Try to get the source from various possible locations
-      if (results.videoFile) {
-        source = results.videoFile;
-      } else if (results.videoMetadata.url) {
-        source = results.videoMetadata.url;
-      }
-      
-      if (source) {
-        try {
-          const metadata = await extractVideoMetadata(source);
-          console.log("Extracted metadata:", metadata); // Debugging log
-          
-          // Create a new object with all the original metadata and override with extracted values
-          setEnhancedMetadata(prevMetadata => ({
-            ...prevMetadata,
-            duration: metadata.duration || prevMetadata.duration,
-            resolution: metadata.resolution || prevMetadata.resolution
-          }));
-        } catch (error) {
-          console.error("Error extracting video metadata:", error);
-        }
-      } else {
-        // If no source is available, try to simulate the extraction
-        // This is a fallback for demo or testing purposes
-        const simulateMetadataExtraction = () => {
-          // Create a video element and set some example data
-          const video = document.createElement("video");
-          video.width = 1280;
-          video.height = 720;
-          
-          // Manually set properties that would normally come from the video
-          setEnhancedMetadata(prevMetadata => ({
-            ...prevMetadata,
-            duration: "00:02:45", // Example duration
-            resolution: "1280x720" // Example resolution
-          }));
-        };
-        
-        // Try simulation for demo purposes (remove in production)
-        simulateMetadataExtraction();
-      }
-    };
-    
-    extractMetadata();
-  }, [results]);
+    // Simply use the exact metadata from the backend without any modifications
+    setEnhancedMetadata(results.videoMetadata);
+  }, [results.videoMetadata]);
 
   const handleDownload = () => {
     // Create a JSON blob from the results with enhanced metadata
@@ -207,7 +171,10 @@ const ResultsStep = ({
       videoMetadata: enhancedMetadata
     };
     
-    navigator.clipboard.writeText(JSON.stringify(resultsToCopy, null, 2))
+    // Format the JSON properly for clipboard
+    const formattedJson = JSON.stringify(resultsToCopy, null, 2);
+    
+    navigator.clipboard.writeText(formattedJson)
       .then(() => {
         toast({
           title: "Copied to clipboard",
@@ -258,14 +225,49 @@ const ResultsStep = ({
     else return (bytes / 1048576).toFixed(2) + " MB";
   };
   
-  // Process video metadata to ensure we have reasonable values
+  // Process video metadata to properly calculate values when needed
   const processVideoMetadata = (metadata: VideoMetadata): VideoMetadata => {
-    return {
-      ...metadata,
-      // Replace "Processed" and "Extracted" values directly
-      duration: metadata.duration === "Processed" ? "00:03:45" : metadata.duration,
-      resolution: metadata.resolution === "Extracted" ? "1920x1080" : metadata.resolution,
-    };
+    // Create a new object to avoid modifying the original
+    const processed = { ...metadata };
+    
+    // Calculate duration if needed
+    if (processed.duration === "Processed") {
+      // Try to get it from the video element if available
+      if (results.videoFile) {
+        try {
+          const video = document.createElement('video');
+          video.src = URL.createObjectURL(results.videoFile);
+          video.onloadedmetadata = () => {
+            const hrs = Math.floor(video.duration / 3600);
+            const mins = Math.floor((video.duration % 3600) / 60);
+            const secs = Math.floor(video.duration % 60);
+            processed.duration = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            URL.revokeObjectURL(video.src);
+          };
+        } catch (e) {
+          console.error("Failed to calculate video duration:", e);
+        }
+      }
+    }
+    
+    // Calculate resolution if needed
+    if (processed.resolution === "Extracted") {
+      // Try to get it from the video element if available
+      if (results.videoFile) {
+        try {
+          const video = document.createElement('video');
+          video.src = URL.createObjectURL(results.videoFile);
+          video.onloadedmetadata = () => {
+            processed.resolution = `${video.videoWidth}x${video.videoHeight}`;
+            URL.revokeObjectURL(video.src);
+          };
+        } catch (e) {
+          console.error("Failed to calculate video resolution:", e);
+        }
+      }
+    }
+    
+    return processed;
   };
 
   // Get confidence color based on value
@@ -296,16 +298,46 @@ const ResultsStep = ({
     return timestamp;
   };
 
+  // Toggle section expansion in JSON view
+  const toggleSection = (section: string) => {
+    setExpandedSections((prev) => 
+      prev.includes(section) 
+        ? prev.filter(s => s !== section) 
+        : [...prev, section]
+    );
+  };
+
+  // Get severity color
+  const getSeverityColor = (value: number, type: "bg" | "text" | "border" = "bg") => {
+    if (type === "bg") {
+      if (value >= 0.9) return "bg-green-500";
+      if (value >= 0.7) return "bg-blue-500";
+      if (value >= 0.5) return "bg-yellow-500";
+      return "bg-red-500";
+    } else if (type === "text") {
+      if (value >= 0.9) return "text-green-500 dark:text-green-400";
+      if (value >= 0.7) return "text-blue-500 dark:text-blue-400";
+      if (value >= 0.5) return "text-yellow-500 dark:text-yellow-400";
+      return "text-red-500 dark:text-red-400";
+    } else {
+      if (value >= 0.9) return "border-green-500";
+      if (value >= 0.7) return "border-blue-500";
+      if (value >= 0.5) return "border-yellow-500";
+      return "border-red-500";
+    }
+  };
+
   // Create Tab components to make the code more readable
-  const Tab = ({ id, label, active, onClick }: { id: string, label: string, active: boolean, onClick: () => void }) => (
+  const Tab = ({ id, label, active, onClick, icon }: { id: string, label: string, active: boolean, onClick: () => void, icon?: React.ReactNode }) => (
     <button
-      className={`px-4 py-3 text-sm font-medium transition-colors ${
+      className={`px-4 py-3 text-sm font-medium transition-colors flex items-center gap-2 ${
         active 
           ? "text-primary border-b-2 border-primary" 
           : "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
       }`}
       onClick={onClick}
     >
+      {icon}
       {label}
     </button>
   );
@@ -531,9 +563,6 @@ const ResultsStep = ({
     );
   };
 
-  // Process metadata for display - we'll call this directly when needed
-  // const processedMetadata = processVideoMetadata(enhancedMetadata);
-  
   // Main component render
   return (
     <div className={`w-full ${className}`}>
@@ -572,18 +601,21 @@ const ResultsStep = ({
             <Tab
               id="names"
               label="Names"
+              icon={<Tag className="h-4 w-4" />}
               active={activeTab === "names"}
               onClick={() => setActiveTab("names")}
             />
             <Tab
               id="json"
               label="JSON Data"
+              icon={<Code className="h-4 w-4" />}
               active={activeTab === "json"}
               onClick={() => setActiveTab("json")}
             />
             <Tab
               id="metadata"
               label="Metadata"
+              icon={<Info className="h-4 w-4" />}
               active={activeTab === "metadata"}
               onClick={() => setActiveTab("metadata")}
             />
@@ -671,88 +703,269 @@ const ResultsStep = ({
             </div>
           )}
 
+          {/* IMPROVED JSON TAB */}
           {activeTab === "json" && (
             <div className="animate-fade-in">
-              <div className="mb-4 flex justify-end">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex items-center gap-2"
-                  onClick={handleCopyToClipboard}
-                >
-                  <Copy className="h-4 w-4" />
-                  <span>Copy</span>
-                </Button>
+              <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:justify-between">
+                <div className="relative flex-1 max-w-md">
+                  <Search className="h-4 w-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <Input 
+                    placeholder="Filter JSON properties..." 
+                    className="pl-9 text-sm"
+                    value={jsonFilter}
+                    onChange={(e) => setJsonFilter(e.target.value)}
+                  />
+                </div>
+                <div className="flex gap-2">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex items-center gap-2"
+                          onClick={() => setShowLineNumbers(!showLineNumbers)}
+                        >
+                          {showLineNumbers ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                          <span className="hidden sm:inline">{showLineNumbers ? "Hide" : "Show"} Line Numbers</span>
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        {showLineNumbers ? "Hide" : "Show"} line numbers
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex items-center gap-2"
+                    onClick={handleCopyToClipboard}
+                  >
+                    <Copy className="h-4 w-4" />
+                    <span className="hidden sm:inline">Copy</span>
+                  </Button>
+                </div>
               </div>
-              <pre className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md overflow-x-auto text-sm font-mono">
-                {JSON.stringify({...results, videoMetadata: enhancedMetadata}, null, 2)}
-              </pre>
+
+              <div className="bg-gray-50 dark:bg-gray-900 rounded-md overflow-hidden border border-gray-200 dark:border-gray-700">
+                <div className="p-2 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    analysis-results.json
+                  </span>
+                  <Badge variant="outline" className="text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                    {JSON.stringify({...results, videoMetadata: enhancedMetadata}).length} bytes
+                  </Badge>
+                </div>
+                
+                <div className="overflow-x-auto relative">
+                  <div className="p-4 font-mono text-sm flex">
+                    {/* Line numbers */}
+                    {showLineNumbers && (
+                      <div className="select-none text-right mr-4 pr-2 border-r border-gray-200 dark:border-gray-700 text-gray-400 min-w-[2rem]">
+                        {JSON.stringify({...results, videoMetadata: enhancedMetadata}, null, 2)
+                          .split('\n')
+                          .map((_, i) => (
+                            <div key={i} className="leading-6 px-1">{i + 1}</div>
+                          ))}
+                      </div>
+                    )}
+                    
+                    {/* Direct JSON Content Display */}
+                    <pre className="flex-1 overflow-x-auto whitespace-pre text-gray-800 dark:text-gray-200">
+                      {jsonFilter ? (
+                        // If there's a filter, process the JSON and apply highlighting
+                        <div dangerouslySetInnerHTML={{
+                          __html: JSON.stringify({...results, videoMetadata: enhancedMetadata}, null, 2)
+                            .split('\n')
+                            .map(line => {
+                              if (line.toLowerCase().includes(jsonFilter.toLowerCase())) {
+                                // Apply the same syntax highlighting to filtered results
+                                return `<div class="bg-yellow-50 dark:bg-yellow-900/20">${
+                                  line
+                                    .replace(/("[^"]*"):/g, '<span class="text-purple-600 dark:text-purple-400">$1</span>:')
+                                    .replace(/: (".*?")(,?)/g, ': <span class="text-green-600 dark:text-green-400">$1</span>$2')
+                                    .replace(/: (true|false|null)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$2')
+                                    .replace(/: (\d+(\.\d+)?)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$3')
+                                    .replace(/([{}\[\],])/g, '<span class="text-gray-500">$1</span>')
+                                }</div>`;
+                              }
+                              // Normal syntax highlighting for non-matching lines
+                              return `<div>${
+                                line
+                                  .replace(/("[^"]*"):/g, '<span class="text-purple-600 dark:text-purple-400">$1</span>:')
+                                  .replace(/: (".*?")(,?)/g, ': <span class="text-green-600 dark:text-green-400">$1</span>$2')
+                                  .replace(/: (true|false|null)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$2')
+                                  .replace(/: (\d+(\.\d+)?)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$3')
+                                  .replace(/([{}\[\],])/g, '<span class="text-gray-500">$1</span>')
+                              }</div>`;
+                            })
+                            .join('')
+                        }} />
+                      ) : (
+                        // Standard syntax highlighting for JSON
+                        <div dangerouslySetInnerHTML={{
+                          __html: JSON.stringify({...results, videoMetadata: enhancedMetadata}, null, 2)
+                            .replace(/("[^"]*"):/g, '<span class="text-purple-600 dark:text-purple-400">$1</span>:')
+                            .replace(/: (".*?")(,?)/g, ': <span class="text-green-600 dark:text-green-400">$1</span>$2')
+                            .replace(/: (true|false|null)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$2')
+                            .replace(/: (\d+(\.\d+)?)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$3')
+                            .replace(/([{}\[\],])/g, '<span class="text-gray-500">$1</span>')
+                            .split('\n')
+                            .map(line => `<div>${line}</div>`)
+                            .join('')
+                        }} />
+                      )}
+                    </pre>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
+          {/* IMPROVED METADATA TAB */}
           {activeTab === "metadata" && (
-            <div className="animate-fade-in">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-medium mb-3 flex items-center">
-                    <HardDrive className="h-4 w-4 text-gray-500 mr-2" />
-                    <span>Analysis Information</span>
-                  </h3>
-                  <dl className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
-                    <div className="flex">
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 w-32">Model Used:</dt>
-                      <dd className="text-sm">{getModelName(results.model)}</dd>
-                    </div>
-                    <div className="flex">
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 w-32">Processing Time:</dt>
-                      <dd className="text-sm">{results.processingTime}</dd>
-                    </div>
-                    <div className="flex">
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 w-32">Names Found:</dt>
-                      <dd className="text-sm">{results.names.length}</dd>
-                    </div>
-                    <div className="flex">
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 w-32">Analyzed On:</dt>
-                      <dd className="text-sm">{new Date(results.analysisDate).toLocaleString()}</dd>
-                    </div>
-                  </dl>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-medium mb-3 flex items-center">
-                    <FileType className="h-4 w-4 text-gray-500 mr-2" />
-                    <span>File Information</span>
-                  </h3>
-                  <dl className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
-                    <div className="flex">
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 w-32">Filename:</dt>
-                      <dd className="text-sm truncate max-w-md">{enhancedMetadata.filename}</dd>
-                    </div>
-                    <div className="flex">
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 w-32">File Size:</dt>
-                      <dd className="text-sm">{formatFileSize(enhancedMetadata.size)}</dd>
-                    </div>
-                    <div className="flex">
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 w-32">Duration:</dt>
-                      <dd className="text-sm">{processVideoMetadata(enhancedMetadata).duration}</dd>
-                    </div>
-                    <div className="flex">
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 w-32">Resolution:</dt>
-                      <dd className="text-sm">{processVideoMetadata(enhancedMetadata).resolution}</dd>
-                    </div>
-                    <div className="flex">
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 w-32">File Type:</dt>
-                      <dd className="text-sm">{enhancedMetadata.type}</dd>
-                    </div>
-                    {enhancedMetadata.frameRate && (
-                      <div className="flex">
-                        <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 w-32">Frame Rate:</dt>
-                        <dd className="text-sm">{enhancedMetadata.frameRate}</dd>
+            <div className="animate-fade-in space-y-6">
+              {/* Analysis Information */}
+              <Card>
+                <CardHeader className="pb-3">
+                  <div className="flex items-center">
+                    <Database className="h-5 w-5 mr-2 text-blue-500 dark:text-blue-400" />
+                    <CardTitle>Analysis Information</CardTitle>
+                  </div>
+                  <CardDescription>Details about the processing and model used</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Model</h4>
+                        <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border border-blue-100 dark:border-blue-900/50">
+                          <div className="flex items-center">
+                            <div className="font-medium text-blue-800 dark:text-blue-300">{getModelName(results.model)}</div>
+                          </div>
+                          <div className="text-xs text-blue-700 dark:text-blue-400 mt-1">Model ID: {results.model}</div>
+                        </div>
                       </div>
-                    )}
-                  </dl>
-                </div>
-              </div>
+                      
+                      <div>
+                        <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Processing Time</h4>
+                        <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                          <div className="flex items-center">
+                            <Clock className="h-4 w-4 mr-2 text-gray-500 dark:text-gray-400" />
+                            <div className="font-medium">{results.processingTime}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Detection Results</h4>
+                        <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg border border-green-100 dark:border-green-900/50">
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <div className="font-medium text-green-800 dark:text-green-300">{results.names.length} Names Detected</div>
+                              <div className="text-xs text-green-700 dark:text-green-400 mt-1">
+                                Click on the "Names" tab to view details
+                              </div>
+                            </div>
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="h-8 bg-white dark:bg-gray-800 border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 hover:bg-green-50 dark:hover:bg-green-900/30"
+                              onClick={() => setActiveTab("names")}
+                            >
+                              <Tag className="h-3.5 w-3.5 mr-1" />
+                              View
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Analysis Date</h4>
+                        <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                          <div className="flex items-center">
+                            <Calendar className="h-4 w-4 mr-2 text-gray-500 dark:text-gray-400" />
+                            <div className="font-medium">{new Date(results.analysisDate).toLocaleString()}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              {/* File Information */}
+              <Card>
+                <CardHeader className="pb-3">
+                  <div className="flex items-center">
+                    <Film className="h-5 w-5 mr-2 text-purple-500 dark:text-purple-400" />
+                    <CardTitle>Video File Information</CardTitle>
+                  </div>
+                  <CardDescription>Metadata about the analysed video file</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+                      <h3 className="font-medium mb-3">{enhancedMetadata.filename}</h3>
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <div className="space-y-1">
+                          <div className="text-xs text-gray-500 dark:text-gray-400">File Size</div>
+                          <div className="flex items-center">
+                            <HardDrive className="h-3.5 w-3.5 mr-1.5 text-gray-500 dark:text-gray-400" />
+                            <span className="font-medium">{formatFileSize(enhancedMetadata.size)}</span>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-1">
+                          <div className="text-xs text-gray-500 dark:text-gray-400">Duration</div>
+                          <div className="flex items-center">
+                            <Clock className="h-3.5 w-3.5 mr-1.5 text-gray-500 dark:text-gray-400" />
+                            <span className="font-medium font-mono">{processVideoMetadata(enhancedMetadata).duration}</span>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-1">
+                          <div className="text-xs text-gray-500 dark:text-gray-400">File Type</div>
+                          <div className="flex items-center">
+                            <FileType className="h-3.5 w-3.5 mr-1.5 text-gray-500 dark:text-gray-400" />
+                            <span className="font-medium">{enhancedMetadata.type}</span>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-1">
+                          <div className="text-xs text-gray-500 dark:text-gray-400">Resolution</div>
+                          <div className="flex items-center">
+                            <Maximize2 className="h-3.5 w-3.5 mr-1.5 text-gray-500 dark:text-gray-400" />
+                            <span className="font-medium">{processVideoMetadata(enhancedMetadata).resolution}</span>
+                          </div>
+                        </div>
+                        
+                        {enhancedMetadata.frameRate && (
+                          <div className="space-y-1">
+                            <div className="text-xs text-gray-500 dark:text-gray-400">Frame Rate</div>
+                            <div className="flex items-center">
+                              <Film className="h-3.5 w-3.5 mr-1.5 text-gray-500 dark:text-gray-400" />
+                              <span className="font-medium">{enhancedMetadata.frameRate}</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+                <CardFooter className="border-t border-gray-200 dark:border-gray-700 pt-4 flex justify-between">
+                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                    Analysis completed on {new Date(results.analysisDate).toLocaleString()}
+                  </div>
+                  <div className="flex gap-2">
+                    {/* Removed buttons as requested */}
+                  </div>
+                </CardFooter>
+              </Card>
             </div>
           )}
         </div>
