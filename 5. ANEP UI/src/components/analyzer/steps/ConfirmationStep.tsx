@@ -17,25 +17,30 @@ interface ConfirmationStepProps {
   className?: string;
 }
 
-const MODEL_DATA = {
+// Processing speeds - realistic estimates based on actual video processing
+const MODEL_PROCESSING_SPEEDS = {
   anep: {
     name: "Accurate Name Extraction Pipeline (ANEP)",
-    time: "~ 10–15 minutes",
+    baseTime: 2, // Base overhead
+    speedPerMinute: 0.4, // ~10-15 minutes for typical videos
     description: "Advanced custom pipeline using YOLOv12, multi-method OCR with Tesseract, spaCy + GliNER, and transformer-based NER"
   },
   model1: {
     name: "Google Cloud Vision & Gemini 1.5 Pro",
-    time: "~ 3–5 minutes",
+    baseTime: 1,
+    speedPerMinute: 0.15, // ~3-5 minutes for typical videos
     description: "Hybrid pipeline leveraging Google Cloud Vision API for OCR and Gemini 1.5 Pro for accurate name extraction"
   },
   model2: {
     name: "Llama 4 Maverick",
-    time: "~ 5–10 minutes",
+    baseTime: 1.5,
+    speedPerMinute: 0.25, // ~5-10 minutes for typical videos
     description: "Lightweight pipeline using Llama 4 Maverick for OCR and name extraction. Ideal for short-form news videos with simple frames and layouts, providing a balance between speed and accuracy."
   },
   all: {
     name: "Comparative Analysis",
-    time: "~ 20–25 minutes",
+    baseTime: 4,
+    speedPerMinute: 0.8, // ~20-25 minutes for typical videos
     description: "Run all models and compare their performance side by side"
   }
 };
@@ -47,12 +52,15 @@ const ConfirmationStep = ({
 }: ConfirmationStepProps) => {
   const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
   const [metaTooltipOpen, setMetaTooltipOpen] = useState(false);
+  const [fileSizeFormatted, setFileSizeFormatted] = useState("");
+  const [videoDurationSeconds, setVideoDurationSeconds] = useState<number | null>(null);
+  const [videoDurationFormatted, setVideoDurationFormatted] = useState<string | null>(null);
+  
   const infoTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const metaTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const [fileSizeFormatted, setFileSizeFormatted] = useState("");
-  const [videoDuration, setVideoDuration] = useState<string | null>(null);
 
   useEffect(() => {
+    // Format file size
     const fileSizeInMB = videoFile.size / (1024 * 1024);
     setFileSizeFormatted(
       fileSizeInMB >= 1
@@ -60,14 +68,16 @@ const ConfirmationStep = ({
         : `${(videoFile.size / 1024).toFixed(2)} KB`
     );
 
+    // Get video duration
     const videoElement = document.createElement("video");
     videoElement.preload = "metadata";
     videoElement.onloadedmetadata = () => {
       const duration = videoElement.duration;
       if (duration && !isNaN(duration)) {
+        setVideoDurationSeconds(duration);
         const minutes = Math.floor(duration / 60);
         const seconds = Math.floor(duration % 60);
-        setVideoDuration(`${minutes}:${seconds.toString().padStart(2, "0")}`);
+        setVideoDurationFormatted(`${minutes}:${seconds.toString().padStart(2, "0")}`);
       }
     };
     videoElement.src = URL.createObjectURL(videoFile);
@@ -77,42 +87,98 @@ const ConfirmationStep = ({
     };
   }, [videoFile]);
 
-  const modelInfo = MODEL_DATA[selectedModel as keyof typeof MODEL_DATA] || {
+  // Calculate estimated processing time
+  const calculateProcessingTime = (durationInSeconds: number | null) => {
+    if (!durationInSeconds) return "~ Calculating...";
+    
+    const modelSpeed = MODEL_PROCESSING_SPEEDS[selectedModel as keyof typeof MODEL_PROCESSING_SPEEDS];
+    if (!modelSpeed) return "~ Unknown";
+    
+    const videoDurationMinutes = durationInSeconds / 60;
+    const totalMinutes = modelSpeed.baseTime + (videoDurationMinutes * modelSpeed.speedPerMinute);
+    
+    // Create a range (±15% variance)
+    const minMinutes = Math.max(1, Math.floor(totalMinutes * 0.85));
+    const maxMinutes = Math.ceil(totalMinutes * 1.15);
+    
+    // Format the time range
+    if (minMinutes === maxMinutes) {
+      return `~ ${minMinutes} minute${minMinutes !== 1 ? 's' : ''}`;
+    } else if (maxMinutes < 60) {
+      return `~ ${minMinutes}–${maxMinutes} minutes`;
+    } else {
+      // Convert to hours for longer estimates
+      const minHours = Math.floor(minMinutes / 60);
+      const minRemainMinutes = minMinutes % 60;
+      const maxHours = Math.floor(maxMinutes / 60);
+      const maxRemainMinutes = maxMinutes % 60;
+      
+      if (minHours === maxHours) {
+        return `~ ${minHours}h ${minRemainMinutes}–${maxRemainMinutes}m`;
+      } else {
+        return `~ ${minHours}h ${minRemainMinutes}m–${maxHours}h ${maxRemainMinutes}m`;
+      }
+    }
+  };
+
+  const modelInfo = MODEL_PROCESSING_SPEEDS[selectedModel as keyof typeof MODEL_PROCESSING_SPEEDS] || {
     name: "Unknown Model",
-    time: "Unknown",
+    baseTime: 0,
+    speedPerMinute: 0,
     description: "Unknown model description"
   };
 
+  // Consolidated tooltip handlers
   const handleTooltipToggle = (
     setOpen: React.Dispatch<React.SetStateAction<boolean>>,
-    ref: React.MutableRefObject<NodeJS.Timeout | null>
+    timeoutRef: React.MutableRefObject<NodeJS.Timeout | null>
   ) => {
     setOpen(prev => !prev);
-    if (ref.current) clearTimeout(ref.current);
-    ref.current = setTimeout(() => setOpen(false), 5000);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => setOpen(false), 5000);
   };
 
   const handleTooltipEnter = (
     setOpen: React.Dispatch<React.SetStateAction<boolean>>,
-    ref: React.MutableRefObject<NodeJS.Timeout | null>
+    timeoutRef: React.MutableRefObject<NodeJS.Timeout | null>
   ) => {
     setOpen(true);
-    if (ref.current) clearTimeout(ref.current);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
   };
 
   const handleTooltipLeave = (
-    ref: React.MutableRefObject<NodeJS.Timeout | null>,
+    timeoutRef: React.MutableRefObject<NodeJS.Timeout | null>,
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    if (!ref.current) setOpen(false);
+    if (!timeoutRef.current) setOpen(false);
   };
 
+  // Cleanup timeouts on unmount
   useEffect(() => {
     return () => {
       if (infoTimeoutRef.current) clearTimeout(infoTimeoutRef.current);
       if (metaTimeoutRef.current) clearTimeout(metaTimeoutRef.current);
     };
   }, []);
+
+  // Helper function for icon containers
+  const IconContainer = ({ 
+    children, 
+    bgColor, 
+    iconColor 
+  }: { 
+    children: React.ReactNode; 
+    bgColor: string; 
+    iconColor: string;
+  }) => (
+    <div className={`w-12 h-12 ${bgColor} rounded-lg flex items-center justify-center mr-4 mt-1 transition-all duration-300 hover:scale-105`}>
+      <div className={iconColor}>
+        {children}
+      </div>
+    </div>
+  );
+
+  const estimatedTime = calculateProcessingTime(videoDurationSeconds);
 
   return (
     <div className={`w-full max-w-5xl mx-auto ${className}`}>
@@ -122,6 +188,7 @@ const ConfirmationStep = ({
       </p>
 
       <div className="bg-gray-50 dark:bg-[#172133] rounded-lg p-6 border-2 border-gray-200 dark:border-transparent shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#2463EB] dark:hover:border-[#2463EB] hover:bg-[#f5faff] dark:hover:bg-[#172133]">
+        {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-lg font-medium">Analysis Summary</h3>
           <div className="flex items-center text-sm text-emerald-600 dark:text-emerald-400">
@@ -133,9 +200,12 @@ const ConfirmationStep = ({
         <div className="space-y-6">
           {/* Video File Information */}
           <div className="flex items-start">
-            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-600/20 rounded-lg flex items-center justify-center mr-4 mt-1 transition-all duration-300 hover:scale-105">
-              <FileVideo className="h-6 w-6 text-blue-700 dark:text-blue-200" />
-            </div>
+            <IconContainer
+              bgColor="bg-blue-100 dark:bg-blue-600/20"
+              iconColor="text-blue-700 dark:text-blue-200"
+            >
+              <FileVideo className="h-6 w-6" />
+            </IconContainer>
             <div className="flex-1">
               <div className="flex items-center gap-1 mb-1">
                 <h4 className="font-medium">Video File</h4>
@@ -157,13 +227,13 @@ const ConfirmationStep = ({
                       </span>
                       <span className="font-medium text-foreground">{fileSizeFormatted}</span>
                     </div>
-                    {videoDuration && (
+                    {videoDurationFormatted && (
                       <div className="flex items-center justify-between text-muted-foreground">
                         <span className="flex items-center gap-1">
                           <Clock className="w-4 h-4" />
                           Duration:
                         </span>
-                        <span className="font-medium text-foreground">{videoDuration}</span>
+                        <span className="font-medium text-foreground">{videoDurationFormatted}</span>
                       </div>
                     )}
                     <div className="flex items-center justify-between text-muted-foreground">
@@ -186,9 +256,12 @@ const ConfirmationStep = ({
 
           {/* Model Information */}
           <div className="flex items-start">
-            <div className="w-12 h-12 bg-purple-100 dark:bg-purple-600/20 rounded-lg flex items-center justify-center mr-4 mt-1 transition-all duration-300 hover:scale-105">
-              <Cpu className="h-6 w-6 text-purple-700 dark:text-purple-200" />
-            </div>
+            <IconContainer
+              bgColor="bg-purple-100 dark:bg-purple-600/20"
+              iconColor="text-purple-700 dark:text-purple-200"
+            >
+              <Cpu className="h-6 w-6" />
+            </IconContainer>
             <div className="flex-1">
               <h4 className="font-medium mb-1">Selected Model</h4>
               <p className="text-sm font-medium">{modelInfo.name}</p>
@@ -197,9 +270,12 @@ const ConfirmationStep = ({
 
           {/* Estimated Time */}
           <div className="flex items-start">
-            <div className="w-12 h-12 bg-amber-100 dark:bg-amber-600/20 rounded-lg flex items-center justify-center mr-4 mt-1 transition-all duration-300 hover:scale-105">
-              <Clock className="h-6 w-6 text-amber-700 dark:text-amber-200" />
-            </div>
+            <IconContainer
+              bgColor="bg-amber-100 dark:bg-amber-600/20"
+              iconColor="text-amber-700 dark:text-amber-200"
+            >
+              <Clock className="h-6 w-6" />
+            </IconContainer>
             <div className="flex-1">
               <div className="flex items-center gap-1 mb-1">
                 <h4 className="font-medium">Estimated Time</h4>
@@ -215,14 +291,13 @@ const ConfirmationStep = ({
                   <TooltipContent side="right" className="max-w-xs p-3 text-justify bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600">
                     <p className="font-medium mb-1">Processing Time Information</p>
                     <p className="text-xs text-muted-foreground">
-                      Times are estimates and may vary based on video length, resolution, and the
-                      complexity of text elements in your footage.
+                      Time estimates are calculated based on video duration and selected model. Actual processing time may vary depending on video complexity, resolution, and system resources.
                     </p>
                   </TooltipContent>
                 </Tooltip>
               </div>
               <div className="flex items-center">
-                <p className="font-medium text-amber-600 dark:text-amber-300">{modelInfo.time}</p>
+                <p className="font-medium text-amber-600 dark:text-amber-300">{estimatedTime}</p>
                 {selectedModel === "all" && (
                   <div className="ml-2">
                     <span className="text-xs bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-100 px-2 py-0.5 rounded-full">
@@ -236,9 +311,12 @@ const ConfirmationStep = ({
 
           {/* Expected Results */}
           <div className="flex items-start">
-            <div className="w-12 h-12 bg-green-100 dark:bg-green-600/20 rounded-lg flex items-center justify-center mr-4 mt-1 transition-all duration-300 hover:scale-105">
-              <BarChart className="h-6 w-6 text-green-700 dark:text-green-200" />
-            </div>
+            <IconContainer
+              bgColor="bg-green-100 dark:bg-green-600/20"
+              iconColor="text-green-700 dark:text-green-200"
+            >
+              <BarChart className="h-6 w-6" />
+            </IconContainer>
             <div className="flex-1">
               <h4 className="font-medium mb-1">Expected Results</h4>
               <div className="space-y-1 text-sm">

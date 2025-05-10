@@ -21,7 +21,6 @@ interface VideoMetadata {
   filename: string;
   size: string;
   duration: string;
-  resolution: string;
   type: string;
   frameRate?: string;
   url?: string; // Added URL field for video source
@@ -48,8 +47,7 @@ interface ResultsStepProps {
     return new Promise((resolve) => {
       if (!source) {
         resolve({
-          duration: "Unknown",
-          resolution: "Unknown"
+          duration: "Unknown"
         });
         return;
       }
@@ -76,7 +74,6 @@ interface ResultsStepProps {
         // Extract metadata
         const metadata: Partial<VideoMetadata> = {
           duration: formatDuration(video.duration),
-          resolution: `${video.videoWidth}x${video.videoHeight}`,
         };
         
         // Cleanup
@@ -93,8 +90,7 @@ interface ResultsStepProps {
           URL.revokeObjectURL(video.src);
         }
         resolve({
-          duration: "Unknown",
-          resolution: "Unknown"
+          duration: "Unknown"
         });
       };
       
@@ -104,8 +100,7 @@ interface ResultsStepProps {
           URL.revokeObjectURL(video.src);
         }
         resolve({
-          duration: "Unknown",
-          resolution: "Unknown"
+          duration: "Unknown"
         });
       }, 5000); // 5 second timeout
     });
@@ -249,24 +244,6 @@ const ResultsStep = ({
         }
       }
     }
-    
-    // Calculate resolution if needed
-    if (processed.resolution === "Extracted") {
-      // Try to get it from the video element if available
-      if (results.videoFile) {
-        try {
-          const video = document.createElement('video');
-          video.src = URL.createObjectURL(results.videoFile);
-          video.onloadedmetadata = () => {
-            processed.resolution = `${video.videoWidth}x${video.videoHeight}`;
-            URL.revokeObjectURL(video.src);
-          };
-        } catch (e) {
-          console.error("Failed to calculate video resolution:", e);
-        }
-      }
-    }
-    
     return processed;
   };
 
@@ -501,12 +478,7 @@ const ResultsStep = ({
                     <dd className="text-sm text-gray-700 dark:text-gray-300">
                       {processVideoMetadata(enhancedMetadata).duration}
                     </dd>
-                    
-                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Resolution:</dt>
-                    <dd className="text-sm text-gray-700 dark:text-gray-300">
-                      {processVideoMetadata(enhancedMetadata).resolution}
-                    </dd>
-                    
+
                     <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">File Type:</dt>
                     <dd className="text-sm text-gray-700 dark:text-gray-300">{enhancedMetadata.type}</dd>
                     
@@ -688,18 +660,6 @@ const ResultsStep = ({
                   </tbody>
                 </table>
               </div>
-              
-              <div className="mt-4 text-center">
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  onClick={toggleFullscreen}
-                  className="text-gray-500 text-sm flex items-center gap-1"
-                >
-                  <ExternalLink className="h-3 w-3" />
-                  <span>Open detailed view for more information</span>
-                </Button>
-              </div>
             </div>
           )}
 
@@ -844,7 +804,7 @@ const ResultsStep = ({
                           <div className="flex items-center">
                             <div className="font-medium text-blue-800 dark:text-blue-300">{getModelName(results.model)}</div>
                           </div>
-                          <div className="text-xs text-blue-700 dark:text-blue-400 mt-1">Model ID: {results.model}</div>
+                          <div className="text-xs text-blue-700 dark:text-blue-400 mt-1">Model ID: <span className="uppercase">{results.model}</span></div>
                         </div>
                       </div>
                       
@@ -936,14 +896,6 @@ const ResultsStep = ({
                           </div>
                         </div>
                         
-                        <div className="space-y-1">
-                          <div className="text-xs text-gray-500 dark:text-gray-400">Resolution</div>
-                          <div className="flex items-center">
-                            <Maximize2 className="h-3.5 w-3.5 mr-1.5 text-gray-500 dark:text-gray-400" />
-                            <span className="font-medium">{processVideoMetadata(enhancedMetadata).resolution}</span>
-                          </div>
-                        </div>
-                        
                         {enhancedMetadata.frameRate && (
                           <div className="space-y-1">
                             <div className="text-xs text-gray-500 dark:text-gray-400">Frame Rate</div>
@@ -957,14 +909,6 @@ const ResultsStep = ({
                     </div>
                   </div>
                 </CardContent>
-                <CardFooter className="border-t border-gray-200 dark:border-gray-700 pt-4 flex justify-between">
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
-                    Analysis completed on {new Date(results.analysisDate).toLocaleString()}
-                  </div>
-                  <div className="flex gap-2">
-                    {/* Removed buttons as requested */}
-                  </div>
-                </CardFooter>
               </Card>
             </div>
           )}
