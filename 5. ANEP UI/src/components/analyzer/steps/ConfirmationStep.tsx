@@ -75,9 +75,10 @@ const ConfirmationStep = ({
       const duration = videoElement.duration;
       if (duration && !isNaN(duration)) {
         setVideoDurationSeconds(duration);
-        const minutes = Math.floor(duration / 60);
+        const hours = Math.floor(duration / 3600);
+        const minutes = Math.floor((duration % 3600) / 60);
         const seconds = Math.floor(duration % 60);
-        setVideoDurationFormatted(`${minutes}:${seconds.toString().padStart(2, "0")}`);
+        setVideoDurationFormatted(`${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`);
       }
     };
     videoElement.src = URL.createObjectURL(videoFile);
@@ -219,7 +220,7 @@ const ConfirmationStep = ({
                     <Info className="w-4 h-4 text-muted-foreground cursor-pointer" />
                   </TooltipTrigger>
                   <TooltipContent side="right" className="w-52 p-3 text-sm space-y-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600">
-                    <p className="font-medium mb-2">Video Statistics</p>
+                    <p className="font-medium mb-2">Video Metadata</p>
                     <div className="flex items-center justify-between text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <HardDrive className="w-4 h-4" />

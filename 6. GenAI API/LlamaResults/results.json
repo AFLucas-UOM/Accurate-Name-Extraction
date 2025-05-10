@@ -2,39 +2,23 @@
   {
     "timestamp": "00:00:00",
     "frame": "frame_00000.jpg",
-    "text": "The visible text in the image is: \n- BBC \n- 'We want Kim Kardashian to win an Oscar'\n- Budweise \n- KING OF BEERS \n- HEUSER-BUSCH.INC \n- Coors \n- Original \n- SINCE 18 \n- LEGEND \n- Original",
+    "text": "fox news",
     "frame_num": 0,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00000.jpg"
   },
   {
     "timestamp": "00:00:00",
-    "frame": "frame_00010.jpg",
-    "text": "BBC 'We want Kim Kardashian to win an Oscar' Posted on 01.03.2025 Budweiser KING OF BEERS Original SINCE 1873",
-    "frame_num": 10,
+    "frame": "frame_00015.jpg",
+    "text": "The visible text in the image is: ROBERT PREVOSTI SELECTED AS FIRST AMERICAN POPE",
+    "frame_num": 15,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00010.jpg"
-  },
-  {
-    "timestamp": "00:00:01",
-    "frame": "frame_00025.jpg",
-    "text": "Posted on 01.03.2025\nwe want Kim Kardashian to win an Oscar\nBudweiser\nKING OF BEERS\nOriginal\nSINCE 1873",
-    "frame_num": 25,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00025.jpg"
-  },
-  {
-    "timestamp": "00:00:01",
-    "frame": "frame_00030.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBudweiser\nKING OF BEERS\nCoors\nOriginal\nSINCE 1873",
-    "frame_num": 30,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00030.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00015.jpg"
   },
   {
     "timestamp": "00:00:01",
     "frame": "frame_00035.jpg",
-    "text": "The visible text in the image is:\nBBC\nPosted on 01.03.2025\nBB",
+    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE FOX NEWS",
     "frame_num": 35,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00035.jpg"
@@ -42,7 +26,7 @@
   {
     "timestamp": "00:00:01",
     "frame": "frame_00040.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC\nB B",
+    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE FOX NEWS",
     "frame_num": 40,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00040.jpg"
@@ -50,80 +34,47 @@
   {
     "timestamp": "00:00:01",
     "frame": "frame_00045.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nB B C",
+    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE",
     "frame_num": 45,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00045.jpg"
   },
   {
-    "timestamp": "00:00:02",
-    "frame": "frame_00050.jpg",
-    "text": "BBC\nPosted on 01.03.2025",
-    "frame_num": 50,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00050.jpg"
-  },
-  {
-    "timestamp": "00:00:02",
+    "timestamp": "00:00:01",
     "frame": "frame_00055.jpg",
-    "text": "B B C\nPosted on 01.03.2025 \nB B C",
+    "text": "ROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE\nFOX NEWS",
     "frame_num": 55,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00055.jpg"
   },
   {
     "timestamp": "00:00:02",
-    "frame": "frame_00060.jpg",
-    "text": "BLC\nPosted on 01.03.2025\nHOLLYWOOD\nUSA\nSIX FIGS",
-    "frame_num": 60,
+    "frame": "frame_00065.jpg",
+    "text": "ROBERT PREVOST SELECTED AS \nFIRST AMERICAN POPE",
+    "frame_num": 65,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00060.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00065.jpg"
   },
   {
     "timestamp": "00:00:02",
-    "frame": "frame_00070.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nHOLLYWOOD\nUSA",
-    "frame_num": 70,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00070.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:03",
-    "frame": "frame_00075.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nHOLLYWOOD\nUSA\nBBC",
-    "frame_num": 75,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00075.jpg"
-  },
-  {
-    "timestamp": "00:00:03",
     "frame": "frame_00080.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nHOLLYWOOD \nUSA \nBBC",
+    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE FOX NEWS",
     "frame_num": 80,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00080.jpg"
   },
   {
     "timestamp": "00:00:03",
-    "frame": "frame_00085.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nHOLLYWOOD \nUSA \nBBC",
-    "frame_num": 85,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00085.jpg"
-  },
-  {
-    "timestamp": "00:00:03",
     "frame": "frame_00095.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nHOLLYWOOD \nUSA \nBBC",
+    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE FOX NEWS",
     "frame_num": 95,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00095.jpg"
   },
   {
-    "timestamp": "00:00:04",
+    "timestamp": "00:00:03",
     "frame": "frame_00105.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nHOLLYWOOD\nUSA\nBBC",
+    "text": "The visible text in the image is \"fox news\".",
     "frame_num": 105,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00105.jpg"
@@ -131,954 +82,249 @@
   {
     "timestamp": "00:00:04",
     "frame": "frame_00120.jpg",
-    "text": "HOLLYWOOD\nUSA",
+    "text": "fox news",
     "frame_num": 120,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00120.jpg"
   },
   {
-    "timestamp": "00:00:05",
-    "frame": "frame_00130.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nHOLLYWOOD\nUSA\nBBC",
-    "frame_num": 130,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00130.jpg"
-  },
-  {
-    "timestamp": "00:00:05",
+    "timestamp": "00:00:04",
     "frame": "frame_00135.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
+    "text": "FOX NEWS",
     "frame_num": 135,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00135.jpg"
   },
   {
     "timestamp": "00:00:05",
-    "frame": "frame_00140.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBBC \nPEARL \nPEARL \nEARS \nEARS",
-    "frame_num": 140,
+    "frame": "frame_00150.jpg",
+    "text": "Fox News",
+    "frame_num": 150,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00140.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00150.jpg"
   },
   {
-    "timestamp": "00:00:06",
+    "timestamp": "00:00:05",
     "frame": "frame_00155.jpg",
-    "text": "BBC \nPosted on 01.03.2025  \nBBC  \nPEARLIZUM  \nPEARLIZUM  \nFE  \nFEARLIZUM",
+    "text": "fox news",
     "frame_num": 155,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00155.jpg",
-    "was_retry": true
+    "path": "6. GenAI API/LlamaResults/frames/frame_00155.jpg"
   },
   {
-    "timestamp": "00:00:06",
+    "timestamp": "00:00:05",
     "frame": "frame_00160.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nVOICE",
+    "text": "fox news",
     "frame_num": 160,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00160.jpg",
-    "was_retry": true
+    "path": "6. GenAI API/LlamaResults/frames/frame_00160.jpg"
+  },
+  {
+    "timestamp": "00:00:05",
+    "frame": "frame_00175.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 175,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00175.jpg"
   },
   {
     "timestamp": "00:00:06",
-    "frame": "frame_00165.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nVOICE OF\nNOOR NANJ\nBBC",
-    "frame_num": 165,
+    "frame": "frame_00180.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 180,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00165.jpg",
+    "path": "6. GenAI API/LlamaResults/frames/frame_00180.jpg"
+  },
+  {
+    "timestamp": "00:00:06",
+    "frame": "frame_00185.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 185,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00185.jpg"
+  },
+  {
+    "timestamp": "00:00:06",
+    "frame": "frame_00195.jpg",
+    "text": "The visible text in the image is \"fox news\".",
+    "frame_num": 195,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00195.jpg"
+  },
+  {
+    "timestamp": "00:00:07",
+    "frame": "frame_00215.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 215,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00215.jpg"
+  },
+  {
+    "timestamp": "00:00:07",
+    "frame": "frame_00225.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 225,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00225.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:07",
+    "frame": "frame_00235.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 235,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00235.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:08",
+    "frame": "frame_00240.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 240,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00240.jpg",
     "was_retry": true
   },
   {
     "timestamp": "00:00:10",
-    "frame": "frame_00255.jpg",
-    "text": "BBC\nPosted on 01.03.2025",
-    "frame_num": 255,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00255.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:10",
-    "frame": "frame_00260.jpg",
-    "text": "BBC  \nPosted  \nBBC",
-    "frame_num": 260,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00260.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:10",
-    "frame": "frame_00270.jpg",
-    "text": "BBC  \nPosted  \nBBC",
-    "frame_num": 270,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00270.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:11",
-    "frame": "frame_00275.jpg",
-    "text": "BBC\nPosted on 01.0\nBBC",
-    "frame_num": 275,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00275.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:11",
-    "frame": "frame_00285.jpg",
-    "text": "BBC  \nPosted on 01.0  \nBBC  \nB  \nB  \nC  \nB  \nB  \nC",
-    "frame_num": 285,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00285.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:11",
-    "frame": "frame_00290.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nC",
-    "frame_num": 290,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00290.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:11",
-    "frame": "frame_00295.jpg",
-    "text": "B B C\nPosted on 01.03.2025",
-    "frame_num": 295,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00295.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:12",
-    "frame": "frame_00300.jpg",
-    "text": "BBC\nPosted on 01.03.2025",
-    "frame_num": 300,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00300.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:12",
-    "frame": "frame_00305.jpg",
-    "text": "BBC\nPosted on 01.03.2025",
-    "frame_num": 305,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00305.jpg"
-  },
-  {
-    "timestamp": "00:00:12",
     "frame": "frame_00320.jpg",
-    "text": "BBC\nPosted on 01.03.2025",
+    "text": "FOX NEWS",
     "frame_num": 320,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00320.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00320.jpg",
+    "was_retry": true
   },
   {
-    "timestamp": "00:00:13",
+    "timestamp": "00:00:10",
     "frame": "frame_00325.jpg",
-    "text": "BBC\nPosted on 01.03.2025",
+    "text": "FOX NEWS",
     "frame_num": 325,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00325.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00325.jpg",
+    "was_retry": true
   },
   {
-    "timestamp": "00:00:13",
+    "timestamp": "00:00:11",
+    "frame": "frame_00330.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 330,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00330.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:11",
+    "frame": "frame_00335.jpg",
+    "text": "fox news",
+    "frame_num": 335,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00335.jpg"
+  },
+  {
+    "timestamp": "00:00:11",
     "frame": "frame_00340.jpg",
-    "text": "BBC\nPosted on 01.03.2025",
+    "text": "The visible text in the image is \"FOX NEWS\".",
     "frame_num": 340,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00340.jpg"
   },
   {
-    "timestamp": "00:00:13",
+    "timestamp": "00:00:11",
     "frame": "frame_00345.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBBC \nC",
+    "text": "The text visible in the image is \"FOX NEWS\".",
     "frame_num": 345,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00345.jpg"
   },
   {
-    "timestamp": "00:00:14",
-    "frame": "frame_00360.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBBC \nC",
-    "frame_num": 360,
+    "timestamp": "00:00:11",
+    "frame": "frame_00355.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 355,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00360.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00355.jpg",
+    "was_retry": true
   },
   {
-    "timestamp": "00:00:14",
+    "timestamp": "00:00:12",
+    "frame": "frame_00365.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 365,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00365.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:12",
     "frame": "frame_00370.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
+    "text": "FOX NEWS",
     "frame_num": 370,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00370.jpg"
   },
   {
-    "timestamp": "00:00:15",
-    "frame": "frame_00380.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBC",
-    "frame_num": 380,
+    "timestamp": "00:00:12",
+    "frame": "frame_00375.jpg",
+    "text": "The visible text in the image is FOX NEWS.",
+    "frame_num": 375,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00380.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00375.jpg"
   },
   {
-    "timestamp": "00:00:15",
-    "frame": "frame_00385.jpg",
-    "text": "BBC \nMalibu \nPosted on 01.03.2025 \nBBC \nBBC",
-    "frame_num": 385,
+    "timestamp": "00:00:13",
+    "frame": "frame_00390.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 390,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00385.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00390.jpg"
   },
   {
-    "timestamp": "00:00:16",
-    "frame": "frame_00400.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBBC",
-    "frame_num": 400,
+    "timestamp": "00:00:13",
+    "frame": "frame_00395.jpg",
+    "text": "fox news",
+    "frame_num": 395,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00400.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00395.jpg"
   },
   {
-    "timestamp": "00:00:16",
-    "frame": "frame_00415.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 415,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00415.jpg"
-  },
-  {
-    "timestamp": "00:00:16",
+    "timestamp": "00:00:14",
     "frame": "frame_00420.jpg",
-    "text": "BBC\nPosted on 01.03.2025",
+    "text": "fox news",
     "frame_num": 420,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00420.jpg"
   },
   {
-    "timestamp": "00:00:17",
-    "frame": "frame_00430.jpg",
-    "text": "BBC\nPosted on 01.03.2025",
-    "frame_num": 430,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00430.jpg"
-  },
-  {
-    "timestamp": "00:00:17",
+    "timestamp": "00:00:14",
     "frame": "frame_00435.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC\nPEARLIGO",
+    "text": "FOX NEWS",
     "frame_num": 435,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00435.jpg"
   },
   {
-    "timestamp": "00:00:20",
-    "frame": "frame_00500.jpg",
-    "text": "BBC\nPosted on 01.03.2025\ndweiser\nOriginal\nLEGEND",
-    "frame_num": 500,
+    "timestamp": "00:00:14",
+    "frame": "frame_00445.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 445,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00500.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00445.jpg"
   },
   {
-    "timestamp": "00:00:20",
-    "frame": "frame_00510.jpg",
-    "text": "BBC\nPosted on 01.03.2025\ndweiser\nLEGEND\nOriginal",
-    "frame_num": 510,
+    "timestamp": "00:00:15",
+    "frame": "frame_00450.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 450,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00510.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00450.jpg"
   },
   {
-    "timestamp": "00:00:21",
-    "frame": "frame_00530.jpg",
-    "text": "BBC\nPosted on 01.03.2025\ndweise\nLEGEND \nOrigin",
-    "frame_num": 530,
+    "timestamp": "00:00:15",
+    "frame": "frame_00455.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 455,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00530.jpg"
-  },
-  {
-    "timestamp": "00:00:21",
-    "frame": "frame_00535.jpg",
-    "text": "BBC\nPosted on 01.03.2025\ndweiser\ndweiser\nLEGEND\nOrigin",
-    "frame_num": 535,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00535.jpg"
-  },
-  {
-    "timestamp": "00:00:21",
-    "frame": "frame_00545.jpg",
-    "text": "BBC \nPosted on 01.03.2025\nBudweiser\nOrigin\nTHE LEGEND",
-    "frame_num": 545,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00545.jpg"
-  },
-  {
-    "timestamp": "00:00:22",
-    "frame": "frame_00565.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBudweiser\nLEGEND\nOrigina",
-    "frame_num": 565,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00565.jpg"
-  },
-  {
-    "timestamp": "00:00:22",
-    "frame": "frame_00570.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nCoca",
-    "frame_num": 570,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00570.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:23",
-    "frame": "frame_00575.jpg",
-    "text": "BBC\nPosted on 01.03.2025",
-    "frame_num": 575,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00575.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:23",
-    "frame": "frame_00580.jpg",
-    "text": "BBC  \nPosted on 01.03.2025  \nCoca  \nB",
-    "frame_num": 580,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00580.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:23",
-    "frame": "frame_00585.jpg",
-    "text": "BBC  \nPosted on 01.03.2025  \nCoo  \nB|B|C  \n8|8|C",
-    "frame_num": 585,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00585.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:23",
-    "frame": "frame_00590.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nCoo",
-    "frame_num": 590,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00590.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:24",
-    "frame": "frame_00600.jpg",
-    "text": "BBC  \nPosted on 01.03.2025  \nCool  \nB B C  \nB B",
-    "frame_num": 600,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00600.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:24",
-    "frame": "frame_00605.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nB\nCrew",
-    "frame_num": 605,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00605.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:24",
-    "frame": "frame_00610.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nB\nC\nE\nB",
-    "frame_num": 610,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00610.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:24",
-    "frame": "frame_00620.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nCOC",
-    "frame_num": 620,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00620.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:25",
-    "frame": "frame_00630.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nCoors",
-    "frame_num": 630,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00630.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:25",
-    "frame": "frame_00635.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nCoca",
-    "frame_num": 635,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00635.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:25",
-    "frame": "frame_00640.jpg",
-    "text": "BBC\nn 01.03.2025\nE\nEss\nE",
-    "frame_num": 640,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00640.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:25",
-    "frame": "frame_00645.jpg",
-    "text": "BBC\n01.03.2025\nMUTE\nB\nB\nC\nPLACE",
-    "frame_num": 645,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00645.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:29",
-    "frame": "frame_00735.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 735,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00735.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:31",
-    "frame": "frame_00780.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBBC",
-    "frame_num": 780,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00780.jpg"
-  },
-  {
-    "timestamp": "00:00:32",
-    "frame": "frame_00805.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 805,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00805.jpg"
-  },
-  {
-    "timestamp": "00:00:32",
-    "frame": "frame_00810.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBBC",
-    "frame_num": 810,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00810.jpg"
-  },
-  {
-    "timestamp": "00:00:32",
-    "frame": "frame_00815.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBBC",
-    "frame_num": 815,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00815.jpg"
-  },
-  {
-    "timestamp": "00:00:33",
-    "frame": "frame_00830.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 830,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00830.jpg"
-  },
-  {
-    "timestamp": "00:00:33",
-    "frame": "frame_00845.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 845,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00845.jpg"
-  },
-  {
-    "timestamp": "00:00:34",
-    "frame": "frame_00860.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 860,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00860.jpg"
-  },
-  {
-    "timestamp": "00:00:36",
-    "frame": "frame_00910.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBBC",
-    "frame_num": 910,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00910.jpg"
-  },
-  {
-    "timestamp": "00:00:37",
-    "frame": "frame_00945.jpg",
-    "text": "The visible text in the image is:\n\n- BBC\n- Posted on 01.03.2025\n- SIXFIGS\n- ACE",
-    "frame_num": 945,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00945.jpg"
-  },
-  {
-    "timestamp": "00:00:39",
-    "frame": "frame_00990.jpg",
-    "text": "BBC\nPosted on 01.03.2025",
-    "frame_num": 990,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00990.jpg"
-  },
-  {
-    "timestamp": "00:00:40",
-    "frame": "frame_01005.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nATES\nEC",
-    "frame_num": 1005,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01005.jpg"
-  },
-  {
-    "timestamp": "00:00:40",
-    "frame": "frame_01020.jpg",
-    "text": "SIX FLAGS\nPosted on 01.03.2025\nACE",
-    "frame_num": 1020,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01020.jpg"
-  },
-  {
-    "timestamp": "00:00:41",
-    "frame": "frame_01045.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBudweiser\nKing of Beers\nEUSER-BUSCH.INC\nGENO\nOrigin",
-    "frame_num": 1045,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01045.jpg"
-  },
-  {
-    "timestamp": "00:00:42",
-    "frame": "frame_01065.jpg",
-    "text": "Posted on 01.03.2025\nBudweiser\nKING OF BEERS\nND Orig",
-    "frame_num": 1065,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01065.jpg"
-  },
-  {
-    "timestamp": "00:00:42",
-    "frame": "frame_01070.jpg",
-    "text": "BBC \nPosted on 01.03.2025",
-    "frame_num": 1070,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01070.jpg"
-  },
-  {
-    "timestamp": "00:00:43",
-    "frame": "frame_01090.jpg",
-    "text": "PEARL iZUMi\nBBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1090,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01090.jpg"
-  },
-  {
-    "timestamp": "00:00:44",
-    "frame": "frame_01105.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1105,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01105.jpg"
-  },
-  {
-    "timestamp": "00:00:44",
-    "frame": "frame_01115.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1115,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01115.jpg"
-  },
-  {
-    "timestamp": "00:00:44",
-    "frame": "frame_01120.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1120,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01120.jpg"
-  },
-  {
-    "timestamp": "00:00:45",
-    "frame": "frame_01130.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1130,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01130.jpg"
-  },
-  {
-    "timestamp": "00:00:45",
-    "frame": "frame_01145.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1145,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01145.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:46",
-    "frame": "frame_01165.jpg",
-    "text": "BBC  \nPosted on 01.03.2025  \nWalden Pond Club  \nBBC",
-    "frame_num": 1165,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01165.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:49",
-    "frame": "frame_01225.jpg",
-    "text": "BBC  \nPosted on 01.03.2025  \nB B C  \nB B C",
-    "frame_num": 1225,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01225.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:49",
-    "frame": "frame_01245.jpg",
-    "text": "BBC  \nPosted on 01.03.2025  \nBBC",
-    "frame_num": 1245,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01245.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:50",
-    "frame": "frame_01250.jpg",
-    "text": "BBC  \nPosted on 01.03.2025  \nBBC  \nBBC",
-    "frame_num": 1250,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01250.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:50",
-    "frame": "frame_01255.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nB B C \nB B C",
-    "frame_num": 1255,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01255.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:50",
-    "frame": "frame_01260.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1260,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01260.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:50",
-    "frame": "frame_01270.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1270,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01270.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:51",
-    "frame": "frame_01280.jpg",
-    "text": "BBC  \nPosted on 01.03.2025  \nBBC  \nBBC",
-    "frame_num": 1280,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01280.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:51",
-    "frame": "frame_01285.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1285,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01285.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:51",
-    "frame": "frame_01290.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1290,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01290.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:00:52",
-    "frame": "frame_01300.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1300,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01300.jpg"
-  },
-  {
-    "timestamp": "00:00:52",
-    "frame": "frame_01305.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBBC",
-    "frame_num": 1305,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01305.jpg"
-  },
-  {
-    "timestamp": "00:00:52",
-    "frame": "frame_01310.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBBC",
-    "frame_num": 1310,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01310.jpg"
-  },
-  {
-    "timestamp": "00:00:52",
-    "frame": "frame_01320.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1320,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01320.jpg"
-  },
-  {
-    "timestamp": "00:00:54",
-    "frame": "frame_01355.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBC",
-    "frame_num": 1355,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01355.jpg"
-  },
-  {
-    "timestamp": "00:00:54",
-    "frame": "frame_01360.jpg",
-    "text": "BBC \nPosted on 01 03 2025",
-    "frame_num": 1360,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01360.jpg"
-  },
-  {
-    "timestamp": "00:00:55",
-    "frame": "frame_01375.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1375,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01375.jpg"
-  },
-  {
-    "timestamp": "00:00:55",
-    "frame": "frame_01385.jpg",
-    "text": "BBC \nPosted on 01.03.2025 \nBBC \nBBC",
-    "frame_num": 1385,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01385.jpg"
-  },
-  {
-    "timestamp": "00:00:56",
-    "frame": "frame_01410.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nBBC",
-    "frame_num": 1410,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01410.jpg"
-  },
-  {
-    "timestamp": "00:00:56",
-    "frame": "frame_01420.jpg",
-    "text": "SIX FLAGS \nPosted on 01.03.2025\nERACE",
-    "frame_num": 1420,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01420.jpg"
-  },
-  {
-    "timestamp": "00:00:58",
-    "frame": "frame_01465.jpg",
-    "text": "SIX FLGS\nBBC\nPosted on 01.03.2025\nSIX FLGS\nB",
-    "frame_num": 1465,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01465.jpg"
-  },
-  {
-    "timestamp": "00:00:58",
-    "frame": "frame_01470.jpg",
-    "text": "The extracted text from the image is:\n\nSIX FLGS\nBBC\nPosted on 01.03.2025\nB\nB\nTE\nSIX FLGS\nB",
-    "frame_num": 1470,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01470.jpg"
-  },
-  {
-    "timestamp": "00:00:59",
-    "frame": "frame_01485.jpg",
-    "text": "The extractable text from the image is: SIX FLAGS. \nSIX FLAGS. \nBBC. \nPosted on 01.03.2025.",
-    "frame_num": 1485,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01485.jpg"
-  },
-  {
-    "timestamp": "00:01:00",
-    "frame": "frame_01505.jpg",
-    "text": "SIX FLAGS\nBBC\nPosted on 01.03.2025\nSIX FLAGS",
-    "frame_num": 1505,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01505.jpg"
-  },
-  {
-    "timestamp": "00:01:00",
-    "frame": "frame_01510.jpg",
-    "text": "SIX FLAGS\nBBC\nPosted on 01.03.2025\nSIX FLAGS\nB",
-    "frame_num": 1510,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01510.jpg"
-  },
-  {
-    "timestamp": "00:01:00",
-    "frame": "frame_01520.jpg",
-    "text": "SIX FLAGS\nBBC\nPosted on 01.03.2025\nSIX FLAGS\nB",
-    "frame_num": 1520,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01520.jpg"
-  },
-  {
-    "timestamp": "00:01:01",
-    "frame": "frame_01525.jpg",
-    "text": "SIX FLAGS \nSIX FLAGS \nBBC \nPosted on 01.03.2025 \nB \nB \nB",
-    "frame_num": 1525,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01525.jpg"
-  },
-  {
-    "timestamp": "00:01:01",
-    "frame": "frame_01535.jpg",
-    "text": "The text extracted from the image is as follows:\n\nB \u0411 C\nPosted on 01.03.2025\nT F\nB B \n\nCorrected response to remove additional content:\nB \u0411 C\nPosted on 01.03.2025\nB",
-    "frame_num": 1535,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01535.jpg"
-  },
-  {
-    "timestamp": "00:01:02",
-    "frame": "frame_01555.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nSIX FLAGS\nSIX FLAGS",
-    "frame_num": 1555,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01555.jpg"
-  },
-  {
-    "timestamp": "00:01:02",
-    "frame": "frame_01560.jpg",
-    "text": "SIX FLAGS\nBBC\nPosted on 01.03.2025\nSIX FLAGS\nB\nB",
-    "frame_num": 1560,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01560.jpg"
-  },
-  {
-    "timestamp": "00:01:02",
-    "frame": "frame_01570.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nSIX FLAGS\nB\nB",
-    "frame_num": 1570,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01570.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:03",
-    "frame": "frame_01585.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nFATE\nSIX FLAGS\nBBC",
-    "frame_num": 1585,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01585.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:04",
-    "frame": "frame_01600.jpg",
-    "text": "BBC \n01.03.2025 \nSIX FLAGS \nERACE",
-    "frame_num": 1600,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01600.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:04",
-    "frame": "frame_01605.jpg",
-    "text": "B B C\nPosted on 01.03.2025",
-    "frame_num": 1605,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01605.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:04",
-    "frame": "frame_01610.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nFBI\nLAPD\nRodeo Drive\nLos Angeles",
-    "frame_num": 1610,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01610.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:04",
-    "frame": "frame_01615.jpg",
-    "text": "BBC\nLARY\nSUNSET\n Rodeo Drive \nLos Angeles \n01.03.2025",
-    "frame_num": 1615,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01615.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:04",
-    "frame": "frame_01620.jpg",
-    "text": "BBC\nFBI\nLAPD\nSUNSET\nRODEO DRIVE\nLOS A\n01.03.2025",
-    "frame_num": 1620,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01620.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:05",
-    "frame": "frame_01625.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nLA\nSUNSET BLVD\nPACIFIC COAST\nVEGAS\nWALK OF\nCALIFORN\nHOLLYWOOD\nRodeo \nDrive \nLos \nAr",
-    "frame_num": 1625,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01625.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:05",
-    "frame": "frame_01630.jpg",
-    "text": "BIG\nLA\nPosted on 01.03.2025\nSUNSET BLVD\nPACIFIC COAST\nVILLA OF W\nCALIFORNIA\nRODEO\nDRIVE\nLOS\nANGELES\nVEGAS\nHISTORIC",
-    "frame_num": 1630,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01630.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:05",
-    "frame": "frame_01635.jpg",
-    "text": "Posted on 01.03.2025  \nRodeo  \nDrive  \nHISTORIC  \nSET BLVD  \nVermont  \nCALIFORNIA  \nCalifornia  \nLos \nSTREET BLVD  \nof Fame \nERIC COAST  \nPacific Coast  \nHighway 1  \n5  \nMI  \n1  \n5",
-    "frame_num": 1635,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01635.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:05",
-    "frame": "frame_01640.jpg",
-    "text": "BBC\nPosted on 01.03.2025\nRodeo Drive\nVEGAS\nHISTORIC\nBB\nNIXF",
-    "frame_num": 1640,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01640.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:05",
-    "frame": "frame_01645.jpg",
-    "text": "ORNIA  \n5  \nBBC  \nPosted on 01.03.2025  \nof Fame  \nVEGAS HTD  \nHISTORIC  \nBBC",
-    "frame_num": 1645,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01645.jpg",
-    "was_retry": true
-  },
-  {
-    "timestamp": "00:01:06",
-    "frame": "frame_01650.jpg",
-    "text": "BBC  \nS. RYED  \nHISTORIC  \nVPORKOLLECTOR  \nBBC  \n- 01 03 2023  \nBBC",
-    "frame_num": 1650,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01650.jpg",
-    "was_retry": true
+    "path": "6. GenAI API/LlamaResults/frames/frame_00455.jpg"
   }
 ]

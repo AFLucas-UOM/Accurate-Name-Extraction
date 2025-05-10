@@ -1,29 +1,36 @@
 {
   "video_info": {
-    "filename": "BBCNews_1.mp4",
-    "resolution": "1080\u00d71920",
-    "fps": 25.0,
-    "total_frames": 1652,
-    "duration_seconds": 66.08,
-    "duration_formatted": "0:01:06"
+    "filename": "Video_T5.mp4",
+    "resolution": "576\u00d71024",
+    "fps": 30.0,
+    "total_frames": 479,
+    "duration_seconds": 15.966666666666667,
+    "duration_formatted": "0:00:15"
   },
   "processing_stats": {
     "sample_rate": 5,
     "similarity_threshold": 0.9,
-    "distinct_frames_processed": 131,
-    "frames_with_text": 129,
-    "processing_time_seconds": 599.3447670936584,
-    "processing_time_formatted": "0:09:59"
+    "distinct_frames_processed": 46,
+    "frames_with_text": 40,
+    "processing_time_seconds": 106.32128691673279,
+    "processing_time_formatted": "0:01:46"
   },
   "api_stats": {
-    "total_requests": 184,
-    "successful_requests": 130,
-    "failed_requests": 54,
+    "total_requests": 61,
+    "successful_requests": 41,
+    "failed_requests": 20,
     "rate_limited_requests": 0,
-    "total_tokens": 312916,
-    "prompt_tokens": 310224,
-    "completion_tokens": 2692,
-    "estimated_cost_usd": 0.046937399999999976
+    "total_tokens": 55174,
+    "prompt_tokens": 54823,
+    "completion_tokens": 351,
+    "estimated_cost_usd": 0.008276099999999996
   },
-  "names": []
+  "names": [
+    {
+      "name": "Robert Prevost",
+      "first_appearance": "00:00:00",
+      "last_appearance": "00:00:03",
+      "count": 8
+    }
+  ]
 }

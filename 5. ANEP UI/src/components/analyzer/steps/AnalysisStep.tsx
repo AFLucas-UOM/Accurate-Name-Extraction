@@ -998,8 +998,8 @@ const AnalysisStep = ({
                   </h5>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                     {selectedModel === "anep" && "Advanced OCR and NER pipeline"}
-                    {selectedModel === "model1" && "Google Cloud Vision with Gemini"}
-                    {selectedModel === "model2" && "240B parameter multimodal model"}
+                    {selectedModel === "model1" && "Google Cloud Vision with Gemini 1.5 Pro"}
+                    {selectedModel === "model2" && "Llama 4 Maverick 17B (Multimodal Vision-Language Model)"}
                     {selectedModel === "all" && "Combined ensemble of all models"}
                   </p>
                 </div>
@@ -1017,8 +1017,8 @@ const AnalysisStep = ({
                 <span>
                   {selectedModel === "anep" && "Best for most video content with good performance balance"}
                   {selectedModel === "model1" && "Reliable for clear text with consistent quality"}
-                  {selectedModel === "model2" && "Ideal for challenging videos with unclear text"}
-                  {selectedModel === "all" && "Recommended when accuracy is the top priority"}
+                  {selectedModel === "model2" && "Ideal for short news clips and simple video layouts"}
+                  {selectedModel === "all" && "Recommended for research purposes, and finding the optimal model for specific use cases"}
                 </span>
               </div>
             </div>

@@ -14,7 +14,6 @@ interface NameDetection {
   confidence: number;
   timestamp: string;
   frames?: number[];
-  duration?: string;
 }
 
 interface VideoMetadata {
@@ -42,70 +41,6 @@ interface ResultsStepProps {
   className?: string;
 }
 
-  // Function to extract metadata from a video file or URL
-  const extractVideoMetadata = (source: File | string | null): Promise<Partial<VideoMetadata>> => {
-    return new Promise((resolve) => {
-      if (!source) {
-        resolve({
-          duration: "Unknown"
-        });
-        return;
-      }
-
-      const video = document.createElement("video");
-      video.preload = "metadata";
-      
-      // Handle both File objects and URLs
-      if (source instanceof File) {
-        video.src = URL.createObjectURL(source);
-      } else if (typeof source === 'string') {
-        video.src = source;
-      }
-      
-      video.onloadedmetadata = () => {
-        // Format duration as HH:MM:SS
-        const formatDuration = (seconds: number): string => {
-          const hrs = Math.floor(seconds / 3600);
-          const mins = Math.floor((seconds % 3600) / 60);
-          const secs = Math.floor(seconds % 60);
-          return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        };
-        
-        // Extract metadata
-        const metadata: Partial<VideoMetadata> = {
-          duration: formatDuration(video.duration),
-        };
-        
-        // Cleanup
-        if (source instanceof File) {
-          URL.revokeObjectURL(video.src);
-        }
-        
-        resolve(metadata);
-      };
-      
-      // Handle errors
-      video.onerror = () => {
-        if (source instanceof File) {
-          URL.revokeObjectURL(video.src);
-        }
-        resolve({
-          duration: "Unknown"
-        });
-      };
-      
-      // Set a timeout in case metadata loading takes too long
-      setTimeout(() => {
-        if (source instanceof File) {
-          URL.revokeObjectURL(video.src);
-        }
-        resolve({
-          duration: "Unknown"
-        });
-      }, 5000); // 5 second timeout
-    });
-  };
-
 const ResultsStep = ({
   results,
   onRestart,
@@ -120,14 +55,40 @@ const ResultsStep = ({
   const [expandedSections, setExpandedSections] = useState<string[]>(["names", "videoMetadata", "model"]);
   const [showLineNumbers, setShowLineNumbers] = useState(true);
   
-  // Helper function to clean results and remove the resolution field
+  // Initialize enhanced metadata with duration from localStorage on mount
+  useEffect(() => {
+    // Get duration from localStorage
+    const storedDuration = localStorage.getItem("vid_dur");
+    let durationToUse = results.videoMetadata.duration;
+    
+    if (storedDuration) {
+      // Convert stored duration from seconds to formatted time
+      const durationInSeconds = parseFloat(storedDuration);
+      if (!isNaN(durationInSeconds)) {
+        durationToUse = formatDuration(durationInSeconds);
+      }
+    } else if (results.videoMetadata.duration === "Processed") {
+      durationToUse = "Calculating...";
+    }
+    
+    // Set initial metadata
+    const initialMetadata = {
+      ...results.videoMetadata,
+      duration: durationToUse
+    };
+    setEnhancedMetadata(initialMetadata);
+  }, [results.videoMetadata]);
+  
+  // Helper function to clean results and remove unwanted fields
   const getCleanResults = (results: AnalysisResults, metadata: VideoMetadata) => {
     const filteredResults = {
       ...results,
       videoMetadata: {
         ...metadata,
-        // Remove the resolution field if it exists
-        resolution: undefined
+        // Remove unwanted fields
+        resolution: undefined,
+        // Ensure duration is properly formatted
+        duration: metadata.duration === "Processed" ? "Unknown" : metadata.duration,
       }
     };
     
@@ -141,12 +102,6 @@ const ResultsStep = ({
       })
     );
   };
-  
-  // Extract video metadata on component mount - but NEVER modify the incoming values
-  useEffect(() => {
-    // Simply use the exact metadata from the backend without any modifications
-    setEnhancedMetadata(results.videoMetadata);
-  }, [results.videoMetadata]);
 
   const handleDownload = () => {
     // Create a clean version of results without resolution field
@@ -235,33 +190,6 @@ const ResultsStep = ({
     else if (bytes < 1048576) return (bytes / 1024).toFixed(2) + " KB";
     else return (bytes / 1048576).toFixed(2) + " MB";
   };
-  
-  // Process video metadata to properly calculate values when needed
-  const processVideoMetadata = (metadata: VideoMetadata): VideoMetadata => {
-    // Create a new object to avoid modifying the original
-    const processed = { ...metadata };
-    
-    // Calculate duration if needed
-    if (processed.duration === "Processed") {
-      // Try to get it from the video element if available
-      if (results.videoFile) {
-        try {
-          const video = document.createElement('video');
-          video.src = URL.createObjectURL(results.videoFile);
-          video.onloadedmetadata = () => {
-            const hrs = Math.floor(video.duration / 3600);
-            const mins = Math.floor((video.duration % 3600) / 60);
-            const secs = Math.floor(video.duration % 60);
-            processed.duration = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-            URL.revokeObjectURL(video.src);
-          };
-        } catch (e) {
-          console.error("Failed to calculate video duration:", e);
-        }
-      }
-    }
-    return processed;
-  };
 
   // Get confidence color based on value
   const getConfidenceColor = (confidence: number) => {
@@ -269,6 +197,14 @@ const ResultsStep = ({
     if (confidence >= 0.7) return "bg-blue-500";
     if (confidence >= 0.5) return "bg-yellow-500";
     return "bg-red-500";
+  };
+
+  // Format duration from seconds to HH:MM:SS
+  const formatDuration = (seconds: number): string => {
+    const hrs = Math.floor(seconds / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
   // Format timestamp for better display
@@ -432,13 +368,6 @@ const ResultsStep = ({
                         <span className="text-sm text-gray-700 dark:text-gray-300">Appeared at: <span className="font-mono">{formatTimestamp(selectedName.timestamp)}</span></span>
                       </div>
                       
-                      {selectedName.duration && (
-                        <div className="flex items-center gap-2">
-                          <Calendar className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                          <span className="text-sm text-gray-700 dark:text-gray-300">Duration: {selectedName.duration}</span>
-                        </div>
-                      )}
-                      
                       {selectedName.frames && selectedName.frames.length > 0 && (
                         <div className="pt-1">
                           <div className="flex items-center gap-2 mb-2">
@@ -489,11 +418,9 @@ const ResultsStep = ({
                     
                     <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">File Size:</dt>
                     <dd className="text-sm text-gray-700 dark:text-gray-300">{formatFileSize(enhancedMetadata.size)}</dd>
-                    
+
                     <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Duration:</dt>
-                    <dd className="text-sm text-gray-700 dark:text-gray-300">
-                      {processVideoMetadata(enhancedMetadata).duration}
-                    </dd>
+                    <dd className="text-sm text-gray-700 dark:text-gray-300">{enhancedMetadata.duration}</dd>
 
                     <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">File Type:</dt>
                     <dd className="text-sm text-gray-700 dark:text-gray-300">{enhancedMetadata.type}</dd>
@@ -900,7 +827,7 @@ const ResultsStep = ({
                           <div className="text-xs text-gray-500 dark:text-gray-400">Duration</div>
                           <div className="flex items-center">
                             <Clock className="h-3.5 w-3.5 mr-1.5 text-gray-500 dark:text-gray-400" />
-                            <span className="font-medium font-mono">{processVideoMetadata(enhancedMetadata).duration}</span>
+                            <span className="font-medium font-mono">{enhancedMetadata.duration}</span>
                           </div>
                         </div>
                         

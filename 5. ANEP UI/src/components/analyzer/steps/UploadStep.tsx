@@ -32,11 +32,21 @@ const UploadStep = ({
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const toastIdRef = useRef<string | undefined>(undefined);
 
+  // Clear vid_dur from localStorage on component mount
+  useEffect(() => {
+    localStorage.removeItem("CurrentVideoName");
+    localStorage.removeItem("vid_dur");
+  }, []);
+
   useEffect(() => {
     if (initialFile && initialURL && initialMetadata) {
       setVideoFile(initialFile);
       setVideoURL(initialURL);
       setVideoMetadata(initialMetadata);
+      // Save initial duration to localStorage if available
+      if (initialMetadata.duration) {
+        localStorage.setItem("vid_dur", initialMetadata.duration.toString());
+      }
     }
   }, [initialFile, initialURL, initialMetadata]);
 
@@ -45,10 +55,15 @@ const UploadStep = ({
     video.preload = "metadata";
     video.src = URL.createObjectURL(file);
     video.onloadedmetadata = () => {
-      setVideoMetadata({
+      const metadata = {
         duration: video.duration,
         type: file.type,
-      });
+      };
+      setVideoMetadata(metadata);
+      
+      // Save duration to localStorage
+      localStorage.setItem("vid_dur", metadata.duration.toString());
+      
       URL.revokeObjectURL(video.src);
     };
   };
@@ -165,6 +180,9 @@ const UploadStep = ({
     setVideoMetadata(null);
     onVideoUploaded(null);
 
+    // Clear duration from localStorage when file is removed
+    localStorage.removeItem("vid_dur");
+
     if (toastIdRef.current) {
       dismiss(toastIdRef.current);
       toastIdRef.current = undefined;
@@ -172,9 +190,10 @@ const UploadStep = ({
   };
 
   const formatDuration = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
+    const hours = Math.floor(seconds / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
     const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, "0")}`;
+    return `${hours.toString().padStart(2, "0")}:${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
   return (
