@@ -3,30 +3,22 @@
 # Full path to your project
 PROJECT_DIR="/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/5. ANEP UI"
 
-# Process IDs for tracking
+# Process ID for tracking frontend
 FRONTEND_PID=""
-BACKEND_PID=""
 
-# Function to cleanly shutdown all processes
+# Function to cleanly shutdown frontend process
 cleanup() {
-  echo "Shutting down ANEP development environment..."
-  
-  # Kill frontend and backend processes if they exist
+  echo "Shutting down ANEP frontend..."
+
   if [[ -n "$FRONTEND_PID" ]]; then
     echo "Terminating frontend process..."
     kill -TERM $FRONTEND_PID 2>/dev/null || true
   fi
-  
-  if [[ -n "$BACKEND_PID" ]]; then
-    echo "Terminating backend process..."
-    kill -TERM $BACKEND_PID 2>/dev/null || true
-  fi
-  
-  # Additional cleanup to ensure all processes are terminated
+
+  # Ensure all npm dev processes are killed
   pkill -f "npm run dev" >/dev/null 2>&1
-  pkill -f "python flask-app.py" >/dev/null 2>&1
-  
-  echo "ANEP development environment has been shut down."
+
+  echo "Frontend has been shut down."
   exit 0
 }
 
@@ -42,46 +34,22 @@ if [ ! -d "$PROJECT_DIR" ]; then
   exit 1
 fi
 
-# Check if conda environment exists
-if ! /opt/anaconda3/bin/conda info --envs | grep -q "ANEP"; then
-  echo "Error: ANEP conda environment not found"
-  exit 1
-fi
-
-# Check if required files exist
-if [ ! -f "$PROJECT_DIR/flask-app.py" ]; then
-  echo "Error: flask-app.py not found"
-  exit 1
-fi
-
+# Check if package.json exists
 if [ ! -f "$PROJECT_DIR/package.json" ]; then
-  echo "Error: package.json not found"  
+  echo "Error: package.json not found"
   exit 1
 fi
 
-# Kill existing processes thoroughly
-echo "Terminating any existing processes..."
+# Kill existing frontend processes
+echo "Terminating any existing frontend processes..."
 pkill -f "npm run dev" >/dev/null 2>&1
-pkill -f "python flask-app.py" >/dev/null 2>&1
-sleep 1 # Give processes time to terminate
+sleep 1
 
-# Copy the localhost URL to clipboard (macOS)
+# Copy the localhost URL to clipboard
 echo "http://localhost:8080/" | pbcopy
-echo "Development server URL copied to clipboard: http://localhost:8080/"
+echo "Frontend URL copied to clipboard: http://localhost:8080/"
 
-# Launch backend in a new terminal window and get PID
-osascript <<EOF
-tell application "Terminal"
-  do script "clear && echo 'ANEP BACKEND PROCESS' && echo '-------------------' && echo '' && cd \"$PROJECT_DIR\" && /opt/anaconda3/bin/conda run -n ANEP python flask-app.py | tee logs/backend-\$(date +%F).log; echo 'Backend process terminated. Press any key to close this window.'; read -n 1"
-  set custom title of window 1 to "ANEP Backend"
-end tell
-EOF
-
-# Get backend PID
-sleep 2
-BACKEND_PID=$(pgrep -f "python flask-app.py" | head -n 1)
-
-# Launch frontend in a new terminal window and get PID
+# Launch frontend in new Terminal window
 osascript <<EOF
 tell application "Terminal"
   do script "clear && echo 'ANEP FRONTEND PROCESS' && echo '--------------------' && echo '' && cd \"$PROJECT_DIR\" && npm run dev | tee logs/frontend-\$(date +%F).log; echo 'Frontend process terminated. Press any key to close this window.'; read -n 1"
@@ -93,52 +61,18 @@ EOF
 sleep 2
 FRONTEND_PID=$(pgrep -f "npm run dev" | head -n 1)
 
-# Clear the screen and show control panel
+# Control panel
 clear
 echo ""
-echo "ANEP Development Environment Initialized"
-echo "----------------------------------------"
-echo "Backend: Running in 'ANEP Backend' terminal (PID: $BACKEND_PID)"
+echo "ANEP Frontend Initialized"
+echo "--------------------------"
 echo "Frontend: Running in 'ANEP Frontend' terminal (PID: $FRONTEND_PID)"
 echo "Access the application at: http://localhost:8080/"
 echo ""
-echo "This is the control terminal. Keep it open to maintain the development environment."
-echo ""
-echo "Press Ctrl+C to gracefully terminate all processes."
-echo "If you use Cmd+Q, you will be prompted to confirm before quitting."
+echo "This is the control terminal. Keep it open to maintain the frontend."
+echo "Press Ctrl+C to gracefully terminate the frontend process."
 
-# Register a Cmd+Q handler with AppleScript
-osascript <<EOF > /dev/null 2>&1 &
-tell application "System Events"
-  tell process "Terminal"
-    set frontmost to true
-    tell menu bar 1
-      tell menu bar item "Terminal"
-        tell menu "Terminal"
-          tell menu item "Quit Terminal"
-            set enabled to true
-          end tell
-        end tell
-      end tell
-    end tell
-  end tell
-end tell
-
-on quit of application "Terminal"
-  display dialog "Are you sure you want to quit Terminal? This will terminate the ANEP development environment." buttons {"Cancel", "Quit"} default button "Cancel"
-  if button returned of result is "Quit" then
-    do shell script "pkill -f 'npm run dev'; pkill -f 'python flask-app.py'"
-    return true
-  else
-    return false
-  end if
-end quit
-EOF
-
-# Keep script running in foreground
-echo ""
-echo "Environment is running. Waiting for termination signal..."
-# Wait indefinitely, the trap will handle cleanup
+# Wait indefinitely
 while true; do
   sleep 1
 done

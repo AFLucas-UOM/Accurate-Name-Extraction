@@ -120,6 +120,28 @@ const ResultsStep = ({
   const [expandedSections, setExpandedSections] = useState<string[]>(["names", "videoMetadata", "model"]);
   const [showLineNumbers, setShowLineNumbers] = useState(true);
   
+  // Helper function to clean results and remove the resolution field
+  const getCleanResults = (results: AnalysisResults, metadata: VideoMetadata) => {
+    const filteredResults = {
+      ...results,
+      videoMetadata: {
+        ...metadata,
+        // Remove the resolution field if it exists
+        resolution: undefined
+      }
+    };
+    
+    // Remove undefined properties
+    return JSON.parse(
+      JSON.stringify(filteredResults, (key, value) => {
+        if (value === undefined) {
+          return undefined;
+        }
+        return value;
+      })
+    );
+  };
+  
   // Extract video metadata on component mount - but NEVER modify the incoming values
   useEffect(() => {
     // Simply use the exact metadata from the backend without any modifications
@@ -127,13 +149,10 @@ const ResultsStep = ({
   }, [results.videoMetadata]);
 
   const handleDownload = () => {
-    // Create a JSON blob from the results with enhanced metadata
-    const resultsToDownload = {
-      ...results,
-      videoMetadata: enhancedMetadata
-    };
+    // Create a clean version of results without resolution field
+    const cleanResults = getCleanResults(results, enhancedMetadata);
     
-    const jsonBlob = new Blob([JSON.stringify(resultsToDownload, null, 2)], {
+    const jsonBlob = new Blob([JSON.stringify(cleanResults, null, 2)], {
       type: "application/json",
     });
     
@@ -160,19 +179,16 @@ const ResultsStep = ({
   };
 
   const handleCopyToClipboard = () => {
-    // Include enhanced metadata in the copied JSON
-    const resultsToCopy = {
-      ...results,
-      videoMetadata: enhancedMetadata
-    };
+    // Create a clean version of results without resolution field
+    const cleanResults = getCleanResults(results, enhancedMetadata);
     
     // Format the JSON properly for clipboard
-    const formattedJson = JSON.stringify(resultsToCopy, null, 2);
+    const formattedJson = JSON.stringify(cleanResults, null, 2);
     
     navigator.clipboard.writeText(formattedJson)
       .then(() => {
         toast({
-          title: "Copied to clipboard",
+          title: "✨ Copied to clipboard",
           description: "Results data has been copied to your clipboard.",
         });
       })
@@ -714,7 +730,7 @@ const ResultsStep = ({
                     analysis-results.json
                   </span>
                   <Badge variant="outline" className="text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                    {JSON.stringify({...results, videoMetadata: enhancedMetadata}).length} bytes
+                    {JSON.stringify(getCleanResults(results, enhancedMetadata)).length} bytes
                   </Badge>
                 </div>
                 
@@ -723,7 +739,7 @@ const ResultsStep = ({
                     {/* Line numbers */}
                     {showLineNumbers && (
                       <div className="select-none text-right mr-4 pr-2 border-r border-gray-200 dark:border-gray-700 text-gray-400 min-w-[2rem]">
-                        {JSON.stringify({...results, videoMetadata: enhancedMetadata}, null, 2)
+                        {JSON.stringify(getCleanResults(results, enhancedMetadata), null, 2)
                           .split('\n')
                           .map((_, i) => (
                             <div key={i} className="leading-6 px-1">{i + 1}</div>
@@ -736,7 +752,7 @@ const ResultsStep = ({
                       {jsonFilter ? (
                         // If there's a filter, process the JSON and apply highlighting
                         <div dangerouslySetInnerHTML={{
-                          __html: JSON.stringify({...results, videoMetadata: enhancedMetadata}, null, 2)
+                          __html: JSON.stringify(getCleanResults(results, enhancedMetadata), null, 2)
                             .split('\n')
                             .map(line => {
                               if (line.toLowerCase().includes(jsonFilter.toLowerCase())) {
@@ -765,7 +781,7 @@ const ResultsStep = ({
                       ) : (
                         // Standard syntax highlighting for JSON
                         <div dangerouslySetInnerHTML={{
-                          __html: JSON.stringify({...results, videoMetadata: enhancedMetadata}, null, 2)
+                          __html: JSON.stringify(getCleanResults(results, enhancedMetadata), null, 2)
                             .replace(/("[^"]*"):/g, '<span class="text-purple-600 dark:text-purple-400">$1</span>:')
                             .replace(/: (".*?")(,?)/g, ': <span class="text-green-600 dark:text-green-400">$1</span>$2')
                             .replace(/: (true|false|null)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$2')
