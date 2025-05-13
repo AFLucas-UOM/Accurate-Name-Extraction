@@ -1,0 +1,62 @@
+[
+  {
+    "timestamp": 2.0,
+    "frame_idx": 60,
+    "class_name": "News Headline",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250513_172105/frame_60_roi_23_469_2.00_News Headline_0.96.png",
+    "text": "ROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE",
+    "names": [
+      {
+        "name": "Robert Prevost",
+        "methods": [
+          "spacy"
+        ],
+        "confidence": 0.85,
+        "start": 0,
+        "end": 14
+      }
+    ],
+    "confidence": 0.9630578756332397,
+    "hash_value": "1111010001101111010010111001010001001011000110101011010011001000"
+  },
+  {
+    "timestamp": 1.0,
+    "frame_idx": 30,
+    "class_name": "News Headline",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250513_172105/frame_30_roi_23_469_1.00_News Headline_0.96.png",
+    "text": "ROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE",
+    "names": [
+      {
+        "name": "Robert Prevost",
+        "methods": [
+          "spacy"
+        ],
+        "confidence": 0.85,
+        "start": 0,
+        "end": 14
+      }
+    ],
+    "confidence": 0.9634186029434204,
+    "hash_value": "1111010011100111011010111001010001001011000110110001010011001000"
+  },
+  {
+    "timestamp": 3.0,
+    "frame_idx": 90,
+    "class_name": "News Headline",
+    "roi_path": "/Volumes/Filis SSD/FYP/Accurate-Name-Extraction/4. ANEP/regions_of_interest/20250513_172105/frame_90_roi_23_469_3.00_News Headline_0.96.png",
+    "text": "ROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE",
+    "names": [
+      {
+        "name": "Robert Prevost",
+        "methods": [
+          "spacy"
+        ],
+        "confidence": 0.85,
+        "start": 0,
+        "end": 14
+      }
+    ],
+    "confidence": 0.9631915092468262,
+    "hash_value": "1111010001101111010010111001000001001011000110101011010011001001"
+  }
+]

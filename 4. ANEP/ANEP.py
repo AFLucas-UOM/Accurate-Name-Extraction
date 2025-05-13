@@ -1318,7 +1318,7 @@ class NewsGraphicsNameDetector:
         hours, minutes = divmod(minutes, 60)
         return f"{int(hours):02d}:{int(minutes):02d}:{int(seconds):02d}"
     
-    def generate_summary(self, results: List[DetectionResult]) -> Dict[str, Any]:
+    def generate_summary(self, results: List[DetectionResult], processing_time: float = None) -> Dict[str, Any]:
         """Generate a comprehensive summary of detected names from all processed ROIs."""
         if not results:
             self.logger.warning("No results to summarize")
@@ -1365,7 +1365,8 @@ class NewsGraphicsNameDetector:
             "efficiency": {
                 "duplicate_frames_skipped": self.duplicate_frames_skipped,
                 "duplicate_rois_skipped": self.duplicate_frames_skipped,
-            }
+            },
+            "processing_time_seconds": processing_time  # Add processing time
         }
         
         # Save summary to JSON
@@ -1406,7 +1407,7 @@ class NewsGraphicsNameDetector:
         processing_time = (end_time - start_time).total_seconds()
         
         # Generate outputs
-        summary = self.generate_summary(results)
+        summary = self.generate_summary(results, processing_time)
         timeline = self.generate_timeline(results)
         
         # Save model version info

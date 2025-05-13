@@ -1,0 +1,22 @@
+{
+  "Robert Prevost": {
+    "aliases": [
+      "Robert Prevost"
+    ],
+    "mentions": 3,
+    "first_seen": "00:00:01",
+    "last_seen": "00:00:03",
+    "duration": 2.0,
+    "avg_interval": 1.0,
+    "active_periods": [
+      {
+        "start": "00:00:01",
+        "end": "00:00:03",
+        "duration": 2.0
+      }
+    ],
+    "metrics": {
+      "distinct_aliases": 1
+    }
+  }
+}

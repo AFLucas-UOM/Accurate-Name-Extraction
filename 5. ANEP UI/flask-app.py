@@ -276,6 +276,369 @@ def cancel_ensemble(ensemble_id):
     add_log_entry(ensemble_id, "All subprocesses terminated", "warning")
     return jsonify({"message": "Ensemble processes terminated"}), 200
 
+@app.route("/api/anep/latest-results", methods=["GET"])
+def get_latest_anep_results():
+    """Get the latest ANEP detection summary results"""
+    try:
+        # Navigate to the ANEP results directory
+        results_dir = Path(os.getcwd()) / "4. ANEP" / "results"
+        
+        if not results_dir.exists():
+            logger.warning("ANEP results directory not found")
+            return jsonify({"error": "ANEP results directory not found"}), 404
+        
+        # Find the latest folder in the results directory
+        # This assumes folders are named with timestamps or have modification times
+        result_folders = [d for d in results_dir.iterdir() if d.is_dir()]
+        
+        if not result_folders:
+            logger.warning("No result folders found in ANEP results directory")
+            return jsonify({"error": "No results available"}), 404
+        
+        # Sort folders by modification time to get the latest
+        latest_folder = max(result_folders, key=lambda d: d.stat().st_mtime)
+        
+        # Find the detection_summary JSON file
+        detection_files = list(latest_folder.glob("detection_summary*.json"))
+        
+        if not detection_files:
+            logger.warning(f"No detection summary file found in {latest_folder}")
+            return jsonify({"error": "No detection summary file found"}), 404
+        
+        # Use the first matching file
+        detection_file = detection_files[0]
+        
+        # Read and parse the JSON file
+        with open(detection_file, 'r') as f:
+            detection_data = json.load(f)
+        
+        # Extract the requested information
+        results = {
+            "folder": latest_folder.name,
+            "file": detection_file.name,
+            "unique_names": detection_data.get("unique_names_clustered", 0),
+            "total_instances": detection_data.get("total_instances", 0),
+            "people": []
+        }
+        
+        # Extract information for each person
+        clustered_names = detection_data.get("clustered_names", {})
+        
+        for name, info in clustered_names.items():
+            person_data = {
+                "name": name,
+                "aliases": info.get("aliases", []),
+                "mentions": info.get("mentions", 0),
+                "first_seen": info.get("first_seen", ""),
+                "last_seen": info.get("last_seen", ""),
+                "duration": info.get("duration", 0),
+                "active_periods": info.get("active_periods", [])
+            }
+            results["people"].append(person_data)
+        
+        # Sort people by first appearance
+        results["people"].sort(key=lambda p: p["first_seen"])
+        
+        logger.info(f"Successfully retrieved ANEP results from {latest_folder}")
+        return jsonify(results)
+        
+    except Exception as e:
+        error_msg = f"Error retrieving ANEP results: {str(e)}"
+        logger.error(error_msg)
+        return jsonify({"error": error_msg}), 500
+
+@app.route("/api/anep/results-list", methods=["GET"])
+def list_anep_results():
+    """List all available ANEP result folders"""
+    try:
+        results_dir = Path(os.getcwd()) / "4. ANEP" / "results"
+        
+        if not results_dir.exists():
+            return jsonify({"error": "ANEP results directory not found"}), 404
+        
+        result_folders = []
+        for folder in results_dir.iterdir():
+            if folder.is_dir():
+                # Check if folder contains detection_summary JSON
+                detection_files = list(folder.glob("detection_summary*.json"))
+                if detection_files:
+                    result_folders.append({
+                        "name": folder.name,
+                        "modified": folder.stat().st_mtime,
+                        "modified_str": time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(folder.stat().st_mtime)),
+                        "has_detection_summary": True
+                    })
+        
+        # Sort by modification time, newest first
+        result_folders.sort(key=lambda x: x["modified"], reverse=True)
+        
+        return jsonify({
+            "count": len(result_folders),
+            "folders": result_folders
+        })
+        
+    except Exception as e:
+        error_msg = f"Error listing ANEP results: {str(e)}"
+        logger.error(error_msg)
+        return jsonify({"error": error_msg}), 500
+
+@app.route("/api/anep/results/<folder_name>", methods=["GET"])
+def get_specific_anep_results(folder_name):
+    """Get ANEP results from a specific folder"""
+    try:
+        results_dir = Path(os.getcwd()) / "4. ANEP" / "results" / folder_name
+        
+        if not results_dir.exists():
+            return jsonify({"error": f"Folder {folder_name} not found"}), 404
+        
+        # Find the detection_summary JSON file
+        detection_files = list(results_dir.glob("detection_summary*.json"))
+        
+        if not detection_files:
+            return jsonify({"error": "No detection summary file found in folder"}), 404
+        
+        detection_file = detection_files[0]
+        
+        # Read and parse the JSON file
+        with open(detection_file, 'r') as f:
+            detection_data = json.load(f)
+        
+        # Extract the same information as in latest-results
+        results = {
+            "folder": folder_name,
+            "file": detection_file.name,
+            "unique_names": detection_data.get("unique_names_clustered", 0),
+            "total_instances": detection_data.get("total_instances", 0),
+            "people": []
+        }
+        
+        clustered_names = detection_data.get("clustered_names", {})
+        
+        for name, info in clustered_names.items():
+            person_data = {
+                "name": name,
+                "aliases": info.get("aliases", []),
+                "mentions": info.get("mentions", 0),
+                "first_seen": info.get("first_seen", ""),
+                "last_seen": info.get("last_seen", ""),
+                "duration": info.get("duration", 0),
+                "active_periods": info.get("active_periods", [])
+            }
+            results["people"].append(person_data)
+        
+        results["people"].sort(key=lambda p: p["first_seen"])
+        
+        return jsonify(results)
+        
+    except Exception as e:
+        error_msg = f"Error retrieving ANEP results: {str(e)}"
+        logger.error(error_msg)
+        return jsonify({"error": error_msg}), 500
+
+@app.route("/api/gcloud/latest-results", methods=["GET"])
+def get_latest_gcloud_results():
+    """Get the latest Google Cloud Vision results"""
+    try:
+        # Navigate to the Google Cloud results directory and find summary.json
+        summary_file = Path(os.getcwd()) / "6. GenAI API" / "GoogleResults" / "summary.json"
+        
+        if not summary_file.exists():
+            logger.warning("Google Cloud Vision summary file not found")
+            return jsonify({"error": "Google Cloud Vision summary file not found"}), 404
+        
+        # Read and parse the JSON file
+        with open(summary_file, 'r') as f:
+            summary_data = json.load(f)
+        
+        # Extract the requested information
+        results = {
+            "source": "Google Cloud Vision",
+            "file": str(summary_file),
+            "total_frames": summary_data.get("total_video_frames", 0),
+            "distinct_frames": summary_data.get("distinct_frames_processed", 0),
+            "frames_with_text": summary_data.get("frames_with_text", 0),
+            "processing_time": summary_data.get("processing_time_seconds", 0),
+            "duration": summary_data.get("duration_seconds", 0),
+            "people": []
+        }
+        
+        # Extract names information
+        names = summary_data.get("names", [])
+        for person in names:
+            person_data = {
+                "name": person.get("name", ""),
+                "first_appearance": person.get("first_appearance", ""),
+                "last_appearance": person.get("last_appearance", ""),
+                "count": person.get("count", 0)
+            }
+            results["people"].append(person_data)
+        
+        # Sort people by first appearance
+        results["people"].sort(key=lambda p: p["first_appearance"])
+        
+        logger.info("Successfully retrieved Google Cloud Vision results")
+        return jsonify(results)
+        
+    except Exception as e:
+        error_msg = f"Error retrieving Google Cloud Vision results: {str(e)}"
+        logger.error(error_msg)
+        return jsonify({"error": error_msg}), 500
+
+@app.route("/api/llama/latest-results", methods=["GET"])
+def get_latest_llama_results():
+    """Get the latest LLaMA results"""
+    try:
+        # Navigate to the LLaMA results directory and find summary.json
+        summary_file = Path(os.getcwd()) / "6. GenAI API" / "LlamaResults" / "summary.json"
+        
+        if not summary_file.exists():
+            logger.warning("LLaMA summary file not found")
+            return jsonify({"error": "LLaMA summary file not found"}), 404
+        
+        # Read and parse the JSON file
+        with open(summary_file, 'r') as f:
+            summary_data = json.load(f)
+        
+        # Extract the requested information
+        results = {
+            "source": "LLaMA",
+            "file": str(summary_file),
+            "video_info": summary_data.get("video_info", {}),
+            "processing_stats": summary_data.get("processing_stats", {}),
+            "api_stats": summary_data.get("api_stats", {}),
+            "people": []
+        }
+        
+        # Extract names information
+        names = summary_data.get("names", [])
+        for person in names:
+            person_data = {
+                "name": person.get("name", ""),
+                "first_appearance": person.get("first_appearance", ""),
+                "last_appearance": person.get("last_appearance", ""),
+                "count": person.get("count", 0)
+            }
+            results["people"].append(person_data)
+        
+        # Sort people by first appearance
+        results["people"].sort(key=lambda p: p["first_appearance"])
+        
+        logger.info("Successfully retrieved LLaMA results")
+        return jsonify(results)
+        
+    except Exception as e:
+        error_msg = f"Error retrieving LLaMA results: {str(e)}"
+        logger.error(error_msg)
+        return jsonify({"error": error_msg}), 500
+
+@app.route("/api/results/compare", methods=["GET"])
+def compare_all_results():
+    """Compare results from all three processing methods"""
+    comparison = {
+        "anep": None,
+        "gcloud": None,
+        "llama": None,
+        "summary": {
+            "total_people_found": 0,
+            "common_people": [],
+            "unique_to_anep": [],
+            "unique_to_gcloud": [],
+            "unique_to_llama": []
+        }
+    }
+    
+    try:
+        # Get ANEP results
+        try:
+            anep_response = get_latest_anep_results()
+            if anep_response.status_code == 200:
+                comparison["anep"] = anep_response.get_json()
+        except:
+            pass
+        
+        # Get Google Cloud results
+        try:
+            gcloud_response = get_latest_gcloud_results()
+            if gcloud_response.status_code == 200:
+                comparison["gcloud"] = gcloud_response.get_json()
+        except:
+            pass
+        
+        # Get LLaMA results
+        try:
+            llama_response = get_latest_llama_results()
+            if llama_response.status_code == 200:
+                comparison["llama"] = llama_response.get_json()
+        except:
+            pass
+        
+        # Extract names from each method
+        anep_names = set()
+        gcloud_names = set()
+        llama_names = set()
+        
+        if comparison["anep"]:
+            anep_names = {person["name"] for person in comparison["anep"].get("people", [])}
+        
+        if comparison["gcloud"]:
+            gcloud_names = {person["name"] for person in comparison["gcloud"].get("people", [])}
+        
+        if comparison["llama"]:
+            llama_names = {person["name"] for person in comparison["llama"].get("people", [])}
+        
+        # Calculate comparison metrics
+        all_names = anep_names | gcloud_names | llama_names
+        common_names = anep_names & gcloud_names & llama_names
+        
+        comparison["summary"]["total_people_found"] = len(all_names)
+        comparison["summary"]["common_people"] = list(common_names)
+        comparison["summary"]["unique_to_anep"] = list(anep_names - gcloud_names - llama_names)
+        comparison["summary"]["unique_to_gcloud"] = list(gcloud_names - anep_names - llama_names)
+        comparison["summary"]["unique_to_llama"] = list(llama_names - anep_names - gcloud_names)
+        
+        # Add processing times
+        processing_times = {}
+        if comparison["anep"]:
+            # ANEP now provides processing time in the summary
+            try:
+                # Get the processing time from the ANEP results
+                anep_results_dir = Path(os.getcwd()) / "4. ANEP" / "results"
+                if anep_results_dir.exists():
+                    # Find the latest result folder
+                    result_folders = [d for d in anep_results_dir.iterdir() if d.is_dir()]
+                    if result_folders:
+                        latest_folder = max(result_folders, key=lambda d: d.stat().st_mtime)
+                        detection_files = list(latest_folder.glob("detection_summary*.json"))
+                        
+                        if detection_files:
+                            with open(detection_files[0], 'r') as f:
+                                detection_data = json.load(f)
+                                processing_times["anep"] = detection_data.get("processing_time_seconds", "N/A")
+                        else:
+                            processing_times["anep"] = "N/A"
+                    else:
+                        processing_times["anep"] = "N/A"
+                else:
+                    processing_times["anep"] = "N/A"
+            except Exception as e:
+                logger.warning(f"Failed to retrieve ANEP processing time: {e}")
+                processing_times["anep"] = "N/A"
+        
+        if comparison["gcloud"]:
+            processing_times["gcloud"] = comparison["gcloud"].get("processing_time", "N/A")
+        
+        if comparison["llama"] and "processing_stats" in comparison["llama"]:
+            processing_times["llama"] = comparison["llama"]["processing_stats"].get("processing_time_seconds", "N/A")
+        
+        comparison["summary"]["processing_times"] = processing_times
+        
+        return jsonify(comparison)
+        
+    except Exception as e:
+        error_msg = f"Error comparing results: {str(e)}"
+        logger.error(error_msg)
+        return jsonify({"error": error_msg}), 500
+    
 def run_script(cmd, process_id=None):
     """Execute a command and stream output live to Flask CLI and connected clients"""
     if process_id is None:
