@@ -18,6 +18,10 @@ interface NameDetection {
   last_seen?: string;
   duration?: number;
   aliases?: string[];
+  count?: number;
+  mentions?: number;
+  first_appearance?: string;
+  last_appearance?: string;
 }
 
 interface VideoMetadata {
@@ -39,30 +43,42 @@ interface AnalysisResults {
   totalFrames?: number;
   uniqueNames?: number;
   source?: string;
+  processingTimeSeconds?: number;
 }
 
 interface ApiData {
+  // ANEP format
+  folder?: string;
+  file?: string;
+  unique_names?: number;
+  total_instances?: number;
   people?: Array<{
     name: string;
     aliases?: string[];
+    mentions?: number;
     first_seen?: string;
     last_seen?: string;
-    first_appearance?: string;
-    last_appearance?: string;
-    mentions?: number;
-    count?: number;
-    confidence?: number;
     duration?: number;
     active_periods?: Array<{
       start: string;
       end: string;
       duration: number;
     }>;
+    // Google Cloud / LLaMA format
+    first_appearance?: string;
+    last_appearance?: string;
+    count?: number;
+    confidence?: number;
   }>;
-  processing_time?: number;
-  processing_time_seconds?: number;
+  // Google Cloud specific
+  source?: string;
   total_frames?: number;
-  unique_names?: number;
+  distinct_frames?: number;
+  frames_with_text?: number;
+  processing_time?: number;
+  processing_time_seconds?: number; // ✅ add this line
+  duration?: number;
+  // LLaMA specific
   video_info?: {
     fps?: number;
     duration_seconds?: number;
@@ -71,7 +87,7 @@ interface ApiData {
   processing_stats?: {
     processing_time_seconds?: number;
   };
-  source?: string;
+  api_stats?: any;
   error?: string;
 }
 
@@ -161,7 +177,11 @@ const ResultsStep = ({
   // Fetch results from API based on model
   useEffect(() => {
     // If we already have results, use them
-    if (initialResults) {
+   if (
+      initialResults &&
+      Array.isArray(initialResults.names) &&
+      initialResults.names.length > 0
+    ) {
       setResults(initialResults);
       setEnhancedMetadata(getEnhancedVideoMetadata(initialResults.videoMetadata));
       setIsLoading(false);
@@ -198,6 +218,7 @@ const ResultsStep = ({
             apiUrl = "http://localhost:5050/api/anep/latest-results";
         }
 
+        console.log("API URL:", apiUrl);
         const response = await fetch(apiUrl);
         
         if (!response.ok) {
@@ -222,6 +243,9 @@ const ResultsStep = ({
                 method: ["ANEP"],
                 aliases: person.aliases,
                 duration: person.duration,
+                first_seen: person.first_seen,
+                last_seen: person.last_seen,
+                mentions: person.mentions,
               });
             });
           }
@@ -233,6 +257,9 @@ const ResultsStep = ({
                 confidence: 0.9,
                 timestamp: person.first_appearance || "Unknown",
                 method: ["Google Cloud Vision"],
+                count: person.count,
+                first_appearance: person.first_appearance,
+                last_appearance: person.last_appearance,
               });
             });
           }
@@ -244,6 +271,9 @@ const ResultsStep = ({
                 confidence: 0.85,
                 timestamp: person.first_appearance || "Unknown",
                 method: ["LLaMA"],
+                count: person.count,
+                first_appearance: person.first_appearance,
+                last_appearance: person.last_appearance,
               });
             });
           }
@@ -254,8 +284,8 @@ const ResultsStep = ({
           
           const processingTimes = comparisonData.summary?.processing_times || {};
           const totalTime = Object.values(processingTimes)
-            .filter(time => typeof time === 'number')
-            .reduce((acc: number, time) => acc + (time as number), 0);
+            .map(time => typeof time === 'number' ? time : 0)
+            .reduce((acc: number, time) => acc + time, 0);
           
           transformedResults = {
             names: uniqueNames,
@@ -271,61 +301,97 @@ const ResultsStep = ({
           const names: NameDetection[] = [];
           let processingTime = "Unknown";
           let metadata = getEnhancedVideoMetadata(parentVideoMetadata);
+          let totalFrames = 0;
+          let uniqueNames = 0;
+          let processingTimeSeconds = 0;
           
           // If API provides video duration, use it to update localStorage
           if (apiData.video_info?.duration_seconds) {
             localStorage.setItem("vid_dur", apiData.video_info.duration_seconds.toString());
             setVideoDurationSeconds(apiData.video_info.duration_seconds);
+          } else if (apiData.duration) {
+            localStorage.setItem("vid_dur", apiData.duration.toString());
+            setVideoDurationSeconds(apiData.duration);
           }
           
           switch (model) {
             case "anep":
-              apiData.people?.forEach((person) => {
-                names.push({
-                  name: person.name,
-                  confidence: 0.95,
-                  timestamp: person.first_seen || "Unknown",
-                  first_seen: person.first_seen,
-                  last_seen: person.last_seen,
-                  duration: person.duration,
-                  aliases: person.aliases,
-                  method: ["ANEP"],
+              console.log("Processing ANEP data, people:", apiData.people);
+              if (apiData.people && Array.isArray(apiData.people)) {
+                apiData.people.forEach((person) => {
+                  names.push({
+                    name: person.name,
+                    confidence: 0.95,
+                    timestamp: person.first_seen || "Unknown",
+                    first_seen: person.first_seen,
+                    last_seen: person.last_seen,
+                    duration: person.duration,
+                    aliases: person.aliases,
+                    method: ["ANEP"],
+                    mentions: person.mentions,
+                  });
                 });
-              });
-              processingTime = apiData.processing_time_seconds 
-                ? `${apiData.processing_time_seconds.toFixed(2)} seconds` 
+              }
+              processingTime = apiData.processing_time_seconds !== undefined
+                ? `${apiData.processing_time_seconds.toFixed(2)} seconds`
                 : "Unknown";
+              processingTimeSeconds = apiData.processing_time_seconds || 0;
+              totalFrames = apiData.total_instances || 0;
+              uniqueNames = apiData.unique_names || names.length;
+
+              console.log("ANEP names array:", names);
               break;
               
-            case "model1":
-              apiData.people?.forEach((person) => {
-                names.push({
-                  name: person.name,
-                  confidence: person.confidence || 0.9,
-                  timestamp: person.first_appearance || "Unknown",
-                  method: ["Google Cloud Vision"],
+            case "model1": // Google Cloud
+              console.log("Processing Google Cloud data, people:", apiData.people);
+              if (apiData.people && Array.isArray(apiData.people)) {
+                apiData.people.forEach((person) => {
+                  const confidence = person.confidence || 0.9;
+                  names.push({
+                    name: person.name,
+                    confidence: confidence,
+                    timestamp: person.first_appearance || "Unknown",
+                    method: ["Google Cloud Vision"],
+                    count: person.count,
+                    first_appearance: person.first_appearance,
+                    last_appearance: person.last_appearance,
+                  });
                 });
-              });
+              }
               processingTime = apiData.processing_time 
                 ? `${apiData.processing_time.toFixed(2)} seconds` 
                 : "Unknown";
-              if (apiData.total_frames) {
-                metadata = { ...metadata, frameRate: `${apiData.total_frames} frames` };
+              processingTimeSeconds = apiData.processing_time || 0;
+              totalFrames = apiData.total_frames || 0;
+              uniqueNames = apiData.people?.length || 0;
+              
+              if (apiData.distinct_frames) {
+                metadata = { ...metadata, frameRate: `${apiData.distinct_frames} distinct frames` };
               }
               break;
               
-            case "model2":
-              apiData.people?.forEach((person) => {
-                names.push({
-                  name: person.name,
-                  confidence: person.confidence || 0.85,
-                  timestamp: person.first_appearance || "Unknown",
-                  method: ["LLaMA"],
+            case "model2": // LLaMA
+              console.log("Processing LLaMA data, people:", apiData.people);
+              if (apiData.people && Array.isArray(apiData.people)) {
+                apiData.people.forEach((person) => {
+                  const confidence = person.confidence || 0.85;
+                  names.push({
+                    name: person.name,
+                    confidence: confidence,
+                    timestamp: person.first_appearance || "Unknown",
+                    method: ["LLaMA"],
+                    count: person.count,
+                    first_appearance: person.first_appearance,
+                    last_appearance: person.last_appearance,
+                  });
                 });
-              });
+              }
               processingTime = apiData.processing_stats?.processing_time_seconds 
                 ? `${apiData.processing_stats.processing_time_seconds.toFixed(2)} seconds` 
                 : "Unknown";
+              processingTimeSeconds = apiData.processing_stats?.processing_time_seconds || 0;
+              uniqueNames = apiData.people?.length || 0;
+              
               if (apiData.video_info) {
                 metadata = {
                   ...metadata,
@@ -341,12 +407,15 @@ const ResultsStep = ({
             model,
             modelName: getModelName(model),
             processingTime,
-            videoMetadata: getEnhancedVideoMetadata(metadata),
+            videoMetadata: metadata,
             analysisDate: new Date().toISOString(),
-            totalFrames: apiData.total_frames,
-            uniqueNames: apiData.unique_names || names.length,
+            totalFrames,
+            uniqueNames,
             source: apiData.source,
+            processingTimeSeconds,
           };
+
+          console.log("Transformed results:", transformedResults);
         }
         
         setResults(transformedResults);
@@ -373,13 +442,12 @@ const ResultsStep = ({
     fetchResults();
   }, [model, parentVideoMetadata, isProcessing, initialResults]);
 
-  // Helper functions
-  const getDefaultVideoMetadata = (): VideoMetadata => {
+    // Helper functions
+    const getDefaultVideoMetadata = (): VideoMetadata => {
     const storedMetadata = localStorage.getItem("video_metadata");
     if (storedMetadata) {
       try {
         const parsed = JSON.parse(storedMetadata);
-        // Always override duration with vid_dur if available
         if (videoDurationSeconds !== null) {
           parsed.duration = formatDuration(videoDurationSeconds);
         }
@@ -388,15 +456,16 @@ const ResultsStep = ({
         console.error("Failed to parse stored metadata:", e);
       }
     }
-    
-    // Create metadata from individual localStorage items
+
+    // Fallback — currently returns "Unknown"
     return {
-      filename: localStorage.getItem("video_filename") || "Unknown",
-      size: localStorage.getItem("video_size") || "Unknown",
+      filename: localStorage.getItem("CurrentVideoName") || "Unknown",
+      size: localStorage.getItem("vid_siz") || "Unknown",
       duration: videoDurationSeconds !== null ? formatDuration(videoDurationSeconds) : "Unknown",
       type: localStorage.getItem("video_type") || "video/mp4",
     };
   };
+
 
   const getEnhancedVideoMetadata = (providedMetadata?: VideoMetadata): VideoMetadata => {
     const baseMetadata = providedMetadata || getDefaultVideoMetadata();
@@ -717,20 +786,26 @@ const ResultsStep = ({
                       <div className="flex items-center gap-2">
                         <Clock className="h-4 w-4 text-gray-500 dark:text-gray-400" />
                         <span className="text-sm text-gray-700 dark:text-gray-300">
-                          Appeared at: <span className="font-mono">{formatTimestamp(selectedName.timestamp)}</span>
+                          Appeared at: <span className="font-mono">
+                            {formatTimestamp(selectedName.first_appearance || selectedName.first_seen || selectedName.timestamp)}
+                          </span>
                         </span>
                       </div>
                       
-                      {selectedName.first_seen && selectedName.last_seen && (
+                      {(selectedName.first_seen || selectedName.first_appearance) && (selectedName.last_seen || selectedName.last_appearance) && (
                         <div className="pt-2 space-y-2">
                           <div className="flex items-center gap-2">
                             <span className="text-sm text-gray-700 dark:text-gray-300">
-                              First seen: <span className="font-mono">{formatTimestamp(selectedName.first_seen)}</span>
+                              First seen: <span className="font-mono">
+                                {formatTimestamp(selectedName.first_seen || selectedName.first_appearance || "")}
+                              </span>
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-sm text-gray-700 dark:text-gray-300">
-                              Last seen: <span className="font-mono">{formatTimestamp(selectedName.last_seen)}</span>
+                              Last seen: <span className="font-mono">
+                                {formatTimestamp(selectedName.last_seen || selectedName.last_appearance || "")}
+                              </span>
                             </span>
                           </div>
                           {selectedName.duration && (
@@ -740,6 +815,14 @@ const ResultsStep = ({
                               </span>
                             </div>
                           )}
+                        </div>
+                      )}
+                      
+                      {(selectedName.count || selectedName.mentions) && (
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm text-gray-700 dark:text-gray-300">
+                            Occurrences: <span className="font-mono">{selectedName.count || selectedName.mentions}</span>
+                          </span>
                         </div>
                       )}
                       
@@ -943,7 +1026,9 @@ const ResultsStep = ({
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-lg font-medium flex items-center">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  <span>{results.names.length} Names Detected</span>
+                    <span>
+                      {results.names.length} {results.names.length === 1 ? "Name" : "Names"} Detected
+                    </span>
                 </h3>
                 <Button
                   variant="outline"
@@ -956,65 +1041,71 @@ const ResultsStep = ({
                 </Button>
               </div>
 
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                  <thead className="bg-gray-50 dark:bg-gray-800">
-                    <tr>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                        Name
-                      </th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                        Timestamp
-                      </th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                        Confidence
-                      </th>
-                      {model === "all" && (
+              {results.names.length === 0 ? (
+                <div className="text-center py-8 text-gray-500">
+                  No names were detected in this video.
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                    <thead className="bg-gray-50 dark:bg-gray-800">
+                      <tr>
                         <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                          Source
+                          Name
                         </th>
-                      )}
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                    {results.names.map((entry, index) => (
-                      <tr 
-                        key={index} 
-                        className="hover:bg-gray-50 dark:hover:bg-gray-750 cursor-pointer transition-colors"
-                        onClick={() => {
-                          handleRowClick(entry);
-                          toggleFullscreen();
-                        }}
-                      >
-                        <td className="px-4 py-3 whitespace-nowrap text-sm font-medium">
-                          {entry.name}
-                        </td>
-                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                          {formatTimestamp(entry.timestamp)}
-                        </td>
-                        <td className="px-4 py-3 whitespace-nowrap text-sm">
-                          <div className="flex items-center">
-                            <div className="w-16 bg-gray-200 dark:bg-gray-700 rounded-full h-2 mr-2">
-                              <div
-                                className={`${getConfidenceColor(entry.confidence)} h-2 rounded-full`}
-                                style={{ width: `${entry.confidence * 100}%` }}
-                              ></div>
-                            </div>
-                            <span>{(entry.confidence * 100).toFixed(0)}%</span>
-                          </div>
-                        </td>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                          First Seen
+                        </th>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                          Confidence
+                        </th>
                         {model === "all" && (
-                          <td className="px-4 py-3 whitespace-nowrap text-sm">
-                            <Badge variant="outline" className="text-xs">
-                              {entry.method?.join(", ") || "Unknown"}
-                            </Badge>
-                          </td>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                            Source
+                          </th>
                         )}
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                      {results.names.map((entry, index) => (
+                        <tr 
+                          key={index} 
+                          className="hover:bg-gray-50 cursor-pointer transition-colors dark:hover:bg-[#162032]"
+                          onClick={() => {
+                            handleRowClick(entry);
+                            toggleFullscreen();
+                          }}
+                        >
+                          <td className="px-4 py-3 whitespace-nowrap text-sm font-medium">
+                            {entry.name}
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                            {formatTimestamp(entry.first_appearance || entry.first_seen || entry.timestamp)}
+                          </td>
+                          <td className="px-4 py-3 whitespace-nowrap text-sm">
+                            <div className="flex items-center">
+                              <div className="w-16 bg-gray-200 dark:bg-gray-700 rounded-full h-2 mr-2">
+                                <div
+                                  className={`${getConfidenceColor(entry.confidence)} h-2 rounded-full`}
+                                  style={{ width: `${entry.confidence * 100}%` }}
+                                ></div>
+                              </div>
+                              <span>{(entry.confidence * 100).toFixed(0)}%</span>
+                            </div>
+                          </td>
+                          {model === "all" && (
+                            <td className="px-4 py-3 whitespace-nowrap text-sm">
+                              <Badge variant="outline" className="text-xs">
+                                {entry.method?.join(", ") || "Unknown"}
+                              </Badge>
+                            </td>
+                          )}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
           )}
 
@@ -1252,16 +1343,6 @@ const ResultsStep = ({
                             <div className="flex items-center">
                               <Film className="h-3.5 w-3.5 mr-1.5 text-gray-500 dark:text-gray-400" />
                               <span className="font-medium">{enhancedMetadata.fps} FPS</span>
-                            </div>
-                          </div>
-                        )}
-                        
-                        {results.totalFrames && (
-                          <div className="space-y-1">
-                            <div className="text-xs text-gray-500 dark:text-gray-400">Total Frames</div>
-                            <div className="flex items-center">
-                              <Database className="h-3.5 w-3.5 mr-1.5 text-gray-500 dark:text-gray-400" />
-                              <span className="font-medium">{results.totalFrames}</span>
                             </div>
                           </div>
                         )}

@@ -318,6 +318,7 @@ def get_latest_anep_results():
             "file": detection_file.name,
             "unique_names": detection_data.get("unique_names_clustered", 0),
             "total_instances": detection_data.get("total_instances", 0),
+            "processing_time_seconds": detection_data.get("processing_time_seconds", None),
             "people": []
         }
         
