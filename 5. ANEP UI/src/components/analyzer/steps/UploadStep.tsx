@@ -159,6 +159,8 @@ const UploadStep = ({
         extractVideoMetadata(file);
         onVideoUploaded(file);
         uploadToServer(file);
+        
+        localStorage.setItem("vid_siz", (file.size / (1024 * 1024)).toFixed(2)); // MB
 
         const toastData = toast({
           title: "Video uploaded 🎉",
@@ -187,7 +189,7 @@ const UploadStep = ({
     localStorage.removeItem("vid_dur");
     localStorage.removeItem("vid_siz"); 
     localStorage.removeItem("CurrentVideoName");
-    
+
     if (toastIdRef.current) {
       dismiss(toastIdRef.current);
       toastIdRef.current = undefined;

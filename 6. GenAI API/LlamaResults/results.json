@@ -10,7 +10,7 @@
   {
     "timestamp": "00:00:00",
     "frame": "frame_00015.jpg",
-    "text": "The visible text in the image is: ROBERT PREVOSTI SELECTED AS FIRST AMERICAN POPE",
+    "text": "KUBERI PREVUSI SELECTED AS FIRST AMERICAN POPE FOX NEWS",
     "frame_num": 15,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00015.jpg"
@@ -18,7 +18,7 @@
   {
     "timestamp": "00:00:01",
     "frame": "frame_00035.jpg",
-    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE FOX NEWS",
+    "text": "ROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE\nFOX NEWS",
     "frame_num": 35,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00035.jpg"
@@ -26,7 +26,7 @@
   {
     "timestamp": "00:00:01",
     "frame": "frame_00040.jpg",
-    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE FOX NEWS",
+    "text": "ROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE \nFOX NEWS",
     "frame_num": 40,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00040.jpg"
@@ -34,7 +34,7 @@
   {
     "timestamp": "00:00:01",
     "frame": "frame_00045.jpg",
-    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE",
+    "text": "ROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE",
     "frame_num": 45,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00045.jpg"
@@ -42,7 +42,7 @@
   {
     "timestamp": "00:00:01",
     "frame": "frame_00055.jpg",
-    "text": "ROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE\nFOX NEWS",
+    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE FOX NEWS",
     "frame_num": 55,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00055.jpg"
@@ -50,7 +50,7 @@
   {
     "timestamp": "00:00:02",
     "frame": "frame_00065.jpg",
-    "text": "ROBERT PREVOST SELECTED AS \nFIRST AMERICAN POPE",
+    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE",
     "frame_num": 65,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00065.jpg"
@@ -58,7 +58,7 @@
   {
     "timestamp": "00:00:02",
     "frame": "frame_00080.jpg",
-    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE FOX NEWS",
+    "text": "ROBERT PREVOST SELECTED AS FIRST AMERICAN POPE",
     "frame_num": 80,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00080.jpg"
@@ -74,7 +74,7 @@
   {
     "timestamp": "00:00:03",
     "frame": "frame_00105.jpg",
-    "text": "The visible text in the image is \"fox news\".",
+    "text": "FOX NEWS",
     "frame_num": 105,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00105.jpg"
@@ -82,7 +82,7 @@
   {
     "timestamp": "00:00:04",
     "frame": "frame_00120.jpg",
-    "text": "fox news",
+    "text": "FOX NEWS",
     "frame_num": 120,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00120.jpg"
@@ -98,7 +98,7 @@
   {
     "timestamp": "00:00:05",
     "frame": "frame_00150.jpg",
-    "text": "Fox News",
+    "text": "fox news",
     "frame_num": 150,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00150.jpg"
@@ -122,7 +122,7 @@
   {
     "timestamp": "00:00:05",
     "frame": "frame_00175.jpg",
-    "text": "FOX NEWS",
+    "text": "fox news",
     "frame_num": 175,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00175.jpg"
@@ -146,7 +146,7 @@
   {
     "timestamp": "00:00:06",
     "frame": "frame_00195.jpg",
-    "text": "The visible text in the image is \"fox news\".",
+    "text": "The visible text in the image is:\n\nFOX NEWS",
     "frame_num": 195,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00195.jpg"
@@ -154,7 +154,7 @@
   {
     "timestamp": "00:00:07",
     "frame": "frame_00215.jpg",
-    "text": "FOX NEWS",
+    "text": "fox news",
     "frame_num": 215,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00215.jpg"
@@ -187,6 +187,60 @@
     "was_retry": true
   },
   {
+    "timestamp": "00:00:08",
+    "frame": "frame_00250.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 250,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00250.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:08",
+    "frame": "frame_00260.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 260,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00260.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:09",
+    "frame": "frame_00270.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 270,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00270.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:10",
+    "frame": "frame_00300.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 300,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00300.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:10",
+    "frame": "frame_00305.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 305,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00305.jpg",
+    "was_retry": true
+  },
+  {
+    "timestamp": "00:00:10",
+    "frame": "frame_00310.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 310,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00310.jpg",
+    "was_retry": true
+  },
+  {
     "timestamp": "00:00:10",
     "frame": "frame_00320.jpg",
     "text": "FOX NEWS",
@@ -216,23 +270,25 @@
   {
     "timestamp": "00:00:11",
     "frame": "frame_00335.jpg",
-    "text": "fox news",
+    "text": "FOX NEWS",
     "frame_num": 335,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00335.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00335.jpg",
+    "was_retry": true
   },
   {
     "timestamp": "00:00:11",
     "frame": "frame_00340.jpg",
-    "text": "The visible text in the image is \"FOX NEWS\".",
+    "text": "FOX NEWS",
     "frame_num": 340,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00340.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00340.jpg",
+    "was_retry": true
   },
   {
     "timestamp": "00:00:11",
     "frame": "frame_00345.jpg",
-    "text": "The text visible in the image is \"FOX NEWS\".",
+    "text": "FOX NEWS",
     "frame_num": 345,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00345.jpg"
@@ -243,17 +299,15 @@
     "text": "FOX NEWS",
     "frame_num": 355,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00355.jpg",
-    "was_retry": true
+    "path": "6. GenAI API/LlamaResults/frames/frame_00355.jpg"
   },
   {
     "timestamp": "00:00:12",
     "frame": "frame_00365.jpg",
-    "text": "FOX NEWS",
+    "text": "The visible text in the image is \"fox news\".",
     "frame_num": 365,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00365.jpg",
-    "was_retry": true
+    "path": "6. GenAI API/LlamaResults/frames/frame_00365.jpg"
   },
   {
     "timestamp": "00:00:12",
@@ -266,7 +320,7 @@
   {
     "timestamp": "00:00:12",
     "frame": "frame_00375.jpg",
-    "text": "The visible text in the image is FOX NEWS.",
+    "text": "FOX NEWS",
     "frame_num": 375,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00375.jpg"
@@ -282,7 +336,7 @@
   {
     "timestamp": "00:00:13",
     "frame": "frame_00395.jpg",
-    "text": "fox news",
+    "text": "FOX NEWS",
     "frame_num": 395,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00395.jpg"
@@ -306,7 +360,7 @@
   {
     "timestamp": "00:00:14",
     "frame": "frame_00445.jpg",
-    "text": "FOX NEWS",
+    "text": "fox news",
     "frame_num": 445,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00445.jpg"
@@ -314,7 +368,7 @@
   {
     "timestamp": "00:00:15",
     "frame": "frame_00450.jpg",
-    "text": "FOX NEWS",
+    "text": "The visible text in the image is FOX NEWS.",
     "frame_num": 450,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00450.jpg"
@@ -322,7 +376,7 @@
   {
     "timestamp": "00:00:15",
     "frame": "frame_00455.jpg",
-    "text": "FOX NEWS",
+    "text": "The text visible in the image is:\n\nFOX NEWS",
     "frame_num": 455,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00455.jpg"

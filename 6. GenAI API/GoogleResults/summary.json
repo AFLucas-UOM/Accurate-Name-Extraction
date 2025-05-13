@@ -2,7 +2,7 @@
   "total_video_frames": 479,
   "distinct_frames_processed": 67,
   "frames_with_text": 67,
-  "processing_time_seconds": 7.641643047332764,
+  "processing_time_seconds": 10.25138521194458,
   "fps": 30.0,
   "duration_seconds": 15.966666666666667,
   "names": [
@@ -10,7 +10,7 @@
       "name": "Robert Prevost",
       "first_appearance": "00:00:00",
       "last_appearance": "00:00:03",
-      "count": 10
+      "count": 11
     }
   ]
 }

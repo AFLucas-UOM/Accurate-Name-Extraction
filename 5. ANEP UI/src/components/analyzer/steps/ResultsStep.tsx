@@ -76,7 +76,7 @@ interface ApiData {
   distinct_frames?: number;
   frames_with_text?: number;
   processing_time?: number;
-  processing_time_seconds?: number; // ✅ add this line
+  processing_time_seconds?: number;
   duration?: number;
   // LLaMA specific
   video_info?: {
@@ -513,7 +513,7 @@ const ResultsStep = ({
     const bytes = parseFloat(sizeString);
     if (isNaN(bytes)) return sizeString;
     
-    if (bytes < 1024) return bytes + " bytes";
+    if (bytes < 1024) return bytes + " MB";
     else if (bytes < 1048576) return (bytes / 1024).toFixed(2) + " KB";
     else return (bytes / 1048576).toFixed(2) + " MB";
   };
@@ -954,6 +954,28 @@ const ResultsStep = ({
     );
   };
 
+  // Helper function for the JSON tab to prepare JSON data
+  const prepareJsonData = () => {
+    const cleanedResults = getCleanResults(results, enhancedMetadata!);
+    const jsonString = JSON.stringify(cleanedResults, null, 2);
+    const lines = jsonString.split('\n');
+    
+    // Find the last non-empty line
+    let lastNonEmptyIndex = lines.length - 1;
+    while (lastNonEmptyIndex >= 0 && lines[lastNonEmptyIndex].trim() === '') {
+      lastNonEmptyIndex--;
+    }
+    
+    // Trim empty lines from the end
+    const trimmedLines = lines.slice(0, lastNonEmptyIndex + 1);
+    
+    return {
+      trimmedJsonString: trimmedLines.join('\n'),
+      trimmedLines: trimmedLines,
+      originalLength: jsonString.length
+    };
+  };
+
   // Main component render
   return (
     <div className={`w-full ${className}`}>
@@ -1159,63 +1181,71 @@ const ResultsStep = ({
                     analysis-results.json
                   </span>
                   <Badge variant="outline" className="text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                    {JSON.stringify(getCleanResults(results, enhancedMetadata!)).length} bytes
+                    {prepareJsonData().originalLength} bytes
                   </Badge>
                 </div>
                 
                 <div className="overflow-x-auto relative">
                   <div className="p-4 font-mono text-sm flex">
-                    {showLineNumbers && (
-                      <div className="select-none text-right mr-4 pr-2 border-r border-gray-200 dark:border-gray-700 text-gray-400 min-w-[2rem]">
-                        {JSON.stringify(getCleanResults(results, enhancedMetadata!), null, 2)
-                          .split('\n')
-                          .map((_, i) => (
-                            <div key={i} className="leading-6 px-1">{i + 1}</div>
-                          ))}
-                      </div>
-                    )}
-                    
-                    <pre className="flex-1 overflow-x-auto whitespace-pre text-gray-800 dark:text-gray-200">
-                      {jsonFilter ? (
-                        <div dangerouslySetInnerHTML={{
-                          __html: JSON.stringify(getCleanResults(results, enhancedMetadata!), null, 2)
-                            .split('\n')
-                            .map(line => {
-                              if (line.toLowerCase().includes(jsonFilter.toLowerCase())) {
-                                return `<div class="bg-yellow-50 dark:bg-yellow-900/20">${
-                                  line
-                                    .replace(/("[^"]*"):/g, '<span class="text-purple-600 dark:text-purple-400">$1</span>:')
-                                    .replace(/: (".*?")(,?)/g, ': <span class="text-green-600 dark:text-green-400">$1</span>$2')
-                                    .replace(/: (true|false|null)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$2')
-                                    .replace(/: (\d+(\.\d+)?)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$3')
-                                    .replace(/([{}\[\],])/g, '<span class="text-gray-500">$1</span>')
-                                }</div>`;
-                              }
-                              return `<div>${
-                                line
-                                  .replace(/("[^"]*"):/g, '<span class="text-purple-600 dark:text-purple-400">$1</span>:')
-                                  .replace(/: (".*?")(,?)/g, ': <span class="text-green-600 dark:text-green-400">$1</span>$2')
-                                  .replace(/: (true|false|null)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$2')
-                                  .replace(/: (\d+(\.\d+)?)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$3')
-                                  .replace(/([{}\[\],])/g, '<span class="text-gray-500">$1</span>')
-                              }</div>`;
-                            })
-                            .join('')
-                        }} />
-                      ) : (
-                        <div dangerouslySetInnerHTML={{
-                          __html: JSON.stringify(getCleanResults(results, enhancedMetadata!), null, 2)
-                            .replace(/("[^"]*"):/g, '<span class="text-purple-600 dark:text-purple-400">$1</span>:')
-                            .replace(/: (".*?")(,?)/g, ': <span class="text-green-600 dark:text-green-400">$1</span>$2')
-                            .replace(/: (true|false|null)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$2')
-                            .replace(/: (\d+(\.\d+)?)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$3')
-                            .replace(/([{}\[\],])/g, '<span class="text-gray-500">$1</span>')
-                            .split('\n')
-                            .map(line => `<div>${line}</div>`)
-                            .join('')
-                        }} />
-                      )}
-                    </pre>
+                    {(() => {
+                      const { trimmedLines } = prepareJsonData();
+                      
+                      return (
+                        <>
+                          {showLineNumbers && (
+                            <div className="select-none text-right mr-4 pr-2 border-r border-gray-200 dark:border-gray-700 text-gray-400 min-w-[2rem]">
+                              {trimmedLines.map((_, i) => (
+                                <div key={i} className="leading-6 px-1 h-6">{i + 1}</div>
+                              ))}
+                            </div>
+                          )}
+                          
+                          <div className="flex-1 overflow-x-auto whitespace-pre text-gray-800 dark:text-gray-200">
+                            {jsonFilter ? (
+                              <>
+                                {trimmedLines.map((line, i) => {
+                                  if (line.toLowerCase().includes(jsonFilter.toLowerCase())) {
+                                    return (
+                                      <div key={i} className="leading-6 h-6 bg-yellow-50 dark:bg-yellow-900/20" dangerouslySetInnerHTML={{
+                                        __html: line
+                                          .replace(/("[^"]*"):/g, '<span class="text-purple-600 dark:text-purple-400">$1</span>:')
+                                          .replace(/: (".*?")(,?)/g, ': <span class="text-green-600 dark:text-green-400">$1</span>$2')
+                                          .replace(/: (true|false|null)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$2')
+                                          .replace(/: (\d+(\.\d+)?)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$3')
+                                          .replace(/([{}\[\],])/g, '<span class="text-gray-500">$1</span>')
+                                      }} />
+                                    );
+                                  }
+                                  return (
+                                    <div key={i} className="leading-6 h-6" dangerouslySetInnerHTML={{
+                                      __html: line
+                                        .replace(/("[^"]*"):/g, '<span class="text-purple-600 dark:text-purple-400">$1</span>:')
+                                        .replace(/: (".*?")(,?)/g, ': <span class="text-green-600 dark:text-green-400">$1</span>$2')
+                                        .replace(/: (true|false|null)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$2')
+                                        .replace(/: (\d+(\.\d+)?)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$3')
+                                        .replace(/([{}\[\],])/g, '<span class="text-gray-500">$1</span>')
+                                    }} />
+                                  );
+                                })}
+                              </>
+                            ) : (
+                              <>
+                                {trimmedLines.map((line, i) => (
+                                  <div key={i} className="leading-6 h-6" dangerouslySetInnerHTML={{
+                                    __html: line
+                                      .replace(/("[^"]*"):/g, '<span class="text-purple-600 dark:text-purple-400">$1</span>:')
+                                      .replace(/: (".*?")(,?)/g, ': <span class="text-green-600 dark:text-green-400">$1</span>$2')
+                                      .replace(/: (true|false|null)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$2')
+                                      .replace(/: (\d+(\.\d+)?)(,?)/g, ': <span class="text-blue-600 dark:text-blue-400">$1</span>$3')
+                                      .replace(/([{}\[\],])/g, '<span class="text-gray-500">$1</span>')
+                                  }} />
+                                ))}
+                              </>
+                            )}
+                          </div>
+                        </>
+                      );
+                    })()}
                   </div>
                 </div>
               </div>
