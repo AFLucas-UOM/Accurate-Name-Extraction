@@ -999,7 +999,7 @@ const AnalysisStep = ({
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                     {selectedModel === "anep" && "Advanced OCR and NER pipeline"}
                     {selectedModel === "model1" && "Google Cloud Vision with Gemini 1.5 Pro"}
-                    {selectedModel === "model2" && "Llama 4 Maverick 17B (Multimodal Vision-Language Model)"}
+                    {selectedModel === "model2" && "Llama 4 Maverick (Multimodal Vision-Language Model)"}
                     {selectedModel === "all" && "Combined ensemble of all models"}
                   </p>
                 </div>
