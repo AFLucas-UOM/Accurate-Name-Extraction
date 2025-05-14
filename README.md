@@ -171,6 +171,67 @@ flowchart TB
 - **Progressive Web App (PWA)**  
   Fully featured frontend built with **React**, **Tailwind CSS**, and **Vite**. Provides a clean, step-by-step UI for uploading videos, selecting models, and visualising extracted results.
 
+## 🎯 Object Detection Performance (YOLO Models)
+
+<div align="center">
+
+| Model | Precision | Recall | mAP@0.5 | mAP@0.5:0.95 | Epochs | Type |
+|:------|:---------:|:------:|:------:|:------------:|:------:|:----:|
+| **YOLOv12(m)** 🥇 | `93.9%` | `93.5%` | **`95.8%`** | **`88.7%`** | 102 | Local |
+| YOLOv8(m) | `92.6%` | `86.9%` | `93.7%` | `75.2%` | 47 | Local |
+| **YOLOv12(n)** 🥈 | `91.6%` | `90.8%` | `93.8%` | `85.4%` | 120 | Cloud |
+| YOLOv11(n) | `91.2%` | `90.4%` | `93.1%` | `84.9%` | 100 | Cloud |
+| YOLOv12(n) Reflect | `91.4%` | `85.7%` | `91.8%` | `80.4%` | 72 | Cloud |
+| YOLO-NAS(n) | `85.1%` | `84.3%` | `91.0%` | `61.0%` | 51 | Cloud |
+
+</div>
+
+<p align="center">
+<img src="https://img.shields.io/badge/Best_Model-YOLOv12(m)-green?style=for-the-badge" alt="Best Model">
+<img src="https://img.shields.io/badge/mAP@0.5-95.8%25-blue?style=for-the-badge" alt="mAP Score">
+</p>
+
+---
+
+## 🔍 Name Extraction Performance
+
+<div align="center">
+
+| Pipeline | Precision | Recall | F1 Score | Speed | Status |
+|:---------|:---------:|:------:|:--------:|:-----:|:------:|
+| **GVA + Gemini 1.5** 🥇 | <img src="https://img.shields.io/badge/93.33%25-brightgreen?style=flat-square"> | <img src="https://img.shields.io/badge/76.67%25-green?style=flat-square"> | <img src="https://img.shields.io/badge/82.22%25-brightgreen?style=flat-square"> | **94.68s** ⚡ | Production |
+| **ANEP Pipeline** 🥈 | <img src="https://img.shields.io/badge/72.92%25-yellow?style=flat-square"> | <img src="https://img.shields.io/badge/74.44%25-yellow?style=flat-square"> | <img src="https://img.shields.io/badge/68.10%25-yellow?style=flat-square"> | 542.15s 🐢 | Explainable |
+| **LLaMA 4 Maverick** 🥉 | <img src="https://img.shields.io/badge/66.67%25-orange?style=flat-square"> | <img src="https://img.shields.io/badge/50.00%25-red?style=flat-square"> | <img src="https://img.shields.io/badge/55.56%25-orange?style=flat-square"> | 140.18s ⏱️ | Experimental |
+
+</div>
+
+<p align="center">
+<img src="https://img.shields.io/badge/Winner-GVA_+_Gemini-gold?style=for-the-badge" alt="Winner">
+<img src="https://img.shields.io/badge/F1_Score-82.22%25-success?style=for-the-badge" alt="F1 Score">
+<img src="https://img.shields.io/badge/Average_Speed-94.68s-blue?style=for-the-badge" alt="Average Speed">
+</p>
+
+---
+
+## 📈 Performance Overview
+
+<div align="center">
+
+```mermaid
+graph LR
+    A[Speed] -->|94.68s| B[GVA + Gemini]
+    C[Accuracy] -->|82.22%| B
+    D[Explainability] -->|High| E[ANEP]
+    F[Balance] -->|68.10%| E
+    G[Simplicity] -->|55.56%| H[LLaMA 4]
+    I[Cost] -->|Low| H
+
+    style B fill:#2ECC71,stroke:#27AE60,stroke-width:2px,color:#FFF
+    style E fill:#F39C12,stroke:#E67E22,stroke-width:2px,color:#FFF
+    style H fill:#E74C3C,stroke:#C0392B,stroke-width:2px,color:#FFF
+```
+</div>
+
 ## 🔐 Ethics & Data Usage
 
 - All data used in the NGD dataset is sourced from publicly available news footage under fair use for research purposes.
