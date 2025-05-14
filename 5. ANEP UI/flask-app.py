@@ -781,7 +781,7 @@ def run_ensemble():
     process_ids = {
         "anep": run_script_async(f'python "4. ANEP/ANEP.py" --video {video_path}'),
         "gcloud": run_script_async(f'python "6. GenAI API/GCloudVision.py" {video_path} "6. GenAI API/GoogleResults" "6. GenAI API/config.json"'),
-        "llama": run_script_async(f'python "6. GenAI API/LLaMAOpenRouter.py" {video_path} "6. GenAI API/LlamaResults" "6. GenAI API/config.json"')
+        "llama": run_script_async(f'python "6. GenAI API/LLaMA4Maverick.py" {video_path} "6. GenAI API/LlamaResults" "6. GenAI API/config.json"')
     }
     
     ensemble_map[ensemble_id] = list(process_ids.values())
