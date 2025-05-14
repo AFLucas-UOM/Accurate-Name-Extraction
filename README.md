@@ -47,8 +47,9 @@ This repository contains the full implementation of <strong>ANEP</strong> (Accur
   </a>
 </p> -->
 
+## 📚 Table of Contents
 <details>
-## 📚 Table of Contents</summary>
+<summary>Click-to-View!</summary>
 
 - [Project Overview](#-project-overview)
 - [Key Features](#-key-features)
