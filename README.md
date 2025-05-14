@@ -84,92 +84,54 @@ By combining traditional deep learning (DL) with cutting-edge GenAI, this projec
 ### ANEP Architecture Overview
 
 ```mermaid
+%%{init: {
+  "themeVariables": {
+    "fontSize":       "16px",
+    "edgeLabelFontSize": "14px",
+    "edgeLabelColor": "#37474F"
+  }
+}}%%
+
 flowchart TB
-    %% Start of Pipeline
-    Start([Start Pipeline]) --> Init[Initialize NewsGraphicsNameDetector]
-    Init --> Models[Load Models:<br/>YOLO, spaCy, Transformer NER]
-    Models --> Video[Load Video]
-    
-    %% Frame Processing Loop
-    Video --> FrameLoop{More Frames?}
-    FrameLoop -->|No| EndProcessing[End Processing]
-    FrameLoop -->|Yes| ReadFrame[Read Frame]
-    
-    ReadFrame --> CheckInterval{Frame at<br/>Sampling Interval?}
-    CheckInterval -->|No| FrameLoop
-    CheckInterval -->|Yes| FrameHash[Compute Frame Hash]
-    
-    FrameHash --> DupeCheck{Similar to<br/>Previous Frames?}
-    DupeCheck -->|Yes| SkipFrame[Skip Frame<br/>Count++]
-    DupeCheck -->|No| ExtractROI[Extract ROIs<br/>with YOLO]
-    
-    SkipFrame --> FrameLoop
-    
-    %% ROI Processing
-    ExtractROI --> FilterClasses{Valid Class?}
-    FilterClasses -->|No| NextROI
-    FilterClasses -->|Yes| NMS[Non-Max Suppression]
-    
-    NMS --> PadROI[Add Padding to ROI]
-    PadROI --> ROIHash[Compute Perceptual Hash]
-    
-    ROIHash --> ContiguousCheck{Too Many<br/>Similar ROIs<br/>in a Row?}
-    ContiguousCheck -->|Yes| SkipROI[Skip ROI<br/>Count++]
-    ContiguousCheck -->|No| SaveImage[Save ROI Image]
-    
-    SkipROI --> NextROI[Next ROI]
-    NextROI --> ROILoop{More ROIs?}
-    ROILoop -->|Yes| FilterClasses
-    ROILoop -->|No| FrameLoop
-    
-    %% OCR Processing
-    SaveImage --> Preprocess[Preprocess for OCR:<br/>- CLAHE Enhancement<br/>- Otsu Thresholding<br/>- Adaptive Threshold<br/>- Original Gray<br/>- Combined Approach]
-    
-    Preprocess --> OCR[Tesseract OCR on<br/>All Preprocessed Images]
-    OCR --> SelectBest[Select Best OCR Result<br/>Based on Confidence]
-    SelectBest --> SaveText[Save OCR Text File]
-    
-    %% NER Processing
-    SaveText --> SpacyNER[spaCy NER<br/>+ GliNER if available]
-    SaveText --> TransformerNER[Transformer NER<br/>BERT-based]
-    
-    SpacyNER --> ValidateNames[Validate Names:<br/>- Length Check<br/>- Character Check<br/>- Common Words Filter<br/>- News Phrase Filter]
-    TransformerNER --> ValidateNames
-    
-    ValidateNames --> CombineNames[Combine & Deduplicate<br/>Names from Both Methods]
-    CombineNames --> DoubleCheck{Really a Person?}
-    DoubleCheck -->|No| NextROI
-    DoubleCheck -->|Yes| SaveNames[Save Valid Names JSON]
-    
-    SaveNames --> UpdateStats[Update Name Statistics:<br/>- Unique Names Set<br/>- Instance Counts<br/>- Timestamps]
-    UpdateStats --> NextROI
-    
-    %% Post Processing
-    EndProcessing --> Clustering[Name Clustering:<br/>- Fuzzy Matching<br/>- Jaccard Similarity<br/>- Embedding Similarity]
-    
-    Clustering --> ValidateCluster{Cluster Valid?}
-    ValidateCluster -->|No| SplitCluster[Split Invalid Cluster]
-    ValidateCluster -->|Yes| SelectCanonical[Select Canonical Name<br/>Based on Frequency<br/>and Completeness]
-    
-    SplitCluster --> SelectCanonical
-    
-    SelectCanonical --> Timeline[Generate Timeline]
-    Timeline --> Summary[Generate Summary:<br/>- Class Statistics<br/>- Name Frequencies<br/>- Efficiency Metrics]
-    
-    Summary --> SaveResults[Save All Results:<br/>- Detections JSON<br/>- Clusters JSON<br/>- Timeline JSON<br/>- Summary JSON<br/>- Model Versions JSON]
-    
-    SaveResults --> End([End Pipeline])
-    
-    %% Styles
-    classDef process fill:#dae8fc,stroke:#6c8ebf,stroke-width:2px;
-    classDef decision fill:#ffe6cc,stroke:#d79b00,stroke-width:2px;
-    classDef storage fill:#d5e8d4,stroke:#82b366,stroke-width:2px;
-    classDef start fill:#f8cecc,stroke:#b85450,stroke-width:2px;
-    
-    class Init,Models,Video,ReadFrame,FrameHash,ExtractROI,NMS,PadROI,ROIHash,Preprocess,OCR,SelectBest,SpacyNER,TransformerNER,CombineNames,Clustering,SelectCanonical,Timeline,Summary process;
-    class FrameLoop,CheckInterval,DupeCheck,FilterClasses,ContiguousCheck,ROILoop,ValidateNames,DoubleCheck,ValidateCluster decision;
-    class SaveImage,SaveText,SaveNames,SaveResults,UpdateStats storage;
-    class Start,End,EndProcessing start;
+  %% darker text shades on same fills
+  classDef user      fill:#BBDEFB,stroke:#1976D2,stroke-width:2px,color:#0D47A1;
+  classDef process   fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20;
+  classDef datastore fill:#FFECB3,stroke:#FFA000,stroke-width:2px,color:#EF6C00;
+
+  %% nodes
+  User[User]:::user
+  SM((Select Model)):::process
+  UV((Upload Video)):::process
+  D1[(D1: Uploaded Video)]:::datastore
+  CS((Confirm Settings)):::process
+  RA((Run Analysis)):::process
+  Backend[Backend API]:::user
+  D3[(D3: NGD)]:::datastore
+  D2[(D2: Analysis Results)]:::datastore
+  VR((View Results)):::process
+
+  %% flows
+  User -->|Model selection| SM
+  User -->|Video file| UV
+
+  UV -->|Video + metadata| D1
+
+  D1 -->|Video metadata| CS
+  SM -->|Selected model ID| CS
+
+  CS -->|Confirmed settings| RA
+  D1 -->|Video file| RA
+
+  RA -->|Video + model ID| Backend
+
+  Backend -->|Training/inference data| D3
+  Backend -->|Processed results| D2
+
+  D2 -->|Extracted names,<br>timestamps,<br>confidence scores| VR
+  Backend -->|Log/progress stream| VR
+
+  User -->|Downloaded results| VR
+
 ```
 
 ## 🔎 Key Features
@@ -270,7 +232,7 @@ The full dissertation, containing methodology, evaluation, and survey results, i
 
 <div align="center">
 
-📄 **[Download PDF](./7.%20Documentation/Dissertation.pdf)**
+📄 **[Download PDF](./7.%20Documentation/5.%20Dissertation/Dissertation.pdf)**
 
 </div>
 
