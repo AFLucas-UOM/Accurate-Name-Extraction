@@ -169,7 +169,7 @@ class VideoFrameExtractorGUI:
         # Set the application icon (change the path as needed)
         try:
             current_dir = os.getcwd()
-            image_path = os.path.join(current_dir, "4. Frame Extraction", "FE.icns")
+            image_path = os.path.join(current_dir, "1. Dataset Downloader", "4. Frame Extraction", "FE.icns")
             icon = ImageTk.PhotoImage(file=image_path)
             self.root.iconphoto(True, icon)
         except Exception as e:
@@ -209,7 +209,7 @@ class VideoFrameExtractorGUI:
         self.candidate_widgets = []
 
         # Set output directory
-        self.output_dir = "/Volumes/Fili's SSD/FYP/Dataset_Frames"
+        self.output_dir = "/Volumes/Filis SSD/FYP/Dataset_Frames"
         os.makedirs(self.output_dir, exist_ok=True)
 
         # Header frame with title
