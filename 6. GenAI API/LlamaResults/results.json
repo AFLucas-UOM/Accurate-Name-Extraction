@@ -2,39 +2,63 @@
   {
     "timestamp": "00:00:00",
     "frame": "frame_00000.jpg",
-    "text": "I'm happy to help! However, I'm a text-based model and do not have the capability to visually access or extract text from images. I can only process text inputs. If you can provide the text or describe the content of the image, I'd be happy to help further.",
+    "text": "FOX NEWS",
     "frame_num": 0,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00000.jpg"
   },
   {
+    "timestamp": "00:00:00",
+    "frame": "frame_00015.jpg",
+    "text": "ROBERTI PREVOSTI SELECTED AS",
+    "frame_num": 15,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00015.jpg"
+  },
+  {
+    "timestamp": "00:00:01",
+    "frame": "frame_00035.jpg",
+    "text": "ROBERT PREVOST SELECTED AS",
+    "frame_num": 35,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00035.jpg"
+  },
+  {
+    "timestamp": "00:00:01",
+    "frame": "frame_00040.jpg",
+    "text": "ROBERT PREVOST SELECTED AS",
+    "frame_num": 40,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00040.jpg"
+  },
+  {
     "timestamp": "00:00:01",
     "frame": "frame_00045.jpg",
-    "text": "There is no image to extract text from. I'm a text-based model, I don't have the capability to access or view images. If you can provide the text or describe the content, I'll be happy to help.",
+    "text": "ROBERT PREVOST SELECTED AS",
     "frame_num": 45,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00045.jpg"
   },
   {
-    "timestamp": "00:00:02",
-    "frame": "frame_00060.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based model, I don't have the capability to view or access images. If you'd like to provide the text or describe the image, I can try to assist you further.",
-    "frame_num": 60,
+    "timestamp": "00:00:01",
+    "frame": "frame_00055.jpg",
+    "text": "ROBERT PREVOST SELECTED AS",
+    "frame_num": 55,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00060.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00055.jpg"
   },
   {
     "timestamp": "00:00:02",
-    "frame": "frame_00070.jpg",
-    "text": "I'm happy to help! However, I don't see an image attached or embedded in the message. As a text-based model, I don't have the capability to directly access or view images. If you'd like to extract text from an image, you can describe the image or provide the text that is visible in it, and I'll be happy to help. Alternatively, you can use OCR (Optical Character Recognition) tools to extract the text from the image and then share it with me.",
-    "frame_num": 70,
+    "frame": "frame_00065.jpg",
+    "text": "ROBERT PREVOST SELECTED AS",
+    "frame_num": 65,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00070.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00065.jpg"
   },
   {
-    "timestamp": "00:00:03",
+    "timestamp": "00:00:02",
     "frame": "frame_00080.jpg",
-    "text": "There is no image provided. I can only respond to text-based input. If you can provide the text or describe the image, I'll do my best to help.",
+    "text": "ROBERT PREVOST SELECTED AS",
     "frame_num": 80,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00080.jpg"
@@ -42,486 +66,308 @@
   {
     "timestamp": "00:00:03",
     "frame": "frame_00095.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based model, I don't have the capability to visually access or process images. If you'd like to provide the text or describe the image, I'll be happy to help.",
+    "text": "ROBERT PREVOST SELECTED AS",
     "frame_num": 95,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00095.jpg"
   },
   {
-    "timestamp": "00:00:05",
-    "frame": "frame_00125.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based model, I don't have the capability to view or access images. If you can provide the text you're referring to, I'd be happy to help you with it.",
-    "frame_num": 125,
+    "timestamp": "00:00:03",
+    "frame": "frame_00105.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 105,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00125.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00105.jpg"
+  },
+  {
+    "timestamp": "00:00:04",
+    "frame": "frame_00120.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 120,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00120.jpg"
+  },
+  {
+    "timestamp": "00:00:04",
+    "frame": "frame_00135.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 135,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00135.jpg"
   },
   {
     "timestamp": "00:00:05",
-    "frame": "frame_00145.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based model, I don't have the capability to visually access or process images. I can only respond based on text input. If you can provide the text or describe the image, I'll be happy to assist you further.",
-    "frame_num": 145,
+    "frame": "frame_00150.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 150,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00145.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00150.jpg"
   },
   {
-    "timestamp": "00:00:06",
+    "timestamp": "00:00:05",
     "frame": "frame_00155.jpg",
-    "text": "There is no image provided. Please provide the image or describe its contents if you'd like assistance with extracting text.",
+    "text": "FOX NEWS",
     "frame_num": 155,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00155.jpg"
   },
   {
-    "timestamp": "00:00:06",
+    "timestamp": "00:00:05",
     "frame": "frame_00160.jpg",
-    "text": "There is no image provided. I'm a text-based model, I don't have the capability to access or extract text from images. If you'd like to describe the image or provide the text you're seeing, I can try to help you with your query.",
+    "text": "FOX NEWS",
     "frame_num": 160,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00160.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00160.jpg",
+    "was_retry": true
   },
   {
-    "timestamp": "00:00:07",
+    "timestamp": "00:00:05",
+    "frame": "frame_00175.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 175,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00175.jpg"
+  },
+  {
+    "timestamp": "00:00:06",
+    "frame": "frame_00180.jpg",
+    "text": "Fox News",
+    "frame_num": 180,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00180.jpg"
+  },
+  {
+    "timestamp": "00:00:06",
     "frame": "frame_00185.jpg",
-    "text": "There is no image provided. I'm a text-based AI assistant and do not have the capability to access or extract text from images. If you can provide the text or describe the content, I'll be happy to assist you.",
+    "text": "FOX NEWS",
     "frame_num": 185,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00185.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00185.jpg",
+    "was_retry": true
   },
   {
-    "timestamp": "00:00:07",
+    "timestamp": "00:00:06",
     "frame": "frame_00195.jpg",
-    "text": "There is no image provided. I'm a text-based AI assistant and do not have the capability to access or analyze images. If you can provide the text or describe the content, I'll be happy to help.",
+    "text": "FOX NEWS",
     "frame_num": 195,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00195.jpg"
   },
   {
-    "timestamp": "00:00:08",
-    "frame": "frame_00210.jpg",
-    "text": "I'm happy to help, but I don't see an image provided. As a text-based model, I don't have the capability to visually access or process images. If you can provide the text or describe the content, I'd be happy to assist you further.",
-    "frame_num": 210,
+    "timestamp": "00:00:07",
+    "frame": "frame_00215.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 215,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00210.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00215.jpg"
   },
   {
-    "timestamp": "00:00:09",
-    "frame": "frame_00230.jpg",
-    "text": "I'm happy to help! However, I don't see an image. As a text-based model, I don't have the capability to access or view images. If you'd like to provide the text you'd like me to work with, I'd be happy to assist you.",
-    "frame_num": 230,
+    "timestamp": "00:00:07",
+    "frame": "frame_00225.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 225,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00230.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00225.jpg"
   },
   {
-    "timestamp": "00:00:09",
+    "timestamp": "00:00:07",
     "frame": "frame_00235.jpg",
-    "text": "I'm happy to help! However, I don't see an image provided. As a text-based AI model, I don't have the capability to visually access or process images. If you can provide the text or describe the image, I'll be happy to help you extract the text.",
+    "text": "FOX NEWS",
     "frame_num": 235,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00235.jpg"
   },
   {
-    "timestamp": "00:00:09",
-    "frame": "frame_00245.jpg",
-    "text": "There is no image to extract text from. This is a text-based conversation. If you can provide the text or describe the image, I can try to help.",
-    "frame_num": 245,
+    "timestamp": "00:00:08",
+    "frame": "frame_00240.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 240,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00245.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00240.jpg"
   },
   {
-    "timestamp": "00:00:10",
-    "frame": "frame_00255.jpg",
-    "text": "There is no image provided. I can only respond to text-based input. If you can provide the text or describe the image, I'll be happy to help.",
-    "frame_num": 255,
+    "timestamp": "00:00:08",
+    "frame": "frame_00250.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 250,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00255.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00250.jpg"
   },
   {
-    "timestamp": "00:00:10",
+    "timestamp": "00:00:08",
     "frame": "frame_00260.jpg",
-    "text": "I don't see an image. As a text-based model, I don't have the capability to access or view images. I can only respond based on the text input I receive. If you can provide the text or describe the image, I'll be happy to help.",
+    "text": "Fox News",
     "frame_num": 260,
     "processed_successfully": true,
     "path": "6. GenAI API/LlamaResults/frames/frame_00260.jpg"
   },
   {
-    "timestamp": "00:00:11",
-    "frame": "frame_00275.jpg",
-    "text": "There is no image provided. I can only process text-based input. If you provide the text or describe the image content, I can try to help.",
-    "frame_num": 275,
+    "timestamp": "00:00:09",
+    "frame": "frame_00270.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 270,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00275.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00270.jpg"
+  },
+  {
+    "timestamp": "00:00:10",
+    "frame": "frame_00300.jpg",
+    "text": "fox news",
+    "frame_num": 300,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00300.jpg"
+  },
+  {
+    "timestamp": "00:00:10",
+    "frame": "frame_00305.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 305,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00305.jpg"
+  },
+  {
+    "timestamp": "00:00:10",
+    "frame": "frame_00310.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 310,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00310.jpg"
+  },
+  {
+    "timestamp": "00:00:10",
+    "frame": "frame_00320.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 320,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00320.jpg"
+  },
+  {
+    "timestamp": "00:00:10",
+    "frame": "frame_00325.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 325,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00325.jpg"
   },
   {
     "timestamp": "00:00:11",
-    "frame": "frame_00280.jpg",
-    "text": "I'm happy to help, but I don't see an image provided. As a text-based AI model, I don't have the capability to visually access or process images. If you can provide the text or describe the content of the image, I'll do my best to assist you.",
-    "frame_num": 280,
+    "frame": "frame_00330.jpg",
+    "text": "fox news",
+    "frame_num": 330,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00280.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00330.jpg"
   },
   {
-    "timestamp": "00:00:16",
-    "frame": "frame_00400.jpg",
-    "text": "Unfortunately, you didn't provide an image for me to extract text from. I'm a text-based model, I don't have the capability to visually access or process images. If you can provide the text or describe the content, I'll be happy to help you.",
-    "frame_num": 400,
+    "timestamp": "00:00:11",
+    "frame": "frame_00335.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 335,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00400.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00335.jpg"
   },
   {
-    "timestamp": "00:00:18",
-    "frame": "frame_00470.jpg",
-    "text": "There is no image provided. If you can provide the image or describe it, I can try to help you extract the text. However, I'm a text-based model and do not have the capability to directly extract text from images. You may want to use OCR (Optical Character Recognition) tools for this purpose.",
-    "frame_num": 470,
+    "timestamp": "00:00:11",
+    "frame": "frame_00340.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 340,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00470.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00340.jpg"
   },
   {
-    "timestamp": "00:00:19",
-    "frame": "frame_00480.jpg",
-    "text": "There is no image provided. If you provide an image, I'll do my best to extract the text using OCR techniques. However, as per your request, I will respond with plain text only.\n\nSince there's no image, my response is: None.",
-    "frame_num": 480,
+    "timestamp": "00:00:11",
+    "frame": "frame_00345.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 345,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00480.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00345.jpg"
   },
   {
-    "timestamp": "00:00:20",
-    "frame": "frame_00505.jpg",
-    "text": "There is no image provided. I can only respond to text-based input. If you'd like to provide the text or describe the image, I'll do my best to assist you.",
-    "frame_num": 505,
+    "timestamp": "00:00:11",
+    "frame": "frame_00355.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 355,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00505.jpg"
-  },
-  {
-    "timestamp": "00:00:21",
-    "frame": "frame_00530.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based AI model, I don't have the capability to access or view images. Can you please provide the text you would like me to work with?",
-    "frame_num": 530,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00530.jpg"
-  },
-  {
-    "timestamp": "00:00:21",
-    "frame": "frame_00540.jpg",
-    "text": "I'm happy to help, but I don't see an image provided. As a text-based AI model, I don't have the capability to access or view images. If you can provide the text or describe the content of the image, I'll be happy to assist you.",
-    "frame_num": 540,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00540.jpg"
-  },
-  {
-    "timestamp": "00:00:22",
-    "frame": "frame_00560.jpg",
-    "text": "There is no image provided. Please provide the image or describe it so I can assist you accordingly.",
-    "frame_num": 560,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00560.jpg"
-  },
-  {
-    "timestamp": "00:00:22",
-    "frame": "frame_00565.jpg",
-    "text": "There is no image provided. If you provide an image, I can try to extract the text using Optical Character Recognition (OCR) techniques. However, as per your request, I will respond with plain text only.\n\nSince there's no image, my response is: No image provided.",
-    "frame_num": 565,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00565.jpg"
-  },
-  {
-    "timestamp": "00:00:24",
-    "frame": "frame_00620.jpg",
-    "text": "I'm happy to help! However, I don't see an image attached or provided. As a text-based model, I don't have the capability to visually inspect or access images. If you can provide the text or describe the image, I'll be happy to assist you.",
-    "frame_num": 620,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00620.jpg"
-  },
-  {
-    "timestamp": "00:00:25",
-    "frame": "frame_00630.jpg",
-    "text": "There is no image provided. I'm a text-based AI model and do not have the capability to access or process images. If you can provide the text you need help with, I'd be happy to assist.",
-    "frame_num": 630,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00630.jpg"
-  },
-  {
-    "timestamp": "00:00:25",
-    "frame": "frame_00635.jpg",
-    "text": "There is no image provided. I'm a text-based model, I don't have the capability to visually access or extract text from images. If you'd like to provide the text or describe the image, I'll be happy to help.",
-    "frame_num": 635,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00635.jpg"
-  },
-  {
-    "timestamp": "00:00:26",
-    "frame": "frame_00650.jpg",
-    "text": "I'm happy to help, but I don't see an image provided. As a text-based AI model, I don't have the capability to directly extract text from images. However, I can guide you on how you might achieve this.\n\nIf you need to extract text from an image, you can use Optical Character Recognition (OCR) tools or services. Here are a few steps or alternatives you could consider:\n\n1. **Use an OCR Tool or Service**: There are several online OCR tools and software applications that can extract text from images. You can upload your image to one of these services to retrieve the text.\n\n2. **Describe the Image**: If the image contains a small amount of text, you can describe it to me, and I can help you understand how to proceed or directly provide the text if it's simple enough.\n\nSince I can't directly access or view images, I'll wait for further instructions or details from you about how to assist with the image you've mentioned.",
-    "frame_num": 650,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00650.jpg"
-  },
-  {
-    "timestamp": "00:00:26",
-    "frame": "frame_00655.jpg",
-    "text": "There is no image provided. I can only process text-based input. If you can provide the text or describe the image content, I'll be happy to help.",
-    "frame_num": 655,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00655.jpg"
-  },
-  {
-    "timestamp": "00:00:26",
-    "frame": "frame_00665.jpg",
-    "text": "There is no image provided. I'm a text-based model, I don't have the capability to visually access or extract text from images. If you'd like to provide the text or describe the image, I'll be happy to assist you.",
-    "frame_num": 665,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00665.jpg"
-  },
-  {
-    "timestamp": "00:00:27",
-    "frame": "frame_00675.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based model, I don't have the capability to visually access or process images. If you can provide the text or describe the image, I'd be happy to assist you further.",
-    "frame_num": 675,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00675.jpg"
-  },
-  {
-    "timestamp": "00:00:27",
-    "frame": "frame_00690.jpg",
-    "text": "There is no image provided. I'm a text-based AI assistant and do not have the capability to access or view images. If you can provide the text or describe the content, I'll be happy to help.",
-    "frame_num": 690,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00690.jpg"
-  },
-  {
-    "timestamp": "00:00:27",
-    "frame": "frame_00695.jpg",
-    "text": "There is no image provided. Please share the image, and I'll do my best to extract the text. Alternatively, if you provide the image description or content, I can try to assist you.",
-    "frame_num": 695,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00695.jpg"
-  },
-  {
-    "timestamp": "00:00:29",
-    "frame": "frame_00730.jpg",
-    "text": "I'm happy to help! However, I don't see an image. As a text-based model, I don't have the capability to directly access or process images. If you'd like to extract text from an image, you can use OCR (Optical Character Recognition) tools or describe the text in the image to me, and I'll be happy to help.",
-    "frame_num": 730,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00730.jpg"
-  },
-  {
-    "timestamp": "00:00:29",
-    "frame": "frame_00740.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based AI model, I don't have the capability to view or access images. If you can provide the text or describe the image, I'd be happy to assist you further.",
-    "frame_num": 740,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00740.jpg"
-  },
-  {
-    "timestamp": "00:00:30",
-    "frame": "frame_00765.jpg",
-    "text": "I'm happy to help, but I don't see an image provided. As a text-based model, I don't have the capability to access or view images. If you can provide the text or describe the image, I'll be happy to assist you.",
-    "frame_num": 765,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_00765.jpg"
-  },
-  {
-    "timestamp": "00:00:40",
-    "frame": "frame_01010.jpg",
-    "text": "There is no image provided. Please provide the image or describe it to me, and I'll do my best to help.",
-    "frame_num": 1010,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01010.jpg"
-  },
-  {
-    "timestamp": "00:00:40",
-    "frame": "frame_01020.jpg",
-    "text": "There is no image provided. I'm a text-based AI and do not have the capability to view or extract text from images. If you'd like to provide the text or describe the image, I can try to help.",
-    "frame_num": 1020,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01020.jpg"
-  },
-  {
-    "timestamp": "00:00:41",
-    "frame": "frame_01040.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based model, I don't have the capability to view or access images. Can you please provide the text you would like me to work with?",
-    "frame_num": 1040,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01040.jpg"
-  },
-  {
-    "timestamp": "00:00:43",
-    "frame": "frame_01085.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based AI model, I don't have the capability to view or access images. If you can provide the text or describe the image, I'd be happy to help you extract the text.",
-    "frame_num": 1085,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01085.jpg"
-  },
-  {
-    "timestamp": "00:00:44",
-    "frame": "frame_01105.jpg",
-    "text": "I'm happy to help, but I don't see an image provided. As a text-based model, I don't have the capability to visually access or process images. If you can provide the text or describe the image, I'll do my best to assist you.",
-    "frame_num": 1105,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01105.jpg"
-  },
-  {
-    "timestamp": "00:00:46",
-    "frame": "frame_01150.jpg",
-    "text": "I'm happy to help! However, I'm a large language model, I don't have the capability to visually see or access images. You can describe the image or provide the text within the image, and I'll be happy to assist you. Alternatively, if you provide the image URL or description, I can suggest alternatives such as using OCR (Optical Character Recognition) tools to extract text. \n\nIf you can provide the text or more context, I'll do my best to help.",
-    "frame_num": 1150,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01150.jpg"
-  },
-  {
-    "timestamp": "00:00:46",
-    "frame": "frame_01165.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based model, I don't have the capability to directly access or process images. If you'd like to describe the image or provide the text within it, I can assist you further.",
-    "frame_num": 1165,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01165.jpg"
-  },
-  {
-    "timestamp": "00:00:47",
-    "frame": "frame_01175.jpg",
-    "text": "There is no image provided. I'm a text-based model, I don't have the capability to access or view images. If you'd like to provide the text, I can assist you with extracting or processing it.",
-    "frame_num": 1175,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01175.jpg"
-  },
-  {
-    "timestamp": "00:00:47",
-    "frame": "frame_01180.jpg",
-    "text": "There is no image provided. I'm a text-based AI model and do not have the capability to access or view images. If you'd like to share the text, I can assist you further.",
-    "frame_num": 1180,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01180.jpg"
-  },
-  {
-    "timestamp": "00:00:47",
-    "frame": "frame_01185.jpg",
-    "text": "Unfortunately, you haven't provided an image for me to extract text from. As a text-based AI model, I don't have the capability to visually access or process images. However, I can guide you on how you might be able to extract text from an image.\n\nIf you'd like to extract text from an image, you can use Optical Character Recognition (OCR) tools or software. There are several online tools and applications that can do this, such as Tesseract OCR (developed by Google), Online OCR Tools, or Adobe Acrobat's OCR feature.\n\nIf you can provide the text within the image or describe the image, I might be able to help further.",
-    "frame_num": 1185,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01185.jpg"
-  },
-  {
-    "timestamp": "00:00:47",
-    "frame": "frame_01190.jpg",
-    "text": "I'm happy to help, but I don't see an image provided. As a text-based model, I don't have the capability to visually access or process images. If you'd like to provide the text or describe the image, I'd be happy to assist you further.",
-    "frame_num": 1190,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01190.jpg"
-  },
-  {
-    "timestamp": "00:00:48",
-    "frame": "frame_01205.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based AI model, I don't have the capability to access or view images. Can you please provide the text you would like me to work with, or describe the image and I'll do my best to assist?",
-    "frame_num": 1205,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01205.jpg"
-  },
-  {
-    "timestamp": "00:00:49",
-    "frame": "frame_01235.jpg",
-    "text": "There is no image provided. As a text-based AI model, I don't have the capability to access or extract text from images. If you'd like to provide the text or describe the image, I'll be happy to help.",
-    "frame_num": 1235,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01235.jpg"
-  },
-  {
-    "timestamp": "00:00:50",
-    "frame": "frame_01250.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based AI model, I don't have the capability to visually access or process images. I can only respond based on the text input I receive. If you can provide the text or describe the image, I'll be happy to assist you further.",
-    "frame_num": 1250,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01250.jpg"
-  },
-  {
-    "timestamp": "00:00:50",
-    "frame": "frame_01270.jpg",
-    "text": "I don't see an image. As a text-based model, I don't have the capability to visually access or process images. If you'd like to provide the text within the image or describe it, I can try to help.",
-    "frame_num": 1270,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01270.jpg"
-  },
-  {
-    "timestamp": "00:00:51",
-    "frame": "frame_01285.jpg",
-    "text": "There is no image provided. I'm a text-based AI assistant, I don't have the capability to access or view images. If you can provide the text or describe the content, I'd be happy to help.",
-    "frame_num": 1285,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01285.jpg"
-  },
-  {
-    "timestamp": "00:00:52",
-    "frame": "frame_01300.jpg",
-    "text": "I'm happy to help, but I don't see an image. As a text-based model, I don't have the capability to visually see or access images. I can only process text-based input. If you can provide the text or describe the image, I can try to assist you further.",
-    "frame_num": 1300,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01300.jpg"
-  },
-  {
-    "timestamp": "00:00:52",
-    "frame": "frame_01315.jpg",
-    "text": "I'm happy to help! However, I'm a large language model, I don't have the capability to visually access or process images. I can only respond based on text inputs. If you'd like to describe the image or provide the text within it, I'd be happy to help you extract or work with that text.",
-    "frame_num": 1315,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01315.jpg"
-  },
-  {
-    "timestamp": "00:00:52",
-    "frame": "frame_01320.jpg",
-    "text": "There is no image to extract text from. This is a text-based AI assistant and does not have the capability to access or view images. If you can provide the text, I can assist you further.",
-    "frame_num": 1320,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01320.jpg"
-  },
-  {
-    "timestamp": "00:00:53",
-    "frame": "frame_01335.jpg",
-    "text": "I don't see an image. Please provide the image, and I'll extract the text for you.",
-    "frame_num": 1335,
-    "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01335.jpg",
+    "path": "6. GenAI API/LlamaResults/frames/frame_00355.jpg",
     "was_retry": true
   },
   {
-    "timestamp": "00:00:53",
-    "frame": "frame_01345.jpg",
-    "text": "I'm happy to help, but I don't see an image provided. As a text-based AI model, I don't have the capability to visually access or process images. If you can provide the text or describe the image, I'll be happy to assist you further.",
-    "frame_num": 1345,
+    "timestamp": "00:00:12",
+    "frame": "frame_00365.jpg",
+    "text": "fox news",
+    "frame_num": 365,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01345.jpg"
+    "path": "6. GenAI API/LlamaResults/frames/frame_00365.jpg"
   },
   {
-    "timestamp": "00:00:54",
-    "frame": "frame_01355.jpg",
-    "text": "Unfortunately, I don't have an image to analyze. As a text-based model, I don't have the capability to receive or process images. If you can provide the text or describe the image, I'll be happy to help. Otherwise, I can suggest alternatives like OCR (Optical Character Recognition) tools that can extract text from images.",
-    "frame_num": 1355,
+    "timestamp": "00:00:12",
+    "frame": "frame_00370.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 370,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01355.jpg",
-    "was_retry": true
+    "path": "6. GenAI API/LlamaResults/frames/frame_00370.jpg"
   },
   {
-    "timestamp": "00:00:54",
-    "frame": "frame_01360.jpg",
-    "text": "Unfortunately, I don't have an image to analyze. As a text-based AI model, I don't have the capability to access or view images. However, if you provide the image or describe the text you see in it, I can try to assist you.\n\nIf you can provide the actual image or text, I'll be happy to help. Alternatively, if you describe the image, I can guide you on how to extract the text.\n\nHowever, since I don't have an image to analyze, I'll wait for your next instruction.\n\nIf you can provide the image or type the text you see, here is the format you can follow:\n\n[Insert text here]\n\nI'll respond accordingly. \n\nLet's try this again. Please provide the image or describe it.",
-    "frame_num": 1360,
+    "timestamp": "00:00:12",
+    "frame": "frame_00375.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 375,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01360.jpg",
-    "was_retry": true
+    "path": "6. GenAI API/LlamaResults/frames/frame_00375.jpg"
   },
   {
-    "timestamp": "00:00:54",
-    "frame": "frame_01365.jpg",
-    "text": "Unfortunately, I don't have an image to analyze. As this is a text-based conversation, I don't have the capability to view or access images. However, if you can provide the image or describe it to me, I can try to assist you in extracting the text.\n\nIf you'd like, you can also provide the image description or text that you see, and I can help you verify or correct it.\n\nIf you are willing to share the actual text you see, I can directly respond with it.",
-    "frame_num": 1365,
+    "timestamp": "00:00:13",
+    "frame": "frame_00390.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 390,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01365.jpg",
-    "was_retry": true
+    "path": "6. GenAI API/LlamaResults/frames/frame_00390.jpg"
   },
   {
-    "timestamp": "00:00:54",
-    "frame": "frame_01370.jpg",
-    "text": "Unfortunately, I don't have an image to analyze. As a text-based AI model, I don't have the capability to access or view images. I can only respond to text-based input. If you can provide the text or describe the image, I'll be happy to help. However, if you provide the image description, I can suggest that you extract the text yourself or use OCR (Optical Character Recognition) tools to extract the text.\n\nIf you can provide the image or describe it, I can guide you through the process. Otherwise, please provide the text directly.",
-    "frame_num": 1370,
+    "timestamp": "00:00:13",
+    "frame": "frame_00395.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 395,
     "processed_successfully": true,
-    "path": "6. GenAI API/LlamaResults/frames/frame_01370.jpg",
-    "was_retry": true
+    "path": "6. GenAI API/LlamaResults/frames/frame_00395.jpg"
+  },
+  {
+    "timestamp": "00:00:14",
+    "frame": "frame_00420.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 420,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00420.jpg"
+  },
+  {
+    "timestamp": "00:00:14",
+    "frame": "frame_00435.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 435,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00435.jpg"
+  },
+  {
+    "timestamp": "00:00:14",
+    "frame": "frame_00445.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 445,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00445.jpg"
+  },
+  {
+    "timestamp": "00:00:15",
+    "frame": "frame_00450.jpg",
+    "text": "FOX NEWS",
+    "frame_num": 450,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00450.jpg"
+  },
+  {
+    "timestamp": "00:00:15",
+    "frame": "frame_00455.jpg",
+    "text": "fox news",
+    "frame_num": 455,
+    "processed_successfully": true,
+    "path": "6. GenAI API/LlamaResults/frames/frame_00455.jpg"
   }
 ]

@@ -709,7 +709,7 @@ class VideoProcessor:
             self.console.print(ntable)
         else:
             self.console.print("[yellow]No names detected in the video.[/]")
-
+        # ── 7. Final output ─────────────────────────────────────────────
         self.console.print(
             f"[green]Results saved to:[/] {os.path.relpath(self.output_dir)}\n"
             f"  - results.json: Raw OCR results\n"
@@ -717,6 +717,8 @@ class VideoProcessor:
             (f"  - names.json: Extracted names\n" if self.do_extract_names else "") +
             (f"  - frames/: {len(distinct)} extracted video frames\n" if self.save_frames else "")
         )
+        self.console.print("Process completed successfully!")
+        
         return self.results
 
 

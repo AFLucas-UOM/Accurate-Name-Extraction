@@ -1,29 +1,42 @@
 {
   "video_info": {
-    "filename": "Video_T1.mp4",
+    "filename": "Video_T5.mp4",
     "resolution": "576\u00d71024",
-    "fps": 25.0,
-    "total_frames": 1372,
-    "duration_seconds": 54.88,
-    "duration_formatted": "0:00:54"
+    "fps": 30.0,
+    "total_frames": 479,
+    "duration_seconds": 15.966666666666667,
+    "duration_formatted": "0:00:15"
   },
   "processing_stats": {
     "sample_rate": 5,
     "similarity_threshold": 0.9,
-    "distinct_frames_processed": 96,
-    "frames_with_text": 65,
-    "processing_time_seconds": 215.23869609832764,
-    "processing_time_formatted": "0:03:35"
+    "distinct_frames_processed": 46,
+    "frames_with_text": 46,
+    "processing_time_seconds": 265.2607982158661,
+    "processing_time_formatted": "0:04:25"
   },
   "api_stats": {
-    "total_requests": 133,
-    "successful_requests": 66,
-    "failed_requests": 67,
-    "rate_limited_requests": 0,
-    "total_tokens": 10652,
-    "prompt_tokens": 6880,
-    "completion_tokens": 3772,
-    "estimated_cost_usd": 0.0015978
+    "total_requests": 57,
+    "successful_requests": 47,
+    "failed_requests": 3,
+    "rate_limited_requests": 7,
+    "total_tokens": 62956,
+    "prompt_tokens": 62642,
+    "completion_tokens": 314,
+    "estimated_cost_usd": 0.009443400000000001
   },
-  "names": []
+  "names": [
+    {
+      "name": "Robert Prevost",
+      "first_appearance": "00:00:01",
+      "last_appearance": "00:00:03",
+      "count": 7
+    },
+    {
+      "name": "Roberti Prevosti",
+      "first_appearance": "00:00:00",
+      "last_appearance": "00:00:00",
+      "count": 1
+    }
+  ]
 }

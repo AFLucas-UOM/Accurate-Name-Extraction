@@ -390,13 +390,19 @@ const ResultsStep = ({
                 ? `${apiData.processing_stats.processing_time_seconds.toFixed(2)} seconds` 
                 : "Unknown";
               processingTimeSeconds = apiData.processing_stats?.processing_time_seconds || 0;
-              uniqueNames = apiData.people?.length || 0;
+                const uniqueNameSet = new Set(
+                  names.map(n => n.name.trim().toLowerCase())
+                );
+                uniqueNames = uniqueNameSet.size;
+
+                console.log("LLaMA unique names set:", Array.from(uniqueNameSet));
+
               
               if (apiData.video_info) {
                 metadata = {
                   ...metadata,
                   filename: apiData.video_info.filename || metadata.filename,
-                  fps: apiData.video_info.fps,
+
                 };
               }
               break;
@@ -887,13 +893,6 @@ const ResultsStep = ({
 
                     <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">File Type:</dt>
                     <dd className="text-sm text-gray-700 dark:text-gray-300">{enhancedMetadata?.type}</dd>
-                    
-                    {enhancedMetadata?.fps && (
-                      <>
-                        <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Frame Rate:</dt>
-                        <dd className="text-sm text-gray-700 dark:text-gray-300">{enhancedMetadata.fps} FPS</dd>
-                      </>
-                    )}
                   </dl>
                 </div>
                 
@@ -913,13 +912,6 @@ const ResultsStep = ({
                       <>
                         <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Unique Names:</dt>
                         <dd className="text-sm text-gray-700 dark:text-gray-300">{results.uniqueNames}</dd>
-                      </>
-                    )}
-                    
-                    {results.totalFrames && (
-                      <>
-                        <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Total Frames:</dt>
-                        <dd className="text-sm text-gray-700 dark:text-gray-300">{results.totalFrames}</dd>
                       </>
                     )}
                     
@@ -1366,16 +1358,6 @@ const ResultsStep = ({
                             <span className="font-medium">{enhancedMetadata?.type}</span>
                           </div>
                         </div>
-                        
-                        {enhancedMetadata?.fps && (
-                          <div className="space-y-1">
-                            <div className="text-xs text-gray-500 dark:text-gray-400">Frame Rate</div>
-                            <div className="flex items-center">
-                              <Film className="h-3.5 w-3.5 mr-1.5 text-gray-500 dark:text-gray-400" />
-                              <span className="font-medium">{enhancedMetadata.fps} FPS</span>
-                            </div>
-                          </div>
-                        )}
                       </div>
                     </div>
                   </div>

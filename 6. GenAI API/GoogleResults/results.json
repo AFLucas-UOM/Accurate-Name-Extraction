@@ -6,12 +6,17 @@
   },
   {
     "timestamp": "00:00:00",
+    "frame": "frame_00015.jpg",
+    "text": "FOX NEWS\nROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE"
+  },
+  {
+    "timestamp": "00:00:00",
     "frame": "frame_00005.jpg",
     "text": "FOX NEWS"
   },
   {
-    "timestamp": "00:00:00",
-    "frame": "frame_00015.jpg",
+    "timestamp": "00:00:01",
+    "frame": "frame_00035.jpg",
     "text": "FOX NEWS\nROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE"
   },
   {
@@ -21,17 +26,7 @@
   },
   {
     "timestamp": "00:00:01",
-    "frame": "frame_00035.jpg",
-    "text": "FOX NEWS\nROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE"
-  },
-  {
-    "timestamp": "00:00:01",
     "frame": "frame_00045.jpg",
-    "text": "FOX NEWS\nROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE"
-  },
-  {
-    "timestamp": "00:00:01",
-    "frame": "frame_00050.jpg",
     "text": "FOX NEWS\nROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE"
   },
   {
@@ -40,8 +35,8 @@
     "text": "FOX NEWS\nROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE"
   },
   {
-    "timestamp": "00:00:02",
-    "frame": "frame_00065.jpg",
+    "timestamp": "00:00:01",
+    "frame": "frame_00050.jpg",
     "text": "FOX NEWS\nROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE"
   },
   {
@@ -51,7 +46,17 @@
   },
   {
     "timestamp": "00:00:02",
+    "frame": "frame_00065.jpg",
+    "text": "FOX NEWS\nROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE"
+  },
+  {
+    "timestamp": "00:00:02",
     "frame": "frame_00070.jpg",
+    "text": "FOX NEWS\nROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE"
+  },
+  {
+    "timestamp": "00:00:03",
+    "frame": "frame_00095.jpg",
     "text": "FOX NEWS\nROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE"
   },
   {
@@ -63,11 +68,6 @@
     "timestamp": "00:00:03",
     "frame": "frame_00100.jpg",
     "text": "FOX NEWS\nT"
-  },
-  {
-    "timestamp": "00:00:03",
-    "frame": "frame_00095.jpg",
-    "text": "FOX NEWS\nROBERT PREVOST SELECTED AS\nFIRST AMERICAN POPE"
   },
   {
     "timestamp": "00:00:03",
@@ -91,12 +91,7 @@
   },
   {
     "timestamp": "00:00:05",
-    "frame": "frame_00175.jpg",
-    "text": "FOX NEWS"
-  },
-  {
-    "timestamp": "00:00:05",
-    "frame": "frame_00155.jpg",
+    "frame": "frame_00150.jpg",
     "text": "FOX NEWS"
   },
   {
@@ -106,7 +101,12 @@
   },
   {
     "timestamp": "00:00:05",
-    "frame": "frame_00150.jpg",
+    "frame": "frame_00155.jpg",
+    "text": "FOX NEWS"
+  },
+  {
+    "timestamp": "00:00:05",
+    "frame": "frame_00175.jpg",
     "text": "FOX NEWS"
   },
   {
@@ -126,12 +126,12 @@
   },
   {
     "timestamp": "00:00:06",
-    "frame": "frame_00205.jpg",
+    "frame": "frame_00195.jpg",
     "text": "FOX NEWS"
   },
   {
     "timestamp": "00:00:06",
-    "frame": "frame_00195.jpg",
+    "frame": "frame_00205.jpg",
     "text": "FOX NEWS"
   },
   {
@@ -141,12 +141,12 @@
   },
   {
     "timestamp": "00:00:07",
-    "frame": "frame_00220.jpg",
+    "frame": "frame_00230.jpg",
     "text": "FOX NEWS"
   },
   {
     "timestamp": "00:00:07",
-    "frame": "frame_00230.jpg",
+    "frame": "frame_00220.jpg",
     "text": "FOX NEWS"
   },
   {
@@ -156,12 +156,12 @@
   },
   {
     "timestamp": "00:00:08",
-    "frame": "frame_00255.jpg",
+    "frame": "frame_00240.jpg",
     "text": "FOX NEWS"
   },
   {
     "timestamp": "00:00:08",
-    "frame": "frame_00240.jpg",
+    "frame": "frame_00255.jpg",
     "text": "FOX NEWS"
   },
   {
@@ -216,12 +216,12 @@
   },
   {
     "timestamp": "00:00:11",
-    "frame": "frame_00335.jpg",
+    "frame": "frame_00330.jpg",
     "text": "FOX NEWS"
   },
   {
     "timestamp": "00:00:11",
-    "frame": "frame_00330.jpg",
+    "frame": "frame_00335.jpg",
     "text": "FOX NEWS"
   },
   {
@@ -231,12 +231,12 @@
   },
   {
     "timestamp": "00:00:11",
-    "frame": "frame_00355.jpg",
+    "frame": "frame_00345.jpg",
     "text": "FOX NEWS"
   },
   {
     "timestamp": "00:00:11",
-    "frame": "frame_00345.jpg",
+    "frame": "frame_00355.jpg",
     "text": "FOX NEWS"
   },
   {
@@ -286,17 +286,17 @@
   },
   {
     "timestamp": "00:00:14",
-    "frame": "frame_00425.jpg",
-    "text": "FOX NEWS"
-  },
-  {
-    "timestamp": "00:00:14",
     "frame": "frame_00420.jpg",
     "text": "\u05db\u05df\nFOX NEWS"
   },
   {
     "timestamp": "00:00:14",
-    "frame": "frame_00440.jpg",
+    "frame": "frame_00425.jpg",
+    "text": "FOX NEWS"
+  },
+  {
+    "timestamp": "00:00:14",
+    "frame": "frame_00430.jpg",
     "text": "FOX NEWS"
   },
   {
@@ -306,7 +306,7 @@
   },
   {
     "timestamp": "00:00:14",
-    "frame": "frame_00430.jpg",
+    "frame": "frame_00440.jpg",
     "text": "FOX NEWS"
   },
   {
@@ -326,12 +326,12 @@
   },
   {
     "timestamp": "00:00:15",
-    "frame": "frame_00475.jpg",
+    "frame": "frame_00470.jpg",
     "text": "FOX NEWS"
   },
   {
     "timestamp": "00:00:15",
-    "frame": "frame_00470.jpg",
+    "frame": "frame_00475.jpg",
     "text": "FOX NEWS"
   }
 ]

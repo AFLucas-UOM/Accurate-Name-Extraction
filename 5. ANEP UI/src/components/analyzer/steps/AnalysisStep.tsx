@@ -525,7 +525,9 @@ const AnalysisStep = ({
         else if ((msg.includes("completed") && msg.includes("100%")) || 
                 (msg.includes("finished") && msg.includes("successfully")) || 
                 (msg.includes("process completed successfully")) ||
-                (msg.includes("done") && msg.includes("all processing"))) {
+                (msg.includes("done") && msg.includes("all processing")) ||
+                (msg.includes("results saved to:"))
+              ) {
           // Make sure we haven't already marked as complete
           if (!state.isCompleted) {
             dispatch({ type: 'COMPLETE_ANALYSIS' });
