@@ -234,8 +234,8 @@ graph LR
 
 ## 🔐 Ethics & Data Usage
 
-- All data used in the NGD dataset is sourced from publicly available news footage under fair use for research purposes.
-- No biometric or private personal data is collected or stored.
+- All data used in the NGD is sourced from publicly available news footage under fair use for research purposes.
+- No private personal data is collected or stored.
 - The system is **NOT** intended for surveillance or use in sensitive political contexts.
 
 ## 📊 Dataset & Model (Roboflow)
