@@ -303,7 +303,7 @@ The full dissertation, containing methodology, evaluation, and survey results, i
 
 ## 📘 Citation
 
-If you use the **News Graphic Dataset (NGD)** or the **ANEP pipeline** in your research, please cite the following:
+If you use the **News Graphic Dataset (NGD)** or the **ANEP** in your research, please cite the following:
 
 ### 📂 News Graphic Dataset (NGD)
 
