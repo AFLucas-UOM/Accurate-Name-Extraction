@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Eye, EyeOff, Lock } from "lucide-react";
 
+import secrets from "./secrets.json";
+
 import { useTheme } from "./hooks/use-theme";
 import SurveyDashboard from "./pages/SurveyVisualizerCore";
 
@@ -126,8 +128,8 @@ const PasswordProtection = ({ children }: { children: React.ReactNode }) => {
     // Simulate processing time for security
     await new Promise(resolve => setTimeout(resolve, 500 + (failedAttempts * 1000)));
 
-    const correctPassword = "pswd_admin_2608";
-    const backupPassword = ",{MbcU2_yrZLl7Vj9d35yg:1(";
+    const correctPassword = secrets.correctPassword;
+    const backupPassword = secrets.backupPassword;
     
     if (password === correctPassword || password === backupPassword) {
       const currentTime = Date.now().toString();

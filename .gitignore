@@ -5,6 +5,7 @@ Versions/
 Uploads/
 *.mp4
 *.mov
+secrets.json
 
 # API KEYS
 config.json
