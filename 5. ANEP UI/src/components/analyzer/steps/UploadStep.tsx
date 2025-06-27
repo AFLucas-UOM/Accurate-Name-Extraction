@@ -29,6 +29,7 @@ const UploadStep = ({
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [videoURL, setVideoURL] = useState<string | null>(null);
   const [videoMetadata, setVideoMetadata] = useState<{ duration: number; type: string } | null>(null);
+  const [isVideoLoading, setIsVideoLoading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const toastIdRef = useRef<string | undefined>(undefined);
 
@@ -52,21 +53,63 @@ const UploadStep = ({
   }, [initialFile, initialURL, initialMetadata]);
 
   const extractVideoMetadata = (file: File) => {
-    const video = document.createElement("video");
-    video.preload = "metadata";
-    video.src = URL.createObjectURL(file);
-    video.onloadedmetadata = () => {
-      const metadata = {
-        duration: video.duration,
-        type: file.type,
+    return new Promise((resolve) => {
+      const video = document.createElement("video");
+      video.preload = "auto";
+      video.muted = true; // Required for autoplay in many browsers
+      video.playsInline = true; // Required for mobile Safari
+      
+      const cleanup = () => {
+        if (video.src && video.src.startsWith('blob:')) {
+          URL.revokeObjectURL(video.src);
+        }
       };
-      setVideoMetadata(metadata);
+
+      const handleMetadata = () => {
+        const metadata = {
+          duration: video.duration || 0,
+          type: file.type,
+        };
+        setVideoMetadata(metadata);
+        
+        // Save duration to localStorage
+        localStorage.setItem("vid_dur", metadata.duration.toString());
+        
+        cleanup();
+        resolve(metadata);
+      };
+
+      const handleError = (e) => {
+        console.error("Error loading video metadata:", e);
+        console.error("File type:", file.type);
+        console.error("File size:", file.size);
+        cleanup();
+        
+        // Still set basic metadata even if video fails to load
+        const basicMetadata = {
+          duration: 0,
+          type: file.type,
+        };
+        setVideoMetadata(basicMetadata);
+        resolve(basicMetadata);
+      };
+
+      video.addEventListener('loadedmetadata', handleMetadata);
+      video.addEventListener('error', handleError);
+      video.addEventListener('abort', handleError);
       
-      // Save duration to localStorage
-      localStorage.setItem("vid_dur", metadata.duration.toString());
+      // Create object URL and set as source
+      const objectURL = URL.createObjectURL(file);
+      video.src = objectURL;
       
-      URL.revokeObjectURL(video.src);
-    };
+      // Fallback timeout
+      setTimeout(() => {
+        if (video.readyState === 0) {
+          console.warn('Video metadata loading timeout');
+          handleError(new Error('Timeout'));
+        }
+      }, 5000);
+    });
   };
 
   const uploadToServer = async (file: File) => {
@@ -113,8 +156,31 @@ const UploadStep = ({
     setIsDragging(false);
   }, []);
 
+  const processVideoFile = async (file: File) => {
+    setIsVideoLoading(true);
+    const url = URL.createObjectURL(file);
+    setVideoFile(file);
+    setVideoURL(url);
+    
+    // Extract metadata
+    await extractVideoMetadata(file);
+    
+    onVideoUploaded(file);
+    uploadToServer(file);
+    
+    localStorage.setItem("vid_siz", (file.size / (1024 * 1024)).toFixed(2)); // MB
+
+    const toastData = toast({
+      title: "Video uploaded 🎉",
+      description: `${file.name} has successfully uploaded!`,
+    });
+
+    toastIdRef.current = toastData?.id as string;
+    setIsVideoLoading(false);
+  };
+
   const handleDrop = useCallback(
-    (e: React.DragEvent) => {
+    async (e: React.DragEvent) => {
       e.preventDefault();
       setIsDragging(false);
 
@@ -122,21 +188,7 @@ const UploadStep = ({
       const file = files.find(f => f.type.startsWith("video/"));
 
       if (file) {
-        const url = URL.createObjectURL(file);
-        setVideoFile(file);
-        setVideoURL(url);
-        extractVideoMetadata(file);
-        onVideoUploaded(file);
-        uploadToServer(file);
-        
-        localStorage.setItem("vid_siz", (file.size / (1024 * 1024)).toFixed(2)); // MB
-
-        const toastData = toast({
-          title: "Video uploaded 🎉",
-          description: `${file.name} has successfully uploaded!`,
-        });
-
-        toastIdRef.current = toastData?.id as string;
+        await processVideoFile(file);
       } else {
         toast({
           title: "Invalid file",
@@ -148,26 +200,12 @@ const UploadStep = ({
     [onVideoUploaded, toast]
   );
 
-  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
 
       if (file.type.startsWith("video/")) {
-        const url = URL.createObjectURL(file);
-        setVideoFile(file);
-        setVideoURL(url);
-        extractVideoMetadata(file);
-        onVideoUploaded(file);
-        uploadToServer(file);
-        
-        localStorage.setItem("vid_siz", (file.size / (1024 * 1024)).toFixed(2)); // MB
-
-        const toastData = toast({
-          title: "Video uploaded 🎉",
-          description: `${file.name} has successfully uploaded!`,
-        });
-
-        toastIdRef.current = toastData?.id as string;
+        await processVideoFile(file);
       } else {
         toast({
           title: "Invalid file",
@@ -183,6 +221,7 @@ const UploadStep = ({
     setVideoFile(null);
     setVideoURL(null);
     setVideoMetadata(null);
+    setIsVideoLoading(false);
     onVideoUploaded(null);
 
     // Clear duration from localStorage when file is removed
@@ -283,13 +322,49 @@ const UploadStep = ({
             </Button>
           </div>
 
-          {videoURL && (
-            <div className="rounded overflow-hidden border border-gray-300 dark:border-gray-700">
+          {isVideoLoading ? (
+            <div className="flex items-center justify-center h-[280px] bg-gray-100 dark:bg-gray-800 rounded-md">
+              <div className="text-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-2"></div>
+                <p className="text-sm text-muted-foreground">Loading video preview...</p>
+              </div>
+            </div>
+          ) : videoURL ? (
+            <div className="rounded-md overflow-hidden border border-gray-300 dark:border-gray-700 bg-black">
               <video
-                src={videoURL}
+                key={videoFile?.name || 'video'} // Force re-render on file change
                 controls
-                className="w-full h-[280px] object-contain rounded-md"
-              />
+                preload="auto"
+                muted
+                playsInline
+                className="w-full h-[280px] object-contain bg-black"
+                onError={(e) => {
+                  console.error('Video error:', e);
+                  console.error('Video error details:', e.currentTarget.error);
+                }}
+                onEmptied={() => {
+                  console.log('Video emptied');
+                }}
+                onStalled={() => {
+                  console.log('Video stalled');
+                }}
+              >
+                <source src={videoURL} type={videoFile?.type || 'video/mp4'} />
+                <p className="text-white p-4 text-center">
+                  Your browser doesn't support this video format.<br/>
+                </p>
+              </video>
+            </div>
+          ) : (
+            // Show sample video if no file uploaded
+            <div className="rounded-md overflow-hidden border border-gray-300 dark:border-gray-700 bg-black">
+              <div className="flex items-center justify-center h-[280px] bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900">
+                <div className="text-center">
+                  <FileVideo className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-600 dark:text-gray-400 font-medium">Video preview will appear here</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">Upload a video to see the preview</p>
+                </div>
+              </div>
             </div>
           )}
         </div>

@@ -430,10 +430,40 @@ export default function SurveyDashboard({
   const [viewMode, setViewMode] = useLocalState<"chart" | "table">("sd_viewMode", "chart");
   const [demographicsCollapsed, setDemographicsCollapsed] = useState(false);
   
+  // Store the user's preferred view mode when not forced to table
+  const [userPreferredViewMode, setUserPreferredViewMode] = useLocalState<"chart" | "table">("sd_userPreferredViewMode", "chart");
+  
   // New UI state additions
   const [showPercentages, setShowPercentages] = useState(true);
-  const [chartHeight, setChartHeight] = useState(500);
+  const [chartHeight, setChartHeight] = useState(600);
   const [gridLines, setGridLines] = useState(true);
+
+  // Check if current question should force table view
+  const shouldForceTableView = primaryQ.toLowerCase().includes("which features would be most useful in a tool like this");
+  
+  // Effect to handle forced table view for specific questions
+  useEffect(() => {
+    if (shouldForceTableView) {
+      // Store current preference if not already stored and switch to table
+      if (viewMode !== "table") {
+        setUserPreferredViewMode(viewMode);
+        setViewMode("table");
+      }
+    } else {
+      // Restore user preference when switching away from forced table questions
+      if (viewMode === "table" && userPreferredViewMode === "chart") {
+        setViewMode("chart");
+      }
+    }
+  }, [primaryQ, shouldForceTableView, viewMode, userPreferredViewMode, setViewMode, setUserPreferredViewMode]);
+
+  // Custom setViewMode handler that remembers user preference
+  const handleViewModeChange = (newMode: "chart" | "table") => {
+    if (!shouldForceTableView) {
+      setUserPreferredViewMode(newMode);
+    }
+    setViewMode(newMode);
+  };
 
   // Fetch & parse CSV
   useEffect(() => {
@@ -449,7 +479,19 @@ export default function SurveyDashboard({
         } else {
           setRows(res.data as SurveyRow[]);
           setHeaders(res.meta.fields || []);
-          if (!primaryQ && res.meta.fields?.length) setPrimaryQ(res.meta.fields[0]);
+          
+          // Auto-select the specific question if not already set and if it exists
+          if (!primaryQ && res.meta.fields?.length) {
+            const targetQuestion = "How frequently do you follow or watch the news?";
+            const foundQuestion = res.meta.fields.find(field => 
+              field.includes(targetQuestion) || 
+              field.toLowerCase().includes("how frequently do you follow or watch the news") ||
+              field.toLowerCase().includes("frequently") && field.toLowerCase().includes("follow") && field.toLowerCase().includes("news")
+            );
+            
+            // Set the target question if found, otherwise use the first field
+            setPrimaryQ(foundQuestion || res.meta.fields[0]);
+          }
         }
         setLoading(false);
       },
@@ -530,6 +572,12 @@ const shouldSplitAnswer = (answer: string): boolean => {
     "Select all that apply"
   ];
   const isForceSplit = alwaysSplitQuestions.some(q => primaryQ.toLowerCase().includes(q.toLowerCase()));
+  
+  // For the features question, don't split on commas as they're part of complete sentences
+  if (primaryQ.toLowerCase().includes("which features would be most useful in a tool like this")) {
+    return false;
+  }
+  
   return isForceSplit && /[,;]/.test(answer); // Only split if it's one of those questions and there's a comma
 };
 
@@ -538,12 +586,64 @@ filteredRows.forEach((r) => {
   const ans = r[primaryQ];
 
   if (ans !== undefined && ans !== "") {
-    const answerString = String(ans).trim();
+    let answerString = String(ans).trim();
+    
+    // Shorten specific social media response for news source question
+    if (primaryQ.toLowerCase().includes("where do you mostly get your news from")) {
+      if (answerString.toLowerCase().includes("social media") && answerString.toLowerCase().includes("facebook")) {
+        answerString = "Social Media";
+      }
+    }
+    
+    // Clean up responses for the features question
+    if (primaryQ.toLowerCase().includes("which features would be most useful in a tool like this")) {
+      // List of incomplete/invalid responses to filter out
+      const invalidResponses = [
+        "short bio",
+        "big ones again", 
+        "and then at the end",
+        "etc relevant to the current affair. On the other hand",
+        "first big letters and then smaller ones on the side and at the bottom of screen",
+        "to see it constantly",
+        "who wrote the music and who wrote the lyrics especially in music festivals",
+        "and then at the end"
+      ];
+      
+      // Check for exact matches or responses that are clearly incomplete
+      if (invalidResponses.some(invalid => answerString.toLowerCase().includes(invalid.toLowerCase())) ||
+          answerString.length < 10 || 
+          /^[a-z]/.test(answerString) || 
+          answerString.startsWith("and ") ||
+          answerString.startsWith("etc ") ||
+          answerString.startsWith("to ") ||
+          answerString.startsWith("who ") ||
+          answerString.startsWith("first ") ||
+          answerString.endsWith(" and") ||
+          answerString.endsWith(" the") ||
+          answerString.endsWith(" or") ||
+          answerString.endsWith(" at")) {
+        return; // Skip this response
+      }
+      
+      // Also filter out responses that don't seem to be about features
+      if (answerString.toLowerCase().includes("i don't follow") ||
+          answerString.toLowerCase().includes("i do not follow") ||
+          answerString.toLowerCase().includes("privacy infringement")) {
+        return; // Skip these as they're not feature requests
+      }
+    }
 
     if (shouldSplitAnswer(answerString)) {
       const individualAnswers = splitTopLevelAnswers(answerString);
       individualAnswers.forEach(answer => {
-        counts[answer] = (counts[answer] || 0) + 1;
+        // Apply the same shortening to split answers
+        let processedAnswer = answer;
+        if (primaryQ.toLowerCase().includes("where do you mostly get your news from")) {
+          if (processedAnswer.toLowerCase().includes("social media") && processedAnswer.toLowerCase().includes("facebook")) {
+            processedAnswer = "Social Media";
+          }
+        }
+        counts[processedAnswer] = (counts[processedAnswer] || 0) + 1;
       });
     } else {
       counts[answerString] = (counts[answerString] || 0) + 1;
@@ -728,8 +828,9 @@ filteredRows.forEach((r) => {
                 !viewMode || viewMode === "chart" 
                   ? "text-blue-600 dark:text-blue-400" 
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
-              }`}
-              onClick={() => viewMode !== "chart" && setViewMode("chart")}
+              } ${shouldForceTableView ? "opacity-50 cursor-not-allowed" : ""}`}
+              onClick={() => !shouldForceTableView && viewMode !== "chart" && handleViewModeChange("chart")}
+              disabled={shouldForceTableView}
             >
               Chart View
               {(!viewMode || viewMode === "chart") && (
@@ -742,19 +843,29 @@ filteredRows.forEach((r) => {
                   ? "text-blue-600 dark:text-blue-400" 
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
               }`}
-              onClick={() => viewMode !== "table" && setViewMode("table")}
+              onClick={() => viewMode !== "table" && handleViewModeChange("table")}
             >
-              Table View
+              Table View {shouldForceTableView && <span className="text-xs">(Required)</span>}
               {viewMode === "table" && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400"></span>
               )}
             </button>
           </div>
+
+          {/* Info message for forced table view */}
+          {shouldForceTableView && (
+            <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg">
+              <div className="flex items-center gap-2 text-sm text-blue-700 dark:text-blue-300">
+                <Info className="w-4 h-4" />
+                <span>This question is optimized for table view due to its detailed response options.</span>
+              </div>
+            </div>
+          )}
           
           {/* Control Groups in Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Chart Type - Only show when Chart view is selected */}
-            {viewMode === "chart" && (
+            {/* Chart Type - Only show when Chart view is selected and not forced to table */}
+            {viewMode === "chart" && !shouldForceTableView && (
               <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3 border border-gray-200 dark:border-gray-700">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="font-medium text-gray-800 dark:text-gray-200 flex items-center gap-2">
@@ -877,8 +988,8 @@ filteredRows.forEach((r) => {
               </div>
             </div>
             
-            {/* Advanced Controls - Only show for chart view */}
-            {viewMode === "chart" && (
+            {/* Advanced Controls - Only show for chart view and not forced to table */}
+            {viewMode === "chart" && !shouldForceTableView && (
               <>
                 {/* Chart Height */}
                 <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3 border border-gray-200 dark:border-gray-700">
@@ -905,20 +1016,6 @@ filteredRows.forEach((r) => {
                   
                   <div className="grid grid-cols-3 gap-2">
                     <button 
-                      onClick={() => setChartHeight(400)}
-                      className={`flex flex-col items-center justify-center p-2 rounded-md border ${
-                        chartHeight === 400 
-                          ? "bg-blue-100 dark:bg-blue-900/40 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300" 
-                          : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
-                      }`}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`mb-1 ${chartHeight === 400 ? "text-blue-600 dark:text-blue-400" : ""}`}>
-                        <rect width="18" height="8" x="3" y="10" rx="2"></rect>
-                      </svg>
-                      <span className="text-xs font-medium">Compact</span>
-                    </button>
-                    
-                    <button 
                       onClick={() => setChartHeight(500)}
                       className={`flex flex-col items-center justify-center p-2 rounded-md border ${
                         chartHeight === 500 
@@ -927,9 +1024,9 @@ filteredRows.forEach((r) => {
                       }`}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`mb-1 ${chartHeight === 500 ? "text-blue-600 dark:text-blue-400" : ""}`}>
-                        <rect width="18" height="12" x="3" y="6" rx="2"></rect>
+                        <rect width="18" height="8" x="3" y="10" rx="2"></rect>
                       </svg>
-                      <span className="text-xs font-medium">Standard</span>
+                      <span className="text-xs font-medium">Compact</span>
                     </button>
                     
                     <button 
@@ -941,6 +1038,20 @@ filteredRows.forEach((r) => {
                       }`}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`mb-1 ${chartHeight === 600 ? "text-blue-600 dark:text-blue-400" : ""}`}>
+                        <rect width="18" height="12" x="3" y="6" rx="2"></rect>
+                      </svg>
+                      <span className="text-xs font-medium">Standard</span>
+                    </button>
+                    
+                    <button 
+                      onClick={() => setChartHeight(700)}
+                      className={`flex flex-col items-center justify-center p-2 rounded-md border ${
+                        chartHeight === 700 
+                          ? "bg-blue-100 dark:bg-blue-900/40 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300" 
+                          : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      }`}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`mb-1 ${chartHeight === 700 ? "text-blue-600 dark:text-blue-400" : ""}`}>
                         <rect width="18" height="16" x="3" y="4" rx="2"></rect>
                       </svg>
                       <span className="text-xs font-medium">Large</span>
@@ -1185,11 +1296,11 @@ filteredRows.forEach((r) => {
                   <button
                     onClick={copyChart}
                     className={`w-full text-left px-4 py-2.5 text-sm hover:bg-blue-50 dark:hover:bg-blue-900/20 flex items-center gap-2 transition-colors ${
-                      chartData.length === 0 || viewMode === "table" 
+                      chartData.length === 0 || viewMode === "table" || shouldForceTableView
                         ? 'text-gray-400 dark:text-gray-500 cursor-not-allowed' 
                         : 'text-gray-700 dark:text-gray-200'
                     }`}
-                    disabled={chartData.length === 0 || viewMode === "table"}
+                    disabled={chartData.length === 0 || viewMode === "table" || shouldForceTableView}
                   >
                     {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
                     <div>
@@ -1323,12 +1434,12 @@ filteredRows.forEach((r) => {
                   }
                 >
                   <Suspense fallback={<div className="h-64 flex items-center justify-center"><Loader2 className="w-10 h-10 animate-spin" /></div>}>
-                    <div className="h-[500px]" style={{ height: `${chartHeight}px` }}>
+                    <div className="h-[600px]" style={{ height: `${chartHeight}px` }}>
                     {chartType === "bar" && (
                       <ResponsiveContainer width="100%" height="100%">
                         <RechartBarChart 
                           data={chartData} 
-                          margin={{ top: 20, right: 30, left: 20, bottom: 90 }}
+                          margin={{ top: 60, right: 80, left: 20, bottom: 140 }}
                           barCategoryGap="20%"
                         >
                           {gridLines && <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />}
@@ -1336,10 +1447,10 @@ filteredRows.forEach((r) => {
                             dataKey="name" 
                             angle={-45} 
                             textAnchor="end" 
-                            height={90} 
+                            height={120} 
                             interval={0}
                             tick={{ fontSize: 12 }}
-                            tickMargin={20}
+                            tickMargin={30}
                           />
                           <YAxis 
                             allowDecimals={false} 
@@ -1363,7 +1474,7 @@ filteredRows.forEach((r) => {
                             itemStyle={{ color: '#333' }}
                             cursor={{ fill: 'rgba(200, 200, 200, 0.2)' }}
                           />
-                          <Legend wrapperStyle={{ paddingTop: 20 }} />
+                          <Legend wrapperStyle={{ paddingTop: 40 }} />
                           <Bar 
                             dataKey="value" 
                             name="Count" 
@@ -1383,7 +1494,7 @@ filteredRows.forEach((r) => {
 
                     {chartType === "pie" && (
                       <ResponsiveContainer width="100%" height="100%">
-                        <RechartPieChart margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+                        <RechartPieChart margin={{ top: 60, right: 80, left: 20, bottom: 80 }}>
                           <Pie 
                             data={chartData} 
                             dataKey="value" 
@@ -1408,7 +1519,7 @@ filteredRows.forEach((r) => {
                               const entry = chartData.find(d => d.name === value);
                               return `${value} (${entry?.value.toLocaleString()} responses${showPercentages ? `, ${entry?.percentage.toFixed(1)}%` : ''})`;
                             }}
-                            wrapperStyle={{ paddingTop: 20 }}
+                            wrapperStyle={{ paddingTop: 40 }}
                           />
                           <RechartTooltip 
                             formatter={(value) => `${value.toLocaleString()} responses${showPercentages ? ` (${chartData.find(d => d.value === value)?.percentage.toFixed(1) || 0}%)` : ''}`} 
@@ -1430,16 +1541,16 @@ filteredRows.forEach((r) => {
 
                     {chartType === "line" && (
                       <ResponsiveContainer width="100%" height="100%">
-                        <RechartLineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 90 }}>
+                        <RechartLineChart data={chartData} margin={{ top: 60, right: 80, left: 20, bottom: 140 }}>
                           {gridLines && <CartesianGrid strokeDasharray="3 3" />}
                           <XAxis 
                             dataKey="name" 
                             angle={-45} 
                             textAnchor="end" 
-                            height={90} 
+                            height={120} 
                             interval={0}
                             tick={{ fontSize: 12 }}
-                            tickMargin={20}
+                            tickMargin={30}
                           />
                           <YAxis 
                             allowDecimals={false}
@@ -1459,7 +1570,7 @@ filteredRows.forEach((r) => {
                             labelStyle={{ fontWeight: 'bold', color: '#000' }}
                             itemStyle={{ color: '#333' }}
                           />
-                          <Legend wrapperStyle={{ paddingTop: 20 }} />
+                          <Legend wrapperStyle={{ paddingTop: 40 }} />
                           <Line 
                             type="monotone" 
                             dataKey="value" 
@@ -1488,7 +1599,7 @@ filteredRows.forEach((r) => {
         </section>
 
         {/* Key Insights Section - Redesigned for clarity */}
-        {hasQuestions && hasChartData && (
+        {hasQuestions && hasChartData && !shouldForceTableView && (
           <CollapsibleSection 
             title="Key Insights" 
             icon={<Info className="w-5 h-5 text-blue-600" />}
