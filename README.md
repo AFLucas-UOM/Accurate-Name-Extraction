@@ -1,6 +1,12 @@
 <h1 align="center">ANEP: Accurate Name Extraction from News Video Graphics</h1>
 
 <p align="center">
+ <a href="#">
+   <img src="https://img.shields.io/badge/🏆%20Best%20Final%20Year%20Project-Department%20of%20AI%20%7C%202025-gold?style=for-the-badge&logo=award&logoColor=white" alt="Best Final Year Project Award">
+ </a>
+</p>
+
+<p align="center">
 This repository contains the full implementation of <strong>ANEP</strong> (Accurate Name Extraction Pipeline), a hybrid Deep Learning (DL) and Generative AI (GenAI) system for extracting personal names from graphical overlays in broadcast and social media news videos.
 </p>
 
@@ -37,7 +43,6 @@ This repository contains the full implementation of <strong>ANEP</strong> (Accur
   </a>
 </p>
 
-<!-- GitHub Metadata (optional, uncomment if needed) 
 <p align="center">
   <a href="https://github.com/AFLucas-UOM/Accurate-Name-Extraction/stargazers">
     <img src="https://img.shields.io/github/stars/AFLucas-UOM/Accurate-Name-Extraction.svg?style=social" alt="GitHub Stars">
@@ -45,7 +50,7 @@ This repository contains the full implementation of <strong>ANEP</strong> (Accur
   <a href="https://github.com/AFLucas-UOM/Accurate-Name-Extraction/commits/main">
     <img src="https://img.shields.io/github/last-commit/AFLucas-UOM/Accurate-Name-Extraction.svg" alt="Last Commit">
   </a>
-</p> -->
+</p>
 
 ## 📚 Table of Contents
 <details>
