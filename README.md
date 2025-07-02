@@ -1,4 +1,4 @@
-<h1 align="center">ANEP: Accurate Name Extraction from News Video Graphics</h1>
+<h1 align="center">Accurate Name Extraction from News Video Graphics</h1>
 
 <p align="center">
  <a href="#">
@@ -229,7 +229,7 @@ graph LR
     D[Explainability] -->|High| E[ANEP]
     F[Balance] -->|68.10%| E
     G[Simplicity] -->|55.56%| H[LLaMA 4]
-    I[Cost] -->|Low| H
+    I[Cost] -->|Cheap| H
 
     style B fill:#2ECC71,stroke:#27AE60,stroke-width:2px,color:#FFF
     style E fill:#F39C12,stroke:#E67E22,stroke-width:2px,color:#FFF
