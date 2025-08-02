@@ -1,3 +1,4 @@
+
 <h1 align="center">Accurate Name Extraction from News Video Graphics</h1>
 
 <p align="center">
