@@ -1,28 +1,27 @@
-
-<h1 align="center">Accurate Name Extraction from News Video Graphics</h1>
-
-<p align="center">
- <a href="#">
-   <img src="https://img.shields.io/badge/🏆%20Best%20Final%20Year%20Project-Department%20of%20AI%20%7C%202025-gold?style=for-the-badge&logo=award&logoColor=white" alt="Best Final Year Project Award">
- </a>
-</p>
+<h1 align="center">
+A Hybrid Deterministic Framework for Personal Name Extraction from Broadcast News Video
+</h1>
 
 <p align="center">
-This repository contains the full implementation of <strong>ANEP</strong> (Accurate Name Extraction Pipeline), a hybrid Deep Learning (DL) and Generative AI (GenAI) system for extracting personal names from graphical overlays in broadcast and social media news videos.
-</p>
-
-<p align="center">
-  <!-- Language & License -->
-  <a href="https://www.python.org/downloads/">
-    <img src="https://img.shields.io/badge/Python-3.10%2B-blue.svg" alt="Python 3.10+">
+  <a href="https://www.ieeesmc.org/cai-2026/">
+    <img src="https://img.shields.io/badge/IEEE%20Conference%20on%20Artificial%20Intelligence-CAI%202026-blue?style=for-the-badge&logo=ieee&logoColor=white"
+         alt="IEEE Conference on Artificial Intelligence CAI 2026">
   </a>
-  <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License">
+  <a href="#">
+    <img src="https://img.shields.io/badge/Best%20Final%20Year%20Project-Department%20of%20AI%20%7C%20University%20of%20Malta%20%7C%202025-gold?style=for-the-badge&logo=award&logoColor=white"
+         alt="Best Final Year Project Department of AI University of Malta 2025">
   </a>
 </p>
 
+<p>
+This repository accompanies an accepted paper at the <strong>IEEE Conference on Artificial Intelligence (CAI 2026)</strong> and provides the complete implementation, datasets, and evaluation artefacts reported in the publication.
+</p>
+
+<p>
+It includes the full implementation of <strong>ANEP</strong> (Accurate Name Extraction Pipeline), a modular and interpretable framework for extracting personal names from graphical overlays in broadcast and social-media-native news video.
+</p>
+
 <p align="center">
-  <!-- Dataset & Model -->
   <a href="https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset">
     <img src="https://app.roboflow.com/images/download-dataset-badge.svg" alt="Download Dataset on Roboflow">
   </a>
@@ -32,64 +31,27 @@ This repository contains the full implementation of <strong>ANEP</strong> (Accur
 </p>
 
 <p align="center">
-  <!-- APIs Used -->
-  <a href="https://cloud.google.com/vision">
-    <img src="https://img.shields.io/badge/API-Google%20Cloud%20Vision-blue?logo=googlecloud" alt="Google Cloud Vision API">
-  </a>
-  <a href="https://ai.google.dev/gemini">
-    <img src="https://img.shields.io/badge/API-Gemini%201.5%20Pro-4285F4?logo=google" alt="Gemini 1.5 Pro API">
-  </a>
-  <a href="https://openrouter.ai/meta-llama/llama-4-maverick:free">
-    <img src="https://img.shields.io/badge/API-LLaMA%204%20(Maverick)%20via%20OpenRouter-6533FF?logo=Meta" alt="LLaMA 4 Maverick via OpenRouter">
-  </a>
-</p>
-
-<p align="center">
   <a href="https://github.com/AFLucas-UOM/Accurate-Name-Extraction/stargazers">
-    <img src="https://img.shields.io/github/stars/AFLucas-UOM/Accurate-Name-Extraction.svg?style=social" alt="GitHub Stars">
+    <img src="https://img.shields.io/github/stars/AFLucas-UOM/Accurate-Name-Extraction?style=social&cacheSeconds=3600" />
   </a>
   <a href="https://github.com/AFLucas-UOM/Accurate-Name-Extraction/commits/main">
     <img src="https://img.shields.io/github/last-commit/AFLucas-UOM/Accurate-Name-Extraction.svg" alt="Last Commit">
   </a>
 </p>
 
-## 📚 Table of Contents
-<details>
-<summary>Click-to-View</summary>
+---
 
-- [Project Overview](#-project-overview)
-- [Key Features](#-key-features)
-- [Dataset & Model (Roboflow)](#-dataset--model-roboflow)
-- [Getting Started](#-getting-started)
-- [Dissertation](#-dissertation)
-- [Contribution](#-contribution)
-- [License](#-license)
-- [Acknowledgments](#-acknowledgments)
-- [Contact](#%EF%B8%8F-contact)
+## Abstract
 
-</details>
-  
-## 📌 Project Overview
+The rapid growth of video-based news content has increased the need for reliable and transparent methods to extract contextual information embedded within on-screen graphics. Variability in graphical layouts, typographic conventions, and platform-specific design patterns renders manual indexing impractical and poses persistent challenges for automated analysis. This work presents a deterministic framework for the detection and extraction of personal names from broadcast and social-media-native news videos.
 
-In today’s fast-paced digital news ecosystem, crucial information, such as the names of individuals featured in stories, is often displayed visually through broadcast graphics rather than spoken aloud. These elements appear in the form of **lower-thirds**, **tickers**, **headlines**, and other on-screen text overlays. However, their **inconsistent styles**, **short display times**, and **frequent visual clutter** make automated extraction of names a highly challenging task.
+The system introduces the News Graphics Dataset (NGD), a curated corpus of annotated frames capturing the stylistic diversity of contemporary news graphics, and proposes an interpretable, modular pipeline designed to support auditable visual name extraction. The proposed pipeline is evaluated against representative generative multimodal systems in order to examine the trade-offs between deterministic transparency and stochastic end-to-end inference.
 
-This project addresses that challenge through a novel, two-pronged solution for **accurate name extraction from news video graphics**:
+The underlying object detector achieves 95.8% mAP@0.5, indicating robust localisation of news graphics. Although the best-performing generative baseline attains a higher name-extraction F1 score (84.18%) than the proposed pipeline (77.08%), it operates as a black-box system and does not expose verifiable intermediate representations. In contrast, the deterministic pipeline achieves balanced precision (79.9%) and recall (74.4%), avoids hallucinated entities under the evaluated conditions, and provides full traceability across all processing stages. A complementary user study further indicates that 59% of respondents experience difficulty reading on-screen names in fast-paced broadcasts, highlighting the practical relevance of transparent and accountable extraction systems.
 
-- **ANEP Pipeline**  
-  A custom-built pipeline that integrates:
-  - **YOLOv12** for detecting news-related graphical elements (e.g. headlines, tickers, etc.).
-  - **Tesseract OCR** with advanced preprocessing (CLAHE, thresholding, de-noising) to extract text from detected regions.
-  - **Transformer-based Named Entity Recognition (NER)** models (e.g. BERT, spaCy + GliNER) to identify and validate personal names in noisy OCR output.
-  - **Clustering techniques** to consolidate name variants and generate structured appearance timelines.
+**Index Terms**—Computer Vision, AI-Media Analysis, Object Detection, Optical Character Recognition, Named Entity Recognition
 
-- **GenAI Pipelines**  
-  Parallel pipelines built using:
-  - **Google Cloud Vision API** for high-accuracy OCR,
-  - **Gemini 1.5 Pro** and **LLaMA 4 Maverick**, two powerful large multimodal models capable of extracting and reasoning over names directly from video frames.
-  
-  These models are evaluated as alternatives to classical CV-NLP pipelines, with a focus on **name extraction accuracy**, **runtime performance**, and **robustness to visual noise**.
-
-By combining traditional deep learning (DL) with cutting-edge GenAI, this project contributes a robust, scalable system for extracting names from video media, with direct applications in **media monitoring**, **automated news summarisation**, and **AI-based fact-checking**.
+---
 
 ### ANEP Architecture Overview
 
@@ -144,40 +106,17 @@ flowchart TB
 
 ```
 
-## 🔎 Key Features
+## Key Features
 
-- **Intelligent Frame Sampling & Deduplication**  
-  Efficiently processes long videos using perceptual hashing (DCT, ORB) to identify and retain only visually distinct frames, reducing redundancy while preserving key content.
+- Deterministic, modular pipeline with full traceability across all processing stages.
+- Fine-tuned YOLOv12 model for robust detection of broadcast news graphics.
+- Custom annotated dataset, the News Graphics Dataset (NGD), capturing stylistic diversity in contemporary news graphics.
+- Optical Character Recognition with adaptive image preprocessing to mitigate noise and compression artefacts.
+- Named Entity Recognition using transformer-based models and zero-shot multilingual approaches.
+- Name clustering and deduplication to consolidate variants and generate structured temporal timelines.
+- Comparative evaluation against generative multimodal systems to assess transparency, accuracy, and robustness.
 
-- **YOLOv12-based Graphic Detection**  
-  Fine-tuned YOLOv12 model trained on a custom dataset detects six distinct classes of broadcast graphics: *Breaking News*, *Digital On-Screen Graphics*, *Lower Thirds*, *Headlines*, *News Tickers*, and *Other Graphics*.
-
-- **Custom Annotated Dataset: NGD (News Graphics Dataset)**  
-  Purpose-built dataset containing 1,500+ annotated frames sourced from local and international news videos, across six classes: *Breaking News, Lower Thirds, News Ticker, Digital On-Screen Graphics, Headlines, and Other*.
-
-- **OCR with Adaptive Preprocessing**  
-  Applies multi-method image preprocessing (CLAHE, thresholding, morphological operations, noise reduction) to maximise text clarity prior to recognition. Tesseract OCR is used with confidence scoring.
-
-- **Named Entity Recognition (NER)**  
-  Combines spaCy with GLiNER (for zero-shot multilingual NER) and a fine-tuned Transformer model to identify real-world person names from noisy OCR text. Includes heuristic and linguistic validation.
-
-- **Name Clustering & Deduplication**  
-  Clusters name variants using fuzzy string matching, token-based distance (Jaccard), and embedding-based cosine similarity to generate accurate, canonical name lists and appearance timelines.
-
-- **GenAI Integration**  
-  Alternative pipelines using:
-  - **Google Cloud Vision API + Gemini 1.5 Pro**
-  - **LLaMA 4 Maverick via OpenRouter**
-  
-  These systems extract names directly from video frames using multimodal reasoning and structured prompts.
-
-- **Survey Dashboard & Evaluation Metrics**  
-  Includes a dedicated visualisation dashboard for survey findings on news consumption trends. Evaluation metrics include precision, recall, F1-score, and runtime comparisons across pipelines.
-
-- **Progressive Web App (PWA)**  
-  Fully featured frontend built with **React**, **Tailwind CSS**, and **Vite**. Provides a clean, step-by-step UI for uploading videos, selecting models, and visualising extracted results.
-
-## 🎯 Object Detection Performance (YOLO Models)
+## Object Detection Performance
 
 <div align="center">
 
@@ -192,100 +131,42 @@ flowchart TB
 
 </div>
 
-<p align="center">
-<img src="https://img.shields.io/badge/Best_Model-YOLOv12(m)-green?style=for-the-badge" alt="Best Model">
-<img src="https://img.shields.io/badge/mAP@0.5-95.8%25-blue?style=for-the-badge" alt="mAP Score">
-</p>
-
----
-
-## 🔍 Name Extraction Performance
+## Name Extraction Performance
 
 <div align="center">
-
-| Pipeline | Precision | Recall | F1 Score | Speed | Status |
-|:---------|:---------:|:------:|:--------:|:-----:|:------:|
-| **GVA + Gemini 1.5** 🥇 | <img src="https://img.shields.io/badge/93.33%25-brightgreen?style=flat-square"> | <img src="https://img.shields.io/badge/76.67%25-green?style=flat-square"> | <img src="https://img.shields.io/badge/82.22%25-brightgreen?style=flat-square"> | **94.68s** ⚡ | Production |
-| **ANEP Pipeline** 🥈 | <img src="https://img.shields.io/badge/72.92%25-yellow?style=flat-square"> | <img src="https://img.shields.io/badge/74.44%25-yellow?style=flat-square"> | <img src="https://img.shields.io/badge/68.10%25-yellow?style=flat-square"> | 542.15s 🐢 | Explainable |
-| **LLaMA 4 Maverick** 🥉 | <img src="https://img.shields.io/badge/66.67%25-orange?style=flat-square"> | <img src="https://img.shields.io/badge/50.00%25-red?style=flat-square"> | <img src="https://img.shields.io/badge/55.56%25-orange?style=flat-square"> | 140.18s ⏱️ | Experimental |
-
-</div>
-
-<p align="center">
-<img src="https://img.shields.io/badge/Winner-GVA_+_Gemini-gold?style=for-the-badge" alt="Winner">
-<img src="https://img.shields.io/badge/F1_Score-82.22%25-success?style=for-the-badge" alt="F1 Score">
-<img src="https://img.shields.io/badge/Average_Speed-94.68s-blue?style=for-the-badge" alt="Average Speed">
-</p>
-
----
-
-## 📈 Performance Overview
-
-<div align="center">
-
-```mermaid
-graph LR
-    A[Speed] -->|94.68s| B[GVA + Gemini]
-    C[Accuracy] -->|82.22%| B
-    D[Explainability] -->|High| E[ANEP]
-    F[Balance] -->|68.10%| E
-    G[Simplicity] -->|55.56%| H[LLaMA 4]
-    I[Cost] -->|Cheap| H
-
-    style B fill:#2ECC71,stroke:#27AE60,stroke-width:2px,color:#FFF
-    style E fill:#F39C12,stroke:#E67E22,stroke-width:2px,color:#FFF
-    style H fill:#E74C3C,stroke:#C0392B,stroke-width:2px,color:#FFF
-```
-</div>
-
-## 🔐 Ethics & Data Usage
-
-- All data used in the NGD is sourced from publicly available news footage under fair use for research purposes.
-- No private personal data is collected or stored.
-- The system is **NOT** intended for surveillance or use in sensitive political contexts.
-
-## 📊 Dataset & Model (Roboflow)
-
-<div align="center">
-
-<p>
-  <em>
-    Explore the <strong>News Graphics Dataset (NGD)</strong> and experiment with the <strong>fine-tuned YOLOv12 model</strong> directly on Roboflow.
-  </em>
-</p>
-
-<a href="https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset">
-  <img src="https://app.roboflow.com/images/download-dataset-badge.svg" alt="Download NGD Dataset" style="margin: 10px;">
-</a>
-
-<a href="https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset/model/7">
-  <img src="https://app.roboflow.com/images/try-model-badge.svg" alt="Try YOLOv12 Model" style="margin: 10px;">
-</a>
-</div>
-
+ 
+| Pipeline            | Precision | Recall | F1 Score |
+|---------------------|-----------|--------|----------|
+| GVA + Gemini 1.5    | 93.33%    | 76.67% | 84.18%   |
+| ANEP Pipeline       | 79.90%    | 74.40% | 77.08%   |
+| LLaMA 4 Maverick    | 66.67%    | 50.00% | 55.56%   |
 
 </div>
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
+The following software and hardware requirements are recommended to ensure correct execution and reproducibility of results:
+
 ```bash
-Python 3.10+
-Node.js 12+
+Python 3.10 or later
+Node.js 12 or later
 CUDA-capable GPU (recommended)
 ```
 
-### Clone Repository
+### Repository Setup
+Clone the repository and navigate to the project root:
 
 ```bash
 git clone https://github.com/AFLucas-UOM/Accurate-Name-Extraction
 cd Accurate-Name-Extraction
 ```
 
-### Backend Configuration (`config.json`)
+### Backend Configuration
+To enable the GenAI-based pipelines, a configuration file containing the required API credentials must be provided.
 
-To enable the GenAI-based pipelines, create a `config.json` file inside the [`6. GenAI API/`](6.%20GenAI%20API/) folder:
+Create a config.json file inside the 6. GenAI API/ directory with the following structure:
 
 ```json
 {
@@ -294,61 +175,21 @@ To enable the GenAI-based pipelines, create a `config.json` file inside the [`6.
   "openrouter_api_key": "your-openrouter-api-key"
 }
 ```
-> ⚠️ **Important:** Never commit your API keys to GitHub.  
-> Ensure that `config.json` is added to your `.gitignore` to keep sensitive credentials secure.
 
-## 🎓 Dissertation
+> **Security Notice:**
+> API keys must **NOT** be committed to version control. Ensure that config.json is included in the .gitignore file to prevent accidental exposure of sensitive credentials.
 
-The full dissertation, containing methodology, evaluation, and survey results, is included in the [`7. Documentation/`](7.%20Documentation/) folder.
+## Academic Context
 
-<div align="center">
+This project was developed as part of the `ICT3909` Final Year Dissertation at the University of Malta and submitted in partial fulfilment of the requirements for the BSc (Hons.) in Information Technology (Artificial Intelligence).
 
-📄 **[Download PDF](./7.%20Documentation/5.%20Dissertation/Dissertation.pdf)**
+The work was awarded **Best Final Year Project in the Department of Artificial Intelligence (2025)** at the University of Malta.
 
-</div>
+Supervised by Dr. Dylan Seychell.
 
-## 📘 Citation
+## License
+This project is licensed under the AGPL-3.0 License. See the [LICENSE](LICENSE) file for details.
 
-If you use the **News Graphic Dataset (NGD)** or the **ANEP** in your research, please cite the following:
+## Contact
 
-### 📂 News Graphic Dataset (NGD)
-
-```bibtex
-@dataset{news_graphic_dataset,
-  title     = {News Graphic Dataset (NGD)},
-  type      = {Open Source Dataset},
-  author    = {Andrea Filiberto Lucas, Dylan Seychell},
-  year      = {2025},
-  publisher = {Roboflow},
-  howpublished = {\url{https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset}},
-  url       = {https://universe.roboflow.com/ict3909-fyp/news-graphic-dataset}
-}
-
-```
-### 🎓 Dissertation
-```bibtex
-@thesis{lucas2025anep,
-  title     = {Accurate Name Extraction from News Video Graphics},
-  author    = {Andrea Filiberto Lucas, Dylan Seychell},
-  year      = {2025},
-  school    = {University of Malta},
-  type      = {B.Sc. (Hons.) Dissertation}
-}
-```
-
-## ✨ Contribution
-
-Contributions to improve the code, add new features, or optimize model performance are welcome! Fork the repository, make your changes, and submit a pull request.
-
-## 🪪 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## 🙏🏻 Acknowledgments
-
-This project was developed as part of the `ICT3909` Final Year Project course at the **University of Malta**, and submitted in partial fulfilment of the requirements for the **B.Sc. (Hons.) in Information Technology (Artificial Intelligence)**.
-Supervised by **Dr. Dylan Seychell**.
-
-## ✉️ Contact
-
-For questions, collaboration, or feedback, please contact [Andrea Filiberto Lucas](mailto:andrealucasmalta@gmail.com)
+For any inquiries, collaboration, or feedback, please contact [Andrea Filiberto Lucas](mailto:andrealucasmalta@gmail.com)
