@@ -56,38 +56,53 @@ The underlying object detector achieves 95.8% mAP@0.5, indicating robust localis
 ### ANEP Architecture Overview
 
 ```mermaid
+%%{init: {
+  "themeVariables": {
+    "fontSize":       "16px",
+    "edgeLabelFontSize": "14px",
+    "edgeLabelColor": "#37474F"
+  }
+}}%%
+
 flowchart TB
-  %% class definitions with forced black text
-  classDef user fill:#BBDEFB,stroke:#1976D2,stroke-width:2px,color:#000;
-  classDef process fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#000;
-  classDef datastore fill:#FFECB3,stroke:#FFA000,stroke-width:2px,color:#000;
+  %% darker text shades on same fills
+  classDef user      fill:#BBDEFB,stroke:#1976D2,stroke-width:2px,color:#0D47A1;
+  classDef process   fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20;
+  classDef datastore fill:#FFECB3,stroke:#FFA000,stroke-width:2px,color:#EF6C00;
 
   %% nodes
   User[User]:::user
-  SM(Select Model):::process
-  UV(Upload Video):::process
-  D1[(Uploaded Video)]:::datastore
-  CS(Confirm Settings):::process
-  RA(Run Analysis):::process
+  SM((Select Model)):::process
+  UV((Upload Video)):::process
+  D1[(D1: Uploaded Video)]:::datastore
+  CS((Confirm Settings)):::process
+  RA((Run Analysis)):::process
   Backend[Backend API]:::user
-  D3[(NGD)]:::datastore
-  D2[(Analysis Results)]:::datastore
-  VR(View Results):::process
+  D3[(D3: NGD)]:::datastore
+  D2[(D2: Analysis Results)]:::datastore
+  VR((View Results)):::process
 
   %% flows
-  User --> SM
-  User --> UV
-  UV --> D1
-  D1 --> CS
-  SM --> CS
-  CS --> RA
-  D1 --> RA
-  RA --> Backend
-  Backend --> D3
-  Backend --> D2
-  D2 -->|Extracted names, timestamps, confidence| VR
-  Backend -->|Logs and progress| VR
-  User --> VR
+  User -->|Model selection| SM
+  User -->|Video file| UV
+
+  UV -->|Video + metadata| D1
+
+  D1 -->|Video metadata| CS
+  SM -->|Selected model ID| CS
+
+  CS -->|Confirmed settings| RA
+  D1 -->|Video file| RA
+
+  RA -->|Video + model ID| Backend
+
+  Backend -->|Training/inference data| D3
+  Backend -->|Processed results| D2
+
+  D2 -->|Extracted names,<br>timestamps,<br>confidence scores| VR
+  Backend -->|Log/progress stream| VR
+
+  User -->|Downloaded results| VR
 ```
 
 ## Key Features
