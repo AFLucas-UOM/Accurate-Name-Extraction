@@ -136,9 +136,9 @@ flowchart TB
  
 | Pipeline            | Precision | Recall | F1 Score |
 |---------------------|-----------|--------|----------|
-| GVA + Gemini 1.5    | 93.33%    | 76.67% | 84.18%   |
-| ANEP Pipeline       | 79.90%    | 74.40% | 77.08%   |
-| LLaMA 4 Maverick    | 66.67%    | 50.00% | 55.56%   |
+| Gemini 1.5          | 93.33%    | 76.67% | 84.18%   |
+| ANEP                | 79.90%    | 74.44% | 77.08%   |
+| LLaMA 4 Maverick    | 66.67%    | 50.00% | 57.14%   |
 
 </div>
 
@@ -191,4 +191,4 @@ This project is licensed under the AGPL-3.0 License. See the [LICENSE](LICENSE) 
 
 ## Contact
 
-For any inquiries, collaboration, or feedback, please contact [Andrea Filiberto Lucas](mailto:andrealucasmalta@gmail.com)
+For any inquiries, collaboration, or feedback, please contact [Andrea Filiberto Lucas](mailto:contact@aflucas.com)
