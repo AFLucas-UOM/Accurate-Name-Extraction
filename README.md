@@ -32,8 +32,8 @@ It includes the full implementation of <strong>ANEP</strong> (Accurate Name Extr
 
 <p align="center">
   <a href="https://github.com/AFLucas-UOM/Accurate-Name-Extraction/stargazers">
-    <img src="https://img.shields.io/github/stars/AFLucas-UOM/Accurate-Name-Extraction?style=social&cacheSeconds=3600" />
-  </a>
+  <img src="https://img.shields.io/github/stars/AFLucas-UOM/Accurate-Name-Extraction?style=social" alt="GitHub stars"/>
+</a>
   <a href="https://github.com/AFLucas-UOM/Accurate-Name-Extraction/commits/main">
     <img src="https://img.shields.io/github/last-commit/AFLucas-UOM/Accurate-Name-Extraction.svg" alt="Last Commit">
   </a>
