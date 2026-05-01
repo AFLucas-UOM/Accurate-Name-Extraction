@@ -53,7 +53,7 @@ The underlying object detector achieves 95.8% mAP@0.5, indicating robust localis
 
 ---
 
-### ANEP Architecture Overview
+### ANEP-UI Architecture Overview
 
 ```mermaid
 %%{init: {
