@@ -184,7 +184,7 @@ This project was developed as part of the `ICT3909` Final Year Dissertation at t
 
 The work was awarded **Best Final Year Project in the Department of Artificial Intelligence (2025)** at the University of Malta.
 
-Supervised by Dr. Dylan Seychell.
+Supervised by Dr Dylan Seychell.
 
 ## License
 This project is licensed under the AGPL-3.0 License. See the [LICENSE](LICENSE) file for details.
